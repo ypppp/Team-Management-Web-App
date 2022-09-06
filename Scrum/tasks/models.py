@@ -26,4 +26,6 @@ class Task(models.Model):
     tag = models.CharField(max_length=50)
     assignee = models.CharField(max_length=50)
     description = models.TextField()
+    sprint = models.IntegerField(primary_key=True)
+    date_created = models.DateTimeField(default=timezone.now)
     due_date = models.DateTimeField(default=timezone.now)
