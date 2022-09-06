@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Django Scrum - Product Backlog</title>
+</head>
+<body>
+    {% for task in tasks %}
+        <h2><a href={% url 'task-detail' task.id %}>{{ task.title }}</a></h2>
+        <p>{{ task.description }}</p>
+    {% endfor %}
+</body>
+</html>

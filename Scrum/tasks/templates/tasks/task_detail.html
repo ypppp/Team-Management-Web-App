@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% if title %}
+        <title>Django Scrum - {{ title }}</title>
+    {% else %}
+        <title>Django Scrum</title>
+    {% endif %}
+</head>
+<body>
+    <h1>{{ task.title }}</h1>
+    <p>{{ task.description }}</p>
+</body>
+</html>
