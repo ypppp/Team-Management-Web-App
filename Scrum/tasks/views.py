@@ -17,11 +17,11 @@ class TaskListView(ListView):
     model = Task
     context_object_name = 'tasks'
     template_name = 'tasks/product_backlog.html'
+    # ordering = ['sprint', 'priority']
 
 
 class TaskDetailView(DetailView):
     model = Task
-    template_name = 'tasks/task_detail.html'
 
 
 class TaskCreateView(CreateView):
