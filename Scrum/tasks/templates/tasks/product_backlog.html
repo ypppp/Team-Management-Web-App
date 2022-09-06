@@ -5,9 +5,33 @@
     <title>Django Scrum - Product Backlog</title>
 </head>
 <body>
-    {% for task in tasks %}
-        <h2><a href={% url 'task-detail' task.id %}>{{ task.title }}</a></h2>
-        <p>{{ task.description }}</p>
-    {% endfor %}
+<p>test</p>
+
+
+<!-- Start of table -->
+<table border="1">
+    <tr>
+    <td>title</td>
+    <td>priority</td>
+    <td>status</td>
+    <td>tag</td>
+    <td>assignee</td>
+    <td>due date</td>
+    <td>sprint</td>
+</tr>
+{% for x in tasks %}
+<tr>
+    <td>{{ x.title }}</td>
+    <td>{{ x.priority }}</td>
+    <td>{{ x.status }}</td>
+    <td>{{ x.tag }}</td>
+    <td>{{ x.assignee }}</td>
+    <td>{{ x.due_date }}</td>
+    <td>{{ x.sprint }}</td>
+</tr>
+{% endfor %}
+</table>
+<!-- End of table -->
+
 </body>
 </html>
