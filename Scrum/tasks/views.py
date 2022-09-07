@@ -13,6 +13,7 @@ def home(request):
     return render(request, 'tasks/dashboard.html', context)
 
 
+
 class TaskListView(ListView):
     model = Task
     context_object_name = 'tasks'
