@@ -26,7 +26,7 @@ class TaskDetailView(DetailView):
 
 class TaskCreateView(CreateView):
     model = Task
-    fields = ['title', 'description']
+    fields = ['title', 'description', 'due_date']
 
 
 class TaskUpdateView(UpdateView):
