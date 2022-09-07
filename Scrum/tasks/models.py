@@ -29,7 +29,7 @@ class Task(models.Model):
     assignee = models.CharField(blank=True, max_length=50)
     description = models.TextField()
     user_story = models.TextField(blank=True)
-    sprint = models.IntegerField(blank=True)
+    sprint = models.IntegerField(null=True, blank=True)
     date_created = models.DateTimeField(default=timezone.now)
     due_date = models.DateTimeField(default=timezone.now)
 
