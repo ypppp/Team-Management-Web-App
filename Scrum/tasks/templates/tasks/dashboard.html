@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Django Scrum - Dashboard</title>
-</head>
-<body>
+{% extends 'tasks/base.html' %}
+{% block content %}
     <h1>{{ title }}</h1>
     <p>{{ content }}</p>
-</body>
-</html>
+{% endblock %}
