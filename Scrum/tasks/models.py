@@ -25,12 +25,12 @@ class Task(models.Model):
                               choices=STATUS_LEVELS,
                               max_length=20)
 
-    tag = models.CharField(max_length=50)
-    assignee = models.CharField(max_length=50)
+    tag = models.CharField(blank=True, max_length=50)
+    assignee = models.CharField(blank=True, max_length=50)
     description = models.TextField()
-    user_story = models.TextField()
-    sprint = models.IntegerField()
+    user_story = models.TextField(blank=True)
+    sprint = models.IntegerField(null=True, blank=True)
     date_created = models.DateTimeField(default=timezone.now)
-    due_date = models.DateTimeField()
+    due_date = models.DateTimeField(default=timezone.now)
 
 
