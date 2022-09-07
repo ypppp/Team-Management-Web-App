@@ -18,6 +18,7 @@
     <td>assignee</td>
     <td>due date</td>
     <td>sprint</td>
+        <td>id</td>
 </tr>
 {% for x in tasks %}
 <tr>
@@ -28,10 +29,15 @@
     <td>{{ x.assignee }}</td>
     <td>{{ x.due_date }}</td>
     <td>{{ x.sprint }}</td>
+    <td><a href="{% url 'task-delete' x.pk %}">[]</a></td>
 </tr>
 {% endfor %}
 </table>
 <!-- End of table -->
 
+<form method = "POST" action="test">
+{% csrf_token %}
+<a href="{% url 'testis' %}">TEST</a>
+</form>
 </body>
 </html>

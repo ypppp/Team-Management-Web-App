@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.urls import reverse_lazy
+from django.template import loader
+
 from .models import Task
 from django.views.generic import (ListView, DetailView,
                                   CreateView, UpdateView, DeleteView)
@@ -35,4 +38,22 @@ class TaskUpdateView(UpdateView):
 
 class TaskDeleteView(DeleteView):
     model = Task
+    success_url = reverse_lazy('product-backlog')
 
+
+def filterViewBySprint():
+    result = Task.objects.all().order_by('-sprint').values()
+    return result
+
+
+def testing1(request):
+    if request.method == "POST":
+        data = filterViewBySprint()  # the function you want to call
+        template = loader.get_template('tasks/testing.html')
+        return HttpResponse(template.render())
+
+class TaskListViewSortBySprint(ListView):
+    model = Task
+    context_object_name = 'tasks'
+    template_name = 'tasks/product_backlog.html'
+    ordering = ['-sprint']
