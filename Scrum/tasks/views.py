@@ -35,3 +35,5 @@ class TaskUpdateView(UpdateView):
 
 class TaskDeleteView(DeleteView):
     model = Task
+    success_url = 'productbacklog/'
+
