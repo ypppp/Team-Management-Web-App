@@ -24,12 +24,11 @@ class TaskListView(ListView):
 
 class TaskDetailView(DetailView):
     model = Task
-    template_name = 'tasks/task_detail.html'
 
 
 class TaskCreateView(CreateView):
     model = Task
-    fields = ['title', 'description']
+    fields = ['title', 'description', 'due_date']
 
 
 class TaskUpdateView(UpdateView):
@@ -41,19 +40,29 @@ class TaskDeleteView(DeleteView):
     success_url = reverse_lazy('product-backlog')
 
 
-def filterViewBySprint():
-    result = Task.objects.all().order_by('-sprint').values()
-    return result
-
-
-def testing1(request):
-    if request.method == "POST":
-        data = filterViewBySprint()  # the function you want to call
-        template = loader.get_template('tasks/testing.html')
-        return HttpResponse(template.render())
-
 class TaskListViewSortBySprint(ListView):
     model = Task
     context_object_name = 'tasks'
     template_name = 'tasks/product_backlog.html'
     ordering = ['-sprint']
+
+
+class TaskListViewSortByAssignee(ListView):
+    model = Task
+    context_object_name = 'tasks'
+    template_name = 'tasks/product_backlog.html'
+    ordering = ['-assignee']
+
+
+class TaskListViewSortByStatus(ListView):
+    model = Task
+    context_object_name = 'tasks'
+    template_name = 'tasks/product_backlog.html'
+    ordering = ['-status']
+
+
+class TaskListViewSortByPriority(ListView):
+    model = Task
+    context_object_name = 'tasks'
+    template_name = 'tasks/product_backlog.html'
+    ordering = ['-priority']

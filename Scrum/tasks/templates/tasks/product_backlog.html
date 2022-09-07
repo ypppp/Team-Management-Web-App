@@ -5,9 +5,6 @@
     <title>Django Scrum - Product Backlog</title>
 </head>
 <body>
-<p>test</p>
-
-
 <!-- Start of table -->
 <table border="1">
     <tr>
@@ -18,8 +15,9 @@
     <td>assignee</td>
     <td>due date</td>
     <td>sprint</td>
-        <td>id</td>
+        <td>pk</td>
 </tr>
+
 {% for x in tasks %}
 <tr>
     <td>{{ x.title }}</td>
@@ -35,9 +33,15 @@
 </table>
 <!-- End of table -->
 
-<form method = "POST" action="test">
-{% csrf_token %}
-<a href="{% url 'testis' %}">TEST</a>
-</form>
+<a href="{% url 'product-backlog' %}">Return Normal</a>
+<br>
+<a href="{% url 'sort-by-sprint' %}">Sort by Sprint</a>
+<br>
+<a href="{% url 'sort-by-assignee' %}">Sort by Assignee</a>
+<br>
+<a href="{% url 'sort-by-status' %}">Sort by Status</a>
+<br>
+<a href="{% url 'sort-by-priority' %}">Sort by Priority</a>
+
 </body>
 </html>
