@@ -1,0 +1,18 @@
+{% extends 'tasks/base.html' %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset >
+            <legend >
+                Are you sure you want to delete "{{ object.title }}"?
+            </legend>
+            {{ form|crispy }}
+            <div>
+                <button type="submit">Confirm</button>
+                <a href="{% url 'task-form' object.pk %}">Cancel</a>
+            </div>
+        </fieldset>
+    </form>
+{% endblock content %}
