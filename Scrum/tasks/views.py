@@ -1,7 +1,9 @@
+from django.contrib import messages
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Task
-from django.views.generic import (ListView, DetailView,
+from .forms import TaskForm
+from django.views.generic import (ListView, DetailView, FormView,
                                   CreateView, UpdateView, DeleteView)
 
 
@@ -24,13 +26,21 @@ class TaskDetailView(DetailView):
     model = Task
 
 
+class TaskFormView(FormView):
+    model = Task
+    form_class = TaskForm
+    success_url = '/'
+
+
 class TaskCreateView(CreateView):
     model = Task
-    fields = ['title', 'description', 'due_date']
+    form_class = TaskForm
+    # fields = ['title', 'description', 'due_date']
 
 
 class TaskUpdateView(UpdateView):
     model = Task
+    form_class = TaskForm
 
 
 class TaskDeleteView(DeleteView):
