@@ -16,6 +16,7 @@ def home(request):
     return render(request, 'tasks/dashboard.html', context)
 
 
+# display table function
 class TaskListView(ListView):
     model = Task
     context_object_name = 'tasks'
@@ -35,34 +36,66 @@ class TaskUpdateView(UpdateView):
     model = Task
 
 
+# delete function
 class TaskDeleteView(DeleteView):
     model = Task
     success_url = reverse_lazy('product-backlog')
 
 
-class TaskListViewSortBySprint(ListView):
+# sorting functions
+class TaskListViewSortBySprintAscending(ListView):
+    model = Task
+    context_object_name = 'tasks'
+    template_name = 'tasks/product_backlog.html'
+    ordering = ['sprint']
+
+
+class TaskListViewSortByAssigneeAscending(ListView):
+    model = Task
+    context_object_name = 'tasks'
+    template_name = 'tasks/product_backlog.html'
+    ordering = ['assignee']
+
+
+class TaskListViewSortByStatusAscending(ListView):
+    model = Task
+    context_object_name = 'tasks'
+    template_name = 'tasks/product_backlog.html'
+    ordering = ['status']
+
+
+class TaskListViewSortByPriorityAscending(ListView):
+    model = Task
+    context_object_name = 'tasks'
+    template_name = 'tasks/product_backlog.html'
+    ordering = ['priority']
+
+
+class TaskListViewSortBySprintDescending(ListView):
     model = Task
     context_object_name = 'tasks'
     template_name = 'tasks/product_backlog.html'
     ordering = ['-sprint']
 
 
-class TaskListViewSortByAssignee(ListView):
+class TaskListViewSortByAssigneeDescending(ListView):
     model = Task
     context_object_name = 'tasks'
     template_name = 'tasks/product_backlog.html'
     ordering = ['-assignee']
 
 
-class TaskListViewSortByStatus(ListView):
+class TaskListViewSortByStatusDescending(ListView):
     model = Task
     context_object_name = 'tasks'
     template_name = 'tasks/product_backlog.html'
     ordering = ['-status']
 
 
-class TaskListViewSortByPriority(ListView):
+class TaskListViewSortByPriorityDescending(ListView):
     model = Task
     context_object_name = 'tasks'
     template_name = 'tasks/product_backlog.html'
     ordering = ['-priority']
+
+
