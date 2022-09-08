@@ -63,20 +63,19 @@
     <td>assignee</td>
     <td>due date</td>
     <td>sprint</td>
-    <td>delete</td>
 </tr>
 
 {% for x in tasks %}
 <tr>
     <td>{{ x.title }}</td>
-    <td>{{ x.priority }}</td>
-    <td>{{ x.status }}</td>
+    <td>{{ x.get_priority_display }}</td>
+    <td>{{ x.get_status_display }}</td>
     <td>{{ x.tag }}</td>
     <td>{{ x.assignee }}</td>
     <td>{{ x.due_date }}</td>
     <td>{{ x.sprint }}</td>
     <td><a href="{% url 'task-delete' x.pk %}">delete</a></td>
-    <td><a href="{% url '' x.pk %}">edit</a></td>
+    <td><a href="{% url 'task-form' x.pk %}">edit</a></td>
 </tr>
 {% endfor %}
 </table>

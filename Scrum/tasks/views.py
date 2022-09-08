@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.urls import reverse_lazy
 from django.template import loader
 
+from .forms import TaskForm
 from .models import Task
 from django.views.generic import (ListView, DetailView,
                                   CreateView, UpdateView, DeleteView)
@@ -29,11 +30,16 @@ class TaskDetailView(DetailView):
 
 class TaskCreateView(CreateView):
     model = Task
-    fields = ['title', 'description', 'due_date']
+    form_class = TaskForm
+    template_name_suffix = '_create_form'
+    success_url = reverse_lazy('product-backlog')
+
 
 
 class TaskUpdateView(UpdateView):
     model = Task
+    form_class = TaskForm
+    success_url = reverse_lazy('product-backlog')
 
 
 # delete function
