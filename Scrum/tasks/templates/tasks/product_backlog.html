@@ -76,6 +76,7 @@
     <td>{{ x.due_date }}</td>
     <td>{{ x.sprint }}</td>
     <td><a href="{% url 'task-delete' x.pk %}">delete</a></td>
+    <td><a href="{% url '' x.pk %}">edit</a></td>
 </tr>
 {% endfor %}
 </table>
