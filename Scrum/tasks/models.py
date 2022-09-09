@@ -2,8 +2,8 @@ from django.db import models
 from django.utils import timezone
 from django.urls import reverse
 
-class Task(models.Model):
 
+class Task(models.Model):
     PRIORITY_LEVELS = [
         ('HI', 'High'),
         ('ME', 'Medium'),
@@ -35,5 +35,4 @@ class Task(models.Model):
     due_date = models.DateTimeField(default=timezone.now)
 
     def get_absolute_url(self):
-        return reverse('task-detail', kwargs={'pk':self.pk})
-
+        return reverse('task-detail', kwargs={'pk': self.pk})

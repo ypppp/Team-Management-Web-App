@@ -3,7 +3,6 @@ from . import views
 from .views import (TaskListView, TaskDetailView,
                     TaskCreateView, TaskUpdateView, TaskDeleteView)
 
-
 urlpatterns = [
     path('', views.home, name='dashboard'),
     path('productbacklog/', TaskListView.as_view(), name='product-backlog'),
