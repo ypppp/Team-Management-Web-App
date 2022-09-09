@@ -32,7 +32,7 @@ class Task(models.Model):
     user_story = models.TextField(blank=True)
     sprint = models.PositiveIntegerField(null=True, blank=True)
     date_created = models.DateTimeField(default=timezone.now)
-    due_date = models.DateTimeField(default=timezone.now)
+    due_date = models.DateTimeField(null=True, blank=True)
 
     def get_absolute_url(self):
         return reverse('task-detail', kwargs={'pk': self.pk})
