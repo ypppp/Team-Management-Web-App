@@ -1,5 +1,4 @@
 {% extends 'tasks/base.html' %}
-{% load crispy_forms_filters %}
 {% load crispy_forms_tags %}
 {% block content %}
     <form method="POST">
@@ -9,7 +8,9 @@
             {{ form|crispy }}
         </fieldset>
         <div>
-            <button type="submit">Done</button>
+            <button type="submit" class="btn btn-light">
+                <i class="fa fa-check" aria-hidden="true">Done</i>
+            </button>
             {% if object %}
                 <a href="{% url "task-delete" object.pk %}">Delete</a>
             {% endif %}
