@@ -1,0 +1,21 @@
+{% extends 'tasks/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset >
+            <br>
+            <br>
+          <div class="page-header">
+            <h1 class="page-header">New Task</h1>
+          </div>
+            <br>
+            {{ form|crispy }}
+        </fieldset>
+        <div>
+            <button type="submit" class="btn btn-success">Create</button>
+            <a href="{% url 'product-backlog' %}"><button type="submit" class="btn btn-danger">Cancel</button></a>
+        </div>
+    </form>
+{% endblock content %}
+
