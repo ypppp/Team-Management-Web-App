@@ -10,11 +10,11 @@ class TaskForm(forms.ModelForm):
 
     assignee = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': 'Assign a member', }
-    ))
+    ), required=False)
 
     tag = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': 'Tag a topic', }
-    ))
+    ), required=False)
 
     description = forms.CharField(widget=forms.Textarea(
         attrs={'placeholder': 'Add more details to this task',
@@ -24,7 +24,7 @@ class TaskForm(forms.ModelForm):
     user_story = forms.CharField(widget=forms.Textarea(
         attrs={'placeholder': 'As a ... I want to ...',
                'rows': '2'}
-    ))
+    ), required=False)
 
     class Meta:
         model = Task
