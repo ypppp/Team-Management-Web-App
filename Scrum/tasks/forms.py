@@ -7,12 +7,12 @@ class TaskForm(forms.ModelForm):
         model = Task
         fields = [
             'title',
-            'description',
-            'user_story',
             'assignee',
+            'due_date',
             'status',
             'priority',
             'tag',
             'sprint',
-            'due_date'
+            'description',
+            'user_story',
         ]
