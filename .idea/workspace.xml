@@ -2,15 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4520ef56-5a1b-4611-9bfe-e466f443704e" name="Changes" comment="Integration of html&#10;Integration of html for product_backlog.html - COMPLETED&#10;Integration of html for task_form.html - In Progress&#10;Integration of html for task_create_form.html - Pending&#10;Integration of html for task_confirm_delete.html - Done">
-      <change beforePath="$PROJECT_DIR$/.idea/FIT2101-B6.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FIT2101-B6.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_09_2022__12_40_pm__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_09_2022__12_40_pm__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_09_2022__6_45_pm__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_09_2022__6_45_pm__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scrum/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/tasks/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/tasks/static/css/taskdetail.css" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/static/css/taskdetail.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/tasks/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/product_backlog.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/product_backlog.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/task_create_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/task_create_form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/task_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/task_form.html" afterDir="false" />
     </list>
@@ -29,7 +25,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="new_test_base_branch" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />

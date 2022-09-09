@@ -4,15 +4,20 @@
     <form method="POST">
         {% csrf_token %}
         <fieldset >
-            <legend >Update Task</legend>
+            <br>
+            <br>
+          <div class="page-header">
+            <h1 class="page-header">Task Update</h1>
+          </div>
+            <br>
             {{ form|crispy }}
         </fieldset>
         <div>
-            <button type="submit" class="btn btn-light">
-                <i class="fa fa-check" aria-hidden="true">Done</i>
+            <button type="submit" class="btn btn-success">
+                <i class="fa fa-check" aria-hidden="true" style="color: white"></i>
             </button>
             {% if object %}
-                <a href="{% url "task-delete" object.pk %}">Delete</a>
+                <a href="{% url 'task-delete' object.pk %}"><button type="button" class="btn btn-danger">Delete</button></a>
             {% endif %}
         </div>
     </form>
