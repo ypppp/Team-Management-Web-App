@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b3b51173-3ea9-49e6-968e-83b705ba07b3" name="Changes" comment="Task form bootstrap use and widget update" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="task-details-cjh" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="2E1Myq2hWRoY1TfQ8pSqE1wCGOW" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.django.DjangoModulesConfigurable&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Scrum/tasks/templates/tasks" />
+      <recent name="$PROJECT_DIR$/Scrum/Scrum" />
+      <recent name="$PROJECT_DIR$/Scrum" />
+      <recent name="$PROJECT_DIR$/Scrum/members/templates/members" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="FIT2101-B6" type="Python.DjangoServer" factoryName="Django server">
+      <module name="FIT2101-B6" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="Scrum.settings" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/PycharmProjects/bin/python" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b3b51173-3ea9-49e6-968e-83b705ba07b3" name="Changes" comment="" />
+      <created>1661758895537</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1661758895537</updated>
+      <workItem from="1661758898088" duration="7939000" />
+      <workItem from="1661779482884" duration="3508000" />
+      <workItem from="1662037276200" duration="464000" />
+      <workItem from="1662305135080" duration="24172000" />
+      <workItem from="1662471560882" duration="1463000" />
+      <workItem from="1662481594963" duration="4557000" />
+      <workItem from="1662486478772" duration="11476000" />
+      <workItem from="1662541286013" duration="11911000" />
+      <workItem from="1662604528165" duration="14372000" />
+      <workItem from="1662670408880" duration="4603000" />
+      <workItem from="1662716684342" duration="3383000" />
+      <workItem from="1662720119990" duration="258000" />
+    </task>
+    <task id="LOCAL-00001" summary="Django framework project creation">
+      <created>1661777782133</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1661777782133</updated>
+    </task>
+    <task id="LOCAL-00002" summary="requirements.txt file creation">
+      <created>1661780845665</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1661780845665</updated>
+    </task>
+    <task id="LOCAL-00003" summary="tasks and sprints app created">
+      <created>1662037408473</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1662037408473</updated>
+    </task>
+    <task id="LOCAL-00004" summary="tasks models, views in progress">
+      <created>1662367357003</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1662367357004</updated>
+    </task>
+    <task id="LOCAL-00005" summary="task detail view test succeeded, still incomplete, product backlog, dashboard somewhat done">
+      <created>1662447899549</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1662447899550</updated>
+    </task>
+    <task id="LOCAL-00006" summary="task admin registered">
+      <created>1662486115700</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1662486115700</updated>
+    </task>
+    <task id="LOCAL-00007" summary="task form in progress">
+      <created>1662534399599</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1662534399600</updated>
+    </task>
+    <task id="LOCAL-00008" summary="task form in progress">
+      <created>1662538845615</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1662538845615</updated>
+    </task>
+    <task id="LOCAL-00009" summary="task model debugged">
+      <created>1662543128285</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1662543128285</updated>
+    </task>
+    <task id="LOCAL-00010" summary="task detail in progress">
+      <created>1662543508631</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1662543508631</updated>
+    </task>
+    <task id="LOCAL-00011" summary="task form in progress">
+      <created>1662551847306</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1662551847306</updated>
+    </task>
+    <task id="LOCAL-00012" summary="task update form in progress">
+      <created>1662644268651</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1662644268651</updated>
+    </task>
+    <task id="LOCAL-00013" summary="task creation, update, delete MVP ready">
+      <created>1662649796772</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1662649796772</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Some dummy tasks fed">
+      <created>1662650046548</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1662650046548</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Task model modification, migrated">
+      <created>1662670100366</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1662670100366</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Damn xml files">
+      <created>1662670680175</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1662670680175</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Bootstrap test">
+      <created>1662716654298</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1662716654298</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Task form bootstrap use and widget update">
+      <created>1662719796906</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1662719796906</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="user">
+                    <value>
+                      <list>
+                        <option value="*" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="User">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="*" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Django framework project creation" />
+    <MESSAGE value="requirements.txt file creation" />
+    <MESSAGE value="tasks and sprints app created" />
+    <MESSAGE value="tasks models, views in progress" />
+    <MESSAGE value="task detail view test succeeded, still incomplete, product backlog, dashboard somewhat done" />
+    <MESSAGE value="task admin registered" />
+    <MESSAGE value="task model debugged" />
+    <MESSAGE value="task detail in progress" />
+    <MESSAGE value="task form in progress" />
+    <MESSAGE value="task update form in progress" />
+    <MESSAGE value="task creation, update, delete MVP ready" />
+    <MESSAGE value="Some dummy tasks fed" />
+    <MESSAGE value="Task model modification, migrated" />
+    <MESSAGE value="Damn xml files" />
+    <MESSAGE value="Bootstrap test" />
+    <MESSAGE value="Task form bootstrap use and widget update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Task form bootstrap use and widget update" />
+  </component>
+</project>
