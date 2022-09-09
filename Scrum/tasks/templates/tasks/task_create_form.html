@@ -4,14 +4,12 @@
     <form method="POST">
         {% csrf_token %}
         <fieldset >
-            <legend >Update Task</legend>
+            <legend >New Task</legend>
             {{ form|crispy }}
         </fieldset>
         <div>
-            <button type="submit">Done</button>
-            {% if object %}
-                <a href="{% url "task-delete" object.pk %}">Delete</a>
-            {% endif %}
+            <button type="submit">Create</button>
+            <a href="{% url 'product-backlog' %}">Cancel</a>
         </div>
     </form>
 {% endblock content %}

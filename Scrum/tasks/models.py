@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.urls import reverse
 
 class Task(models.Model):
 
@@ -29,8 +30,10 @@ class Task(models.Model):
     assignee = models.CharField(blank=True, max_length=50)
     description = models.TextField()
     user_story = models.TextField(blank=True)
-    sprint = models.IntegerField(null=True, blank=True)
+    sprint = models.PositiveIntegerField(null=True, blank=True)
     date_created = models.DateTimeField(default=timezone.now)
     due_date = models.DateTimeField(default=timezone.now)
 
+    def get_absolute_url(self):
+        return reverse('task-detail', kwargs={'pk':self.pk})
 
