@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Django Scrum - Product Backlog</title>
-</head>
-<body>
+{% extends 'tasks/base.html' %}
+{% block content %}
     {% for task in tasks %}
-        <h2><a href={% url 'task-detail' task.pk %}>{{ task.title }}</a></h2>
+        <h2><a href={% url 'task-form' task.pk %}>{{ task.title }}</a></h2>
         <p>{{ task.description }}</p>
+        <p>{{ task.due_date }}</p>
     {% endfor %}
-</body>
-</html>
+{% endblock %}
