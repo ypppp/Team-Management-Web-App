@@ -77,6 +77,13 @@ class TaskListViewSortByPriorityAscending(ListView):
     ordering = ['priority']
 
 
+class TaskListViewSortByDeadlineAscending(ListView):
+    model = Task
+    context_object_name = 'tasks'
+    template_name = 'tasks/product_backlog.html'
+    ordering = ['due_date']
+
+
 class TaskListViewSortBySprintDescending(ListView):
     model = Task
     context_object_name = 'tasks'
@@ -103,5 +110,12 @@ class TaskListViewSortByPriorityDescending(ListView):
     context_object_name = 'tasks'
     template_name = 'tasks/product_backlog.html'
     ordering = ['-priority']
+
+
+class TaskListViewSortByDeadlineDescending(ListView):
+    model = Task
+    context_object_name = 'tasks'
+    template_name = 'tasks/product_backlog.html'
+    ordering = ['-due_date']
 
 
