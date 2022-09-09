@@ -42,7 +42,7 @@ class TaskForm(forms.ModelForm):
 
         widgets = {
             'due_date': forms.DateTimeInput(
-                format='%Y-%m-%d %H:%M:%S',
+                format='%Y-%m-%d',
                 attrs={'class': 'form-control',
                        'placeholder': 'Select a date',
                        'type': 'date'
