@@ -1,0 +1,50 @@
+Index: .idea/FIT2101-B6.iml
+===================================================================
+diff --git a/.idea/FIT2101-B6.iml b/.idea/FIT2101-B6.iml
+--- a/.idea/FIT2101-B6.iml	
++++ b/.idea/FIT2101-B6.iml	
+@@ -16,8 +16,19 @@
+     <content url="file://$MODULE_DIR$">
+       <excludeFolder url="file://$MODULE_DIR$/venv/PycharmProjects" />
+     </content>
+-    <orderEntry type="jdk" jdkName="Python 3.10 (FIT2101-B6)" jdkType="Python SDK" />
++    <orderEntry type="inheritedJdk" />
+     <orderEntry type="sourceFolder" forTests="false" />
+-    <orderEntry type="library" name="bootstrap" level="application" />
++  </component>
++  <component name="PyDocumentationSettings">
++    <option name="format" value="PLAIN" />
++    <option name="myDocStringFormat" value="Plain" />
++  </component>
++  <component name="TemplatesService">
++    <option name="TEMPLATE_CONFIGURATION" value="Jinja2" />
++    <option name="TEMPLATE_FOLDERS">
++      <list>
++        <option value="$MODULE_DIR$/Scrum/tasks/templates" />
++      </list>
++    </option>
+   </component>
+ </module>
+\ No newline at end of file
+Index: .idea/inspectionProfiles/Project_Default.xml
+===================================================================
+diff --git a/.idea/inspectionProfiles/Project_Default.xml b/.idea/inspectionProfiles/Project_Default.xml
+--- a/.idea/inspectionProfiles/Project_Default.xml	
++++ b/.idea/inspectionProfiles/Project_Default.xml	
+@@ -6,6 +6,16 @@
+         <language minSize="498" name="Python" />
+       </Languages>
+     </inspection_tool>
++    <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
++      <option name="myValues">
++        <value>
++          <list size="1">
++            <item index="0" class="java.lang.String" itemvalue="task-delete" />
++          </list>
++        </value>
++      </option>
++      <option name="myCustomValuesEnabled" value="true" />
++    </inspection_tool>
+     <inspection_tool class="PyCompatibilityInspection" enabled="true" level="WARNING" enabled_by_default="true">
+       <option name="ourVersions">
+         <value>

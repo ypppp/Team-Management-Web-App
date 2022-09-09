@@ -14,5 +14,5 @@ class TaskForm(forms.ModelForm):
             'priority',
             'tag',
             'sprint',
-            'due_date',
+            'due_date'
         ]
