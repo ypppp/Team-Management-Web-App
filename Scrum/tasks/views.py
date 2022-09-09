@@ -35,7 +35,6 @@ class TaskCreateView(CreateView):
     success_url = reverse_lazy('product-backlog')
 
 
-
 class TaskUpdateView(UpdateView):
     model = Task
     form_class = TaskForm
@@ -117,5 +116,3 @@ class TaskListViewSortByDeadlineDescending(ListView):
     context_object_name = 'tasks'
     template_name = 'tasks/product_backlog.html'
     ordering = ['-due_date']
-
-
