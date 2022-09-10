@@ -33,7 +33,7 @@
                       <td>{{ x.assignee }}</td>
                       <td>{{ x.due_date }}</td>
                       <td>{{ x.sprint }}</td>
-                      <td><a href="{% url 'task-form' x.pk %}"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a></td>
+                      <td><a href="{% url 'task-form' x.pk %}"><i class="fa fa-ellipsis-h" style='color:#353839' aria-hidden="true"></i></a></td>
                       <td></td>
                       <td>
                           <a href="{% url 'task-delete' x.pk %}"><button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true" style="color: white"></i></button></a>
@@ -45,7 +45,7 @@
             </div>
              <div class="btn-group">
               <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fa fa-filter" aria-hidden="true"></i>
+                <i class="fa fa-filter" style='color:#353839' aria-hidden="true"></i>
               </a>
               <div class="dropdown-menu">
                 <a class="dropdown-item" href="{% url 'product-backlog' %}">Reset</a>
