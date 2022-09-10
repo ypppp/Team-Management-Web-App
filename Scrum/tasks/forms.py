@@ -38,9 +38,6 @@ class TaskForm(forms.ModelForm):
                                      css_class='btn-danger',
                                      formnovalidate='formnovalidate'))
 
-        # self.fields['title'].label = ''
-        # self.fields['title'].widget.attrs.update({'placeholder': 'Give your task a title'})
-
     class Meta:
         model = Task
         fields = [
