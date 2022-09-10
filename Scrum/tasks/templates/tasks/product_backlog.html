@@ -19,7 +19,7 @@
                         <th class="col6">Due Date</th>
                         <th class="col6">Sprint</th>
                         <th class="col6" style="width:30px;"></th>
-                        <th class="col7" style="width:30px;"><a href="{% url 'task-create'%}"><i class="fa fa-plus-square-o" aria-hidden="true"></i></a></th>
+                        <th class="col7" style="width:30px;"><a href="{% url 'task-create'%}"><i class="fa fa-plus-square-o" style='color:#000000' aria-hidden="true"></i></a></th>
                      </tr>
                  </thead>
 
@@ -33,7 +33,7 @@
                       <td>{{ x.assignee }}</td>
                       <td>{{ x.due_date }}</td>
                       <td>{{ x.sprint }}</td>
-                      <td><a href="{% url 'task-form' x.pk %}"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a></td>
+                      <td><a href="{% url 'task-form' x.pk %}"><i class="fa fa-ellipsis-h" style='color:#000000' aria-hidden="true"></i></a></td>
                       <td></td>
                       <td>
                           <a href="{% url 'task-delete' x.pk %}"><button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true" style="color: white"></i></button></a>
@@ -45,7 +45,7 @@
             </div>
              <div class="btn-group">
               <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fa fa-filter" aria-hidden="true"></i>
+                <i class="fa fa-filter" style='color:#353839' aria-hidden="true"></i>
               </a>
               <div class="dropdown-menu">
                 <a class="dropdown-item" href="{% url 'product-backlog' %}">Reset</a>

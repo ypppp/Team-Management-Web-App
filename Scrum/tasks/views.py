@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from django.urls import reverse_lazy
+from django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse_lazy, reverse
 from django.template import loader
 
 from .forms import TaskForm
@@ -24,11 +24,18 @@ class TaskListView(ListView):
     template_name = 'tasks/product_backlog.html'
 
 
-class TaskDetailView(DetailView):
-    model = Task
+class FormActionMixin(object):
+
+    def post(self, request, *args, **kwargs):
+        """Add 'Cancel' button redirect."""
+        if "cancel" in request.POST:
+            url = reverse('product-backlog')
+            return HttpResponseRedirect(url)
+        else:
+            return super(FormActionMixin, self).post(request, *args, **kwargs)
 
 
-class TaskCreateView(CreateView):
+class TaskCreateView(CreateView, FormActionMixin):
     model = Task
     form_class = TaskForm
     template_name_suffix = '_create_form'

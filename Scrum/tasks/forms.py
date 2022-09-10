@@ -1,6 +1,7 @@
 from django import forms
 from .models import Task
-
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Submit
 
 class TaskForm(forms.ModelForm):
 
@@ -26,18 +27,26 @@ class TaskForm(forms.ModelForm):
                'rows': '2'}
     ), required=False)
 
+    def __init__(self, *args, **kwargs):
+        super(TaskForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper()
+
+        # Add 'Submit' & 'Cancel' button
+        self.helper.add_input(Submit('submit', 'Submit',
+                                     css_class='btn-success'))
+        self.helper.add_input(Submit('cancel', 'Cancel',
+                                     css_class='btn-danger',
+                                     formnovalidate='formnovalidate'))
+
+        # self.fields['title'].label = ''
+        # self.fields['title'].widget.attrs.update({'placeholder': 'Give your task a title'})
+
     class Meta:
         model = Task
         fields = [
-            'title',
-            'assignee',
-            'due_date',
-            'status',
-            'priority',
-            'tag',
-            'sprint',
-            'description',
-            'user_story',
+            'title', 'assignee', 'due_date',
+            'status', 'priority', 'tag',
+            'sprint', 'description', 'user_story',
         ]
 
         widgets = {

@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import (TaskListView, TaskDetailView, TaskCreateView, TaskDeleteView, TaskListViewSortBySprintAscending, TaskListViewSortByAssigneeAscending, TaskListViewSortByStatusAscending, TaskListViewSortByPriorityAscending)
+from .views import (TaskListView, TaskCreateView, TaskDeleteView, TaskListViewSortBySprintAscending, TaskListViewSortByAssigneeAscending, TaskListViewSortByStatusAscending, TaskListViewSortByPriorityAscending)
 
 
 urlpatterns = [
