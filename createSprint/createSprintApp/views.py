@@ -14,4 +14,4 @@ def index(request):
     context = {
         "form": form
     }
-    return render(request, 'sprint_create_form.html', context)
+    return render(request, 'create_sprint_form.html', context)
