@@ -22,7 +22,7 @@ class Sprint(models.Model):
     task = models.CharField(blank=True, choices=TASKS, max_length=20)
     assignee = models.CharField(max_length=100, default="")
     duration = models.CharField(blank=True, choices=DURATION_LEVELS, max_length=10)
-    start_date = models.DateField(default=timezone.now())
+    start_date = models.DateField(default=timezone.now)
     end_date = models.DateField(blank=True, null=True)
     created_date = models.DateTimeField(default=timezone.now, auto_now_add=False)
 
