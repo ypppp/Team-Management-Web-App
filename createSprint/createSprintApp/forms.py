@@ -25,13 +25,13 @@ class SprintForm(forms.ModelForm):
 
         widgets = {
             'start_date': forms.DateTimeInput(
-                format='%Y-%m-%d',
+                format='%d-%m-%Y',
                 attrs={'class': 'form-control',
                        'placeholder': 'Select a date',
                        'type': 'date'
                        }),
             'end_date': forms.DateTimeInput(
-                format='%Y-%m-%d',
+                format='%d-%m-%Y',
                 attrs={'class': 'form-control',
                        'placeholder': 'Select a date',
                        'type': 'date'
