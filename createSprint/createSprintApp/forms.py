@@ -3,35 +3,29 @@ from .models import Sprint
 
 
 class SprintForm(forms.ModelForm):
-    sprint_Name = forms.CharField(widget=forms.TextInput(
-        attrs={'placeholder': 'Give your sprint a title'}
-    ), error_messages={'required': 'Sprint name cannot contain invalid characters'})
-
-    sprint_Goal = forms.CharField(widget=forms.TextInput(
-        attrs={'placeholder': 'Give your sprint a goal', 'rows': 4}
+    sprint_goal = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': 'Give your sprint a goal', 'size': 100}
     ))
 
     class Meta:
         model = Sprint
-        fields = ['sprint_Name',
-                  'sprint_Goal',
+        fields = ['sprint_goal',
                   'task',
                   'assignee',
                   'duration',
-                  'start_Date',
-                  'end_Date',
-                  'created_Date',
-                  'is_Sprint_Complete']
+                  'start_date',
+                  'end_date',
+                  'created_date']
 
         widgets = {
-            'start_Date': forms.DateTimeInput(
-                format='%d-%m-%Y',
+            'start_date': forms.DateTimeInput(
+                format='%Y-%m-%d',
                 attrs={'class': 'form-control',
                        'placeholder': 'Select a date',
                        'type': 'date'
                        }),
-            'end_Date': forms.DateTimeInput(
-                format='%d-%m-%Y',
+            'end_date': forms.DateTimeInput(
+                format='%Y-%m-%d',
                 attrs={'class': 'form-control',
                        'placeholder': 'Select a date',
                        'type': 'date'
