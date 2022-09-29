@@ -1,26 +1,35 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
 {% block content %}
-    <form method="POST" class="card p-3 mt-5" autocomplete="off">
-        {% csrf_token %}
-        <fieldset >
-          <div class="page-header">
-            <h1 class="page-header">Start Sprint</h1>
-          </div>
-            {% for field in form %}
-            <p>
-            {% if field.help_text %}
-                <small style="color: grey">{{ field.help_text }}</small>
-            {% endif %}
-            {{ field.label_tag }}
-            {{ field }}
-            {% for error in field.errors %}
-            <p style="color: red">{{ error }}</p>
-            {% endfor %}
-            </p>
-            {% endfor %}
-        </fieldset>
-        <div>
-            <button type="submit" class="btn btn-success">Start</button>
-            <button type="button" class="btn btn-danger">Cancel</button>
+<form method="POST" class="card p-10 mt-15" autocomplete="off">
+    {% csrf_token %}
+    <fieldset>
+        <div class="page-header">
         </div>
-    </form>
-{% endblock content %}
+        {{ form.sprint_goal|as_crispy_field }}
+        {{ form.assignee|as_crispy_field }}
+        <div class="row">
+            <div class="col-4">
+                {{ form.task|as_crispy_field }}
+            </div>
+            <div class="col-4">
+                {{ form.duration|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                {{ form.start_date|as_crispy_field }}
+            </div>
+            <div class="col-4">
+                {{ form.end_date|as_crispy_field }}
+            </div>
+        </div>
+        {{ form.created_date|as_crispy_field }}
+    </fieldset>
+</form>
+    <div>
+        <button type="submit" class="btn btn-success">Start</button>
+        <button type="button" class="btn btn-danger">Cancel</button>
+    </div>
+{% endblock %}

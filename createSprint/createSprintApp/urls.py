@@ -1,6 +1,6 @@
 from django.urls import path
-from . import views
+from .views import SprintCreateView
 
 urlpatterns = [
-    path('', views.index, name='create_sprint_form'),
+    path('', SprintCreateView.as_view(), name='create_sprint_form'),
 ]

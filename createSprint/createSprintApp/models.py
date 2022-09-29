@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.utils.datetime_safe import date
 
 
 class Sprint(models.Model):
@@ -18,12 +19,11 @@ class Sprint(models.Model):
         ('T4', 'Task 4')
     ]
 
-    sprint_name = models.CharField(max_length=100)
-    sprint_goal = models.CharField(max_length=250)
+    sprint_goal = models.CharField(max_length=250, default="")
     task = models.CharField(blank=True, choices=TASKS, max_length=20)
-    assignee = models.CharField(max_length=100)
+    assignee = models.CharField(max_length=100, default="")
     duration = models.CharField(blank=True, choices=DURATION_LEVELS, max_length=10)
-    start_date = models.DateTimeField(blank=True, null=True)
-    end_date = models.DateTimeField(blank=True, null=True)
+    start_date = models.DateField(default=timezone.now)
+    end_date = models.DateField(blank=True, null=True)
     created_date = models.DateTimeField(default=timezone.now, auto_now_add=False)
-    is_sprint_complete = models.BooleanField(default=False)
+
