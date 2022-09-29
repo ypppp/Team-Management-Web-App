@@ -1,17 +1,19 @@
 from django.shortcuts import render
+from django.views.generic import CreateView
+
 from .forms import SprintForm
-from django.http import HttpResponse
-from django.http import HttpResponseRedirect
-from django.contrib import messages
+
+from .models import Sprint
 
 
-def index(request):
-    form = SprintForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-        messages.success(request, "Sprint created successfully!")
-        return HttpResponseRedirect('/')
+def home(request):
     context = {
-        "form": form
+        'title': 'Home'
     }
-    return render(request, 'create_sprint_form.html', context)
+    return render(request, 'home.html', context)
+
+
+class SprintCreateView(CreateView):
+    model = Sprint
+    form_class = SprintForm
+    template_name = 'sprint_create_form.html'
