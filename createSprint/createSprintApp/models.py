@@ -25,3 +25,4 @@ class Sprint(models.Model):
     start_date = models.DateField(blank=True, null=True)
     end_date = models.DateField(blank=True, null=True)
     created_date = models.DateTimeField(default=timezone.now, auto_now_add=False)
+    is_sprint_complete = models.BooleanField(default=False)
