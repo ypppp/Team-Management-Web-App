@@ -12,7 +12,7 @@ from django.views.generic import (ListView, DetailView,
 def home(request):
     context = {
         'title': 'Dashboard',
-        'content': 'Welcome to the Scrum home page!'
+        'content': 'Welcome to the main home page!'
     }
     return render(request, 'tasks/dashboard.html', context)
 
@@ -24,7 +24,7 @@ class TaskListView(ListView):
     template_name = 'tasks/product_backlog.html'
 
 
-class TaskDetailView(DetailView):
+class TaskDetailView(DetailView, ListView):
     model = Task
 
 

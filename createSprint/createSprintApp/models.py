@@ -3,6 +3,7 @@ from django.utils import timezone
 
 
 class Sprint(models.Model):
+
     DURATION_LEVELS = [
         ('1W', '1 Week'),
         ('2W', '2 Weeks'),
