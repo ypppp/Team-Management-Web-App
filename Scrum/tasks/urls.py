@@ -5,6 +5,7 @@ from tasks.views import (TaskListView, TaskDetailView, TaskCreateView, TaskDelet
                          TaskListViewSortByDeadlineAscending, TaskListViewSortByDeadlineDescending,
                          TaskListViewSortByPriorityDescending, TaskListViewSortByStatusDescending,
                          TaskListViewSortByAssigneeDescending, TaskListViewSortBySprintDescending, home)
+# from sprints.views import (SprintListView)
 
 urlpatterns = [
     path('', home, name='dashboard'),
@@ -24,5 +25,7 @@ urlpatterns = [
     path('productbacklog/sortby/status/descending', TaskListViewSortByStatusDescending.as_view(), name='sort-by-status-descending'),
     path('productbacklog/sortby/priority/descending', TaskListViewSortByPriorityDescending.as_view(), name='sort-by-priority-descending'),
     path('productbacklog/sortby/due_date/descending', TaskListViewSortByDeadlineDescending.as_view(), name='sort-by-deadline-descending'),
+
+    # path('sprint/', SprintListView.as_view(), name='sprint-board')
 
 ]

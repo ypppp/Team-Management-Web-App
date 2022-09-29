@@ -11,13 +11,21 @@ from tasks.models import Task
 
 # START OF <SPRINT LIST>
 
-# for sprintlist before and after start
-class SprintListView(DetailView):
-    model = Sprint          # models
+# for sprintlist before and after start, shows all the details of sprint including the 2 tables
+class SprintListView(ListView):
+    model = Sprint  # models
     context_object_name = 'sprints'
+    template_name = 'sprints/sprint_list_1.html'
+# path('sprint/<int:pk>/', SprintListView.as_view(), name='sprint_list_before_start'
 
-# path('sprint/<pk>/', SprintListView.as_view(), name='sprint_list_before_start'
 
-# for sprintlist after start, edit the status
+# for sprintlist after start, edit the status in the table
 class SprintListUpdateView(UpdateView):
-    model =
+    model = Sprint
+    fields = [
+        "status"
+    ]
+    reverse_lazy('sprint-list-after-start')
+# path('task/<int:pk>/', SprintListUpdateView.as_view(), name='sprint-list-update'),
+
+
