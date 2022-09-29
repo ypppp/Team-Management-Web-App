@@ -16,4 +16,4 @@ def home(request):
 class SprintCreateView(CreateView):
     model = Sprint
     form_class = SprintForm
-    template_name = 'sprint_create_form.html'
+    template_name = 'create_sprint_form.html'
