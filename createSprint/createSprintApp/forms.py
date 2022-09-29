@@ -20,7 +20,8 @@ class SprintForm(forms.ModelForm):
                   'duration',
                   'start_date',
                   'end_date',
-                  'created_date']
+                  'created_date',
+                  'is_sprint_complete']
 
         widgets = {
             'start_date': forms.DateTimeInput(
