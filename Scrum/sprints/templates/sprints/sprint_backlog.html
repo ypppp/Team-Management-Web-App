@@ -1,0 +1,58 @@
+{% extends 'tasks/base.html' %}
+
+    <!--START OF CONTENTS-->
+    {% block content %}
+      <div class="container" style="overflow: hidden;">
+        <br>
+        <br>
+        <div class="page-header">
+            <h1 class="page-header">Sprint Backlog</h1>
+        </div>
+        <br>
+        </div>
+        <br>
+
+        <div style="overflow: hidden; padding-left: 30px;">
+          <a href="#" class="btn btn-primary">Create</a>
+        </div>
+        <br>
+        <br>
+
+        <div class="card" style="width: 100%;">
+          <!-- if want to use img, use the below code -->
+          <!-- <img src="..." class="card-img-top" alt="..."> -->
+          <div class="card-body">
+            <h5 class="card-title">Sprint 1</h5>
+            <div style="display: flex">
+              <div style="flex:50%;">
+                <p class="card-text">Status</p> 
+              </div>
+              <div style="flex:50%;">
+                <p class="card-text">Assignee</p> 
+              </div>
+            </div>
+            <br>
+
+            <div style="display: flex">
+              <div style="flex:50%;">
+                <p class="card-text">Start date</p> 
+              </div>
+              <div style="flex:50%;">
+                <p class="card-text">End date</p> 
+              </div>
+            </div>
+            <br>
+
+            <div style="display: flex">
+              <div style="flex:50%;">
+                <p class="card-text">Time taken</p> 
+              </div>
+            </div>
+            <br>
+
+            <a href="#" class="btn btn-primary">Edit</a>
+          </div>
+        </div>
+      
+    {% endblock content %}
+    <!-- end of content-->
