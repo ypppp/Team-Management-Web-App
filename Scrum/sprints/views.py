@@ -28,4 +28,8 @@ class SprintListUpdateView(UpdateView):
     reverse_lazy('sprint-list-after-start')
 # path('task/<int:pk>/', SprintListUpdateView.as_view(), name='sprint-list-update'),
 
+class SprintBacklogView(ListView):
+    model = Sprint
+    context_object_name = 'sprints'
+    template_name = 'sprints/sprint_backlog.html'
 

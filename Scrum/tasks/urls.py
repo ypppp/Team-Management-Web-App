@@ -27,5 +27,7 @@ urlpatterns = [
     path('productbacklog/sortby/due_date/descending', TaskListViewSortByDeadlineDescending.as_view(), name='sort-by-deadline-descending'),
 
     # path('sprint/', SprintListView.as_view(), name='sprint-board')
+    # path('sprint/', SprintBacklogView.as_view(), name='sprint-backlog')
+
 
 ]
