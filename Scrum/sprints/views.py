@@ -12,7 +12,7 @@ from tasks.models import Task
 # START OF <SPRINT LIST>
 
 # for sprintlist before and after start, shows all the details of sprint including the 2 tables
-class SprintListView(ListView):
+class SprintListView(DetailView):
     model = Sprint  # models
     context_object_name = 'sprints'
     template_name = 'sprints/sprint_list_1.html'
