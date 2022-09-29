@@ -5,7 +5,7 @@ from .models import Sprint
 class SprintForm(forms.ModelForm):
     sprint_Name = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': 'Give your sprint a title'}
-    ))
+    ), error_messages={'required': 'Sprint name cannot contain invalid characters'})
 
     sprint_Goal = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': 'Give your sprint a goal', 'rows': 4}
