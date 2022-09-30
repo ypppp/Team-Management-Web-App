@@ -1,8 +1,8 @@
-from django.core.exceptions import ValidationError
-from django.utils.translation import gettext_lazy as _
 from django.db import models
 from django.utils import timezone
 from datetime import datetime, timedelta
+from django.core.exceptions import ValidationError
+from django.utils.translation import gettext_lazy as _
 
 
 class Sprint(models.Model):
@@ -39,19 +39,21 @@ class Sprint(models.Model):
     # Optional
     duration = models.DurationField(choices=DURATION_LEVELS, null=True, blank=True)
     start_date = models.DateTimeField(null=True, blank=True)
-    # end_date = models.DateTimeField(null=True, blank=True, validators=[validate_start_end_datetime])
     end_date = models.DateTimeField(null=True, blank=True)
 
     # Developers
     date_created = models.DateTimeField(default=timezone.now)  # auto_now_add=False)
     sprint_complete = models.BooleanField(default=False)
 
-    def validate_start_end_datetime(self):
+    def clean(self):
+        if datetime.now() > self.start_date:
+            raise ValidationError({'end_date':_('Start date needs to be present or future')})
+
+        if datetime.now() > self.end_date:
+            raise ValidationError({'end_date':_('End date needs to be present or future')})
+
         if self.start_date > self.end_date:
-            raise ValidationError(
-                '%(start)s must not be larger than (end)s',
-                params={'start': self.start_date, 'end': self.end_date},
-            )
+            raise ValidationError({'end_date:':_('End date must be set on or before start date')})
 
     def __str__(self):
         return self.title

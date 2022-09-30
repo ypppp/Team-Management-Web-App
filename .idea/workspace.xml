@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="Sprint 1 tasks fixed">
-      <change afterPath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/task_create_form.html" afterDir="false" />
+    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="Task detail, update, create reimplemented">
+      <change afterPath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_create_form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/FIT2101.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FIT2101.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scrum/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scrum/sprints/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/sprints/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_create_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/sprints/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/sprints/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/sprints/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/sprints/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scrum/sprints/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/sprints/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/tasks/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scrum/tasks/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/product_backlog.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/product_backlog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/task_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/task_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/task_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/task_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/task_update.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/tasks/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/tasks/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +25,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -46,6 +43,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2Eh7EQMmtCpxmh0O6TJ6zyD3vuM" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -275,7 +275,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664529593998</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Task detail, update, create reimplemented">
+      <created>1664534715531</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1664534715531</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -293,6 +300,7 @@
     <MESSAGE value="Bug fix&#10; - divider not working for html" />
     <MESSAGE value="Models modified:&#10;- Task&#10;- Sprint&#10;- Member" />
     <MESSAGE value="Sprint 1 tasks fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sprint 1 tasks fixed" />
+    <MESSAGE value="Task detail, update, create reimplemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="Task detail, update, create reimplemented" />
   </component>
 </project>

@@ -8,6 +8,7 @@ from crispy_forms.layout import Submit
 
 
 class TaskForm(forms.ModelForm):
+
     # Mandatory
     title = forms.CharField(
         widget=forms.TextInput(attrs={'placeholder': 'Give your task a title', })
@@ -17,6 +18,7 @@ class TaskForm(forms.ModelForm):
         widget=forms.Textarea(attrs={'placeholder': 'Add more details to this task',
                                      'rows': '3', })
     )
+
     priority = forms.ChoiceField(choices=Task.PRIORITY_LEVELS)
 
     # Defaults
@@ -28,19 +30,18 @@ class TaskForm(forms.ModelForm):
         widget=forms.TextInput(attrs={'placeholder': 'Tag a topic', }),
         required=False
     )
+
     assignee = forms.ModelChoiceField(
-        queryset=Member.objects.all(), empty_label='Unassigned', required=False
-    )
+        queryset=Member.objects.all(), empty_label='Unassigned', required=False)
+
     sprint = forms.ModelChoiceField(
-        queryset=Sprint.objects.all(), empty_label='Unallocated', required=False
-    )
+        queryset=Sprint.objects.all(), empty_label='Unallocated', required=False)
+
     due_date = forms.DateField(
         widget=forms.DateInput(format='%Y-%m-%d',
                                attrs={'class': 'form-control',
                                       'placeholder': 'Select a date',
-                                      'type': 'date'
-                                      })
-    )
+                                      'type': 'date'}))
 
     # def __init__(self, *args, **kwargs):
     #     super(TaskForm, self).__init__(*args, **kwargs)

@@ -5,11 +5,22 @@ from django.urls import reverse_lazy, reverse
 from django.template import loader
 from django.views.generic import (ListView, DetailView,
                                   CreateView, UpdateView, DeleteView)
+
+from sprints.forms import SprintForm
 from tasks.models import Task
 from sprints.models import Sprint
 
 
 class SprintCreateView(CreateView):
+    model = Sprint
+    template_name_suffix = '_create_form'
+    form_class = SprintForm
+
+class SprintUpdateView(UpdateView):
+    model = Sprint
+    form_class = SprintForm
+
+class SprintDeleteView(DeleteView):
     model = Sprint
 
 

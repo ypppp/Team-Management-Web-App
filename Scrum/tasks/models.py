@@ -68,5 +68,11 @@ class Task(models.Model):
 
         return color
 
+    # def clean_due_date(self):
+    #     due_date = self.cleaned_data.get('due_date')
+    #     if due_date < date.today():
+    #         raise forms.ValidationError('Due date must be present or future')
+    #     return due_date
+
     def __str__(self):
         return self.title
