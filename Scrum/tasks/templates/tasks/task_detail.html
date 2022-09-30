@@ -17,6 +17,8 @@
     <p>{{ object.sprint }}     </p>
     <br>
     <p>{{ object.due_date }}   </p>
+    <br>
+    <p>{{ object.days_left }}   </p>
 
     <a href="{% url 'task-update' object.id %}">
         <button type="button" class="btn btn-danger">Edit</button>
