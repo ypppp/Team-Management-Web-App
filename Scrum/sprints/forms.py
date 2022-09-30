@@ -23,6 +23,14 @@ class SprintForm(forms.ModelForm):
                                       })
     )
 
+    start_date = forms.DateField(
+        widget=forms.DateInput(format='%Y-%m-%d',
+                               attrs={'class': 'form-control',
+                                      'placeholder': 'Select end date',
+                                      'type': 'date'
+                                      })
+    )
+
     task = forms.ModelChoiceField(
         queryset=Task.objects.all(), empty_label='Unallocated', required=False)
 
