@@ -41,4 +41,5 @@ class SprintForm(forms.ModelForm):
             'sprint_goal',
             'start_date',
             'end_date',
+            'task',
         ]

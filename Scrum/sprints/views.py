@@ -15,13 +15,16 @@ class SprintCreateView(CreateView):
     model = Sprint
     template_name_suffix = '_create_form'
     form_class = SprintForm
+    success_url = reverse_lazy('product-backlog')
 
 class SprintUpdateView(UpdateView):
     model = Sprint
     form_class = SprintForm
+    success_url = reverse_lazy('product-backlog')
 
 class SprintDeleteView(DeleteView):
     model = Sprint
+    success_url = reverse_lazy('product-backlog')
 
 
 # START OF <SPRINT LIST>
