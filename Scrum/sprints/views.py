@@ -21,7 +21,6 @@ class SprintDetailView(DetailView):
         context = super(SprintDetailView, self).get_context_data(**kwargs)
         context['task'] = Task.objects.all()
         return context
-# path('sprint/<int:pk>/', SprintListView.as_view(), name='sprint_list_before_start'
 
 
 # for sprintlist after start, edit the status in the table
@@ -31,12 +30,21 @@ class SprintListUpdateView(UpdateView):
         "status"
     ]
     reverse_lazy('sprint-list-after-start')
+
+
 # path('task/<int:pk>/', SprintListUpdateView.as_view(), name='sprint-list-update'),
 
 # for the button to start
-def toggle_start(request):
-    sprint = get_object_or_404(Sprint, pk=request.GET.get('sprint_id'))
+def toggle_start(request, id):
+    sprint = Sprint.objects.get(id=id)
     sprint.status = "Ongoing"
     sprint.save()
-    reverse_lazy('sprint-backlog')
+    return render(request, 'sprints/sprint_backlog_confirm_save.html', {'id': id})
+
+
+class SprintListView(ListView):
+    model = Sprint
+    context_object_name = 'sprints'
+    template_name = 'sprints/sprint_list.html'
+
 

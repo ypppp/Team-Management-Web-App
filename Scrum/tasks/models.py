@@ -16,6 +16,7 @@ class Task(models.Model):
         (MEDIUM_PRIORITY, 'Medium'),
         (LOW_PRIORITY, 'Low')
     ]
+
     PENDING = 'PE'
     IN_PROGRESS = 'IN'
     COMPLETE = 'CM'
@@ -68,3 +69,6 @@ class Task(models.Model):
             color = 'Yellow'
 
         return color
+
+    def __str__(self):
+        return self.title

@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'tasks/base.html' %}
+{% block content %}
+<h2>Sprint has started</h2>
+<a href="{%url 'sprint-list'%}" class="btn btn-warning" style="width:7%;" data-inline="true">OK</a>
 
-</body>
-</html>
+{% endblock %}

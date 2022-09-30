@@ -33,7 +33,7 @@
                       <td>{{ x.assignee }}</td>
                       <td>{{ x.due_date }}</td>
                       <td>{{ x.sprint }}</td>
-                      <td><a href="{% url 'task-form' x.pk %}"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a></td>
+                      <td><a href="{% url 'task-detail' x.pk %}"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a></td>
                       <td></td>
                       <td>
                           <a href="{% url 'task-delete' x.pk %}"><button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true" style="color: white"></i></button></a>
