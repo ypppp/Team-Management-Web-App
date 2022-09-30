@@ -3,10 +3,10 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse_lazy, reverse
 from django.template import loader
-from tasks import models, forms
 from django.views.generic import (ListView, DetailView,
                                   CreateView, UpdateView, DeleteView)
 from tasks.models import Task
+from sprints.models import Sprint
 
 
 # START OF <SPRINT LIST>
@@ -16,6 +16,11 @@ class SprintListView(DetailView):
     model = Sprint  # models
     context_object_name = 'sprints'
     template_name = 'sprints/sprint_list_1.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(SprintListView, self).get_context_data(**kwargs)
+        context['task'] = Task.objects.filter(sprint=self.model.sprint_id)
+        return context
 # path('sprint/<int:pk>/', SprintListView.as_view(), name='sprint_list_before_start'
 
 
