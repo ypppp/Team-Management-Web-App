@@ -66,7 +66,7 @@
         </thead>
         <tbody>
             {% for x in task %}
-                {% if x.sprint == sprints and sprints.status == "IN" %}
+                {% if x.sprint == sprints and sprints.status == Sprint.ONGOING %}
                 <tr>
                   <td>{{ x.title }}</td>
                   <td>{{ x.get_priority_display }}</td>
