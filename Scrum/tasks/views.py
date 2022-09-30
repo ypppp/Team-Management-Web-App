@@ -1,10 +1,11 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 from django.urls import reverse_lazy
+from django.template import loader
+from .models import Task
+from .forms import TaskForm
 from django.views.generic import (ListView, DetailView,
                                   CreateView, UpdateView, DeleteView)
-
-from .forms import TaskForm
-from .models import Task
 
 
 def home(request):
