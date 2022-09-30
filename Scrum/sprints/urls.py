@@ -1,11 +1,11 @@
 from django.urls import path
 from .views import (SprintDetailView, SprintCreateView,
-                    SprintUpdateView, SprintDeleteView, toggle_start, SprintListView)
+                    SprintUpdateView, SprintDeleteView, toggle_start_end, SprintListView)
 
 
 urlpatterns = [
     path('sprint/<int:pk>/', SprintDetailView.as_view(), name='sprint-detail'),
-    path('start/<int:id>', toggle_start, name='start'),
+    path('start_end/<int:id>', toggle_start_end, name='start-end'),
     path('sprintlist/', SprintListView.as_view(), name='sprint-list'),
     path('sprint/new/', SprintCreateView.as_view(), name='sprint-create'),
     path('sprint/<int:pk>/update/', SprintUpdateView.as_view(), name='sprint-update'),

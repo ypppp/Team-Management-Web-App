@@ -42,7 +42,7 @@ class TaskUpdateView(UpdateView):
 class TaskStatusUpdate(UpdateView):
     model = Task
     fields = ['status']
-    success_url = reverse_lazy('product-backlog')
+    success_url = reverse_lazy('sprint-list')
 
 
 class TaskDeleteView(DeleteView):

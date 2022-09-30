@@ -20,12 +20,16 @@
     <br>
     <p>{{ object.days_left }}   </p>
 
+    {% if object.sprint != "ON"%}
     <a href="{% url 'task-update' object.id %}">
         <button type="button" class="btn btn-danger">Edit</button>
     </a>
     <a href="{% url 'task-delete' object.id %}">
         <button type="button" class="btn btn-danger">Delete</button>
     </a>
+
+    {% endif %}
+
     <a href="{% url 'product-backlog' %}">
         <button type="button" class="btn btn-danger">Back</button>
     </a>

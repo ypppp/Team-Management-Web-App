@@ -34,7 +34,7 @@ class SprintDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(SprintDetailView, self).get_context_data(**kwargs)
-        context['task'] = Task.objects.all()
+        context['task'] = Task.objects.all().order_by('status')
         return context
 
 
@@ -50,11 +50,24 @@ class SprintListUpdateView(UpdateView):
 # path('task/<int:pk>/', SprintListUpdateView.as_view(), name='sprint-list-update'),
 
 # for the button to start
-def toggle_start(request, id):
+def toggle_start_end(request, id):
     sprint = Sprint.objects.get(id=id)
-    sprint.status = Sprint.ONGOING
+    all_task = Task.objects.all().filter(sprint=sprint)
+    if sprint.status == Sprint.PENDING:
+        sprint.status = Sprint.ONGOING
+    elif sprint.status == Sprint.ONGOING:
+        sprint.status = Sprint.ENDED
+        for task in all_task:
+            if task.sprint is not None and task.status != Task.COMPLETE:
+                task.sprint = None
+                task.status = Task.OVERDUE
+                task.save()
     sprint.save()
-    return render(request, 'sprints/sprint_backlog_confirm_save.html', {'id': id})
+    template = loader.get_template('sprints/sprint_backlog_confirm_save.html')
+    context = {
+        'sprint': sprint,
+    }
+    return HttpResponse(template.render(context, request))
 
 
 class SprintListView(ListView):
