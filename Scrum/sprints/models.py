@@ -33,6 +33,9 @@ class Sprint(models.Model):
     sprint_complete = models.BooleanField(default=False)
 
     def clean(self):
+        if ' ' in self.title:
+            raise ValidationError({'title': _('Space not allowed')})
+
         if date.today() > self.start_date:
             raise ValidationError({'end_date':_('Start date needs to be present or future')})
 

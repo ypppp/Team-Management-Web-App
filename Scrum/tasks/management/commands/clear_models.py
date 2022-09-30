@@ -1,9 +1,11 @@
 from django.core.management.base import BaseCommand
-from Scrum.tasks.models import Task
+from tasks.models import Task
+from sprints.models import Sprint
 
 
 class Command(BaseCommand):
+
     def handle(self, *args, **options):
         Task.objects.all().delete()
-
+        Sprint.objects.all().delete()
 

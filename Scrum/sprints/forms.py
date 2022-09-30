@@ -34,18 +34,3 @@ class SprintForm(forms.ModelForm):
             'start_date',
             'end_date',
         ]
-
-    def clean_title(self):
-        title = self.cleaned_data.get('title')
-
-        if ' ' in title:
-            raise forms.ValidationError('Space not allowed')
-        return title
-
-    def clean_end_date(self):
-        start_date = self.cleaned_data.get('start_date')
-        end_date = self.cleaned_data.get('end_date')
-
-        if start_date > end_date:
-            raise forms.ValidationError('End date must be after start date')
-        return end_date

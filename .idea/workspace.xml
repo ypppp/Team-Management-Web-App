@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="forms modified">
+    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="model validation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/db.sqlite3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/sprints/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/sprints/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scrum/sprints/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/sprints/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/tasks/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/task_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/task_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/tasks/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/tasks/management/commands/clear_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/management/commands/clear_models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -283,7 +283,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664548076555</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="model validation">
+      <created>1664554381295</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1664554381295</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -303,6 +310,7 @@
     <MESSAGE value="Sprint 1 tasks fixed" />
     <MESSAGE value="Task detail, update, create reimplemented" />
     <MESSAGE value="forms modified" />
-    <option name="LAST_COMMIT_MESSAGE" value="forms modified" />
+    <MESSAGE value="model validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="model validation" />
   </component>
 </project>
