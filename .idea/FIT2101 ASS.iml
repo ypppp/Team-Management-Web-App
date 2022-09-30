@@ -4,6 +4,8 @@
     <option name="TEMPLATE_FOLDERS">
       <list>
         <option value="$MODULE_DIR$/Scrum/tasks/templates" />
+        <option value="$MODULE_DIR$/Scrum/members/templates" />
+        <option value="$MODULE_DIR$/Scrum/sprints/templates" />
       </list>
     </option>
   </component>

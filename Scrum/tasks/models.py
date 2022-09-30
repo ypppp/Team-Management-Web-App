@@ -68,3 +68,7 @@ class Task(models.Model):
             color = 'Yellow'
 
         return color
+
+    @property
+    def __str__(self):
+        return self.title

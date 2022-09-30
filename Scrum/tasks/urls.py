@@ -1,14 +1,16 @@
 from django.urls import path
 from . import views
-from .views import (TaskListView, TaskCreateView, TaskDeleteView, TaskListViewSortBySprintAscending, TaskListViewSortByAssigneeAscending, TaskListViewSortByStatusAscending, TaskListViewSortByPriorityAscending)
+from .views import (TaskListView, TaskCreateView, TaskDeleteView, TaskListViewSortBySprintAscending,
+                    TaskListViewSortByAssigneeAscending, TaskListViewSortByStatusAscending,
+                    TaskListViewSortByPriorityAscending, TaskDetailView, TaskUpdateView)
 
 
 urlpatterns = [
     path('', views.home, name='dashboard'),
-    # path('productbacklog/', TaskListView.as_view(), name='product-backlog'),
+    path('productbacklog/', TaskListView.as_view(), name='product-backlog'),
     path('task/<int:pk>/', TaskDetailView.as_view(), name='task-detail'),
     path('task/new/', TaskCreateView.as_view(), name='task-create'),
-    path('task/<int:pk>/', views.TaskUpdateView.as_view(), name='task-form'),
+    path('task/<int:pk>/update/', TaskUpdateView.as_view(), name='task-form'),
     path('task/<int:pk>/delete/', TaskDeleteView.as_view(), name='task-delete'),
 
     path('productbacklog/sortby/sprint/ascending', TaskListViewSortBySprintAscending.as_view(), name='sort-by-sprint-ascending'),

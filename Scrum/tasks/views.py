@@ -24,8 +24,10 @@ class TaskListView(ListView):
     template_name = 'tasks/product_backlog.html'
 
 
-class TaskDetailView(DetailView, ListView):
+class TaskDetailView(DetailView):
     model = Task
+    # field = ['__all__']
+    # context_object_name = 'task'
 
 
 class TaskCreateView(CreateView):

@@ -1,3 +1,7 @@
 from django.shortcuts import render
+from django.views.generic import DetailView
+from .models import Sprint
 
-# Create your views here.
+
+class SprintDetailView(DetailView):
+    model = Sprint

@@ -1,25 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="Bug fix&#10; - divider not working for html">
-      <change afterPath="$PROJECT_DIR$/Scrum/sprints/forms.py" afterDir="false" />
+    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="Models modified:&#10;- Task&#10;- Sprint&#10;- Member">
+      <change afterPath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scrum/sprints/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/FIT2101 ASS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FIT2101 ASS.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/Scrum/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/main/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/Scrum/asgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/main/asgi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/Scrum/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/main/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/Scrum/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/main/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/Scrum/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/main/wsgi.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scrum/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/manage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/members/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/members/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/members/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/members/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/sprints/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/sprints/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/tasks/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/main/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/main/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/main/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/main/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/members/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/members/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/sprints/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/sprints/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/sprints/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/sprints/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/tasks/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/task_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/task_detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scrum/tasks/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scrum/tasks/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/createSprint/createSprintApp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/createSprint/createSprintApp/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +28,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="Python Script" />
       </list>
     </option>
@@ -60,6 +57,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "Git.Branch.Popup.ShowAllRemotes": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -256,7 +254,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663036090178</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Models modified:&#10;- Task&#10;- Sprint&#10;- Member">
+      <created>1664468735076</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1664468735076</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -272,6 +277,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Bug fix&#10; - divider not working for html" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bug fix&#10; - divider not working for html" />
+    <MESSAGE value="Models modified:&#10;- Task&#10;- Sprint&#10;- Member" />
+    <option name="LAST_COMMIT_MESSAGE" value="Models modified:&#10;- Task&#10;- Sprint&#10;- Member" />
   </component>
 </project>
