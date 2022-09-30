@@ -38,17 +38,18 @@
 
             <div style="display: flex">
               <div style="flex:50%;">
-                <p class="card-text">Duration: {{sprints.duration}}</p>
+                <p class="card-text">Days left: {{sprints.days_left}}</p>
               </div>
             </div>
           </div>
         </div>
+
             <a href="{%url 'sprint-list'%}" class="btn btn-secondary" style="width:7%;" data-inline="true">Back</a>
-        {% if sprints.status != "IN"%}
-            <a href="#" class="btn btn-secondary" style="width:7%;" data-inline="true">Edit</a>
-            <a href="{%url 'start' sprints.id%}" class="btn btn-success" style="width:15%;" data-inline="true">Start Sprint</a>
-        {% else %}
-            <a href="#" class="btn btn-danger" style="width:15%;" data-inline="true">End Sprint</a>
+        {% if sprints.status == "PE"%}
+            <a href="{%url 'sprint-update' sprints.pk %}" class="btn btn-secondary" style="width:7%;" data-inline="true">Edit</a>
+            <a href="{%url 'start-end' sprints.id%}" class="btn btn-success" style="width:15%;" data-inline="true">Start Sprint</a>
+        {% elif sprints.status == "ON" %}
+            <a href="{%url 'start-end' sprints.id%}" class="btn btn-danger" style="width:15%;" data-inline="true">End Sprint</a>
         {% endif %}
 <div>
     <br>
@@ -61,27 +62,35 @@
                 <th class="col3">Status</th>
                 <th class="col4">Tag</th>
                 <th class="col5">Assignee</th>
-                <th class="col6" style="width:0px;"></th>
              </tr>
         </thead>
         <tbody>
             {% for x in task %}
-                {% if x.sprint == sprints and sprints.status == Sprint.ONGOING %}
-                <tr>
-                  <td>{{ x.title }}</td>
-                  <td>{{ x.get_priority_display }}</td>
-                  <td>{{ x.get_status_display }}</td>
-                  <td>{{ x.tag }}</td>
-                  <td>{{ x.assignee }}</td>
-                </tr>
-                {% else %}
-                <tr>
-                  <td>{{ x.title }}</td>
-                  <td>{{ x.get_priority_display }}</td>
-                  <td>{{ x.get_status_display }}</td>
-                  <td>{{ x.tag }}</td>
-                  <td>{{ x.assignee }}</td>
-                </tr>
+                {% if x.sprint == sprints and sprints.status == "ON" %}
+                    <tr>
+                      <td>{{x.title}}</td>
+                      <td>{{ x.get_priority_display }}</td>
+                      <td>{{ x.get_status_display }}</td>
+                      <td>{{ x.tag }}</td>
+                      <td>{{ x.assignee }}</td>
+                      <td><a href="{% url 'task-status-update' x.pk %}"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a></td>
+                    </tr>
+                {% elif sprints.status == "EN" and x.status == "OV"%}
+                    <tr>
+                      <td>{{ x.title }}</td>
+                      <td>{{ x.get_priority_display }}</td>
+                      <td>{{ x.get_status_display }}</td>
+                      <td>{{ x.tag }}</td>
+                      <td>{{ x.assignee }}</td>
+                    </tr>
+                {% elif sprints.status == "PE" and x.sprint == sprints %}
+                    <tr>
+                      <td>{{ x.title }}</td>
+                      <td>{{ x.get_priority_display }}</td>
+                      <td>{{ x.get_status_display }}</td>
+                      <td>{{ x.tag }}</td>
+                      <td>{{x.assignee }}</td>
+                    </tr>
                 {% endif %}
             {% endfor %}
         </tbody>

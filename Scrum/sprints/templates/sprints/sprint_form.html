@@ -5,7 +5,7 @@
     {% csrf_token %}
     <fieldset>
         <div class="page-header">
-            <h1 class="page-header">New Sprint</h1>
+            <h1 class="page-header">Sprint Update</h1>
         </div>
         {{ form.title|as_crispy_field }}
         {{ form.sprint_goal|as_crispy_field }}
@@ -20,18 +20,10 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-4">
-                {{ form.task|as_crispy_field }}
-            </div>
-            <div class="col-3"></div>
-            <div class="col-4">
-            </div>
-        </div>
     </fieldset>
     <br>
     <div>
-        <button type="SUBMIT" class="btn btn-success">Create</button>
+        <button type="SUBMIT" class="btn btn-success">Save</button>
         <a href="{% url 'sprint-list' %}">
             <button type="button" class="btn btn-danger">Cancel</button>
         </a>
