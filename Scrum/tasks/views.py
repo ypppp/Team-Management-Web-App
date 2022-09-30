@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.urls import reverse_lazy
 from django.template import loader
-
 from .models import Task
 from .forms import TaskForm
 from django.views.generic import (ListView, DetailView,
@@ -30,6 +29,7 @@ class TaskDetailView(DetailView):
 class TaskCreateView(CreateView):
     model = Task
     form_class = TaskForm
+    template_name_suffix = '_create_form'
     success_url = reverse_lazy('product-backlog')
 
 

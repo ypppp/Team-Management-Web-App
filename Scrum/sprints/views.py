@@ -9,6 +9,10 @@ from tasks.models import Task
 from sprints.models import Sprint
 
 
+class SprintCreateView(CreateView):
+    model = Sprint
+
+
 # START OF <SPRINT LIST>
 
 # for sprint list before and after start, shows all the details of sprint including the 2 tables

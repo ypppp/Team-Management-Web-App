@@ -8,11 +8,11 @@ from tasks.views import (TaskListView, TaskDetailView, TaskCreateView, TaskDelet
 # from sprints.views import (SprintListView)
 
 urlpatterns = [
-    # path('', home, name='dashboard'),
+    # path('', home, name='dashboard'), moved to main
     path('productbacklog/', TaskListView.as_view(), name='product-backlog'),
     path('task/new/', TaskCreateView.as_view(), name='task-create'),
-    path('task/<int:pk>/', TaskUpdateView.as_view(), name='task-form'),
-    path('task/<int:pk>/update/', TaskUpdateView.as_view(), name='task-form'),
+    path('task/<int:pk>/', TaskDetailView.as_view(), name='task-detail'),
+    path('task/<int:pk>/update/', TaskUpdateView.as_view(), name='task-update'),
     path('task/<int:pk>/delete/', TaskDeleteView.as_view(), name='task-delete'),
 
     path('productbacklog/sortby/sprint/ascending', TaskListViewSortBySprintAscending.as_view(), name='sort-by-sprint-ascending'),
@@ -26,7 +26,4 @@ urlpatterns = [
     path('productbacklog/sortby/status/descending', TaskListViewSortByStatusDescending.as_view(), name='sort-by-status-descending'),
     path('productbacklog/sortby/priority/descending', TaskListViewSortByPriorityDescending.as_view(), name='sort-by-priority-descending'),
     path('productbacklog/sortby/due_date/descending', TaskListViewSortByDeadlineDescending.as_view(), name='sort-by-deadline-descending'),
-
-    # path('sprint/', SprintListView.as_view(), name='sprint-board')
-
 ]

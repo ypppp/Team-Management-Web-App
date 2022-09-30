@@ -1,6 +1,31 @@
 {% extends 'tasks/base.html' %}
 {% block content %}
     <h1>{{ object.title }}</h1>
+    <br>
     <p>{{ object.description }}</p>
-    <p>{{ object.sprint.title }}</p>
+    <br>
+    <p>{{ object.get_priority_display }}   </p>
+    <br>
+    <p>{{ object.get_status_display }}     </p>
+    <br>
+    <p>{{ object.get_story_point_display }}</p>
+    <br>
+    <p>{{ object.tag }}        </p>
+    <br>
+    <p>{{ object.assignee }}   </p>
+    <br>
+    <p>{{ object.sprint }}     </p>
+    <br>
+    <p>{{ object.due_date }}   </p>
+
+    <a href="{% url 'task-update' object.id %}">
+        <button type="button" class="btn btn-danger">Edit</button>
+    </a>
+    <a href="{% url 'task-delete' object.id %}">
+        <button type="button" class="btn btn-danger">Delete</button>
+    </a>
+    <a href="{% url 'product-backlog' %}">
+        <button type="button" class="btn btn-danger">Back</button>
+    </a>
+
 {% endblock %}

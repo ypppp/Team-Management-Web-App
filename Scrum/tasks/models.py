@@ -6,7 +6,6 @@ from members.models import Member
 
 
 class Task(models.Model):
-
     HIGH_PRIORITY = 'HI'
     MEDIUM_PRIORITY = 'ME'
     LOW_PRIORITY = 'LO'
@@ -61,16 +60,13 @@ class Task(models.Model):
     def get_priority_color(self):
 
         if self.priority == Task.HIGH_PRIORITY:
-            color = 'Red'
+            color = 'red'
         if self.priority == Task.MEDIUM_PRIORITY:
-            color = 'Orange'
+            color = 'orange'
         if self.priority == Task.LOW_PRIORITY:
-            color = 'Yellow'
+            color = 'yellow'
 
         return color
-
-    # def validate_constraints(self, exclude=None):
-
 
     def __str__(self):
         return self.title

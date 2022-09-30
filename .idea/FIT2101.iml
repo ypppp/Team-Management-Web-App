@@ -9,4 +9,12 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
+  <component name="TemplatesService">
+    <option name="TEMPLATE_FOLDERS">
+      <list>
+        <option value="$MODULE_DIR$/Scrum/sprints/templates" />
+        <option value="$MODULE_DIR$/Scrum/tasks/templates" />
+      </list>
+    </option>
+  </component>
 </module>
