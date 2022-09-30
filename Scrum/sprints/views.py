@@ -11,7 +11,7 @@ from sprints.models import Sprint
 
 # START OF <SPRINT LIST>
 
-# for sprintlist before and after start, shows all the details of sprint including the 2 tables
+# for sprint list before and after start, shows all the details of sprint including the 2 tables
 class SprintDetailView(DetailView):
     model = Sprint  # models
     context_object_name = 'sprints'
@@ -19,12 +19,12 @@ class SprintDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(SprintDetailView, self).get_context_data(**kwargs)
-        context['task'] = Task.objects.filter(sprint=self.model.sprint_id)
+        context['task'] = Task.objects.all()
         return context
 # path('sprint/<int:pk>/', SprintListView.as_view(), name='sprint_list_before_start'
 
 
-# for sprintlist after start, edit the status in the table
+# for sprint list after start, edit the status in the table
 class SprintListUpdateView(UpdateView):
     model = Sprint
     fields = [

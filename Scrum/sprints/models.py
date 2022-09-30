@@ -52,3 +52,6 @@ class Sprint(models.Model):
                 '%(start)s must not be larger than (end)s',
                 params={'start': self.start_date, 'end': self.end_date},
             )
+
+    def __str__(self):
+        return self.title

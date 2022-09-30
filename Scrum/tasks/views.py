@@ -3,8 +3,8 @@ from django.http import HttpResponse
 from django.urls import reverse_lazy
 from django.template import loader
 
-from .forms import TaskForm
 from .models import Task
+from .forms import TaskForm
 from django.views.generic import (ListView, DetailView,
                                   CreateView, UpdateView, DeleteView)
 
@@ -17,7 +17,6 @@ def home(request):
     return render(request, 'tasks/dashboard.html', context)
 
 
-# display table function
 class TaskListView(ListView):
     model = Task
     context_object_name = 'tasks'
@@ -26,14 +25,11 @@ class TaskListView(ListView):
 
 class TaskDetailView(DetailView):
     model = Task
-    # field = ['__all__']
-    # context_object_name = 'task'
 
 
 class TaskCreateView(CreateView):
     model = Task
     form_class = TaskForm
-    template_name_suffix = '_create_form'
     success_url = reverse_lazy('product-backlog')
 
 
@@ -43,7 +39,6 @@ class TaskUpdateView(UpdateView):
     success_url = reverse_lazy('product-backlog')
 
 
-# delete function
 class TaskDeleteView(DeleteView):
     model = Task
     success_url = reverse_lazy('product-backlog')

@@ -8,7 +8,7 @@ from tasks.views import (TaskListView, TaskDetailView, TaskCreateView, TaskDelet
 # from sprints.views import (SprintListView)
 
 urlpatterns = [
-    path('', home, name='dashboard'),
+    # path('', home, name='dashboard'),
     path('productbacklog/', TaskListView.as_view(), name='product-backlog'),
     path('task/new/', TaskCreateView.as_view(), name='task-create'),
     path('task/<int:pk>/', TaskUpdateView.as_view(), name='task-form'),
