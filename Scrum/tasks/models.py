@@ -24,11 +24,13 @@ class Task(models.Model):
     PENDING = 'PE'
     IN_PROGRESS = 'IN'
     COMPLETE = 'CM'
+    OVERDUE = 'OV'
 
     STATUS_LEVELS = [
         (PENDING, 'Pending'),
         (IN_PROGRESS, 'In Progress'),
-        (COMPLETE, 'Complete')
+        (COMPLETE, 'Complete'),
+        (OVERDUE, 'Overdue'),
     ]
 
     EXTRA_LARGE = 'XL'
