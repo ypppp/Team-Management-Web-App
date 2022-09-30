@@ -13,7 +13,7 @@ class Member(models.Model):
     cumulative_work = models.DurationField(default=timedelta(0))
 
     # Developers
-    date_created = models.DateTimeField(default=timezone.now(), editable=False)
+    date_created = models.DateTimeField(default=timezone.now, editable=False)
 
     def __str__(self):
         return f'{self.first_name} {self.last_name}'

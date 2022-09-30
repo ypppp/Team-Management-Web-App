@@ -9,8 +9,8 @@ from django.utils.translation import gettext_lazy as _
 class Sprint(models.Model):
 
     PENDING = 'PE'
-    ONGOING = 'IN'
-    ENDED = 'CM'
+    ONGOING = 'ON'
+    ENDED = 'EN'
 
     STATUS_LEVELS = [
         (PENDING, 'Pending'),
@@ -30,7 +30,7 @@ class Sprint(models.Model):
     end_date = models.DateField(null=True, blank=True)
 
     # Developers
-    date_created = models.DateTimeField(default=timezone.now(), editable=False)
+    date_created = models.DateTimeField(default=timezone.now, editable=False)
     sprint_complete = models.BooleanField(default=False)
 
     def clean(self):

@@ -10,9 +10,11 @@ from members.models import Member
 
 
 class Task(models.Model):
+
     HIGH_PRIORITY = 'HI'
     MEDIUM_PRIORITY = 'ME'
     LOW_PRIORITY = 'LO'
+
     PRIORITY_LEVELS = [
         (HIGH_PRIORITY, 'High'),
         (MEDIUM_PRIORITY, 'Medium'),
@@ -22,6 +24,7 @@ class Task(models.Model):
     PENDING = 'PE'
     IN_PROGRESS = 'IN'
     COMPLETE = 'CM'
+
     STATUS_LEVELS = [
         (PENDING, 'Pending'),
         (IN_PROGRESS, 'In Progress'),
@@ -32,6 +35,7 @@ class Task(models.Model):
     LARGE = 'L'
     MEDIUM = 'M'
     SMALL = 'S'
+
     SHIRT_SIZES = [
         (EXTRA_LARGE, EXTRA_LARGE),
         (LARGE, LARGE),
@@ -55,7 +59,7 @@ class Task(models.Model):
     due_date = models.DateField(null=True, blank=True)
 
     # Developers
-    date_created = models.DateTimeField(default=timezone.now(), editable=False)
+    date_created = models.DateTimeField(default=timezone.now, editable=False)
 
     @property
     def days_left(self):
