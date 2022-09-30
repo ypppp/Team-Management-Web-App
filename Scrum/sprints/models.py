@@ -30,7 +30,7 @@ class Sprint(models.Model):
     end_date = models.DateField(null=True, blank=True)
 
     # Developers
-    date_created = models.DateTimeField(default=timezone.now)
+    date_created = models.DateTimeField(default=timezone.now(), editable=False)
     sprint_complete = models.BooleanField(default=False)
 
     def clean(self):

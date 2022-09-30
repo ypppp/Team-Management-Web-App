@@ -35,24 +35,13 @@ class TaskForm(forms.ModelForm):
         queryset=Member.objects.all(), empty_label='Unassigned', required=False)
 
     sprint = forms.ModelChoiceField(
-        queryset=Sprint.objects.all(), empty_label='Unallocated', required=False)
+        queryset=Sprint.objects.filter(status=Sprint.PENDING), empty_label='Unallocated', required=False)
 
     due_date = forms.DateField(
         widget=forms.DateInput(format='%Y-%m-%d',
                                attrs={'class': 'form-control',
                                       'placeholder': 'Select a date',
                                       'type': 'date'}))
-
-    # def __init__(self, *args, **kwargs):
-    #     super(TaskForm, self).__init__(*args, **kwargs)
-    #     self.helper = FormHelper()
-    #
-    #     # Add 'Submit' & 'Cancel' button
-    #     self.helper.add_input(Submit('submit', 'Submit',
-    #                                  css_class='btn-success'))
-    #     self.helper.add_input(Submit('cancel', 'Cancel',
-    #                                  css_class='btn-danger',
-    #                                  formnovalidate='formnovalidate'))
 
     class Meta:
         model = Task
@@ -67,16 +56,6 @@ class TaskForm(forms.ModelForm):
             'sprint',
             'due_date',
         ]
-
-        # widgets = {
-        #     'due_date': forms.DateTimeInput(
-        #         format='%Y-%m-%d',
-        #         attrs={'class': 'form-control',
-        #                'placeholder': 'Select a date',
-        #                'type': 'date'
-        #                }),
-        #
-        # }
 
     def clean_due_date(self):
         due_date = self.cleaned_data.get('due_date')

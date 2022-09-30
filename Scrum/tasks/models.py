@@ -55,7 +55,7 @@ class Task(models.Model):
     due_date = models.DateField(null=True, blank=True)
 
     # Developers
-    date_created = models.DateTimeField(default=timezone.now)
+    date_created = models.DateTimeField(default=timezone.now(), editable=False)
 
     @property
     def days_left(self):

@@ -1,10 +1,12 @@
 from django.urls import path
+
 from tasks.views import (TaskListView, TaskDetailView, TaskCreateView, TaskDeleteView,
                          TaskListViewSortBySprintAscending, TaskListViewSortByAssigneeAscending,
                          TaskListViewSortByStatusAscending, TaskListViewSortByPriorityAscending, TaskUpdateView,
                          TaskListViewSortByDeadlineAscending, TaskListViewSortByDeadlineDescending,
                          TaskListViewSortByPriorityDescending, TaskListViewSortByStatusDescending,
-                         TaskListViewSortByAssigneeDescending, TaskListViewSortBySprintDescending, home)
+                         TaskListViewSortByAssigneeDescending, TaskListViewSortBySprintDescending, TaskStatusUpdate)
+
 # from sprints.views import (SprintListView)
 
 urlpatterns = [
@@ -13,6 +15,7 @@ urlpatterns = [
     path('task/new/', TaskCreateView.as_view(), name='task-create'),
     path('task/<int:pk>/', TaskDetailView.as_view(), name='task-detail'),
     path('task/<int:pk>/update/', TaskUpdateView.as_view(), name='task-update'),
+    path('task/<int:pk>/status-update/', TaskStatusUpdate.as_view(), name='task-status-update'),
     path('task/<int:pk>/delete/', TaskDeleteView.as_view(), name='task-delete'),
 
     path('productbacklog/sortby/sprint/ascending', TaskListViewSortBySprintAscending.as_view(), name='sort-by-sprint-ascending'),
