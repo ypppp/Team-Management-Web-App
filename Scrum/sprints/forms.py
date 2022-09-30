@@ -31,8 +31,8 @@ class SprintForm(forms.ModelForm):
                                       })
     )
 
-    task = forms.ModelChoiceField(
-        queryset=Task.objects.all(), empty_label='Unallocated', required=False)
+    # task = forms.ModelMultipleChoiceField(
+    #     queryset=Task.objects.all(), empty_label='Unallocated', required=False)
 
     class Meta:
         model = Sprint
