@@ -1,38 +1,74 @@
 from django.db import models
-from django.utils import timezone
 from django.urls import reverse
+from django.utils import timezone
+from sprints.models import Sprint
+from members.models import Member
 
 
 class Task(models.Model):
+
+    HIGH_PRIORITY = 'HI'
+    MEDIUM_PRIORITY = 'ME'
+    LOW_PRIORITY = 'LO'
+
     PRIORITY_LEVELS = [
-        ('HI', 'High'),
-        ('ME', 'Medium'),
-        ('LO', 'Low')
+        (HIGH_PRIORITY, 'High'),
+        (MEDIUM_PRIORITY, 'Medium'),
+        (LOW_PRIORITY, 'Low')
     ]
-
+    PENDING = 'PE'
+    IN_PROGRESS = 'IN'
+    COMPLETE = 'CM'
     STATUS_LEVELS = [
-        ('PE', 'Pending'),
-        ('IN', 'In Progress'),
-        ('CM', 'Complete')
+        (PENDING, 'Pending'),
+        (IN_PROGRESS, 'In Progress'),
+        (COMPLETE, 'Complete')
     ]
 
-    title = models.CharField(max_length=100)
+    EXTRA_LARGE = 'XL'
+    LARGE = 'L'
+    MEDIUM = 'M'
+    SMALL = 'S'
+    SHIRT_SIZES = [
+        (EXTRA_LARGE, EXTRA_LARGE),
+        (LARGE, LARGE),
+        (MEDIUM, MEDIUM),
+        (SMALL, SMALL)
+    ]
 
-    priority = models.CharField(blank=True,
-                                choices=PRIORITY_LEVELS,
-                                max_length=20)
-
-    status = models.CharField(blank=True,
-                              choices=STATUS_LEVELS,
-                              max_length=20)
-
-    tag = models.CharField(blank=True, max_length=50)
-    assignee = models.CharField(blank=True, max_length=50)
+    # Mandatory
+    title = models.CharField(max_length=50)
     description = models.TextField()
-    user_story = models.TextField(blank=True)
-    sprint = models.PositiveIntegerField(null=True, blank=True)
-    date_created = models.DateTimeField(default=timezone.now)
+    priority = models.CharField(max_length=20, choices=PRIORITY_LEVELS)
+
+    # Defaults
+    status = models.CharField(max_length=20, choices=STATUS_LEVELS, default=PENDING)
+    story_point = models.CharField(max_length=20, choices=SHIRT_SIZES, default=MEDIUM)
+
+    # Optional
+    tag = models.CharField(max_length=20, null=True, blank=True)
+    assignee = models.ForeignKey(Member, on_delete=models.SET_NULL, null=True, blank=True)
+    sprint = models.ForeignKey(Sprint, on_delete=models.SET_NULL, null=True, blank=True)
     due_date = models.DateField(null=True, blank=True)
+
+    # Developers
+    date_created = models.DateTimeField(default=timezone.now)
 
     def get_absolute_url(self):
         return reverse('task-detail', kwargs={'pk': self.pk})
+
+    @property
+    def get_priority_color(self):
+
+        if self.priority == Task.HIGH_PRIORITY:
+            color = 'Red'
+        if self.priority == Task.MEDIUM_PRIORITY:
+            color = 'Orange'
+        if self.priority == Task.LOW_PRIORITY:
+            color = 'Yellow'
+
+        return color
+
+    @property
+    def __str__(self):
+        return self.title

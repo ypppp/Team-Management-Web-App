@@ -2,12 +2,12 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.template import loader
-from .models import Members
+from .models import Member
 
 
 def index(request):
 
-    members = Members.objects.all().values()
+    members = Member.objects.all().values()
     context = {
         'members': members,
     }

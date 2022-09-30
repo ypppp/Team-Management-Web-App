@@ -12,7 +12,7 @@ from django.views.generic import (ListView, DetailView,
 def home(request):
     context = {
         'title': 'Dashboard',
-        'content': 'Welcome to the Scrum home page!'
+        'content': 'Welcome to the main home page!'
     }
     return render(request, 'tasks/dashboard.html', context)
 
@@ -26,6 +26,8 @@ class TaskListView(ListView):
 
 class TaskDetailView(DetailView):
     model = Task
+    # field = ['__all__']
+    # context_object_name = 'task'
 
 
 class TaskCreateView(CreateView):

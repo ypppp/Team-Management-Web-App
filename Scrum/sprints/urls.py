@@ -1,6 +1,7 @@
 from django.urls import path
-from sprints.views import SprintListView
+from .views import SprintDetailView
+
 
 urlpatterns = [
-    path('sprint/', SprintListView.as_view(), name='sprint-board')
+    path('sprint/<int:pk>/', SprintDetailView.as_view(), name='sprint-detail'),
 ]
