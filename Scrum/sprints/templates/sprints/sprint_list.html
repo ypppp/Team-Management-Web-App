@@ -2,65 +2,57 @@
 
     <!--START OF CONTENTS-->
     {% block content %}
-        <div class="container" style="overflow: hidden;">
+      <div class="container" style="overflow: hidden;">
         <br>
         <br>
         <div class="page-header">
-            <h1 class="page-header">Sprint List</h1>
+            <h1 class="page-header">Sprint Backlog</h1>
         </div>
         <br>
         </div>
         <br>
+
+        <div style="overflow: hidden; padding-left: 30px;">
+          <a href="#" class="btn btn-primary">Create</a>
+        </div>
         <br>
         <br>
 
-        
-        <div class="row" style="display:flex">
-            <div class="column" style="flex:50%">
-                <div class="page-header">
-                    <h2 class="page-header" style="text-align: center;">On going tasks</h2>
-                </div>
-                <br>
-                <div>
-                    <table class= "table table-hover table-striped">
-                        <thead class="table_head">
-                            <tr>
-                                <th class="col1">Task</th>
-                                <th class="col2">Assignee</th>
-                                <th class="col3">Status</th>
-                                <th class="col4">Time</th>
-                                <th class="col6" style="width:30px;"></th>
-                             </tr>
-                         </thead>
-                    </table>
-                    </div>
+        <div class="card" style="width: 100%;">
+          <!-- if want to use img, use the below code -->
+          <!-- <img src="..." class="card-img-top" alt="..."> -->
+          <div class="card-body">
+            <h5 class="card-title">Sprint 1</h5>
+            <div style="display: flex">
+              <div style="flex:50%;">
+                <p class="card-text">Status</p> 
+              </div>
+              <div style="flex:50%;">
+                <p class="card-text">Assignee</p> 
+              </div>
             </div>
-            <div class="column" style="flex:50%">
-                <div class="page-header">
-                    <h2 class="page-header" style="text-align: center;">Completed tasks</h2>
-                </div>
-                <br>
-                <div>
-                    <table class= "table table-hover table-striped">
-                        <thead class="table_head">
-                            <tr>
-                                <th class="col1">Task</th>
-                                <th class="col2">Assignee</th>
-                                <th class="col3">Status</th>
-                                <th class="col4">Time</th>
-                                <th class="col6" style="width:30px;"></th>
-                             </tr>
-                         </thead>
-                    </table>
-                    </div>
+            <br>
+
+            <div style="display: flex">
+              <div style="flex:50%;">
+                <p class="card-text">Start date</p> 
+              </div>
+              <div style="flex:50%;">
+                <p class="card-text">End date</p> 
+              </div>
             </div>
+            <br>
+
+            <div style="display: flex">
+              <div style="flex:50%;">
+                <p class="card-text">Time taken</p> 
+              </div>
+            </div>
+            <br>
+
+            <a href="#" class="btn btn-primary">Edit</a>
+          </div>
         </div>
-
-       
-
-
+      
     {% endblock content %}
     <!-- end of content-->
-        
-
-    

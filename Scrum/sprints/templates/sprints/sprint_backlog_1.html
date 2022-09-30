@@ -1,0 +1,44 @@
+{% extends 'tasks/base.html' %}
+{% block content %}
+<!--FEATURES-->
+<!--END BUTTON -> ENDS THE SPRINT, MAKE IT HIDE WITH JS(ONE TIME BUTTON), UPDATES STATUS TO DONE OR COMPLETE -->
+<!--EDIT STATUS -> CAN EDIT STATUS OF THE TASKS, WILL UPDATE TO SQL. -->
+<!--TIME-IN -> CAN INPUT A INPUT FIELD TO FILL IN TIME AND SAVE TO SQL. -->
+<!--SAVE BUTTON -> PROMPT TO SAVE HTML AND UPDATES SQL -->
+    <br>
+    <br>
+  <div class="page-header">
+    <h1 class="page-header">{{ sprints.title }}</h1>
+  </div>
+    <br>
+    <p>{{ sprints.sprint_goal }}</p>
+    <p>{{ sprints.status }}</p>
+    <p>{{sprints.duration}}</p>
+    <!--end date and start date -->
+
+
+    <table class= "table table-hover table-striped">
+        <thead class="table_head">
+            <tr>
+                <th class="col1">Title</th>
+                <th class="col2">Priority</th>
+                <th class="col3">Status</th>
+                <th class="col4">Tag</th>
+                <th class="col5">Assignee</th>
+             </tr>
+        </thead>
+        <tbody>
+            {% for x in task %}
+                {% if x.sprint == sprints %}
+                <tr>
+                  <td>{{ x.title }}</td>
+                  <td>{{ x.get_priority_display }}</td>
+                  <td>{{ x.get_status_display }}</td>
+                  <td>{{ x.tag }}</td>
+                  <td>{{ x.assignee }}</td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

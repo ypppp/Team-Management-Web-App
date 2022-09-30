@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="Ready for implementation sprintlist" />
+    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="Ready for implementation sprintlist">
+      <change afterPath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_backlog_1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_backlog.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_list_1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_list_2.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_backlog_2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_list_confirm_save.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_backlog_confirm_save.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/sprints/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/sprints/views.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,6 +32,9 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Scrum/tasks/models.py" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />

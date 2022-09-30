@@ -15,11 +15,11 @@ from sprints.models import Sprint
 class SprintDetailView(DetailView):
     model = Sprint  # models
     context_object_name = 'sprints'
-    template_name = 'sprints/sprint_list_1.html'
+    template_name = 'sprints/sprint_backlog_1.html'
 
     def get_context_data(self, **kwargs):
         context = super(SprintDetailView, self).get_context_data(**kwargs)
-        context['task'] = Task.objects.filter(sprint=self.model.sprint_id)
+        context['task'] = Task.objects.all()
         return context
 # path('sprint/<int:pk>/', SprintListView.as_view(), name='sprint_list_before_start'
 
