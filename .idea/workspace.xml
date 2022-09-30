@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="Added some essential stuff">
-      <change afterPath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_list_1.html" afterDir="false" />
+    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="Created SprintBacklogView">
+      <change beforePath="$PROJECT_DIR$/.idea/FIT2101 ASS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FIT2101 ASS.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/FIT2101-B6.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FIT2101-B6.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_09_2022__6_45_pm__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_09_2022__6_45_pm__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/Scrum/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/Scrum/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_list_after_start.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_list_before_start.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_list_2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/main/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/main/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_detail.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_list_1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_list_2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_list_confirm_save.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Scrum/sprints/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/sprints/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scrum/sprints/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/sprints/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/tasks/static/css/productbacklog.css" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/static/css/productbacklog.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/tasks/static/css/taskdetail.css" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/static/css/taskdetail.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/tasks/static/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/static/js/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scrum/tasks/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,16 +52,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Git.Branch.Popup.ShowAllRemotes": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PythonContentEntriesConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Git.Branch.Popup.ShowAllRemotes&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PythonContentEntriesConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="FIT2101-B6" />
@@ -181,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664428690891</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Created SprintBacklogView">
+      <created>1664443136401</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1664443136401</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -199,6 +216,7 @@
     <MESSAGE value="Bug fix&#10; - divider not working for html" />
     <MESSAGE value="Added sprint_backlog.html" />
     <MESSAGE value="Added some essential stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added some essential stuff" />
+    <MESSAGE value="Created SprintBacklogView" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created SprintBacklogView" />
   </component>
 </project>
