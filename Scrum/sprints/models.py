@@ -54,7 +54,11 @@ class Sprint(models.Model):
     def days_left(self):
         today = date.today()
         days_left = self.end_date - today
-        return days_left
+
+        if days_left.days < 0:
+            return 0
+
+        return days_left.days
 
     def get_absolute_url(self):
         return reverse('sprint-detail', kwargs={'pk': self.pk})

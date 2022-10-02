@@ -59,7 +59,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#">
+        <a class="nav-link collapsed" href="{% url 'dashboard' %}">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -72,14 +72,14 @@
       </li><!-- End Product Backlog Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed"  href="{% url 'sprint-list' %}">
-          <i class="bi bi-journal-text"></i><span>Sprint List</span><i></i>
+        <a class="nav-link collapsed"  href="{% url 'sprint-backlog' %}">
+          <i class="bi bi-journal-text"></i><span>Sprint Backlog</span><i></i>
         </a>
       </li><!-- End Sprint List Nav -->
 
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#">
+        <a class="nav-link collapsed" href="{% url 'member-list' %}">
           <i class="bi bi-bar-chart"></i><span>Members</span><i></i>
         </a>
       </li><!-- End Members Nav -->

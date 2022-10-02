@@ -7,11 +7,11 @@ from tasks.models import Task
 class SprintForm(forms.ModelForm):
 
     title = forms.CharField(
-        widget=forms.TextInput(attrs={'placeholder': 'A meaningful title'})
+        widget=forms.TextInput(attrs={'placeholder': 'Must not contain spaces'})
     )
 
     sprint_goal = forms.CharField(
-        widget=forms.Textarea(attrs={'placeholder': 'Add more details to this task',
+        widget=forms.Textarea(attrs={'placeholder': 'Tell us more about this sprint',
                                      'rows': '3', })
     )
 
@@ -31,8 +31,8 @@ class SprintForm(forms.ModelForm):
                                       })
     )
 
-    # task = forms.ModelMultipleChoiceField(
-    #     queryset=Task.objects.all(), empty_label='Unallocated', required=False)
+    tasks = forms.ModelMultipleChoiceField(
+        queryset=Task.objects.filter(sprint=None), required=False)
 
     class Meta:
         model = Sprint
@@ -41,5 +41,5 @@ class SprintForm(forms.ModelForm):
             'sprint_goal',
             'start_date',
             'end_date',
-            # 'task',
+            'tasks',
         ]

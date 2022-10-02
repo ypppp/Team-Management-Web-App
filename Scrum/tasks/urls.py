@@ -7,7 +7,6 @@ from tasks.views import (TaskListView, TaskDetailView, TaskCreateView, TaskDelet
                          TaskListViewSortByPriorityDescending, TaskListViewSortByStatusDescending,
                          TaskListViewSortByAssigneeDescending, TaskListViewSortBySprintDescending, TaskStatusUpdate)
 
-# from sprints.views import (SprintListView)
 
 urlpatterns = [
     # path('', home, name='dashboard'), moved to main

@@ -2,11 +2,11 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.urls import reverse
 from django.utils import timezone
-from django.utils.datetime_safe import date, datetime
+from django.utils.datetime_safe import date
 from django.utils.translation import gettext_lazy as _
 
-from sprints.models import Sprint
 from members.models import Member
+from sprints.models import Sprint
 
 
 class Task(models.Model):
@@ -56,8 +56,10 @@ class Task(models.Model):
 
     # Optional
     tag = models.CharField(max_length=20, null=True, blank=True)
+
     assignee = models.ForeignKey(Member, on_delete=models.SET_NULL, null=True, blank=True)
-    sprint = models.ForeignKey(Sprint, on_delete=models.SET_NULL, null=True, blank=True)
+    sprint = models.ForeignKey(Sprint, on_delete=models.SET_NULL, related_name='tasks', null=True, blank=True)
+
     due_date = models.DateField(null=True, blank=True)
 
     # Developers
@@ -67,7 +69,11 @@ class Task(models.Model):
     def days_left(self):
         today = date.today()
         days_left = self.due_date - today
-        return days_left
+
+        if days_left.days < 0:
+            return 0
+
+        return days_left.days
 
     @property
     def get_priority_color(self):
@@ -83,7 +89,7 @@ class Task(models.Model):
 
     def clean(self):
         if date.today() > self.due_date:
-            raise ValidationError({'end_date': _('Start date needs to be present or future')})
+            raise ValidationError({'due_date': _('Due date needs to be present or future')})
 
     def get_absolute_url(self):
         return reverse('task-detail', kwargs={'pk': self.pk})

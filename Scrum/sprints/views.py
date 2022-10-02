@@ -13,7 +13,6 @@ from sprints.models import Sprint
 
 class SprintCreateView(CreateView):
     model = Sprint
-    template_name_suffix = '_create_form'
     form_class = SprintForm
 
 class SprintUpdateView(UpdateView):
@@ -28,13 +27,13 @@ class SprintDeleteView(DeleteView):
 
 # for sprintlist before and after start, shows all the details of sprint including the 2 tables
 class SprintDetailView(DetailView):
-    model = Sprint  # models
-    context_object_name = 'sprints'
-    template_name = 'sprints/sprint_backlog_1.html'
+    model = Sprint
+    # context_object_name = 'sprint'
+    # template_name = 'sprints/sprint_detail.html'
 
     def get_context_data(self, **kwargs):
         context = super(SprintDetailView, self).get_context_data(**kwargs)
-        context['task'] = Task.objects.all().order_by('status')
+        context['tasks'] = Task.objects.all().order_by('status')
         return context
 
 
@@ -63,7 +62,7 @@ def toggle_start_end(request, id):
                 task.status = Task.OVERDUE
                 task.save()
     sprint.save()
-    template = loader.get_template('sprints/sprint_backlog_confirm_save.html')
+    template = loader.get_template('sprints/sprint_confirm_save.html')
     context = {
         'sprint': sprint,
     }
@@ -72,7 +71,6 @@ def toggle_start_end(request, id):
 
 class SprintListView(ListView):
     model = Sprint
-    context_object_name = 'sprints'
-    template_name = 'sprints/sprint_list.html'
+    template_name = 'sprints/sprint_backlog.html'
 
 

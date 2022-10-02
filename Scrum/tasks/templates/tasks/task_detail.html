@@ -1,33 +1,29 @@
 {% extends 'tasks/base.html' %}
 {% block content %}
-    <h1>{{ object.title }}</h1>
+    <h1>{{ task.title }}</h1>
     <br>
-    <p>{{ object.description }}</p>
+    <p>{{ task.description }}</p>
     <br>
-    <p>{{ object.get_priority_display }}   </p>
+    <p>{{ task.get_priority_display }}   </p>
     <br>
-    <p>{{ object.get_status_display }}     </p>
+    <p>{{ task.get_status_display }}     </p>
     <br>
-    <p>{{ object.get_story_point_display }}</p>
+    <p>{{ task.get_story_point_display }}</p>
     <br>
-    <p>{{ object.tag }}        </p>
+    <p>{{ task.tag }}        </p>
     <br>
-    <p>{{ object.assignee }}   </p>
+    <p>{{ task.assignee }}   </p>
     <br>
-    <p>{{ object.sprint }}     </p>
+    <p>{{ task.sprint }}     </p>
     <br>
-    <p>{{ object.due_date }}   </p>
+    <p>{{ task.due_date }}   </p>
     <br>
-    <p>{{ object.days_left }}   </p>
+    <p>{{ task.days_left }}   </p>
 
-    {% if object.sprint != "ON"%}
-    <a href="{% url 'task-update' object.id %}">
-        <button type="button" class="btn btn-danger">Edit</button>
-    </a>
-    <a href="{% url 'task-delete' object.id %}">
-        <button type="button" class="btn btn-danger">Delete</button>
-    </a>
-
+    {% if task.sprint != "ON"%}
+        <a href="{% url 'task-update' task.id %}">
+            <button type="button" class="btn btn-danger">Edit</button>
+        </a>
     {% endif %}
 
     <a href="{% url 'product-backlog' %}">

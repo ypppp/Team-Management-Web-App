@@ -5,18 +5,27 @@
     {% csrf_token %}
     <fieldset>
         <div class="page-header">
-            <h1 class="page-header">Sprint Update</h1>
+            {% if sprint is None %}
+                <h1 class="page-header">New Sprint</h1>
+            {% else %}
+                <h1 class="page-header">Sprint Update</h1>
+            {% endif %}
         </div>
-        {{ form.title|as_crispy_field }}
-        {{ form.sprint_goal|as_crispy_field }}
+        {{ form.title | as_crispy_field }}
+        {{ form.sprint_goal | as_crispy_field }}
 
         <div class="row">
             <div class="col-4">
-                {{ form.start_date|as_crispy_field }}
+                {{ form.start_date | as_crispy_field }}
             </div>
             <div class="col-3"></div>
             <div class="col-4">
-                {{ form.end_date|as_crispy_field }}
+                {{ form.end_date | as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                {{ form.tasks | as_crispy_field }}
             </div>
         </div>
 
@@ -24,9 +33,18 @@
     <br>
     <div>
         <button type="SUBMIT" class="btn btn-success">Save</button>
-        <a href="{% url 'sprint-list' %}">
-            <button type="button" class="btn btn-danger">Cancel</button>
-        </a>
+        {% if sprint is None %}
+            <a href="{% url 'sprint-backlog' %}">
+                <button type="button" class="btn btn-danger">Cancel</button>
+            </a>
+        {% else %}
+            <a href="{% url 'sprint-delete' sprint.id %}">
+                <button type="button" class="btn btn-danger">Delete</button>
+            </a>
+            <a href="{% url 'sprint-detail' sprint.id %}">
+                <button type="button" class="btn btn-danger">Cancel</button>
+            </a>
+        {% endif %}
     </div>
 </form>
 {% endblock content %}
