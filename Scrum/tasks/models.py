@@ -5,9 +5,6 @@ from django.utils import timezone
 from django.utils.datetime_safe import date
 from django.utils.translation import gettext_lazy as _
 
-from members.models import Member
-from sprints.models import Sprint
-
 
 class Task(models.Model):
 
@@ -57,8 +54,11 @@ class Task(models.Model):
     # Optional
     tag = models.CharField(max_length=20, null=True, blank=True)
 
-    assignee = models.ForeignKey(Member, on_delete=models.SET_NULL, null=True, blank=True)
-    sprint = models.ForeignKey(Sprint, on_delete=models.SET_NULL, related_name='tasks', null=True, blank=True)
+    assignee = models.ForeignKey(to='members.Member', on_delete=models.SET_NULL,
+                                 related_name='assignee', null=True, blank=True)
+
+    sprint = models.ForeignKey(to='sprints.Sprint', on_delete=models.SET_NULL,
+                               related_name='sprints', null=True, blank=True)
 
     due_date = models.DateField(null=True, blank=True)
 
