@@ -58,7 +58,7 @@ class Task(models.Model):
                                  related_name='assignee', null=True, blank=True)
 
     sprint = models.ForeignKey(to='sprints.Sprint', on_delete=models.SET_NULL,
-                               related_name='sprints', null=True, blank=True)
+                               related_name='sprint', null=True, blank=True)
 
     due_date = models.DateField(null=True, blank=True)
 

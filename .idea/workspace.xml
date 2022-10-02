@@ -1,44 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Scrum/members/templates/members/member_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_delete.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/FIT2101-B6.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FIT2101-B6.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projects/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sandbox/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/members/templates/members/add.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/members/templates/members/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/members/templates/members/myfirst.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/members/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/members/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/members/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/members/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/sprints/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/sprints/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/sprints/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/sprints/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/sprints/static/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_backlog_1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_backlog_2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_backlog_confirm_save.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_confirm_save.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_create_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_create_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_backlog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/sprints/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/sprints/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/sprints/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/sprints/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/tasks/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/tasks/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/product_backlog.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/product_backlog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/task_confirm_delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/task_confirm_delete.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/task_create_form.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/task_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/task_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/task_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/task_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/testing.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/tasks/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/tasks/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/views.py" afterDir="false" />
-    </list>
+    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="foreign key field modification" />
     <list id="0a9e4d80-b2b8-4395-999c-282aa5101ca1" name="Changes by timle" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -247,7 +210,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664570028131</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="foreign key field modification">
+      <created>1664704841993</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1664704841993</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -273,6 +243,7 @@
     <MESSAGE value="model validation" />
     <MESSAGE value="database fix" />
     <MESSAGE value="overdue added to task model" />
-    <option name="LAST_COMMIT_MESSAGE" value="overdue added to task model" />
+    <MESSAGE value="foreign key field modification" />
+    <option name="LAST_COMMIT_MESSAGE" value="foreign key field modification" />
   </component>
 </project>
