@@ -18,6 +18,7 @@ def home(request):
 class TaskListView(ListView):
     model = Task
     template_name = 'tasks/product_backlog.html'
+    paginate_by = 20
 
 
 class TaskDetailView(DetailView):

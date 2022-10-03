@@ -6,58 +6,60 @@
 <!--TIME-IN -> CAN INPUT A INPUT FIELD TO FILL IN TIME AND SAVE TO SQL. -->
 <!--SAVE BUTTON -> PROMPT TO SAVE HTML AND UPDATES SQL -->
     <br>
-    <br>
   <div class="page-header">
-    <h1 class="page-header">Sprint Backlog</h1>
+    <h1 class="page-header">{{sprint.title}}</h1>
   </div>
-    <br>
-        <div class="card" style="width:100%; background-color: #DFDFDF;">
-          <!-- if want to use img, use the below code -->
-          <!-- <img src="..." class="card-img-top" alt="..."> -->
-          <div class="card-body">
-            <h4 class="card-title">{{sprint.title}}</h4>
-            <div style="display: flex">
-              <div style="flex:50%;">
-                  <p class="card-text">Goal: {{ sprint.sprint_goal }}</p>
-              </div>
-              <div style="flex:50%;">
-                <p class="card-text">Start Date: {{ sprint.start_date }}</p>
-              </div>
-            </div>
-            <br>
-
-            <div style="display: flex">
-              <div style="flex:50%;">
-                <p class="card-text">Status: {{ sprint.get_status_display }}</p>
-              </div>
-              <div style="flex:50%;">
-                <p class="card-text">End Date: {{sprint.end_date}}</p>
-              </div>
-            </div>
-            <br>
-
-            <div style="display: flex">
-              <div style="flex:50%;">
-                <p class="card-text">Days left: {{sprint.days_left}}</p>
-              </div>
-            </div>
+<br>
+    <div class="card" style="width:100%; background-color: #DFDFDF;">
+      <!-- if want to use img, use the below code -->
+      <!-- <img src="..." class="card-img-top" alt="..."> -->
+      <div class="card-body">
+          <br>
+        <div style="display: flex">
+          <div style="flex:50%;">
+              <p class="card-text">Goal: {{ sprint.sprint_goal }}</p>
+          </div>
+          <div style="flex:50%;">
+            <p class="card-text">Start Date: {{ sprint.start_date }}</p>
           </div>
         </div>
+        <br>
 
-            <a href="{%url 'sprint-backlog'%}" class="btn btn-secondary" style="width:7%;" data-inline="true">Back</a>
+        <div style="display: flex">
+          <div style="flex:50%;">
+            <p class="card-text">Status: {{ sprint.get_status_display }}</p>
+          </div>
+          <div style="flex:50%;">
+            <p class="card-text">End Date: {{sprint.end_date}}</p>
+          </div>
+        </div>
+        <br>
 
-        {% if sprint.status == "PE"%}
-            <a href="{%url 'sprint-update' sprint.pk %}" class="btn btn-secondary" style="width:7%;" data-inline="true">Edit</a>
-            <a href="{%url 'start-end' sprint.id%}" class="btn btn-success" style="width:15%;" data-inline="true">Start Sprint</a>
+        <div style="display: flex">
+          <div style="flex:50%;">
+            <p class="card-text">Days left: {{sprint.days_left}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="{% url 'sprint-backlog' %}" class="btn btn-secondary" style="width:7%;" data-inline="true">Back</a>
 
-        {% elif sprint.status == "ON" %}
-            <a href="{%url 'start-end' sprint.id%}" class="btn btn-danger" style="width:15%;" data-inline="true">End Sprint</a>
+    {% if sprint.status == "PE"%}
 
-        {% endif %}
+        <a href="{% url 'sprint-update' sprint.id %}" class="btn btn-secondary" style="width:7%;" data-inline="true">Edit</a>
+        <a href="{% url 'start-end' sprint.id %}" class="btn btn-success" style="width:15%;" data-inline="true">Start Sprint</a>
+
+    {% elif sprint.status == "ON" %}
+
+        <a href="{% url 'start-end' sprint.id %}" class="btn btn-danger" style="width:15%;" data-inline="true">End Sprint</a>
+
+    {% endif %}
+
 <div>
     <br>
+    <br>
     {% if sprint.status == "EN" %}
-        <h3><b>All Overdue Tasks</b></h3>
+        <h3><b>Overdue Tasks</b></h3>
 
     {% else %}
         <h3><b>Tasks</b></h3>
@@ -75,8 +77,8 @@
              </tr>
         </thead>
         <tbody>
-            {% for x in tasks %}
-                {% if x.sprint == sprint and sprint.status == "ON" %}
+            {% for x in sprint.tasks.all %}
+{#                {% if x.sprint == sprint and sprint.status == "ON" %}#}
                     <tr>
                       <td>{{x.title}}</td>
                       <td>{{ x.get_priority_display }}</td>
@@ -85,23 +87,23 @@
                       <td>{{ x.assignee }}</td>
                       <td><a href="{% url 'task-status-update' x.pk %}"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a></td>
                     </tr>
-                {% elif sprint.status == "EN" and x.status == "OV"%}
-                    <tr>
-                      <td>{{ x.title }}</td>
-                      <td>{{ x.get_priority_display }}</td>
-                      <td>{{ x.get_status_display }}</td>
-                      <td>{{ x.tag }}</td>
-                      <td>{{ x.assignee }}</td>
-                    </tr>
-                {% elif sprint.status == "PE" and x.sprint == sprint %}
-                    <tr>
-                      <td>{{ x.title }}</td>
-                      <td>{{ x.get_priority_display }}</td>
-                      <td>{{ x.get_status_display }}</td>
-                      <td>{{ x.tag }}</td>
-                      <td>{{x.assignee }}</td>
-                    </tr>
-                {% endif %}
+{#                {% elif sprint.status == "EN" and x.status == "OV"%}#}
+{#                    <tr>#}
+{#                      <td>{{ x.title }}</td>#}
+{#                      <td>{{ x.get_priority_display }}</td>#}
+{#                      <td>{{ x.get_status_display }}</td>#}
+{#                      <td>{{ x.tag }}</td>#}
+{#                      <td>{{ x.assignee }}</td>#}
+{#                    </tr>#}
+{#                {% elif sprint.status == "PE" and x.sprint == sprint %}#}
+{#                    <tr>#}
+{#                      <td>{{ x.title }}</td>#}
+{#                      <td>{{ x.get_priority_display }}</td>#}
+{#                      <td>{{ x.get_status_display }}</td>#}
+{#                      <td>{{ x.tag }}</td>#}
+{#                      <td>{{x.assignee }}</td>#}
+{#                    </tr>#}
+{#                {% endif %}#}
             {% endfor %}
         </tbody>
     </table>

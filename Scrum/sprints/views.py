@@ -15,45 +15,50 @@ class SprintCreateView(CreateView):
     model = Sprint
     form_class = SprintForm
 
+    # def get_success_url(self):
+    #     success_url = reverse_lazy('sprint-detail', kwargs={'pk': self.object.pk})
+    #     return success_url
+
 class SprintUpdateView(UpdateView):
     model = Sprint
     form_class = SprintForm
 
+    def get_success_url(self):
+        print('Fuck this shit')
+        print(self.object)
+        success_url = reverse_lazy('sprint-detail', kwargs={'pk': self.object.pk})
+        return success_url
+
+
 class SprintDeleteView(DeleteView):
     model = Sprint
+    success_url = reverse_lazy('sprint-backlog')
 
 
-# START OF <SPRINT LIST>
+class SprintListView(ListView):
+    model = Sprint
+    template_name = 'sprints/sprint_backlog.html'
 
-# for sprintlist before and after start, shows all the details of sprint including the 2 tables
+
 class SprintDetailView(DetailView):
     model = Sprint
     # context_object_name = 'sprint'
     # template_name = 'sprints/sprint_detail.html'
 
-    def get_context_data(self, **kwargs):
-        context = super(SprintDetailView, self).get_context_data(**kwargs)
-        context['tasks'] = Task.objects.all().order_by('status')
-        return context
+    # def get_context_data(self, **kwargs):
+    #     context = super(SprintDetailView, self).get_context_data(**kwargs)
+    #     context['tasks'] = Task.objects.all().order_by('status')
+    #     return context
 
 
-# for sprintlist after start, edit the status in the table
-class SprintListUpdateView(UpdateView):
-    model = Sprint
-    fields = [
-        "status"
-    ]
-    reverse_lazy('sprint-list-after-start')
-
-
-# path('task/<int:pk>/', SprintListUpdateView.as_view(), name='sprint-list-update'),
-
-# for the button to start
 def toggle_start_end(request, id):
+
     sprint = Sprint.objects.get(id=id)
     all_task = Task.objects.all().filter(sprint=sprint)
+
     if sprint.status == Sprint.PENDING:
         sprint.status = Sprint.ONGOING
+
     elif sprint.status == Sprint.ONGOING:
         sprint.status = Sprint.ENDED
         for task in all_task:
@@ -61,6 +66,7 @@ def toggle_start_end(request, id):
                 task.sprint = None
                 task.status = Task.OVERDUE
                 task.save()
+
     sprint.save()
     template = loader.get_template('sprints/sprint_confirm_save.html')
     context = {
@@ -68,9 +74,5 @@ def toggle_start_end(request, id):
     }
     return HttpResponse(template.render(context, request))
 
-
-class SprintListView(ListView):
-    model = Sprint
-    template_name = 'sprints/sprint_backlog.html'
 
 

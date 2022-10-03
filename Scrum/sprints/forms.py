@@ -1,11 +1,11 @@
 from django import forms
+from django.db.models import Q
 
 from sprints.models import Sprint
 from tasks.models import Task
 
 
 class SprintForm(forms.ModelForm):
-
     title = forms.CharField(
         widget=forms.TextInput(attrs={'placeholder': 'Must not contain spaces'})
     )
@@ -32,7 +32,8 @@ class SprintForm(forms.ModelForm):
     )
 
     tasks = forms.ModelMultipleChoiceField(
-        queryset=Task.objects.filter(sprint=None), required=False)
+        queryset=Task.objects.filter(Q(sprint=None) | Q(sprint__active=False)),
+        widget=forms.CheckboxSelectMultiple, required=False)
 
     class Meta:
         model = Sprint
@@ -43,3 +44,8 @@ class SprintForm(forms.ModelForm):
             'end_date',
             'tasks',
         ]
+
+    def save(self, commit=True):
+        sprint = super().save(commit)
+        sprint.tasks.set(self.cleaned_data['tasks'])
+        return sprint

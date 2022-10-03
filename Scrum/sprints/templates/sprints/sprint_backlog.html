@@ -2,8 +2,8 @@
 
 <!--START OF CONTENTS-->
 {% block content %}
-  <div class="container" style="overflow: hidden;">
     <br>
+  <div class="container" style="overflow: hidden;">
     <div class="page-header">
         <h1 class="page-header">Sprint Backlog</h1>
     </div>
@@ -14,7 +14,7 @@
     </div>
     <br>
     {% for sprint in sprint_list %}
-    <div class="card" style="width: 100%; height:260px" >
+    <div class="card" style="width: 100%; height:230px" >
       <!-- if want to use img, use the below code -->
       <!-- <img src="..." class="card-img-top" alt="..."> -->
       <div class="card-body card border-info mb-0">
@@ -24,28 +24,27 @@
         <div style="display: flex">
           <div style="flex:50%;">
             <p class="card-text">Status:
-            {{ sprint.get_status_display }}</p>
+            {{ sprint.get_status_display }}
+            {{ sprint.id }}
+            </p>
+          </div>
+            <div style="flex:50%;">
+            <p class="card-text">Start Date:
+                {{ sprint.start_date }}
+            </p>
           </div>
         </div>
         <br>
 
         <div style="display: flex">
           <div style="flex:50%;">
-            <p class="card-text">Start Date:
-                {{ sprint.start_date }}
+            <p class="card-text">Days left:
+                {{ sprint.days_left }}
             </p>
           </div>
           <div style="flex:50%;">
             <p class="card-text">End Date:
                 {{ sprint.end_date }}
-            </p>
-          </div>
-        </div>
-        <br>
-        <div style="display: flex">
-          <div style="flex:50%;">
-            <p class="card-text">Days left:
-                {{ sprint.days_left }}
             </p>
           </div>
         </div>

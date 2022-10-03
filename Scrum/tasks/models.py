@@ -45,9 +45,9 @@ class Task(models.Model):
     # Mandatory
     title = models.CharField(max_length=50)
     description = models.TextField()
-    priority = models.CharField(max_length=20, choices=PRIORITY_LEVELS)
 
     # Defaults
+    priority = models.CharField(max_length=20, choices=PRIORITY_LEVELS, default=MEDIUM_PRIORITY)
     status = models.CharField(max_length=20, choices=STATUS_LEVELS, default=PENDING)
     story_point = models.CharField(max_length=20, choices=SHIRT_SIZES, default=MEDIUM)
 
@@ -55,10 +55,10 @@ class Task(models.Model):
     tag = models.CharField(max_length=20, null=True, blank=True)
 
     assignee = models.ForeignKey(to='members.Member', on_delete=models.SET_NULL,
-                                 related_name='assignee', null=True, blank=True)
+                                 related_name='tasks', null=True, blank=True)
 
     sprint = models.ForeignKey(to='sprints.Sprint', on_delete=models.SET_NULL,
-                               related_name='sprint', null=True, blank=True)
+                               related_name='tasks', null=True, blank=True)
 
     due_date = models.DateField(null=True, blank=True)
 
@@ -88,6 +88,9 @@ class Task(models.Model):
         return color
 
     def clean(self):
+        if self.due_date is None:
+            return
+
         if date.today() > self.due_date:
             raise ValidationError({'due_date': _('Due date needs to be present or future')})
 
