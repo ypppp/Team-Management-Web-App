@@ -28,12 +28,14 @@ class SprintDeleteView(DeleteView):
 # for sprintlist before and after start, shows all the details of sprint including the 2 tables
 class SprintDetailView(DetailView):
     model = Sprint
-    # context_object_name = 'sprint'
-    # template_name = 'sprints/sprint_detail.html'
 
     def get_context_data(self, **kwargs):
         context = super(SprintDetailView, self).get_context_data(**kwargs)
+        context['all_start_sprint'] = Sprint.objects.filter(status="ON").count
         context['tasks'] = Task.objects.all().order_by('status')
+        pk = self.object.pk
+        print("------------------")
+        print(pk)
         return context
 
 

@@ -1,33 +1,45 @@
 {% extends 'tasks/base.html' %}
 {% block content %}
-    <h1>{{ task.title }}</h1>
     <br>
-    <p>{{ task.description }}</p>
     <br>
-    <p>{{ task.get_priority_display }}   </p>
-    <br>
-    <p>{{ task.get_status_display }}     </p>
-    <br>
-    <p>{{ task.get_story_point_display }}</p>
-    <br>
-    <p>{{ task.tag }}        </p>
-    <br>
-    <p>{{ task.assignee }}   </p>
-    <br>
-    <p>{{ task.sprint }}     </p>
-    <br>
-    <p>{{ task.due_date }}   </p>
-    <br>
-    <p>{{ task.days_left }}   </p>
+    <div class="page-header">
+        <h1 class="page-header">Task Details</h1>
+        {% if task.sprint != "ON"%}
+            <div align="right">
+                <a href="{% url 'task-update' task.id %}"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
+            </div>
+        {% endif %}
+    </div>
+    <div class="row">
+      <div class="col-6">
+          <p>Title</p>
+          <div class="alert alert-secondary" role="alert">{{task.title}}</div>
+          <p>Priority</p>
+          <div class="alert alert-secondary" role="alert">{{ task.get_priority_display }}</div>
+          <p>Sprint</p>
+          <div class="alert alert-secondary" role="alert">{{ task.sprint }}</div>
+          <p>Assignee</p>
+          <div class="alert alert-secondary" role="alert">{{ task.assignee }}</div>
+          <p>Tag</p>
+          <div class="alert alert-secondary" role="alert">{{ task.tag }}</div>
+      </div>
+      <div class="col-6">
+          <p>Status</p>
+          <div class="alert alert-secondary" role="alert">{{ task.get_status_display }}</div>
+          <p>Story Point</p>
+          <div class="alert alert-secondary" role="alert">{{ task.get_story_point_display }}</div>
+          <p>Due Date</p>
+          <div class="alert alert-secondary" role="alert">{{ task.due_date }}</div>
+          <p>Days Left</p>
+          <div class="alert alert-secondary" role="alert">{{ task.days_left }}</div>
+      </div>
+    </div>
+          <p>Description</p>
+          <div class="alert alert-secondary" role="alert">{{ task.description }}</div>
 
-    {% if task.sprint != "ON"%}
-        <a href="{% url 'task-update' task.id %}">
-            <button type="button" class="btn btn-danger">Edit</button>
-        </a>
-    {% endif %}
 
     <a href="{% url 'product-backlog' %}">
-        <button type="button" class="btn btn-danger">Back</button>
+        <button type="button" class="btn btn-primary">Back</button>
     </a>
 
 {% endblock %}
