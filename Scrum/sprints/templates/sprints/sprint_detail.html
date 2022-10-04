@@ -45,26 +45,20 @@
     <a href="{% url 'sprint-list' %}" class="btn btn-secondary" style="width:7%;" data-inline="true">Back</a>
 
     {% if sprint.status == PENDING %}
-
             <a href="{%url 'sprint-update' sprint.pk %}" class="btn btn-secondary" style="width:7%;" data-inline="true">Edit</a>
             {% if all_start_sprint < 1 %}
                 <a href="{%url 'start-end' sprint.id%}" class="btn btn-success" style="width:15%;" data-inline="true">Start Sprint</a>
             {% else %}
                 <button type="button" class="btn btn-secondary" style="width:15%;" disabled>Start Sprint</button>
             {% endif %}
-
     {% elif sprint.status == ONGOING %}
-
         <a href="{% url 'start-end' sprint.id %}" class="btn btn-danger" style="width:15%;" data-inline="true">End Sprint</a>
-
     {% endif %}
 
 <div>
     <br>
     <br>
     <h3><b>Tasks</b></h3>
-
-
     <table class= "table table-hover table-striped">
         <thead class="table_head">
             <tr>
@@ -77,32 +71,16 @@
         </thead>
         <tbody>
             {% for task in sprint.tasks.all %}
-{#                {% if x.sprint == sprint and sprint.status == "ON" %}#}
                     <tr>
                       <td>{{ task.title}}</td>
                       <td>{{ task.get_priority_display }}</td>
                       <td>{{ task.get_status_display }}</td>
                       <td>{{ task.tag }}</td>
                       <td>{{ task.assignee }}</td>
-                      <td><a href="{% url 'task-update-status' task.pk %}"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a></td>
+                      {%if sprint.status == ONGOING%}
+                        <td><a href="{% url 'task-update-status' task.pk %}"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a></td>
+                      {%endif%}
                     </tr>
-{#                {% elif sprint.status == "EN" and x.status == "OV"%}#}
-{#                    <tr>#}
-{#                      <td>{{ x.title }}</td>#}
-{#                      <td>{{ x.get_priority_display }}</td>#}
-{#                      <td>{{ x.get_status_display }}</td>#}
-{#                      <td>{{ x.tag }}</td>#}
-{#                      <td>{{ x.assignee }}</td>#}
-{#                    </tr>#}
-{#                {% elif sprint.status == "PE" and x.sprint == sprint %}#}
-{#                    <tr>#}
-{#                      <td>{{ x.title }}</td>#}
-{#                      <td>{{ x.get_priority_display }}</td>#}
-{#                      <td>{{ x.get_status_display }}</td>#}
-{#                      <td>{{ x.tag }}</td>#}
-{#                      <td>{{x.assignee }}</td>#}
-{#                    </tr>#}
-{#                {% endif %}#}
             {% endfor %}
         </tbody>
     </table>

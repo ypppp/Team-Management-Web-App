@@ -76,13 +76,6 @@ def toggle_start_end(request, pk):
                 task.save()
 
     sprint.save()
-    # template = loader.get_template('sprints/sprint_list')
-    # context = {
-    #     'sprint': sprint,
-    #     'PENDING': Sprint.PENDING,
-    #     'ONGOING': Sprint.ONGOING,
-    #     'ENDED': Sprint.ENDED,
-    # }
     return redirect('sprint-list')
 
 
