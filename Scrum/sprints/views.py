@@ -1,6 +1,7 @@
 from django.http import HttpResponse
+from django.shortcuts import redirect
 from django.template import loader
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.views.generic import (ListView, DetailView,
                                   CreateView, UpdateView, DeleteView)
 
@@ -35,12 +36,20 @@ class SprintListView(ListView):
     model = Sprint
     ordering = ['-active', '-status']
 
+    def get_context_data(self, **kwargs):
+        context = super(SprintListView, self).get_context_data(**kwargs)
+        context['PENDING'] = Sprint.PENDING
+        context['ONGOING'] = Sprint.ONGOING
+        context['ENDED'] = Sprint.ENDED
+        return context
+
 
 class SprintDetailView(DetailView):
     model = Sprint
 
     def get_context_data(self, **kwargs):
         context = super(SprintDetailView, self).get_context_data(**kwargs)
+        context['all_start_sprint'] = Sprint.objects.filter(status="ON").count
         context['PENDING'] = Sprint.PENDING
         context['ONGOING'] = Sprint.ONGOING
         context['ENDED'] = Sprint.ENDED
@@ -67,14 +76,26 @@ def toggle_start_end(request, pk):
                 task.save()
 
     sprint.save()
-    template = loader.get_template('sprints/sprint_confirm_save.html')
-    context = {
-        'sprint': sprint,
-        'PENDING': Sprint.PENDING,
-        'ONGOING': Sprint.ONGOING,
-        'ENDED': Sprint.ENDED,
-    }
-    return HttpResponse(template.render(context, request))
+    # template = loader.get_template('sprints/sprint_list')
+    # context = {
+    #     'sprint': sprint,
+    #     'PENDING': Sprint.PENDING,
+    #     'ONGOING': Sprint.ONGOING,
+    #     'ENDED': Sprint.ENDED,
+    # }
+    return redirect('sprint-list')
 
 
+class SprintStartEndView(DetailView):
+    model = Sprint
+    template_name = "sprints/sprint_confirm_save.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(SprintStartEndView, self).get_context_data(**kwargs)
+        context['incomplete_tasks'] = Task.objects.all().filter(sprint=self.object, status="IN").count
+        context['pending_tasks'] = Task.objects.all().filter(sprint=self.object, status="CM").count
+        context['PENDING'] = Sprint.PENDING
+        context['ONGOING'] = Sprint.ONGOING
+        context['ENDED'] = Sprint.ENDED
+        return context
 

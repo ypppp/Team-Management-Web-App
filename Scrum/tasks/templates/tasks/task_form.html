@@ -15,7 +15,21 @@
           {% endif %}
       </div>
         <br>
-        {{ form|crispy }}
+        <div class="row">
+      <div class="col-6">
+          {{form.title|as_crispy_field}}
+          {{form.priority|as_crispy_field}}
+          {{form.sprint|as_crispy_field}}
+          {{form.assignee|as_crispy_field}}
+      </div>
+      <div class="col-6">
+          {{form.tag|as_crispy_field}}
+          {{form.status|as_crispy_field}}
+          {{form.story_point|as_crispy_field}}
+          {{form.due_date|as_crispy_field}}
+      </div>
+    </div>
+          {{form.description|as_crispy_field}}
     </fieldset>
     <div>
         <button type="submit" class="btn btn-success">Save

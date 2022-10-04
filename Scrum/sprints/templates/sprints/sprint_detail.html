@@ -46,8 +46,12 @@
 
     {% if sprint.status == PENDING %}
 
-        <a href="{% url 'sprint-update' sprint.id %}" class="btn btn-secondary" style="width:7%;" data-inline="true">Edit</a>
-        <a href="{% url 'start-end' sprint.id %}" class="btn btn-success" style="width:15%;" data-inline="true">Start Sprint</a>
+            <a href="{%url 'sprint-update' sprint.pk %}" class="btn btn-secondary" style="width:7%;" data-inline="true">Edit</a>
+            {% if all_start_sprint < 1 %}
+                <a href="{%url 'start-end' sprint.id%}" class="btn btn-success" style="width:15%;" data-inline="true">Start Sprint</a>
+            {% else %}
+                <button type="button" class="btn btn-secondary" style="width:15%;" disabled>Start Sprint</button>
+            {% endif %}
 
     {% elif sprint.status == ONGOING %}
 
@@ -60,7 +64,6 @@
     <br>
     <h3><b>Tasks</b></h3>
 
-    {% endif %}
 
     <table class= "table table-hover table-striped">
         <thead class="table_head">
