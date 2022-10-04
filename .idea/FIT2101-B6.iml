@@ -16,22 +16,9 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/Scrum" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/venv/PycharmProjects" />
+      <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-  </component>
-  <component name="PyDocumentationSettings">
-    <option name="format" value="PLAIN" />
-    <option name="myDocStringFormat" value="Plain" />
-  </component>
-  <component name="TemplatesService">
-    <option name="TEMPLATE_CONFIGURATION" value="Jinja2" />
-    <option name="TEMPLATE_FOLDERS">
-      <list>
-        <option value="$MODULE_DIR$/Scrum/members/templates" />
-        <option value="$MODULE_DIR$/Scrum/tasks/templates" />
-        <option value="$MODULE_DIR$/Scrum/sprints/templates" />
-      </list>
-    </option>
   </component>
 </module>
