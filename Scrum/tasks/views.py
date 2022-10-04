@@ -17,8 +17,7 @@ def home(request):
 
 class TaskListView(ListView):
     model = Task
-    template_name = 'tasks/product_backlog.html'
-    paginate_by = 20
+    # paginate_by = 20
 
 
 class TaskDetailView(DetailView):
@@ -28,82 +27,72 @@ class TaskDetailView(DetailView):
 class TaskCreateView(CreateView):
     model = Task
     form_class = TaskForm
-    success_url = reverse_lazy('product-backlog')
+    success_url = reverse_lazy('task-list')
 
 
 class TaskUpdateView(UpdateView):
     model = Task
     form_class = TaskForm
-    success_url = reverse_lazy('product-backlog')
+    success_url = reverse_lazy('task-list')
 
 
 class TaskStatusUpdate(UpdateView):
     model = Task
     fields = ['status']
-    success_url = reverse_lazy('sprint-backlog')
+    success_url = reverse_lazy('sprint-list')
 
 
 class TaskDeleteView(DeleteView):
     model = Task
-    success_url = reverse_lazy('product-backlog')
+    success_url = reverse_lazy('task-list')
 
 
 # sorting functions
 class TaskListViewSortBySprintAscending(ListView):
     model = Task
-    template_name = 'tasks/product_backlog.html'
     ordering = ['sprint']
 
 
 class TaskListViewSortByAssigneeAscending(ListView):
     model = Task
-    template_name = 'tasks/product_backlog.html'
     ordering = ['assignee']
 
 
 class TaskListViewSortByStatusAscending(ListView):
     model = Task
-    template_name = 'tasks/product_backlog.html'
     ordering = ['status']
 
 
 class TaskListViewSortByPriorityAscending(ListView):
     model = Task
-    template_name = 'tasks/product_backlog.html'
     ordering = ['priority']
 
 
 class TaskListViewSortByDeadlineAscending(ListView):
     model = Task
-    template_name = 'tasks/product_backlog.html'
     ordering = ['due_date']
 
 
 class TaskListViewSortBySprintDescending(ListView):
     model = Task
-    template_name = 'tasks/product_backlog.html'
     ordering = ['-sprint']
 
 
 class TaskListViewSortByAssigneeDescending(ListView):
     model = Task
-    template_name = 'tasks/product_backlog.html'
     ordering = ['-assignee']
 
 
 class TaskListViewSortByStatusDescending(ListView):
     model = Task
-    template_name = 'tasks/product_backlog.html'
     ordering = ['-status']
 
 
 class TaskListViewSortByPriorityDescending(ListView):
     model = Task
-    template_name = 'tasks/product_backlog.html'
     ordering = ['-priority']
 
 
 class TaskListViewSortByDeadlineDescending(ListView):
     model = Task
-    template_name = 'tasks/product_backlog.html'
     ordering = ['-due_date']

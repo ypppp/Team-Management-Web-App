@@ -19,7 +19,7 @@
     {% endif %}
   <hr>
     <button type="submit" class="btn btn-danger">Delete</button>
-    <a class="btn btn-light" href="{% url 'sprint-backlog' %}">Cancel</a>
+    <a class="btn btn-light" href="{% url 'sprint-list' %}">Cancel</a>
 </div>
     {% if sprint.tasks %}
     <table class= "table table-hover table-striped">
@@ -35,17 +35,18 @@
          </thead>
 
         <tbody>
-        {% for task in sprint.tasks.all %}
-            <tr>
-              <td>{{ task.title }}</td>
-              <td>{{ task.get_priority_display }}</td>
-              <td>{{ task.get_status_display }}</td>
-              <td>{{ task.tag }}</td>
-              <td>{{ task.assignee }}</td>
-              <td>{{ task.due_date }}</td>
-            </tr>
-        {% endfor %}
+            {% for task in sprint.tasks.all %}
+                <tr>
+                  <td>{{ task.title }}</td>
+                  <td>{{ task.get_priority_display }}</td>
+                  <td>{{ task.get_status_display }}</td>
+                  <td>{{ task.tag }}</td>
+                  <td>{{ task.assignee }}</td>
+                  <td>{{ task.due_date }}</td>
+                </tr>
+            {% endfor %}
         </tbody>
+
     </table>
     {% endif %}
 </div>

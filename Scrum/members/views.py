@@ -15,14 +15,14 @@ class MemberDetailView(DetailView):
 
 class MemberCreateView(CreateView):
     model = Member
-    success_url = reverse_lazy('product-backlog')
+    success_url = reverse_lazy('member-list')
 
 
 class MemberUpdateView(UpdateView):
     model = Member
-    success_url = reverse_lazy('product-backlog')
+    success_url = reverse_lazy('member-list')
 
 
 class MemberDeleteView(DeleteView):
     model = Member
-    success_url = reverse_lazy('product-backlog')
+    success_url = reverse_lazy('member-list')

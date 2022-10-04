@@ -1,13 +1,15 @@
 {% extends 'tasks/base.html' %}
 {% block content %}
-    {% if sprint.status == "ON" %}
+    {% if sprint.status == ONGOING %}
 
         <h2>Sprint has started</h2>
-        <a href="{%url 'sprint-backlog'%}" class="btn btn-warning" style="width:10%;" data-inline="true">OK</a>
+        <br>
+        <a href="{% url 'sprint-list' %}" class="btn btn-warning" style="width:10%;" data-inline="true">OK</a>
 
-    {% elif sprint.status == "EN" %}
+    {% elif sprint.status == ENDED %}
 
         <h2>Sprint has ended</h2>
+        <br>
         <div class="card" style="width:100%; background-color: #DFDFDF;">
           <!-- if want to use img, use the below code -->
           <!-- <img src="..." class="card-img-top" alt="..."> -->
@@ -28,19 +30,19 @@
                 <p class="card-text">Status: {{ sprint.get_status_display }}</p>
               </div>
               <div style="flex:50%;">
-                <p class="card-text">End Date: {{sprint.end_date}}</p>
+                <p class="card-text">End Date: {{ sprint.end_date }}</p>
               </div>
             </div>
             <br>
 
             <div style="display: flex">
               <div style="flex:50%;">
-                <p class="card-text">Days Left: {{sprints.days_left}}</p>
+                <p class="card-text">Days Left: {{ sprints.days_left }}</p>
               </div>
             </div>
           </div>
         </div>
-        <a href="{%url 'sprint-backlog'%}" class="btn btn-warning" style="width:20%;" data-inline="true">Return to Sprint Backlog</a>
-    {% endif %}
+        <a href="{% url 'sprint-list' %}" class="btn btn-warning" style="width:20%;" data-inline="true">Return to Sprint</a>
 
+    {% endif %}
 {% endblock %}

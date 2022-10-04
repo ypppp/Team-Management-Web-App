@@ -20,13 +20,13 @@
     <br>
     <p>{{ task.days_left }}   </p>
 
-    {% if task.sprint != "ON"%}
+    {% if not task.sprint.active %}
         <a href="{% url 'task-update' task.id %}">
             <button type="button" class="btn btn-danger">Edit</button>
         </a>
     {% endif %}
 
-    <a href="{% url 'product-backlog' %}">
+    <a href="{% url 'task-list' %}">
         <button type="button" class="btn btn-danger">Back</button>
     </a>
 

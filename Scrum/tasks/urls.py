@@ -9,12 +9,11 @@ from tasks.views import (TaskListView, TaskDetailView, TaskCreateView, TaskDelet
 
 
 urlpatterns = [
-    # path('', home, name='dashboard'), moved to main
-    path('productbacklog/', TaskListView.as_view(), name='product-backlog'),
+    path('', TaskListView.as_view(), name='task-list'),
     path('task/new/', TaskCreateView.as_view(), name='task-create'),
     path('task/<int:pk>/', TaskDetailView.as_view(), name='task-detail'),
     path('task/<int:pk>/update/', TaskUpdateView.as_view(), name='task-update'),
-    path('task/<int:pk>/status-update/', TaskStatusUpdate.as_view(), name='task-status-update'),
+    path('task/<int:pk>/update/status/', TaskStatusUpdate.as_view(), name='task-update-status'),
     path('task/<int:pk>/delete/', TaskDeleteView.as_view(), name='task-delete'),
 
     path('productbacklog/sortby/sprint/ascending', TaskListViewSortBySprintAscending.as_view(), name='sort-by-sprint-ascending'),
