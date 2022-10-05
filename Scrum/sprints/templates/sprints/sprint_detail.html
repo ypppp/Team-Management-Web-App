@@ -77,7 +77,7 @@
                       <td>{{ task.get_status_display }}</td>
                       <td>{{ task.tag }}</td>
                       <td>{{ task.assignee }}</td>
-                      {%if sprint.status == ONGOING%}
+                      {% if sprint.status == ONGOING %}
                         <td><a href="{% url 'task-update-status' task.pk %}"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a></td>
                       {%endif%}
                     </tr>

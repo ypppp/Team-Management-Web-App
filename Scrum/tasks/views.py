@@ -39,6 +39,7 @@ class TaskUpdateView(UpdateView):
 class TaskStatusUpdate(UpdateView):
     model = Task
     fields = ['status']
+    template_name = 'tasks/task_status_update.html'
     success_url = reverse_lazy('sprint-list')
 
 

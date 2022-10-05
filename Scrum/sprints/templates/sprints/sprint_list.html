@@ -18,13 +18,16 @@
       <!-- <img src="..." class="card-img-top" alt="..."> -->
       <div class="card-body card border-info mb-0">
         <div style="display:flex;">
-          {%if sprint.status == PENDING%}
+          {% if sprint.status == PENDING %}
             <h5 class="card-title" style="color:#012970; font-size: 1.5rem;">{{ sprint.title}} <i class="fa fa-circle" aria-hidden="true" style="color:#ffcc00"></i></h5>
-          {%elif sprint.status == ONGOING%}
+
+          {% elif sprint.status == ONGOING %}
             <h5 class="card-title" style="color:#012970; font-size: 1.5rem;">{{ sprint.title}} <i class="fa fa-circle" aria-hidden="true" style="color:green"></i></h5>
-          {%elif sprint.status == ENDED%}
+
+          {% elif sprint.status == ENDED %}
             <h5 class="card-title" style="color:#012970; font-size: 1.5rem;">{{ sprint.title}} <i class="fa fa-circle" aria-hidden="true" style="color:red"></i></h5>
-          {%endif%}
+
+          {% endif %}
         </div>
         <div style="display: flex">
           <div style="flex:50%;">
