@@ -10,7 +10,7 @@
     <br>
     </div>
     <div style=" text-align: right; padding-right: 20px;">
-      <a href="{%url 'sprint-create'%}"><i class="fa fa-plus fa-3x" aria-hidden="true" style="color:tomato;"></i></a>
+      <a href="{% url 'sprint-create' %}"><i class="fa fa-plus fa-3x" aria-hidden="true" style="color:tomato;"></i></a>
     </div>
     <br>
     {% for sprint in sprint_list %}
@@ -19,7 +19,7 @@
       <!-- <img src="..." class="card-img-top" alt="..."> -->
       <div class="card-body card border-info mb-0">
         <div style="display:flex;">
-          <h5 class="card-title" style="color:#012970; font-size: 1.5rem;">{{ sprint.title}}</h5>
+          <h5 class="card-title" style="color:#012970; font-size: 1.5rem;">{{ sprint.title }}</h5>
         </div>
         <div style="display: flex">
           <div style="flex:50%;">

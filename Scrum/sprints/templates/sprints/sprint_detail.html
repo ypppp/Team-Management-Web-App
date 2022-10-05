@@ -72,14 +72,17 @@
         </thead>
         <tbody>
             {% for task in sprint.tasks.all %}
-{#                {% if x.sprint == sprint and sprint.status == "ON" %}#}
                     <tr>
                       <td>{{ task.title}}</td>
                       <td>{{ task.get_priority_display }}</td>
                       <td>{{ task.get_status_display }}</td>
                       <td>{{ task.tag }}</td>
                       <td>{{ task.assignee }}</td>
-                      <td><a href="{% url 'task-update-status' task.pk %}"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a></td>
+
+                    {% if sprint.status != PENDING %}
+                        <td><a href="{% url 'task-update-status' task.pk %}"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a></td>
+                    {% endif %}
+
                     </tr>
 {#                {% elif sprint.status == "EN" and x.status == "OV"%}#}
 {#                    <tr>#}
@@ -97,7 +100,6 @@
 {#                      <td>{{ x.tag }}</td>#}
 {#                      <td>{{x.assignee }}</td>#}
 {#                    </tr>#}
-{#                {% endif %}#}
             {% endfor %}
         </tbody>
     </table>
