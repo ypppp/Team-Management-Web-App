@@ -1,57 +1,80 @@
-from django.shortcuts import render, get_object_or_404
-from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
-from django.urls import reverse_lazy, reverse
+from django.http import HttpResponse
 from django.template import loader
+from django.urls import reverse_lazy
 from django.views.generic import (ListView, DetailView,
                                   CreateView, UpdateView, DeleteView)
 
 from sprints.forms import SprintForm
-from tasks.models import Task
 from sprints.models import Sprint
+from tasks.models import Task
 
 
 class SprintCreateView(CreateView):
     model = Sprint
-    template_name_suffix = '_create_form'
     form_class = SprintForm
+
+    def get_success_url(self):
+        success_url = reverse_lazy('sprint-detail', kwargs={'pk': self.object.pk})
+        return success_url
 
 class SprintUpdateView(UpdateView):
     model = Sprint
     form_class = SprintForm
 
+    def get_success_url(self):
+        success_url = reverse_lazy('sprint-detail', kwargs={'pk': self.object.pk})
+        return success_url
+
+
 class SprintDeleteView(DeleteView):
     model = Sprint
+    success_url = reverse_lazy('sprint-list')
 
 
-# START OF <SPRINT LIST>
+class SprintListView(ListView):
+    model = Sprint
+    ordering = ['-active', '-status']
 
-# for sprint list before and after start, shows all the details of sprint including the 2 tables
+
 class SprintDetailView(DetailView):
-    model = Sprint  # models
-    context_object_name = 'sprints'
-    template_name = 'sprints/sprint_list_1.html'
+    model = Sprint
 
     def get_context_data(self, **kwargs):
         context = super(SprintDetailView, self).get_context_data(**kwargs)
-        context['task'] = Task.objects.all()
+        context['PENDING'] = Sprint.PENDING
+        context['ONGOING'] = Sprint.ONGOING
+        context['ENDED'] = Sprint.ENDED
         return context
-# path('sprint/<int:pk>/', SprintListView.as_view(), name='sprint_list_before_start'
 
 
-# for sprint list after start, edit the status in the table
-class SprintListUpdateView(UpdateView):
-    model = Sprint
-    fields = [
-        "status"
-    ]
-    reverse_lazy('sprint-list-after-start')
-# path('task/<int:pk>/', SprintListUpdateView.as_view(), name='sprint-list-update'),
+def toggle_start_end(request, pk):
 
-# for the button to start
-def toggle_start(request):
-    sprint = get_object_or_404(Sprint, pk=request.GET.get('sprint_id'))
-    sprint.status = "Ongoing"
+    sprint = Sprint.objects.get(id=pk)
+
+    if sprint.status == Sprint.PENDING:
+        sprint.status = Sprint.ONGOING
+        sprint.active = True
+
+    elif sprint.status == Sprint.ONGOING:
+        sprint.status = Sprint.ENDED
+        sprint.active = False
+
+        tasks = sprint.tasks.all()
+        for task in tasks:
+            if task.status != Task.COMPLETE:
+                # task.sprint = None
+                task.status = Task.OVERDUE
+                task.save()
+
     sprint.save()
-    reverse_lazy('sprint-backlog')
+    template = loader.get_template('sprints/sprint_confirm_save.html')
+    context = {
+        'sprint': sprint,
+        'PENDING': Sprint.PENDING,
+        'ONGOING': Sprint.ONGOING,
+        'ENDED': Sprint.ENDED,
+    }
+    return HttpResponse(template.render(context, request))
+
+
 
