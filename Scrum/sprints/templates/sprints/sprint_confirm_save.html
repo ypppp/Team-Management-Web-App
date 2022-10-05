@@ -1,18 +1,33 @@
 {% extends 'tasks/base.html' %}
 {% block content %}
-    {% if sprint.status == ONGOING %}
 
-        <h2>Sprint has started</h2>
+    {% if sprint.status == PENDING %}
         <br>
-        <a href="{% url 'sprint-list' %}" class="btn btn-warning" style="width:10%;" data-inline="true">OK</a>
+        <h2>Start Sprint Confirmation</h2>
+        <div class="alert alert-warning" role="alert">
+            <h4 class="alert-heading"><i class="fa fa-exclamation-triangle" style="color:#721c24;" aria-hidden="true"></i> Warning</h4>
+            <p>You will be starting sprint title: "{{sprint.title}}".</p>
+            <p>Other sprints would not be able to start until existing ongoing sprint has ended</p>
+            <p><b>This action cannot be undone.</b></p>
+            <hr>
+            <a href="{%url 'start-end-confirm' sprint.id%}" class="btn btn-success" style="width:5%;" data-inline="true">Confirm</a>
+            <a class="btn btn-light" href="{% url 'sprint-detail' sprint.pk %}">Cancel</a>
+        </div>
 
-    {% elif sprint.status == ENDED %}
-
-        <h2>Sprint has ended</h2>
+    {% elif sprint.status == ONGOING %}
+        <br>
+        <h2>End Sprint Confirmation</h2>
+        <div class="alert alert-warning" role="alert">
+            <h4 class="alert-heading"><i class="fa fa-exclamation-triangle" style="color:#721c24;" aria-hidden="true"></i> Warning</h4>
+            <p>You are permanently ending sprint title: "{{sprint.title}}".</p>
+            <p><i>You still have {{pending_tasks}} pending tasks and {{incomplete_tasks}} incomplete tasks.</i>
+            <p><b>This action cannot be undone.</b></p>
+            <hr>
+            <a href="{%url 'start-end-confirm' sprint.id%}" class="btn btn-success" style="width:5%;" data-inline="true">Confirm</a>
+            <a class="btn btn-light" href="{% url 'sprint-detail' sprint.pk %}">Cancel</a>
+        </div>
         <br>
         <div class="card" style="width:100%; background-color: #DFDFDF;">
-          <!-- if want to use img, use the below code -->
-          <!-- <img src="..." class="card-img-top" alt="..."> -->
           <div class="card-body">
             <h4 class="card-title"> {{sprint.title}} </h4>
             <div style="display: flex">
@@ -34,15 +49,13 @@
               </div>
             </div>
             <br>
-
             <div style="display: flex">
               <div style="flex:50%;">
-                <p class="card-text">Days Left: {{ sprints.days_left }}</p>
+                <p class="card-text">Days Left: {{ sprint.days_left }} days</p>
               </div>
             </div>
           </div>
         </div>
-        <a href="{% url 'sprint-list' %}" class="btn btn-warning" style="width:20%;" data-inline="true">Return to Sprint</a>
 
     {% endif %}
 {% endblock %}
