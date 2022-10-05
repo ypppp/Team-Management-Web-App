@@ -1,3 +1,5 @@
+from datetime import date
+
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.template import loader
@@ -63,10 +65,12 @@ def toggle_start_end(request, pk):
     if sprint.status == Sprint.PENDING:
         sprint.status = Sprint.ONGOING
         sprint.active = True
+        sprint.start_date = date.today()
 
     elif sprint.status == Sprint.ONGOING:
         sprint.status = Sprint.ENDED
         sprint.active = False
+        sprint.end_date = date.today()
 
         tasks = sprint.tasks.all()
         for task in tasks:
@@ -76,7 +80,7 @@ def toggle_start_end(request, pk):
                 task.save()
 
     sprint.save()
-    return redirect('sprint-list')
+    return redirect('sprint-detail', pk)
 
 
 class SprintStartEndView(DetailView):
@@ -85,8 +89,8 @@ class SprintStartEndView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(SprintStartEndView, self).get_context_data(**kwargs)
-        context['incomplete_tasks'] = Task.objects.all().filter(sprint=self.object, status="IN").count
-        context['pending_tasks'] = Task.objects.all().filter(sprint=self.object, status="CM").count
+        context['incomplete_tasks'] = self.object.tasks.filter(status=Task.IN_PROGRESS).count()
+        context['pending_tasks'] = self.object.tasks.filter(status=Task.PENDING).count()
         context['PENDING'] = Sprint.PENDING
         context['ONGOING'] = Sprint.ONGOING
         context['ENDED'] = Sprint.ENDED
