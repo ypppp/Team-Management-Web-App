@@ -33,7 +33,7 @@ class SprintForm(forms.ModelForm):
     )
 
     tasks = forms.ModelMultipleChoiceField(
-        label='Allocate tasks to this sprint', queryset=None,
+        label='', queryset=None,
         widget=forms.CheckboxSelectMultiple(), required=False)
 
     class Meta:
@@ -48,7 +48,7 @@ class SprintForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(SprintForm, self).__init__(*args, **kwargs)
-        self.fields['tasks'].queryset = Task.objects.filter(Q(sprint=None) | Q(sprint=self.instance))
+        self.fields['tasks'].queryset = Task.objects.filter(Q(sprint=self.instance) | Q(sprint=None))
         # self.fields['tasks'].help_text = 'Select tasks'
         tasks = self.instance.tasks.all
         self.initial['tasks'] = tasks

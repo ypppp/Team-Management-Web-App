@@ -85,7 +85,8 @@ class SprintStartEndView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(SprintStartEndView, self).get_context_data(**kwargs)
-        context['incomplete_tasks'] = Task.objects.all().filter(sprint=self.object, status="IN").count
+        # context['incomplete_tasks'] = Task.objects.all().filter(sprint=self.object, status="IN").count
+        context['incomplete_tasks'] = self.object.tasks.filter(status=Task.IN_PROGRESS).count
         context['pending_tasks'] = Task.objects.all().filter(sprint=self.object, status="CM").count
         context['PENDING'] = Sprint.PENDING
         context['ONGOING'] = Sprint.ONGOING
