@@ -17,7 +17,7 @@ def home(request):
 
 class TaskListView(ListView):
     model = Task
-    # paginate_by = 20
+    paginate_by = 10
 
 
 class TaskDetailView(DetailView):

@@ -2,8 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="latest for sprint2">
+      <change beforePath="$PROJECT_DIR$/.idea/FIT2101-B6.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FIT2101-B6.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/sprints/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/sprints/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_confirm_save.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_confirm_save.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/tasks.json" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/task_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/task_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/tasks/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/views.py" afterDir="false" />
     </list>
     <list id="0a9e4d80-b2b8-4395-999c-282aa5101ca1" name="Changes by timle" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -74,6 +84,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Scrum" />
       <recent name="$PROJECT_DIR$/Scrum/tasks/management/commands" />
     </key>
   </component>
@@ -114,7 +125,7 @@
       <workItem from="1664570345656" duration="4161000" />
       <workItem from="1664880607389" duration="401000" />
       <workItem from="1664888261146" duration="13775000" />
-      <workItem from="1664953809927" duration="4622000" />
+      <workItem from="1664953809927" duration="19648000" />
     </task>
     <task id="LOCAL-00001" summary="Bug fix&#10; - divider not working for html">
       <created>1663036090178</created>
@@ -284,7 +295,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664959010342</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="latest for sprint2">
+      <created>1664961129090</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1664961129090</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

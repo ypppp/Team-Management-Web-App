@@ -19,13 +19,16 @@
       <div class="card-body card border-info mb-0">
         <div style="display:flex;">
           {% if sprint.status == PENDING %}
-            <h5 class="card-title" style="color:#012970; font-size: 1.5rem;">{{ sprint.title}}  <i class="fa fa-circle" aria-hidden="true" style="color:#ffcc00"></i></h5>
+            <h5 class="card-title" style="color:#012970; font-size: 1.5rem;">{{ sprint.title}} <span class="btn btn-outline-danger disabled">PENDING</span></h5>
+{#            <h5 class="card-title" style="color:#012970; font-size: 1.5rem;">{{ sprint.title}}  <i class="fa fa-circle" aria-hidden="true" style="color:#ffcc00"></i></h5>#}
 
           {% elif sprint.status == ONGOING %}
-            <h5 class="card-title" style="color:#012970; font-size: 1.5rem;">{{ sprint.title}}  <i class="fa fa-circle" aria-hidden="true" style="color:green"></i></h5>
+            <h5 class="card-title" style="color:#012970; font-size: 1.5rem;">{{ sprint.title}} <span class="btn btn-outline-warning disabled">ONGOING</span></h5>
+{#            <h5 class="card-title" style="color:#012970; font-size: 1.5rem;">{{ sprint.title}}  <i class="fa fa-circle" aria-hidden="true" style="color:green"></i></h5>#}
 
           {% elif sprint.status == ENDED %}
-            <h5 class="card-title" style="color:#012970; font-size: 1.5rem;">{{ sprint.title}}  <i class="fa fa-circle" aria-hidden="true" style="color:red"></i></h5>
+            <h5 class="card-title" style="color:#012970; font-size: 1.5rem;">{{ sprint.title}} <span class="btn btn-outline-dark disabled">ENDED</span></h5>
+{#            <h5 class="card-title" style="color:#012970; font-size: 1.5rem;">{{ sprint.title}}  <i class="fa fa-circle" aria-hidden="true" style="color:red"></i></h5>#}
 
           {% endif %}
         </div>

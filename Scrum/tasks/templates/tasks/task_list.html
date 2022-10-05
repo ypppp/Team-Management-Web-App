@@ -42,6 +42,7 @@
         </tbody>
     </table>
     </div>
+
     <div class="dropdown">
 <a class="btn btn-light dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 <i class="fa fa-filter" style="color: black" aria-hidden="true"></i>
@@ -65,6 +66,44 @@
         <a class="dropdown-item" href="{% url 'sort-by-deadline-descending' %}">Sort by Due Date (Descending)</a>
       </div>
     </div>
+
+    <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+
+    {% if is_paginated %}
+
+        {% if page_obj.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.previous_page_number }}" style="color:#3A3A3A">Previous</a>
+            </li>
+        {% else %}
+            <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+        {% endif %}
+
+        {% for num in page_obj.paginator.page_range %}
+            {% if page_obj.number == num %}
+                <li class="page-item active">
+                    <span class="page-link">{{ num }}</span>
+                </li>
+
+            {% elif num > page_obj.number|add:'-5' and num < page_obj.number|add:'5' %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ num }}" style="color:#3A3A3A">{{ num }}</a>
+                </li>
+
+            {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}" style="color:#3A3A3A">Next</a></li>
+        {% else %}
+            <li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+        {% endif %}
+
+    {% endif %}
+    </ul>
+    </nav>
+
 {% endblock content %}
 <!-- end of content-->
 
