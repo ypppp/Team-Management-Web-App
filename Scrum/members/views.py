@@ -2,6 +2,7 @@ from django.urls import reverse_lazy
 from django.views.generic import (ListView, DetailView,
                                   CreateView, UpdateView, DeleteView)
 
+from .forms import MemberForm
 from .models import Member
 
 
@@ -15,6 +16,7 @@ class MemberDetailView(DetailView):
 
 class MemberCreateView(CreateView):
     model = Member
+    form_class = MemberForm
     success_url = reverse_lazy('member-list')
 
 
