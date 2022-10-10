@@ -30,8 +30,8 @@ class Sprint(models.Model):
     end_date = models.DateField(null=True, blank=True)
 
     # Developers
+    active = models.BooleanField(default=False)
     date_created = models.DateTimeField(default=timezone.now, editable=False)
-    sprint_complete = models.BooleanField(default=False)
 
     def clean(self):
         if ' ' in self.title:
@@ -54,7 +54,11 @@ class Sprint(models.Model):
     def days_left(self):
         today = date.today()
         days_left = self.end_date - today
-        return days_left
+
+        if days_left.days < 0:
+            return 0
+
+        return days_left.days
 
     def get_absolute_url(self):
         return reverse('sprint-detail', kwargs={'pk': self.pk})

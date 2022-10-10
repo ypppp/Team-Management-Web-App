@@ -1,57 +1,69 @@
 {% extends 'tasks/base.html' %}
 
-    <!--START OF CONTENTS-->
-    {% block content %}
-      <div class="container" style="overflow: hidden;">
-        <br>
-        <div class="page-header">
-            <h1 class="page-header">Sprint List</h1>
-        </div>
-        <br>
-        </div>
-        <div style=" text-align: right; padding-right: 20px;">
-          <a href="{%url 'sprint-create'%}"><i class="fa fa-plus fa-3x" aria-hidden="true" style="color:tomato;"></i></a>
-        </div>
-        <br>
-        {% for x in sprints %}
-        <div class="card" style="width: 100%; height:260px" >
-          <!-- if want to use img, use the below code -->
-          <!-- <img src="..." class="card-img-top" alt="..."> -->
-          <div class="card-body card border-info mb-0">
-            <div style="display:flex;">
-              <h5 class="card-title" style="color:#012970; font-size: 1.5rem;">{{ x.title}}</h5>
-            </div>
-            <div style="display: flex">
-              <div style="flex:50%;">
-                <p class="card-text">Status:
-                {{ x.get_status_display }}</p>
-              </div>
-            </div>
-            <br>
+<!--START OF CONTENTS-->
+{% block content %}
 
-            <div style="display: flex">
-              <div style="flex:50%;">
-                <p class="card-text">Start Date:
-                {{ x.start_date }}
-                </p>
-              </div>
-              <div style="flex:50%;">
-                <p class="card-text">End Date:
-                {{ x.end_date }}
-                </p>
-              </div>
-            </div>
-            <br>
-            <div style="display: flex">
-              <div style="flex:50%;">
-                <p class="card-text">Time left:
-                {{ x.days_left }}</p>
-              </div>
-            </div>
-            <br>
-            <a href="{% url 'sprint-detail' x.pk %}" class="btn btn-primary" style="width:80px">Details</a>
+    <br>
+    <div class="page-header">
+        <h1 class="page-header">Sprint Backlog</h1>
+    </div>
+    </div>
+    <div style=" text-align: right; padding-right: 20px;">
+      <a href="{%url 'sprint-create'%}"><i class="fa fa-plus fa-3x" aria-hidden="true" style="color:tomato;"></i></a>
+    </div>
+
+    {% for sprint in sprint_list %}
+    <div class="card" style="width: 100%; height:230px" >
+      <!-- if want to use img, use the below code -->
+      <!-- <img src="..." class="card-img-top" alt="..."> -->
+      <div class="card-body card border-info mb-0">
+        <div style="display:flex;">
+          {% if sprint.status == PENDING %}
+            <h5 class="card-title" style="color:#012970; font-size: 1.5rem;">{{ sprint.title}} <span class="btn btn-outline-danger disabled">PENDING</span></h5>
+{#            <h5 class="card-title" style="color:#012970; font-size: 1.5rem;">{{ sprint.title}}  <i class="fa fa-circle" aria-hidden="true" style="color:#ffcc00"></i></h5>#}
+
+          {% elif sprint.status == ONGOING %}
+            <h5 class="card-title" style="color:#012970; font-size: 1.5rem;">{{ sprint.title}} <span class="btn btn-outline-warning disabled">ONGOING</span></h5>
+{#            <h5 class="card-title" style="color:#012970; font-size: 1.5rem;">{{ sprint.title}}  <i class="fa fa-circle" aria-hidden="true" style="color:green"></i></h5>#}
+
+          {% elif sprint.status == ENDED %}
+            <h5 class="card-title" style="color:#012970; font-size: 1.5rem;">{{ sprint.title}} <span class="btn btn-outline-dark disabled">ENDED</span></h5>
+{#            <h5 class="card-title" style="color:#012970; font-size: 1.5rem;">{{ sprint.title}}  <i class="fa fa-circle" aria-hidden="true" style="color:red"></i></h5>#}
+
+          {% endif %}
+        </div>
+        <div style="display: flex">
+          <div style="flex:50%;">
+            <p class="card-text">Status:
+            {{ sprint.get_status_display }}
+<!--            {{ sprint.id }}-->
+<!--            {{ sprint.active }}-->
+            </p>
+          </div>
+            <div style="flex:50%;">
+            <p class="card-text">Start Date:
+                {{ sprint.start_date }}
+            </p>
           </div>
         </div>
-        {% endfor %}
-    {% endblock content %}
-    <!-- end of content-->
+        <br>
+
+        <div style="display: flex">
+          <div style="flex:50%;">
+            <p class="card-text">Days left:
+                {{ sprint.days_left }}
+            </p>
+          </div>
+          <div style="flex:50%;">
+            <p class="card-text">End Date:
+                {{ sprint.end_date }}
+            </p>
+          </div>
+        </div>
+        <br>
+        <a href="{% url 'sprint-detail' sprint.id %}" class="btn btn-primary" style="width:80px">Details</a>
+      </div>
+    </div>
+    {% endfor %}
+{% endblock content %}
+<!-- end of content-->

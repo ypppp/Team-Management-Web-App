@@ -1,26 +1,28 @@
-from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
-from django.urls import reverse
-from django.template import loader
+from django.urls import reverse_lazy
+from django.views.generic import (ListView, DetailView,
+                                  CreateView, UpdateView, DeleteView)
+
 from .models import Member
 
 
-def index(request):
+class MemberListView(ListView):
+    model = Member
 
-    members = Member.objects.all().values()
-    context = {
-        'members': members,
-    }
 
-    return render(request, 'members/index.html', context)
+class MemberDetailView(DetailView):
+    model = Member
 
-def add(request):
-    return render(request, 'members/add.html')
 
-def addrecord(request):
-  x = request.POST['first']
-  y = request.POST['last']
-  member = Members(first_name=x, last_name=y)
-  member.save()
+class MemberCreateView(CreateView):
+    model = Member
+    success_url = reverse_lazy('member-list')
 
-  return HttpResponseRedirect(reverse('index'))
+
+class MemberUpdateView(UpdateView):
+    model = Member
+    success_url = reverse_lazy('member-list')
+
+
+class MemberDeleteView(DeleteView):
+    model = Member
+    success_url = reverse_lazy('member-list')
