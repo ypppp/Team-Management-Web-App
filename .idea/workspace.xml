@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="Sprint3:&#10;- pagination complete except styling&#10;- sprint list modification&#10;- sprint confirm save modification&#10;- createview fixed&#10;- new tasks.json" />
+    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="Sprint3:&#10;- pagination complete except styling&#10;- sprint list modification&#10;- sprint confirm save modification&#10;- createview fixed&#10;- new tasks.json">
+      <change beforePath="$PROJECT_DIR$/Scrum/tasks/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/views.py" afterDir="false" />
+    </list>
     <list id="0a9e4d80-b2b8-4395-999c-282aa5101ca1" name="Changes by timle" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +114,7 @@
       <workItem from="1664570345656" duration="4161000" />
       <workItem from="1664880607389" duration="401000" />
       <workItem from="1664888261146" duration="13775000" />
-      <workItem from="1664953809927" duration="19989000" />
+      <workItem from="1664953809927" duration="20261000" />
     </task>
     <task id="LOCAL-00001" summary="Bug fix&#10; - divider not working for html">
       <created>1663036090178</created>
@@ -296,7 +298,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664993772369</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Sprint3:&#10;- pagination complete except styling&#10;- sprint list modification&#10;- sprint confirm save modification&#10;- createview fixed&#10;- new tasks.json">
+      <created>1664993896165</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1664993896165</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
