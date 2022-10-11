@@ -18,6 +18,7 @@ def home(request):
 class TaskListView(ListView):
     model = Task
     paginate_by = 10
+    paginate_orphans = 2
 
 
 class TaskDetailView(DetailView):
