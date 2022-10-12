@@ -21,8 +21,10 @@
         </div>
     </fieldset>
     <div>
-        <button type="submit" class="btn btn-success">Save
-        </button>
+        <button type="submit" class="btn btn-success">Save</button>
+        <a href="{% url 'member-list' %}">
+            <button type="button" class="btn btn-danger">Cancel</button>
+        </a>
     </div>
 </form>
 {% endblock content %}
