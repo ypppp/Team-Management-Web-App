@@ -2,7 +2,7 @@
 
 <!--START OF CONTENTS-->
 {% block content %}
-
+{% load custom_tags %}
     <br>
     <div class="page-header">
         <h1 class="page-header">Sprint Backlog</h1>
@@ -14,25 +14,19 @@
 
     {% for sprint in sprint_list %}
     <div class="card" style="width: 100%; height:230px" >
-      <!-- if want to use img, use the below code -->
-      <!-- <img src="..." class="card-img-top" alt="..."> -->
       <div class="card-body card border-info mb-0">
         <div style="display:flex;">
-          {%if sprint.status == PENDING%}
-            <h5 class="card-title" style="color:#012970; font-size: 1.5rem;">{{ sprint.title}} <i class="fa fa-circle" aria-hidden="true" style="color:#ffcc00"></i></h5>
-          {%elif sprint.status == ONGOING%}
-            <h5 class="card-title" style="color:#012970; font-size: 1.5rem;">{{ sprint.title}} <i class="fa fa-circle" aria-hidden="true" style="color:green"></i></h5>
-          {%elif sprint.status == ENDED%}
-            <h5 class="card-title" style="color:#012970; font-size: 1.5rem;">{{ sprint.title}} <i class="fa fa-circle" aria-hidden="true" style="color:red"></i></h5>
-          {%endif%}
+            <a href="{% url 'sprint-detail' sprint.id %}" ><h5 class="card-title" style="color:#012970; font-size: 1.5rem;">{{ sprint.title}}</h5></a>
         </div>
         <div style="display: flex">
           <div style="flex:50%;">
-            <p class="card-text">Status:
-            {{ sprint.get_status_display }}
-<!--            {{ sprint.id }}-->
-<!--            {{ sprint.active }}-->
-            </p>
+                {% if sprint.status == PENDING %}
+                    <p class="card-text" style="background-color:grey; width:17%; color:white;border-radius: 5px;" >ㅤ{{sprint.get_status_display}}</p>
+                {%elif sprint.status == ONGOING %}
+                    <p class="card-text" style="background-color:green; width:17%; color:white;border-radius: 5px;" >ㅤ{{sprint.get_status_display}}</p>
+                {% elif sprint.status == ENDED %}
+                    <p class="card-text" style="background-color:blue; width:15%; color:white;border-radius: 5px;" >ㅤ{{sprint.get_status_display}}</p>
+                {%endif%}
           </div>
             <div style="flex:50%;">
             <p class="card-text">Start Date:
@@ -47,6 +41,10 @@
             <p class="card-text">Days left:
                 {{ sprint.days_left }}
             </p>
+              Progress: {{sprint|percentage}}%
+              <div class="progress">
+                <div class="progress-bar bg-warning" role="progressbar" style="width: {{sprint|percentage}}%">{{sprint|percentage}}%</div>
+            </div>
           </div>
           <div style="flex:50%;">
             <p class="card-text">End Date:
@@ -54,8 +52,6 @@
             </p>
           </div>
         </div>
-        <br>
-        <a href="{% url 'sprint-detail' sprint.id %}" class="btn btn-primary" style="width:80px">Details</a>
       </div>
     </div>
     {% endfor %}
