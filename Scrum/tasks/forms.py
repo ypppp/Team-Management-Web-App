@@ -56,3 +56,9 @@ class TaskForm(forms.ModelForm):
             'due_date',
         ]
 
+
+class EntryForm(forms.ModelForm):
+
+    task = forms.ModelChoiceField(
+        label='', queryset=Task.objects.filter(sprint=None),
+        widget=forms.CheckboxSelect(), required=False)

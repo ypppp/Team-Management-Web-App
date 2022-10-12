@@ -7,7 +7,6 @@ from django.utils.translation import gettext_lazy as _
 
 
 class Task(models.Model):
-
     HIGH_PRIORITY = 'HI'
     MEDIUM_PRIORITY = 'ME'
     LOW_PRIORITY = 'LO'
@@ -99,3 +98,14 @@ class Task(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Entry(models.Model):
+    # Mandatory
+    task = models.ForeignKey(Task, on_delete=models.SET_NULL,
+                             related_name='entries', null=True, blank=True)
+    date = models.DateField(null=True, blank=True)
+    duration = models.DurationField(null=True, blank=True)
+
+    # Developers
+    timestamp = models.DateTimeField(default=timezone.now, editable=False)
