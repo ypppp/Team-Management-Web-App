@@ -1,5 +1,6 @@
 from django import forms
 from django.db.models import Q
+from django.utils.datetime_safe import date
 
 from sprints.models import Sprint
 from tasks.models import Task
@@ -18,7 +19,7 @@ class SprintForm(forms.ModelForm):
     end_date = forms.DateField(
         widget=forms.DateInput(format='%Y-%m-%d',
                                attrs={'class': 'form-control',
-                                      'placeholder': 'Select end date',
+                                      'min': date.today(),
                                       'type': 'date'
                                       })
     )
@@ -26,14 +27,14 @@ class SprintForm(forms.ModelForm):
     start_date = forms.DateField(
         widget=forms.DateInput(format='%Y-%m-%d',
                                attrs={'class': 'form-control',
-                                      'placeholder': 'Select end date',
+                                      'min': date.today(),
                                       'type': 'date'
                                       })
     )
 
     tasks = forms.ModelMultipleChoiceField(
-        queryset=Task.objects.filter(Q(sprint=None) | Q(sprint__active=False)),
-        widget=forms.CheckboxSelectMultiple, required=False)
+        label='Allocate tasks to this sprint', queryset=None,
+        widget=forms.CheckboxSelectMultiple(), required=False)
 
     class Meta:
         model = Sprint
@@ -44,6 +45,13 @@ class SprintForm(forms.ModelForm):
             'end_date',
             'tasks',
         ]
+
+    def __init__(self, *args, **kwargs):
+        super(SprintForm, self).__init__(*args, **kwargs)
+        self.fields['tasks'].queryset = Task.objects.filter(Q(sprint=None) | Q(sprint=self.instance))
+        # self.fields['tasks'].help_text = 'Select tasks'
+        tasks = self.instance.tasks.all
+        self.initial['tasks'] = tasks
 
     def save(self, commit=True):
         sprint = super().save(commit)
