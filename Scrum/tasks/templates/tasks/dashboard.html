@@ -3,5 +3,191 @@
     <br>
     <h1>{{ title }}</h1>
     <br>
-    <p>{{ content }}</p>
+    <div style="display:flex; flex-direction: row;">
+
+    <!-- Left side columns -->
+    <div class="col-lg-8">
+        <div class="row">
+
+          <!-- Brief task list -->
+          <div class="col-12">
+            <div class="card recent-sales overflow-auto">
+
+              <div class="card-body">
+                <h5 class="card-title">Sprint <span>| On going</span></h5>
+
+                <div>
+                    <table class="table table-borderless">
+                        <thead>
+                          <tr>
+                            <th scope="col">Title</th>
+                            <th scope="col">Assignee</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Sprint</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>UI refine</td>
+                            <td>In Progress</td>
+                            <td >In Progress</td>
+                            <td >1</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+              </div>
+
+            </div>
+          </div><!-- End Brief task list -->
+
+          <!-- sprint list -->
+          <div class="col-12">
+            <div class="card top-selling overflow-auto">
+
+              <div class="card-body pb-0">
+                <h5 class="card-title">Sprint Backlog <span>| Today</span></h5>
+
+                <table class="table table-borderless">
+                  <thead>
+                    <tr>
+                      <th scope="col">Title</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Start Date</th>
+                      <th scope="col">End Date</th>
+                      <th scope="col">Days Left</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Sprint 1</td>
+                      <td>In Progress</td>
+                      <td > June 7, 2249</td>
+                      <td > June 7, 2249</td>
+                      <td> 82783</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+              </div>
+
+            </div>
+          </div><!-- End sprint list -->
+
+           <!-- member list -->
+           <div class="col-12">
+            <div class="card top-selling overflow-auto">
+
+              <div class="card-body pb-0">
+                <h5 class="card-title">Members <span>| Today</span></h5>
+
+                <table class="table table-borderless">
+                  <thead>
+                    <tr>
+                      <th scope="col">Name</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Avg Time Spent</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>John Park</td>
+                      <td>jpar007@.com</td>
+                      <td >6hrs</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+              </div>
+
+            </div>
+          </div><!-- End member list -->
+
+        </div>
+      </div><!-- End Left side columns -->
+
+    <!-- Right side columns -->
+    <div class="col-lg-4">
+
+
+        <!-- Recent Activity -->
+        <div class="card">
+
+          <div class="card-body">
+            <h5 class="card-title">Recent Activity <span>| Today</span></h5>
+
+            <div class="activity">
+
+              <div class="activity-item d-flex">
+                <div class="activite-label">32 min</div>
+                <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
+                <div class="activity-content">
+                  Quia quae rerum <a href="#" class="fw-bold text-dark">explicabo officiis</a> beatae
+                </div>
+              </div><!-- End activity item-->
+
+              <div class="activity-item d-flex">
+                <div class="activite-label">56 min</div>
+                <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
+                <div class="activity-content">
+                  Voluptatem blanditiis blanditiis eveniet
+                </div>
+              </div><!-- End activity item-->
+
+              <div class="activity-item d-flex">
+                <div class="activite-label">2 hrs</div>
+                <i class='bi bi-circle-fill activity-badge text-primary align-self-start'></i>
+                <div class="activity-content">
+                  Voluptates corrupti molestias voluptatem
+                </div>
+              </div><!-- End activity item-->
+
+              <div class="activity-item d-flex">
+                <div class="activite-label">1 day</div>
+                <i class='bi bi-circle-fill activity-badge text-info align-self-start'></i>
+                <div class="activity-content">
+                  Tempore autem saepe <a href="#" class="fw-bold text-dark">occaecati voluptatem</a> tempore
+                </div>
+              </div><!-- End activity item-->
+
+              <div class="activity-item d-flex">
+                <div class="activite-label">2 days</div>
+                <i class='bi bi-circle-fill activity-badge text-warning align-self-start'></i>
+                <div class="activity-content">
+                  Est sit eum reiciendis exercitationem
+                </div>
+              </div><!-- End activity item-->
+
+              <div class="activity-item d-flex">
+                <div class="activite-label">4 weeks</div>
+                <i class='bi bi-circle-fill activity-badge text-muted align-self-start'></i>
+                <div class="activity-content">
+                  Dicta dolorem harum nulla eius. Ut quidem quidem sit quas
+                </div>
+              </div><!-- End activity item-->
+
+            </div>
+
+          </div>
+        </div><!-- End Recent Activity -->
+
+        
+        <!-- Statistics -->
+        <div class="card">
+          <div class="card-body pb-0">
+            <h5 class="card-title">Statistics <span>| This Project</span></h5>
+
+            <div id="statisticChart" style="min-height: 400px;" class="echart"></div>
+
+            <script src="js/Chart.min.js"></script>
+          </div>
+        </div><!-- End Budget Report -->
+
+
+      </div><!-- End Right side columns -->
+    </div>
 {% endblock %}
+
+
+ 
