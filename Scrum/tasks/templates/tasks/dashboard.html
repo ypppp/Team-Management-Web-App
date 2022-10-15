@@ -33,13 +33,17 @@
                     </tr>
                   </thead>
                   <tbody>
+                  {% for x in sprint_ongoing %}
+                    {% for y in x.tasks.all %}
                     <tr>
-                      <td>Avator</td>
-                      <td>In Progress</td>
-                      <td >BMW X5</td>
+                      <td>{{y.title}}</td>
+                      <td>{{y.get_status_display}}</td>
                       <td >None</td>
-                      <td>June 7, 2249</td>
+                      <td >{{y.assignee}}</td>
+                      <td>{{y.due_date}}</td>
                     </tr>
+                    {%endfor%}
+                  {%endfor%}
                   </tbody>
                 </table>
 
