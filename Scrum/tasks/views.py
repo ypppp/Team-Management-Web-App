@@ -3,8 +3,8 @@ from django.urls import reverse_lazy
 from django.views.generic import (ListView, DetailView,
                                   CreateView, UpdateView, DeleteView)
 
-from .forms import TaskForm
-from .models import Task
+from .forms import TaskForm, EntryForm
+from .models import Task, Entry
 
 
 def home(request):
@@ -47,6 +47,16 @@ class TaskStatusUpdate(UpdateView):
 class TaskDeleteView(DeleteView):
     model = Task
     success_url = reverse_lazy('task-list')
+
+
+class AddEntryView(CreateView):
+    model = Entry
+    form_class = EntryForm
+
+    def get_success_url(self):
+        pk = self.object.task.sprint.pk
+        success_url = reverse_lazy('sprint-detail', kwargs={'pk': pk})
+        return success_url
 
 
 # sorting functions

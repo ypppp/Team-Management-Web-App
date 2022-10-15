@@ -46,7 +46,8 @@ class SprintForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(SprintForm, self).__init__(*args, **kwargs)
-        if self.instance.pk is not None:
+
+        if self.instance.pk is not None:    # Update sprint
             self.fields['tasks'].queryset = Task.objects.filter(Q(sprint=self.instance) | Q(sprint=None))
             tasks = self.instance.tasks.all
             self.initial['tasks'] = tasks

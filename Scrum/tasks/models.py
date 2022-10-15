@@ -104,8 +104,8 @@ class Entry(models.Model):
     # Mandatory
     task = models.ForeignKey(Task, on_delete=models.SET_NULL,
                              related_name='entries', null=True, blank=True)
-    date = models.DateField(null=True, blank=True)
-    duration = models.DurationField(null=True, blank=True)
+    date = models.DateField(default=date.today)
+    duration = models.DurationField()
 
     # Developers
     timestamp = models.DateTimeField(default=timezone.now, editable=False)
