@@ -55,7 +55,7 @@ body {
   }
   
   .scrollarea {
-    overflow-y: hidden;
+    overflow-y: auto;
   }
   
   .bd-placeholder-img {

@@ -1,0 +1,61 @@
+{% extends 'tasks/base.html' %}
+{% block content %}
+
+    {% if sprint.status == PENDING %}
+        <br>
+        <h2>Start Sprint Confirmation</h2>
+        <div class="alert alert-warning" role="alert">
+            <h4 class="alert-heading"><i class="fa fa-exclamation-triangle" style="color:#721c24;" aria-hidden="true"></i> Warning</h4>
+            <p>You will be starting sprint title: "{{sprint.title}}".</p>
+            <p>Other sprints would not be able to start until existing ongoing sprint has ended</p>
+            <p><b>This action cannot be undone.</b></p>
+            <hr>
+            <a href="{%url 'start-end-confirm' sprint.id%}" class="btn btn-success" data-inline="true">Confirm</a>
+            <a class="btn btn-light" href="{% url 'sprint-detail' sprint.pk %}">Cancel</a>
+        </div>
+
+    {% elif sprint.status == ONGOING %}
+        <br>
+        <h2>End Sprint Confirmation</h2>
+        <div class="alert alert-warning" role="alert">
+            <h4 class="alert-heading"><i class="fa fa-exclamation-triangle" style="color:#721c24;" aria-hidden="true"></i> Warning</h4>
+            <p>You are permanently ending sprint title: "{{sprint.title}}".</p>
+            <p><i>You still have {{pending_tasks}} pending tasks and {{incomplete_tasks}} incomplete tasks.</i>
+            <p><b>This action cannot be undone.</b></p>
+            <hr>
+            <a href="{%url 'start-end-confirm' sprint.id%}" class="btn btn-success" data-inline="true">Confirm</a>
+            <a class="btn btn-light" href="{% url 'sprint-detail' sprint.pk %}">Cancel</a>
+        </div>
+        <br>
+        <div class="card" style="width:100%; background-color: #DFDFDF;">
+          <div class="card-body">
+            <h4 class="card-title"> {{sprint.title}} </h4>
+            <div style="display: flex">
+              <div style="flex:50%;">
+                  <p class="card-text">Goal: {{ sprint.sprint_goal }}</p>
+              </div>
+              <div style="flex:50%;">
+                <p class="card-text">Start Date: {{ sprint.start_date }}</p>
+              </div>
+            </div>
+            <br>
+
+            <div style="display: flex">
+              <div style="flex:50%;">
+                <p class="card-text">Status: {{ sprint.get_status_display }}</p>
+              </div>
+              <div style="flex:50%;">
+                <p class="card-text">End Date: {{ sprint.end_date }}</p>
+              </div>
+            </div>
+            <br>
+            <div style="display: flex">
+              <div style="flex:50%;">
+                <p class="card-text">Days Left: {{ sprint.days_left }} days</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    {% endif %}
+{% endblock %}

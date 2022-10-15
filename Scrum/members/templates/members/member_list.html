@@ -1,0 +1,9 @@
+{% extends 'tasks/base.html' %}
+{% block content %}
+    {% for member in member_list %}
+        <h1>{{ member }}</h1>
+        <p>{{ member.email }}</p>
+        <br>
+    {% endfor %}
+{% endblock content %}
+
