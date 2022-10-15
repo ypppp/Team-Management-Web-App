@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="creation of sprint list 2">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="Merge with tim_3" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,7 +30,6 @@
     <setting file="file://$PROJECT_DIR$/Scrum/tasks/apps.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scrum/tasks/forms.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scrum/tasks/models.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Scrum/tasks/templates/tasks/product_backlog.html" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scrum/tasks/templates/tasks/task_detail.html" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scrum/tasks/templates/tasks/task_form.html" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scrum/tasks/urls.py" root0="FORCE_HIGHLIGHTING" />
@@ -115,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664556357007</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Merge with tim_3">
+      <created>1665813100056</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1665813100056</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -136,6 +140,7 @@
     <MESSAGE value="Created SprintBacklogView" />
     <MESSAGE value="creation of sprint list" />
     <MESSAGE value="creation of sprint list 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="creation of sprint list 2" />
+    <MESSAGE value="Merge with tim_3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge with tim_3" />
   </component>
 </project>

@@ -1,9 +1,130 @@
 {% extends 'tasks/base.html' %}
 {% block content %}
-    {% for member in member_list %}
-        <h1>{{ member }}</h1>
-        <p>{{ member.email }}</p>
-        <br>
-    {% endfor %}
+
+<br>
+<div class="page-header">
+    <h1 class="page-header">Members</h1>
+</div>
+</div>
+
+<!-- Add member button -->
+<div style=" text-align: right; padding-right: 20px;">
+  <a href="#"><i class="fa fa-plus fa-3x" aria-hidden="true" style="color:tomato;"></i></a>
+</div>
+<!-- Add member button end -->
+
+<!-- members list start -->
+
+<!-- First row member list -->
+<div style="display: flex;">
+    <div class="card" style="width:300px; height:200px; flex:30%;flex-direction: column;" >
+        <div class="card-body card border-info mb-0">
+          <div style="display:flex;">
+              <a href="#" ><h5 class="card-title" style="color:#012970; font-size: 1.5rem;">John Park</h5></a>
+          </div>
+          <div style="display: flex">
+              <div style="flex:50%;">
+              <p class="card-text">First Name:
+                  John
+              </p>
+            </div>
+          </div>
+          <br>
+          </div>
+      </div>
+
+      <div class="card" style="width:300px; height:200px;flex:30%; flex-direction: column;" >
+        <div class="card-body card border-info mb-0"">
+          <div style="display:flex;">
+              <a href="#" ><h5 class="card-title" style="color:#012970; font-size: 1.5rem;">John Park</h5></a>
+          </div>
+          <div style="display: flex">
+              <div style="flex:50%;">
+              <p class="card-text">First Name:
+                  John
+              </p>
+            </div>
+          </div>
+          <br>
+          </div>
+      </div>
+
+      <div class="card" style="width:300px; height:200px;flex:30%; flex-direction: column;" >
+        <div class="card-body card border-info mb-0"">
+          <div style="display:flex;">
+              <a href="#" ><h5 class="card-title" style="color:#012970; font-size: 1.5rem;">John Park</h5></a>
+          </div>
+          <div style="display: flex">
+              <div style="flex:50%;">
+              <p class="card-text">First Name:
+                  John
+              </p>
+            </div>
+          </div>
+          <br>
+          </div>
+      </div>
+</div>
+<!-- First row member list end -->
+
+
+<!-- Second row member list -->
+<div style="display: flex; justify-content: space-evenly;">
+    <div class="card" style="width:30%; height:200px; flex:30%; flex-direction: column;" >
+        <div class="card-body card border-info mb-0">
+          <div style="display:flex;">
+              <a href="#" ><h5 class="card-title" style="color:#012970; font-size: 1.5rem;">John Park</h5></a>
+          </div>
+          <div style="display: flex">
+              <div style="flex:50%;">
+              <p class="card-text">First Name:
+                  John
+              </p>
+            </div>
+            <div style="flex:50%;">
+                <p class="card-text">Last Name:
+                    Park
+                </p>
+              </div>
+          </div>
+          <br>
+          </div>
+      </div>
+
+      <div class="card" style="width:400px; height:200px; flex:30%; flex-direction: column;" >
+        <div class="card-body card border-info mb-0"">
+          <div style="display:flex;">
+              <a href="#" ><h5 class="card-title" style="color:#012970; font-size: 1.5rem;">John Park</h5></a>
+          </div>
+          <div style="display: flex">
+              <div style="flex:50%;">
+              <p class="card-text">First Name:
+                  John
+              </p>
+            </div>
+          </div>
+          <br>
+          </div>
+      </div>
+
+      <div class="card" style="width:200px; height:200px; flex:30%; flex-direction: column;" >
+        <div class="card-body card border-info mb-0"">
+          <div style="display:flex;">
+              <a href="#" ><h5 class="card-title" style="color:#012970; font-size: 1.5rem;">John Park</h5></a>
+          </div>
+          <div style="display: flex">
+              <div style="flex:50%;">
+              <p class="card-text">First Name:
+                  John
+              </p>
+            </div>
+          </div>
+          <br>
+          </div>
+      </div>
+</div>
+<!-- Second row member list end -->
+
+
 {% endblock content %}
 
