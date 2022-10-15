@@ -5,6 +5,8 @@ from django.views.generic import (ListView, DetailView,
 
 from .forms import TaskForm
 from .models import Task
+from sprints.models import Sprint
+
 
 
 def home(request):
@@ -97,3 +99,15 @@ class TaskListViewSortByPriorityDescending(ListView):
 class TaskListViewSortByDeadlineDescending(ListView):
     model = Task
     ordering = ['-due_date']
+
+class DashboardList(ListView):
+    model = Sprint
+    template_name = "tasks/dashboard.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(DashboardList, self).get_context_data(**kwargs)
+        context['PENDING'] = Sprint.PENDING
+        context['ONGOING'] = Sprint.ONGOING
+        context['ENDED'] = Sprint.ENDED
+        context['sprint_ongoing'] = Sprint.objects.all().filter(status=Sprint.ONGOING)
+        return context
