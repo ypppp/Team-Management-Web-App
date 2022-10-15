@@ -33,6 +33,7 @@
         <option value="$MODULE_DIR$/Scrum/members/templates" />
         <option value="$MODULE_DIR$/Scrum/tasks/templates" />
         <option value="$MODULE_DIR$/Scrum/sprints/templates" />
+        <option value="$MODULE_DIR$/Scrum/analytics/templates" />
       </list>
     </option>
   </component>

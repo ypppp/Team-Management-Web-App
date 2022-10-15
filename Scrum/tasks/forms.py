@@ -1,8 +1,4 @@
-from datetime import datetime, timedelta
-
 from django import forms
-from django.core.exceptions import ValidationError
-from django.utils.translation import gettext_lazy as _
 
 from members.models import Member
 from sprints.models import Sprint
@@ -59,16 +55,3 @@ class TaskForm(forms.ModelForm):
             'due_date',
         ]
 
-
-class EntryForm(forms.ModelForm):
-    task = forms.ModelChoiceField(queryset=Task.objects.all())
-    due_date = forms.DateField(
-        widget=forms.DateInput(format='%Y-%m-%d',
-                               attrs={'class': 'form-control',
-                                      'placeholder': 'Select a date',
-                                      'type': 'date'}))
-    duration = forms.DurationField()
-
-    def clean(self):
-        if timedelta(hours=24) < self.duration:
-            raise ValidationError({'duration': _('That hardworking?')})
