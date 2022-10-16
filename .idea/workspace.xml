@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="Changes&#10;- If sprint starts or end before designated date, it will auto set as today's date&#10;- Priority tab in product backlog now have a color cube&#10;- Tasks when end date will be calculated correctly&#10;- End or start sprint will now return back to sprint detail page instead of sprint list">
-      <change afterPath="$PROJECT_DIR$/Scrum/sprints/templatetags/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scrum/sprints/templatetags/custom_tags.py" afterDir="false" />
+    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="Analytics stuff">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/sprints/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/sprints/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/analytics/templates/analytics/analytics.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/analytics/templates/analytics/analytics.html" afterDir="false" />
     </list>
     <list id="0a9e4d80-b2b8-4395-999c-282aa5101ca1" name="Changes by timle" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,8 +18,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -72,7 +68,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "last_opened_file_path": "C:/Users/timle/Desktop/MONASH REPO/FIT2107 Ass",
+    "last_opened_file_path": "C:/Users/timle/Desktop/MONASH REPO/FIT2101 ASS",
     "list.type.of.created.stylesheet": "CSS",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PythonContentEntriesConfigurable"
   }
@@ -237,7 +233,28 @@
       <option name="project" value="LOCAL" />
       <updated>1664971028686</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Changes&#10;- Added status box colors&#10;- Added progress bar&#10;- Removed details button and integrate with sprint title&#10;- Added new custom template tags">
+      <created>1665561050782</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1665561050782</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Changes&#10;- Added member details&#10;- Added Statistics for tasks in member&#10;- Edited dashboard&#10;- Edited base">
+      <created>1665908987294</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1665908987294</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Analytics stuff">
+      <created>1665916153380</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1665916153380</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -265,6 +282,9 @@
     <MESSAGE value="overdue added to task model" />
     <MESSAGE value="foreign key field modification" />
     <MESSAGE value="Changes&#10;- If sprint starts or end before designated date, it will auto set as today's date&#10;- Priority tab in product backlog now have a color cube&#10;- Tasks when end date will be calculated correctly&#10;- End or start sprint will now return back to sprint detail page instead of sprint list" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes&#10;- If sprint starts or end before designated date, it will auto set as today's date&#10;- Priority tab in product backlog now have a color cube&#10;- Tasks when end date will be calculated correctly&#10;- End or start sprint will now return back to sprint detail page instead of sprint list" />
+    <MESSAGE value="Changes&#10;- Added status box colors&#10;- Added progress bar&#10;- Removed details button and integrate with sprint title&#10;- Added new custom template tags" />
+    <MESSAGE value="Changes&#10;- Added member details&#10;- Added Statistics for tasks in member&#10;- Edited dashboard&#10;- Edited base" />
+    <MESSAGE value="Analytics stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="Analytics stuff" />
   </component>
 </project>

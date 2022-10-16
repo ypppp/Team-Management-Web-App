@@ -48,6 +48,47 @@
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
       </ul>
+
+      <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+        <span><button type="button" class="btn btn-light">New</button></span>
+      </a><!-- End Profile Iamge Icon -->
+
+      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+
+        <!-- create task Shortcut -->
+        <li>
+          <a class="dropdown-item d-flex align-items-center" href="{% url 'task-create'%}">
+            <span>Task</span>
+          </a>
+        </li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
+        <!-- create task shortcut end -->
+
+        <!-- create sprint shortcut -->
+        <li>
+          <a class="dropdown-item d-flex align-items-center" href="{% url 'sprint-create'%}">
+            <span>Sprint</span>
+          </a>
+        </li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
+        <!-- create sprint shortcut end -->
+
+        <!-- create members shortcut -->
+        <li>
+          <a class="dropdown-item d-flex align-items-center" href="{% url 'member-list'%}">
+            <i class="bi bi-cone-striped"></i>
+            <span>Members</span>
+          </a>
+        </li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
+        <!-- create members shortcut end -->
+      </ul>
     </nav><!-- End Icons Navigation -->
 
   </header>

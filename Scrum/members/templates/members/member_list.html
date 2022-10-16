@@ -1,15 +1,10 @@
 {% extends 'tasks/base.html' %}
 {% block content %}
-<br>
-<div class="page-header">
-    <h1 class="page-header">Member List
-        <a href="{%url 'member-create'%}"><i class="fa fa-plus fa-x" aria-hidden="true" style="color: tomato; padding-left: 700px;"></i></a>
-    </h1>
-</div>
-<br><br>
-{% for member in member_list %}
-<h1>{{ member }}</h1>
-<p>{{ member.email }}</p>
-<br>
-{% endfor %}
+    {% for member in member_list %}
+        <h1>{{ member }}</h1>
+        <p>{{ member.email }}</p>
+        <a href="{% url 'members-detail' member.id %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Details</a>
+        <br>
+    {% endfor %}
 {% endblock content %}
+
