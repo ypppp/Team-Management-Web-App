@@ -12,7 +12,6 @@ def percentage(value):
 
 @register.simple_tag
 def filter_by_complete(value):
-    "Subtracts the arg from the value"
     return value.tasks.filter(status=Task.COMPLETE).count()
 
 

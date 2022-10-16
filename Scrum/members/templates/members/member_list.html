@@ -3,6 +3,7 @@
     {% for member in member_list %}
         <h1>{{ member }}</h1>
         <p>{{ member.email }}</p>
+        <a href="{% url 'members-detail' member.id %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Details</a>
         <br>
     {% endfor %}
 {% endblock content %}
