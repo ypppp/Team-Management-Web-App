@@ -112,4 +112,9 @@ class DashboardList(ListView):
         context['sprint_ongoing'] = Sprint.objects.all().filter(status=Sprint.ONGOING)
         context['sprint_ended'] = Sprint.objects.all().filter(status=Sprint.ENDED)
         context['sprint_pending'] = Sprint.objects.all().filter(status=Sprint.PENDING)
+        context['sprint_all'] = Sprint.objects.all()
+        context['TASK_PENDING'] = Task.PENDING
+        context['TASK_IN_PROGRESS'] = Task.IN_PROGRESS
+        context['TASK_COMPLETE'] = Task.COMPLETE
+
         return context
