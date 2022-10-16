@@ -118,13 +118,11 @@ class DailyTeamAnalytics(ListView):
         a = {'chart_data': [{'date': date(2022, 12, 29), 'hours': 1}, {'date': date(2022, 12, 30), 'hours': 2}, {'date': date(2022, 12, 31), 'hours': 3}], 'sum': 2, 'avg': 3}
         context['date'] = a.get("chart_data")[0]['date']
 
-        # context['data'] = {}
         for q in self.queryset.all():
             chart_data = get_sprint_data(q)
-            hours, dates, data = get_data_list(chart_data)
+            hours, dates = get_data_list(chart_data)
             context['hour'] = hours
             context['date'] = dates
-            context['date_data'] = data
 
         return context
 
@@ -142,11 +140,8 @@ def get_data_dic(dic):
 def get_data_list(list):
     hours = []
     date = []
-    date_data = []
 
     for i in range(len(list)):
         hours.append(list[i]["hours"])
         date.append(list[i]["date"].strftime("%d.%m.%y"))
-        date_data.append(i+1)
-
-    return hours, date, date_data
+    return hours, date
