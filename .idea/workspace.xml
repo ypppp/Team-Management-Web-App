@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="Analytics stuff">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="update view">
+      <change afterPath="$PROJECT_DIR$/Scrum/members/templates/members/member_confirm_delete.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/members/templates/members/member_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/members/templates/members/member_form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scrum/members/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/members/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/members/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/members/views.py" afterDir="false" />
     </list>
     <list id="0a9e4d80-b2b8-4395-999c-282aa5101ca1" name="Changes by timle" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -61,6 +59,9 @@
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -243,7 +244,28 @@
       <option name="project" value="LOCAL" />
       <updated>1665916153380</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="url updated for update member">
+      <created>1665930297480</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1665930297480</updated>
+    </task>
+    <task id="LOCAL-00022" summary="update member form">
+      <created>1665930336950</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1665930336950</updated>
+    </task>
+    <task id="LOCAL-00023" summary="update view">
+      <created>1665930372141</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1665930372141</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,6 +296,9 @@
     <MESSAGE value="Changes&#10;- Added status box colors&#10;- Added progress bar&#10;- Removed details button and integrate with sprint title&#10;- Added new custom template tags" />
     <MESSAGE value="Changes&#10;- Added member details&#10;- Added Statistics for tasks in member&#10;- Edited dashboard&#10;- Edited base" />
     <MESSAGE value="Analytics stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="Analytics stuff" />
+    <MESSAGE value="url updated for update member" />
+    <MESSAGE value="update member form" />
+    <MESSAGE value="update view" />
+    <option name="LAST_COMMIT_MESSAGE" value="update view" />
   </component>
 </project>
