@@ -26,7 +26,7 @@
             {% for task in task_list %}
             <tr>
               <td>{{ task.title }}</td>
-              <td>{{ task.get_priority_display }}</td>
+              <td><div style="background-color: {{ task.get_priority_color }} ; padding: 1px; border: 1px {{ task.get_priority_color }}; border-radius: 5px;">{{ task.get_priority_display }}</div></td>
               <td>{{ task.get_status_display }}</td>
               <td>{{ task.tag }}</td>
               <td>{{ task.assignee }}</td>

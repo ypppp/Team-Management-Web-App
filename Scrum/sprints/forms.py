@@ -8,32 +8,30 @@ from tasks.models import Task
 
 class SprintForm(forms.ModelForm):
     title = forms.CharField(
-        widget=forms.TextInput(attrs={'placeholder': 'Must not contain spaces'})
-    )
+        widget=forms.TextInput(attrs={'placeholder': 'Must not contain spaces',
+                                      }))
 
     sprint_goal = forms.CharField(
         widget=forms.Textarea(attrs={'placeholder': 'Tell us more about this sprint',
-                                     'rows': '3', })
-    )
+                                     'rows': '3',
+                                     }))
 
     end_date = forms.DateField(
         widget=forms.DateInput(format='%Y-%m-%d',
                                attrs={'class': 'form-control',
                                       'min': date.today(),
                                       'type': 'date'
-                                      })
-    )
+                                      }))
 
     start_date = forms.DateField(
         widget=forms.DateInput(format='%Y-%m-%d',
                                attrs={'class': 'form-control',
                                       'min': date.today(),
                                       'type': 'date'
-                                      })
-    )
+                                      }))
 
     tasks = forms.ModelMultipleChoiceField(
-        label='Allocate tasks to this sprint', queryset=None,
+        label='', queryset=Task.objects.filter(sprint=None),
         widget=forms.CheckboxSelectMultiple(), required=False)
 
     class Meta:
@@ -48,10 +46,10 @@ class SprintForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(SprintForm, self).__init__(*args, **kwargs)
-        self.fields['tasks'].queryset = Task.objects.filter(Q(sprint=None) | Q(sprint=self.instance))
-        # self.fields['tasks'].help_text = 'Select tasks'
-        tasks = self.instance.tasks.all
-        self.initial['tasks'] = tasks
+        if self.instance.pk is not None:
+            self.fields['tasks'].queryset = Task.objects.filter(Q(sprint=self.instance) | Q(sprint=None))
+            tasks = self.instance.tasks.all
+            self.initial['tasks'] = tasks
 
     def save(self, commit=True):
         sprint = super().save(commit)
