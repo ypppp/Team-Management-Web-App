@@ -3,112 +3,93 @@
     <br>
     <h1>{{ title }}</h1>
     <br>
+    <br>
     <div style="display:flex; flex-direction: row;">
 
     <!-- Left side columns -->
     <div class="col-lg-8">
         <div class="row">
 
-          <!-- Brief task list -->
-          <div class="col-12">
-            <div class="card recent-sales overflow-auto">
-
-              <div class="card-body">
-                <h5 class="card-title">Sprint <span>| On going</span></h5>
-
-                <div>
-                    <table class="table table-borderless">
-                        <thead>
-                          <tr>
-                            <th scope="col">Title</th>
-                            <th scope="col">Start Date</th>
-                            <th scope="col">End Date</th>
-                            <th scope="col">Days Left</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>Sprint 1</td>
-                            <td > June 7, 2249</td>
-                            <td > June 7, 2249</td>
-                            <td> 82783</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-
+          <!-- First row task -->
+          <div class="container">
+            <div class="row">
+              <div class="col-sm">
+                <div class="card" style="width: 20rem; height: 15rem;">
+                  {% load static %}
+                  <a href="#"><img class="card-img-top" style="width:20rem; height: 9rem;" src="{% static "\assets\img\card_img.jpg" %}" 
+                    alt="Card image cap"/></a>
+                  <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted" style="padding-top: 20px;">In Progress</h6>
+                    <h5 class="card-title" style="height:100px; margin: 0px; padding-top: 10px;"><a href="#">500 days of Summer</a></h5>
+                  </div>
+                </div>
               </div>
-
-            </div>
-          </div><!-- End Brief task list -->
-
-          <!-- sprint list -->
-          <div class="col-12">
-            <div class="card top-selling overflow-auto">
-
-              <div class="card-body pb-0">
-                <h5 class="card-title">Tasks <span>| On going</span></h5>
-
-                <table class="table table-borderless">
-                  <thead>
-                    <tr>
-                      <th scope="col">Title</th>
-                      <th scope="col">Status</th>
-                      <th scope="col">Tag</th>
-                      <th scope="col">Assignee</th>
-                      <th scope="col">Due Date</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Avator</td>
-                      <td>In Progress</td>
-                      <td >BMW X5</td>
-                      <td >None</td>
-                      <td>June 7, 2249</td>
-                    </tr>
-                  </tbody>
-                </table>
-
+              <div class="col-sm">
+                <div class="card" style="width: 20rem; height: 15rem;">
+                  {% load static %}
+                  <a href="#"><img class="card-img-top" style="width:20rem; height: 9rem;" src="{% static "\assets\img\card_img.jpg" %}" 
+                    alt="Card image cap"/></a>
+                  <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted" style="padding-top: 20px;">Completed</h6>
+                    <h5 class="card-title" style="height:100px; margin: 0px; padding-top: 10px;"><a href="#">Avatar</a></h5>
+                  </div>
+                </div>
               </div>
-
             </div>
-          </div><!-- End sprint list -->
+          </div>
+          <!-- End First row task -->
+          
 
-           <!-- member list -->
-           <div class="col-12">
-            <div class="card top-selling overflow-auto">
-
-              <div class="card-body pb-0">
-                <h5 class="card-title">Members <span>| </span></h5>
-
-                <table class="table table-borderless">
-                  <thead>
-                    <tr>
-                      <th scope="col">First Name</th>
-                      <th scope="col">Last Name</th>
-                      <th scope="col">Email</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Tim</td>
-                      <td>Leh</td>
-                      <td >jpar007@gmail.com</td>
-                    </tr>
-                  </tbody>
-                </table>
-
+          <!-- Second row task -->
+          <div class="container">
+            <div class="row">
+              <div class="col-sm">
+                <div class="card" style="width: 20rem; height: 15rem;">
+                  {% load static %}
+                  <a href="#"><img class="card-img-top" style="width:20rem; height: 9rem;" src="{% static "\assets\img\card_img.jpg" %}" 
+                    alt="Card image cap"/></a>
+                  <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted" style="padding-top: 20px;">Pending</h6>
+                    <h5 class="card-title" style="height:100px; margin: 0px; padding-top: 10px;"><a href="#">Image alteration</a></h5>
+                  </div>
+                </div>
               </div>
-
+              <div class="col-sm">
+                <div class="card" style="width: 20rem; height: 15rem;">
+                  {% load static %}
+                  <a href="#"><img class="card-img-top" style="width:20rem; height: 9rem;" src="{% static "\assets\img\card_img.jpg" %}" 
+                    alt="Card image cap"/></a>
+                  <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted" style="padding-top: 20px;">Completed</h6>
+                    <h5 class="card-title" style="height:100px; margin: 0px; padding-top: 10px;"><a href="#">BMW vs Mercedes</a></h5>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div><!-- End member list -->
+          </div>
+          <!-- End Second row task -->
 
         </div>
-      </div><!-- End Left side columns -->
+      </div>
+      <!-- End Left side columns -->
+
 
     <!-- Right side columns -->
     <div class="col-lg-4">
+
+       <!-- Current Progress -->
+       <div class="card">
+        <div class="card-body pb-0">
+          <h5 class="card-title">Current Progress <span>| This Sprint</span></h5>
+
+          <div id="statisticChart" style="min-height: 300px;" class="echart">
+            What's going to be inside this div tho 
+          </div>
+
+          <script src="js/Chart.min.js"></script>
+        </div>
+      </div>
+      <!-- End current progress-->
 
 
         <!-- Recent Activity -->
@@ -170,7 +151,8 @@
             </div>
 
           </div>
-        </div><!-- End Recent Activity -->
+        </div>
+        <!-- End Recent Activity -->
 
         
         <!-- Statistics -->
@@ -182,7 +164,8 @@
 
             <script src="js/Chart.min.js"></script>
           </div>
-        </div><!-- End Budget Report -->
+        </div>
+        <!-- End Statistics-->
 
 
       </div><!-- End Right side columns -->

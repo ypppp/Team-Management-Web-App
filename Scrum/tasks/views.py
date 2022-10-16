@@ -14,7 +14,6 @@ def home(request):
     }
     return render(request, 'tasks/dashboard.html', context)
 
-
 class TaskListView(ListView):
     model = Task
     # paginate_by = 20
