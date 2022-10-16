@@ -2,12 +2,17 @@ from django.urls import reverse_lazy
 from django.views.generic import (ListView, DetailView,
                                   CreateView, UpdateView, DeleteView)
 
-from tasks.models import Task
+from analytics.utils import get_member_analytics
+from .forms import MemberForm
 from .models import Member
+from tasks.models import Task
+from analytics.models import Entry
+from sprints.models import Sprint
 
 
 class MemberListView(ListView):
     model = Member
+    template_name = 'members/member_list.html'
 
 
 class MemberDetailView(DetailView):
@@ -25,29 +30,31 @@ class MemberDetailView(DetailView):
         tasks = Task.objects.all().filter(assignee=self.object)
         context["tasks_involved"] = tasks.count()
         context["tasks_done"] = division_zero_avoid(tasks.filter(status=Task.COMPLETE).count(), tasks.count())
-        context["render_pie"] = [tasks.filter(status=Task.COMPLETE).count(), tasks.filter(status=Task.PENDING).count(), tasks.filter(status=Task.IN_PROGRESS).count()]
-        return context
+        context["render_pie"] = [tasks.filter(status=Task.COMPLETE).count(), tasks.filter(status=Task.PENDING).count(), tasks.filter(status=Task.IN_PROGRESS).count(), tasks.filter(status=Task.OVERDUE).count()]
+        context["OVERDUE"] = Task.OVERDUE
+        entries, sprint = get_member_analytics(self.object)
 
-    # def get_data(self):
-    #     result = {}
-    #
-    #     result[' '] = 1
-    #
-    #     return result
-    #
-    # def get_context_data(self, **kwargs):
-    #     context = super(MemberDetailView, self).get_context_data(**kwargs)
-    #     context['data'] = self.get_data()
-    #     return context
+        context["sprint_list"] = sprint
+        context["hours"] = entries
+
+        print(entries)
+        print(sprint)
+
+
+
+
+        return context
 
 
 class MemberCreateView(CreateView):
     model = Member
+    form_class = MemberForm
     success_url = reverse_lazy('member-list')
 
 
 class MemberUpdateView(UpdateView):
     model = Member
+    form_class = MemberForm
     success_url = reverse_lazy('member-list')
 
 

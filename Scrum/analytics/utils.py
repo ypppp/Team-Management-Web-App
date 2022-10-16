@@ -5,6 +5,7 @@ from django.utils.datetime_safe import date
 
 from analytics.models import Entry
 from sprints.models import Sprint
+from tasks.models import Task
 
 
 def get_sum(sprint: Sprint) -> float:
@@ -57,3 +58,17 @@ def get_day_range(start: date, end: date, step_size=1) -> list[date]:
         day_range.append(td)
 
     return day_range
+
+def get_member_analytics(member):
+    sprints = []
+    entries = []
+    total = 0
+
+    all_tasks_by_member = Task.objects.filter(assignee=member)
+    for sprint in Sprint.objects.all():
+        total = 0
+        for task in sprint.tasks.filter(assignee=member):
+            sprints.append(sprint)
+            entries.append(Entry.objects.filter(task=task))
+
+    return entries, sprints
