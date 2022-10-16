@@ -1,18 +1,18 @@
 from datetime import timedelta
 
+from django.db.models import Q, Sum
 from django.urls import reverse_lazy
-from django.views.generic import (ListView, DetailView,
-                                  CreateView)
+from django.views.generic import ListView, CreateView
 from django.views.generic.list import MultipleObjectMixin
 
 from sprints.models import Sprint
-from tasks.models import Task
 from .forms import EntryForm
 from .models import Entry
 
 
 class RecentEntryView(ListView):
     model = Entry
+    paginate_by = 10
 
 
 class AddEntryView(CreateView):
@@ -30,34 +30,103 @@ class EntriesMixin(MultipleObjectMixin):
     pass
 
 
-class TeamAnalytics(DetailView):
-    model = Sprint
-    template_name = 'analytics/team_stat.html'
+def get_sum(sprint):
+    duration_sum = timedelta(hours=0)
+    for task in sprint.tasks.all():
+        for entry in task.entries.all():
+            duration_sum += entry.duration
+    return {'sum': duration_sum}
 
-    def get_chart_data(self):
 
-        start_date = self.object.start_date
+def get_sprint_data(sprint: Sprint) -> list:
+    """
+        Computes and returns statistical data for a sprint
+    Args:
+        sprint: Target sprint
 
-        # for task in raw_entries:
-        #     for entry in task.entries.all():
-        #         result += entry.duration
-        #
-        # return result
+    Returns:
+        List of dictionary containing chart data where:
+            - x is date
+            - y is hours
+    """
+    # get sprint date range
+    start_date = sprint.start_date
+    end_date = sprint.end_date
 
-    def get_sum(self):
+    delta = end_date - start_date
+    day_range = [start_date, end_date]
 
-        raw_entries = self.object.tasks.all()
-        total = timedelta(hours=0)
+    for day in range(delta.days):
+        day_range.insert(-1, start_date + timedelta(days=day))
 
-        for task in raw_entries:
-            for entry in task.entries.all():
-                print(type(entry.duration))
-                total += entry.duration
+    # initialise values
+    entries = Entry.objects.filter(task__sprint=sprint)
+    print(entries)
 
-        return total
+    # data = {'chart_data': []}
+    chart_data = []
+    total = timedelta()
+
+    # operation
+    for day in day_range:
+
+        target = entries.filter(date=day)
+        hours = 0
+
+        if target.count() > 0:
+            duration = target.aggregate(duration=Sum('duration'))
+            # print(duration, 'hours')
+            hours = int(duration['duration'].days) * 24
+
+        chart_data.append({'date': day, 'hours': hours})
+        # total += hours
+
+    # data['sum'] = total
+    # data['avg'] = hours / len(day_range)
+    # print(chart_data)
+    return chart_data
+
+
+class DailyTeamAnalytics(ListView):
+    """
+        - all tasks in a sprint combined?
+        - how to design date range?
+        - what stat value to include?
+        - all the sprints?
+        - all the sprints combined? (composite)
+    """
+    queryset = Sprint.objects.filter(Q(status=Sprint.ONGOING)).order_by('-status')
+    # queryset = Sprint.objects.exclude(Q(status=Sprint.PENDING))
+    template_name = 'analytics/analytics.html'
+
+    # def get_chart_data(self):
+    #
+    #     start_date = self.object.start_date
+    #     end_date = self.object.end_date
+    #     date = start_date
+    #
+    #     while date <= end_date:
+    #         for entry in task.entries.all():
+    #             result += entry.duration
+    #
+    #         date += timedelta(days=1)
+    #
+    #     return result
 
     def get_context_data(self, **kwargs):
-        context = super(TeamAnalytics, self).get_context_data(**kwargs)
-        # context['chart_data'] =
-        context['sum'] = self.get_sum()
+        context = super(DailyTeamAnalytics, self).get_context_data(**kwargs)
+        # context['data'] = {'chart_data': [{'date': date(2022, 12, 29), 'hours': 1},
+        #                                   {'date': date(2022, 12, 30), 'hours': 2},
+        #                                   {'date': date(2022, 12, 31), 'hours': 3},
+        #                                   ],
+        #                    'sum': 2,
+        #                    'avg': 3,
+        #                    }
+
+        # context['data'] = {}
+        for q in self.queryset.all():
+            chart_data = get_sprint_data(q)
+            # context[q] = {'data': []}
+            context['data'] = {'chart_data': chart_data}
+
         return context

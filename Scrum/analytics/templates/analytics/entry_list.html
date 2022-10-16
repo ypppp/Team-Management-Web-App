@@ -1,6 +1,7 @@
 {% extends 'tasks/base.html' %}
 {% block content %}
     <h1>Recent Entries</h1>
+    <br>
     {% for entry in entry_list %}
         <p>Task:        {{ entry.task }}</p>
         <p>Sprint:      {{ entry.task.sprint }}</p>

@@ -1,0 +1,22 @@
+{% extends 'tasks/base.html' %}
+{% load custom_tags %}
+{% block content %}
+    <p>{{ data }}</p>
+{#    <p>{{ sprint_list }}</p>#}
+{#    {% for sprint in sprint_list %}#}
+{#        {{ data.index.forloop.counter0 }}#}
+{#        <h1>{{ sprint }}</h1>#}
+{#        {% for item in data.forloop.counter0.chart_data %}#}
+{#            {% for key, value in item.items %}#}
+{#                <p>{{ value }}</p>#}
+{#                <br>#}
+{#            {% endfor %}#}
+{#        {% endfor %}#}
+{#    {% endfor %}#}
+
+{#    {% for product in products_dict|get_obj_field:category %}#}
+{#        {{ product }}#}
+{#    {% endfor %}#}
+
+{% endblock content %}
+

@@ -1,27 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="Entry model &#10;- model creation&#10;- unmigrated&#10;- views planning">
-      <change afterPath="$PROJECT_DIR$/Scrum/analytics/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scrum/analytics/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scrum/analytics/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scrum/analytics/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scrum/analytics/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scrum/analytics/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scrum/analytics/templates/analytics/entry_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scrum/analytics/templates/analytics/team_stat.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scrum/analytics/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scrum/analytics/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scrum/analytics/views.py" afterDir="false" />
+    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="Analytics app creation&#10;- entry model &#10;- all statistics related stuff goes here&#10;- TeamAnalytics view&#10;- entry_list.html&#10;- EntryForm&#10;- base.html statistics">
+      <change afterPath="$PROJECT_DIR$/Scrum/analytics/templates/analytics/entry_form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scrum/analytics/templatetags/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scrum/analytics/templatetags/custom_tags.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scrum/members/templates/members/member_detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/FIT2101-B6.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FIT2101-B6.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/analytics/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/analytics/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/analytics/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/analytics/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/analytics/templates/analytics/entry_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/analytics/templates/analytics/entry_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/analytics/templates/analytics/team_stat.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/analytics/templates/analytics/analytics.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/analytics/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/analytics/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/analytics/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/analytics/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scrum/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/main/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/main/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/main/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/main/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/tasks/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/tasks/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/tasks/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/members/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/members/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/members/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/members/views.py" afterDir="false" />
     </list>
     <list id="0a9e4d80-b2b8-4395-999c-282aa5101ca1" name="Changes by timle" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,8 +31,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -138,7 +133,7 @@
       <workItem from="1665471084755" duration="290000" />
       <workItem from="1665553900447" duration="7338000" />
       <workItem from="1665678159374" duration="3376000" />
-      <workItem from="1665828900816" duration="12981000" />
+      <workItem from="1665828900816" duration="40773000" />
     </task>
     <task id="LOCAL-00001" summary="Bug fix&#10; - divider not working for html">
       <created>1663036090178</created>
@@ -357,7 +352,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665832732116</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Analytics app creation&#10;- entry model &#10;- all statistics related stuff goes here&#10;- TeamAnalytics view&#10;- entry_list.html&#10;- EntryForm&#10;- base.html statistics">
+      <created>1665847801670</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1665847801670</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -391,6 +393,7 @@
     <MESSAGE value="Sprint3:&#10;- pagination complete except styling&#10;- sprint list modification&#10;- sprint confirm save modification&#10;- createview fixed&#10;- new tasks.json" />
     <MESSAGE value="orphan addition" />
     <MESSAGE value="Entry model &#10;- model creation&#10;- unmigrated&#10;- views planning" />
-    <option name="LAST_COMMIT_MESSAGE" value="Entry model &#10;- model creation&#10;- unmigrated&#10;- views planning" />
+    <MESSAGE value="Analytics app creation&#10;- entry model &#10;- all statistics related stuff goes here&#10;- TeamAnalytics view&#10;- entry_list.html&#10;- EntryForm&#10;- base.html statistics" />
+    <option name="LAST_COMMIT_MESSAGE" value="Analytics app creation&#10;- entry model &#10;- all statistics related stuff goes here&#10;- TeamAnalytics view&#10;- entry_list.html&#10;- EntryForm&#10;- base.html statistics" />
   </component>
 </project>
