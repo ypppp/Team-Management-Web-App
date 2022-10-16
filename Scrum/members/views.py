@@ -39,6 +39,7 @@ class MemberCreateView(CreateView):
 
 class MemberUpdateView(UpdateView):
     model = Member
+    form_class = MemberForm
     success_url = reverse_lazy('member-list')
 
 
