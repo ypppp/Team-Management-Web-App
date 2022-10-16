@@ -2,15 +2,45 @@
 {% load custom_tags %}
 {% block content %}
 
-{#    <p>{{ data.chart_data.dates }}</p>#}
-{#    <p>{{ sprint_list }}</p>#}
-{#    {% for sprint in sprint_list %}#}
-{#        <h1>{{ sprint }}</h1>#}
-{#        {% for item in data.chart_data.hours %}#}
-{#                <p>{{ item }}</p>#}
-{#                <br>#}
-{#        {% endfor %}#}
-{#    {% endfor %}#}
+<canvas id="myChart"></canvas>
+<!--Change data/config variable to respective chart-->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+<script>
+    const labels = [
+        {% for dates in date%}
+            "{{dates}}",
+        {% endfor %}
+    ];
+    const data = {
+      labels: labels,
+      datasets: [{
+        label: 'My First Dataset',
+        data: {{hour}},
+        fill: false,
+        borderColor: 'rgb(75, 192, 192)',
+        tension: 0.1
+      }]
+    };
+
+    const config = {
+      type: 'line',
+      data: data,
+      options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+      }
+    };
+</script>
+<script>
+  const myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );
+</script>
 
     {% for sprint in sprint_list %}
         <h1>{{ sprint }}</h1>
