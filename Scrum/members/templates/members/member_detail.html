@@ -1,5 +1,10 @@
 {% extends 'tasks/base.html' %}
+{% load custom_tags %}
 {% block content %}
+{{sprint_list}}
+{%for i in hours%}
+{{hour.1.duration}}
+{%endfor%}
     <br>
   <div class="page-header">
     <h1 class="page-header">Member Details</h1>
