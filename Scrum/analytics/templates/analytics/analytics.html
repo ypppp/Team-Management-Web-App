@@ -1,0 +1,50 @@
+{% extends 'tasks/base.html' %}
+{% load custom_tags %}
+{% block content %}
+
+
+    {% for sprint in sprint_list %}
+        <h1>{{ sprint }}</h1>
+        <br>
+        <p>{{ x_data|get_dict_value:sprint }}</p>
+        <p>{{ y_data|get_dict_value:sprint }}</p>
+<canvas id="myChart{{sprint.pk}}"></canvas>
+<!--Change data/config variable to respective chart-->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+
+<script>
+    const labels = [1,2,3,4,6,7,8,9,0,1,1,2,3,4,6,7,8,9,0,1,1,2,3,4,6,7,8,9,0,1,2,3];
+    const data = {
+      labels: labels,
+      datasets: [{
+        label: 'My First Dataset',
+        data: {{y_data|get_dict_value:sprint}},
+        fill: false,
+        borderColor: 'rgb(75, 192, 192)',
+        tension: 0.1
+      }]
+    };
+
+    const config = {
+      type: 'line',
+      data: data,
+      options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+      }
+    };
+</script>
+<script>
+  const myChart = new Chart(
+    document.getElementById('myChart{{sprint.pk}}'),
+    config
+  );
+</script>
+    {% endfor %}
+
+{% endblock content %}
+

@@ -1,0 +1,58 @@
+{% extends 'tasks/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    <fieldset>
+        <br>
+        <div class="page-header">
+            {% if sprint is None %}
+                <h1 class="page-header">New Sprint</h1>
+            {% else %}
+                <h1 class="page-header">Sprint Update</h1>
+            {% endif %}
+        </div>
+        {{ form.title | as_crispy_field }}
+        {{ form.sprint_goal | as_crispy_field }}
+
+        <div class="row">
+            <p>Allocate tasks to this sprint</p>
+            <div class="card" style="width: 380px; height:250px; border-radius: 10px; border-color: black">
+              <div class="card-body" style="overflow:auto;">
+                  {{ form.tasks | as_crispy_field }}
+              </div>
+            </div>
+            <div class="col-1"></div>
+            <div class="col-2">
+                {{ form.start_date | as_crispy_field }}
+            </div>
+            <div class="col-1"></div>
+            <div class="col-2">
+                {{ form.end_date | as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+
+            </div>
+        </div>
+
+    </fieldset>
+    <br>
+    <div>
+        <button type="SUBMIT" class="btn btn-success">Save</button>
+        {% if sprint is None %}
+            <a href="{% url 'sprint-list' %}">
+                <button type="button" class="btn btn-danger">Cancel</button>
+            </a>
+        {% else %}
+            <a href="{% url 'sprint-delete' sprint.id %}">
+                <button type="button" class="btn btn-danger">Delete</button>
+            </a>
+            <a href="{% url 'sprint-detail' sprint.id %}">
+                <button type="button" class="btn btn-danger">Cancel</button>
+            </a>
+        {% endif %}
+    </div>
+</form>
+{% endblock content %}

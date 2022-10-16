@@ -1,0 +1,82 @@
+{% extends 'tasks/base.html' %}
+{% load custom_tags %}
+{% block content %}
+{{sprint_list}}
+{%for i in hours%}
+{{hour.1.duration}}
+{%endfor%}
+    <br>
+  <div class="page-header">
+    <h1 class="page-header">Member Details</h1>
+  </div>
+    <br>
+<div class="card" style="width: 100%;">
+  <div class="card-body">
+    <br>
+    <p class="card-text">First Name: {{member.first_name}}</p>
+    <p class="card-text">Last Name: {{member.last_name}}</p>
+    <p class="card-text">Email: {{member.email}} <a href="mailto:{{member.email}}"><i class="fa fa-envelope" aria-hidden="true"></i></a></p>
+  </div>
+</div>
+
+  <div class="row">
+    <div class="col">
+
+      <div class="card" style="width: 100%;">
+        <div class="card-body">
+          <h4 class="card-title">Analytics<span> | Task Completion Rate</span></h4>
+          <p class="card-text">Tasks involved: {{tasks_involved}}</p>
+          {%if tasks_involved > 0 or tasks_%}
+          <div style="height:50%; width:50%;">
+            <canvas id="pieChart"></canvas>
+            <h4 class="card-text" style="text-align: center;">Completion Rate: {{tasks_done}}%</h4>
+          </div>
+          {%endif%}
+        </div>
+      </div>
+
+    </div>
+    <div class="col">
+      <div class="card" style="width: 100%;">
+        <div class="card-body">
+          <h4 class="card-title">Analytics<span> | Average Working Hour</span></h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!--Change data/config variable to respective chart-->
+<script>
+  const dataPie = {
+    labels: [
+      'Complete',
+      'Pending',
+      'In Progress',
+      'Overdue'
+    ],
+    datasets: [{
+      label: 'My First Dataset',
+      data: {{render_pie}},
+      backgroundColor: [
+        'rgb(5, 110, 35)',
+        'rgb(237, 190, 19)',
+        'rgb(237, 63, 19)',
+        'rgb(255,255,102)',
+      ],
+      hoverOffset: 4
+    }]
+  };
+
+  const configPie = {
+    type: 'doughnut',
+    data: dataPie,
+  };
+</script>
+<script>
+  const myChart = new Chart(
+    document.getElementById('pieChart'),
+    configPie
+  );
+</script>
+{% endblock content %}

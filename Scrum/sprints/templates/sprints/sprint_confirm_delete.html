@@ -1,0 +1,54 @@
+{% extends 'tasks/base.html' %}
+{% block content %}
+    <br>
+    <br>
+    <div class="page-header">
+        <h1 class="page-header">Delete Sprint</h1>
+    </div>
+    <br>
+<form method="POST">
+  {% csrf_token %}
+    <div>
+        <div class="alert alert-warning" role="alert">
+  <h4 class="alert-heading"><i class="fa fa-exclamation-triangle" style="color:#721c24;" aria-hidden="true"></i> Warning</h4>
+    {% if sprint.tasks.count == 0 %}
+        <p>Are you sure you want to delete "{{ sprint.title }}"?</p>
+    {% else %}
+        <p>Are you sure you want to delete "{{ sprint.title }}"? There are currently {{ sprint.tasks.all.count }} tasks allocated to this sprint.
+        </p>
+    {% endif %}
+  <hr>
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a class="btn btn-light" href="{% url 'sprint-list' %}">Cancel</a>
+</div>
+    {% if sprint.tasks %}
+    <table class= "table table-hover table-striped">
+        <thead class="table_head">
+            <tr>
+                <th class="col1">Title</th>
+                <th class="col2">Priority</th>
+                <th class="col3">Status</th>
+                <th class="col4">Tag</th>
+                <th class="col5">Assignee</th>
+                <th class="col6">Due Date</th>
+             </tr>
+         </thead>
+
+        <tbody>
+            {% for task in sprint.tasks.all %}
+                <tr>
+                  <td>{{ task.title }}</td>
+                  <td>{{ task.get_priority_display }}</td>
+                  <td>{{ task.get_status_display }}</td>
+                  <td>{{ task.tag }}</td>
+                  <td>{{ task.assignee }}</td>
+                  <td>{{ task.due_date }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+    {% endif %}
+</div>
+</form>
+{% endblock content %}

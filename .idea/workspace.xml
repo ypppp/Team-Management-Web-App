@@ -1,41 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="Bug fix&#10; - divider not working for html">
+    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="STUFF 2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/product_backlog.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/product_backlog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/members/templates/members/member_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/members/templates/members/member_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/members/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/members/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/dashboard.html" afterDir="false" />
     </list>
+    <list id="0a9e4d80-b2b8-4395-999c-282aa5101ca1" name="Changes by timle" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="tim_2" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Scrum/tasks/models.py" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="2Eh7EQMmtCpxmh0O6TJ6zyD3vuM" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "Git.Branch.Popup.ShowAllRemotes": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true"
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "last_opened_file_path": "C:/Users/timle/Desktop/MONASH REPO/FIT2101 ASS",
+    "list.type.of.created.stylesheet": "CSS",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PythonContentEntriesConfigurable"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\timle\Desktop\MONASH REPO\FIT2101 ASS\Scrum\sprints\" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="FIT2101-B6" type="Python.DjangoServer" factoryName="Django server">
+      <module name="FIT2101-B6" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="main.settings" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/PycharmProjects/bin/python" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -44,6 +114,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1663035849123</updated>
+      <workItem from="1664570345656" duration="4161000" />
     </task>
     <task id="LOCAL-00001" summary="Bug fix&#10; - divider not working for html">
       <created>1663036090178</created>
@@ -52,8 +123,165 @@
       <option name="project" value="LOCAL" />
       <updated>1663036090178</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Models modified:&#10;- Task&#10;- Sprint&#10;- Member">
+      <created>1664468735076</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1664468735076</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Models modified:&#10;- Task&#10;- Sprint&#10;- Member">
+      <created>1664519618077</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1664519618077</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Sprint 1 tasks fixed">
+      <created>1664529593998</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1664529593998</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Task detail, update, create reimplemented">
+      <created>1664534715531</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1664534715531</updated>
+    </task>
+    <task id="LOCAL-00006" summary="forms modified">
+      <created>1664548076555</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1664548076555</updated>
+    </task>
+    <task id="LOCAL-00007" summary="model validation">
+      <created>1664554381295</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1664554381295</updated>
+    </task>
+    <task id="LOCAL-00008" summary="database fix">
+      <created>1664556265342</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1664556265342</updated>
+    </task>
+    <task id="LOCAL-00009" summary="database fix">
+      <created>1664564672504</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1664564672504</updated>
+    </task>
+    <task id="LOCAL-00010" summary="database fix">
+      <created>1664565561280</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1664565561280</updated>
+    </task>
+    <task id="LOCAL-00011" summary="database fix">
+      <created>1664565656524</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1664565656524</updated>
+    </task>
+    <task id="LOCAL-00012" summary="database fix">
+      <created>1664565700597</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1664565700597</updated>
+    </task>
+    <task id="LOCAL-00013" summary="database fix">
+      <created>1664565885701</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1664565885701</updated>
+    </task>
+    <task id="LOCAL-00014" summary="overdue added to task model">
+      <created>1664569122060</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1664569122061</updated>
+    </task>
+    <task id="LOCAL-00015" summary="overdue added to task model">
+      <created>1664570028131</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1664570028131</updated>
+    </task>
+    <task id="LOCAL-00016" summary="foreign key field modification">
+      <created>1664704841993</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1664704841993</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Changes&#10;- If sprint starts or end before designated date, it will auto set as today's date&#10;- Priority tab in product backlog now have a color cube&#10;- Tasks when end date will be calculated correctly&#10;- End or start sprint will now return back to sprint detail page instead of sprint list">
+      <created>1664971028686</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1664971028686</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Changes&#10;- Added status box colors&#10;- Added progress bar&#10;- Removed details button and integrate with sprint title&#10;- Added new custom template tags">
+      <created>1665561050782</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1665561050782</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Changes&#10;- Added member details&#10;- Added Statistics for tasks in member&#10;- Edited dashboard&#10;- Edited base">
+      <created>1665908987294</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1665908987294</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Analytics stuff">
+      <created>1665916153380</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1665916153380</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Added date for analytics and start at 0">
+      <created>1665917850154</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1665917850154</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Stuff">
+      <created>1665930929406</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1665930929406</updated>
+    </task>
+    <task id="LOCAL-00023" summary="STUFF 2">
+      <created>1665943408185</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1665943408185</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -68,6 +296,21 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Bug fix&#10; - divider not working for html" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bug fix&#10; - divider not working for html" />
+    <MESSAGE value="Models modified:&#10;- Task&#10;- Sprint&#10;- Member" />
+    <MESSAGE value="Sprint 1 tasks fixed" />
+    <MESSAGE value="Task detail, update, create reimplemented" />
+    <MESSAGE value="forms modified" />
+    <MESSAGE value="model validation" />
+    <MESSAGE value="database fix" />
+    <MESSAGE value="overdue added to task model" />
+    <MESSAGE value="foreign key field modification" />
+    <MESSAGE value="Changes&#10;- If sprint starts or end before designated date, it will auto set as today's date&#10;- Priority tab in product backlog now have a color cube&#10;- Tasks when end date will be calculated correctly&#10;- End or start sprint will now return back to sprint detail page instead of sprint list" />
+    <MESSAGE value="Changes&#10;- Added status box colors&#10;- Added progress bar&#10;- Removed details button and integrate with sprint title&#10;- Added new custom template tags" />
+    <MESSAGE value="Changes&#10;- Added member details&#10;- Added Statistics for tasks in member&#10;- Edited dashboard&#10;- Edited base" />
+    <MESSAGE value="Analytics stuff" />
+    <MESSAGE value="Added date for analytics and start at 0" />
+    <MESSAGE value="Stuff" />
+    <MESSAGE value="STUFF 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="STUFF 2" />
   </component>
 </project>
