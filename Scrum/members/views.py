@@ -2,9 +2,8 @@ from django.urls import reverse_lazy
 from django.views.generic import (ListView, DetailView,
                                   CreateView, UpdateView, DeleteView)
 
-from .models import Member
 from tasks.models import Task
-from sprints.models import Sprint
+from .models import Member
 
 
 class MemberListView(ListView):
