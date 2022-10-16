@@ -48,3 +48,28 @@ class DailyTeamAnalytics(ListView):
             context['y_data'][q] = chart_data[1]    # hours
 
         return context
+
+
+def get_data_dic(dic):
+    hours = []
+    date = []
+    length = len(dic.get("chart_data"))
+
+    for i in range(length):
+        hours.append(dic.get("chart_data")[i]['hours'])
+        date.append(dic.get("chart_data")[i]['date'])
+
+    return hours, date
+
+
+def get_data_list(list):
+    hours = []
+    date = []
+    date_data = []
+
+    for i in range(len(list)):
+        hours.append(list[i]["hours"])
+        date.append(list[i]["date"].strftime("%d.%m.%y"))
+        date_data.append(i+1)
+
+    return hours, date, date_data

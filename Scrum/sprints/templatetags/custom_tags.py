@@ -14,6 +14,11 @@ def percentage(value):
 def filter_by_complete(value):
     return value.tasks.filter(status=Task.COMPLETE).count()
 
+@register.filter
+def get_dict_value(obj, key):
+    return obj[key]
 
+
+register.filter('get_dict_value', get_dict_value)
 register.filter('percentage', percentage)
 register.filter('filter_by_complete', filter_by_complete)

@@ -19,9 +19,7 @@ class EntryForm(forms.ModelForm):
 
     class Meta:
         model = Entry
-        exclude = [
-            'timestamp',
-        ]
+        exclude = ['timestamp']
 
     def __init__(self, *args, **kwargs):
         super(EntryForm, self).__init__(*args, **kwargs)

@@ -8,8 +8,8 @@
 <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
 <script>
     const labels = [
-        {% for dates in date%}
-            "{{dates}}",
+        {% for dates in date %}
+            "{{ dates }}",
         {% endfor %}
     ];
     const data = {

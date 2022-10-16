@@ -49,7 +49,7 @@ class SprintDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(SprintDetailView, self).get_context_data(**kwargs)
-        context['all_start_sprint'] = Sprint.objects.filter(status="ON").count
+        context['all_start_sprint'] = Sprint.objects.filter(status=Sprint.ONGOING).count
         context['PENDING'] = Sprint.PENDING
         context['ONGOING'] = Sprint.ONGOING
         context['ENDED'] = Sprint.ENDED
