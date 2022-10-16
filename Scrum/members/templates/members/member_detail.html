@@ -26,7 +26,7 @@
         <div class="card-body">
           <h4 class="card-title">Analytics<span> | Task Completion Rate</span></h4>
           <p class="card-text">Tasks involved: {{tasks_involved}}</p>
-          {%if tasks_involved > 0 %}
+          {%if tasks_involved > 0 or tasks_%}
           <div style="height:50%; width:50%;">
             <canvas id="pieChart"></canvas>
             <h4 class="card-text" style="text-align: center;">Completion Rate: {{tasks_done}}%</h4>
@@ -52,7 +52,8 @@
     labels: [
       'Complete',
       'Pending',
-      'In Progress'
+      'In Progress',
+      'Overdue'
     ],
     datasets: [{
       label: 'My First Dataset',
@@ -60,7 +61,8 @@
       backgroundColor: [
         'rgb(5, 110, 35)',
         'rgb(237, 190, 19)',
-        'rgb(237, 63, 19)'
+        'rgb(237, 63, 19)',
+        'rgb(255,255,102)',
       ],
       hoverOffset: 4
     }]

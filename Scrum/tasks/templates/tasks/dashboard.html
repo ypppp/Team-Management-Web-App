@@ -53,16 +53,20 @@
     <br>
     <h1>Dashboard</h1>
     <br>
-    <div class="tab">
-        <button class="tablinks" onclick="openCity(event, 'All')" id="defaultOpen">All</button>
-        <button class="tablinks" onclick="openCity(event, 'Completed')">Completed</button>
-        <button class="tablinks" onclick="openCity(event, 'Pending')">Pending</button>
-        <button class="tablinks" onclick="openCity(event, 'In_Progress')">In Progress</button>
-    </div>
-    <br>
 
-    <div id="All" class="tabcontent" style="display: flex;">
-        <table class="table table-borderless">
+    <div class="container">
+      <div class="row">
+        <div class="col-8">
+
+          <div class="tab">
+            <button class="tablinks" onclick="openCity(event, 'All')" id="defaultOpen">All</button>
+            <button class="tablinks" onclick="openCity(event, 'Completed')">Completed</button>
+            <button class="tablinks" onclick="openCity(event, 'Pending')">Pending</button>
+            <button class="tablinks" onclick="openCity(event, 'In_Progress')">In Progress</button>
+          </div>
+            <br>
+            <div id="All" class="tabcontent" style="display: flex;">
+                <table class="table table-borderless">
                   <tbody>
                   {% for x in sprint_ongoing %}
                     {% for y in x.tasks.all %}
@@ -77,9 +81,8 @@
                   {%endfor%}
                   </tbody>
                 </table>
-    </div>
-
-    <div id="Completed" class="tabcontent" style="display: flex;">
+            </div>
+            <div id="Completed" class="tabcontent" style="display: flex;">
                 <table class="table table-borderless">
                   <tbody>
                   {% for x in sprint_ongoing %}
@@ -97,10 +100,9 @@
                   {%endfor%}
                   </tbody>
                 </table>
-    </div>
-
-    <div id="Pending" class="tabcontent" style="display: flex;">
-        <table class="table table-borderless">
+            </div>
+            <div id="Pending" class="tabcontent" style="display: flex;">
+                <table class="table table-borderless">
                   <tbody>
                   {% for x in sprint_ongoing %}
                     {% for y in x.tasks.all %}
@@ -117,42 +119,49 @@
                   {%endfor%}
                   </tbody>
                 </table>
-    </div>
+            </div>
+            <div id="In_Progress" class="tabcontent" style="display: flex;">
+                <table class="table table-borderless">
+                  <tbody>
+                  {% for x in sprint_ongoing %}
+                    {% for y in x.tasks.all %}
+                        {% if y.status == TASK_IN_PROGRESS %}
+                    <tr>
+                      <td>{{y.title}}</td>
+                      <td>{{y.get_status_display}}</td>
+                      <td >None</td>
+                      <td >{{y.assignee}}</td>
+                      <td>{{y.due_date}}</td>
+                    </tr>
+                        {%endif%}
+                    {%endfor%}
+                  {%endfor%}
+                  </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-4">
 
-    <div id="In_Progress" class="tabcontent" style="display: flex;">
-        <table class="table table-borderless">
-          <tbody>
-          {% for x in sprint_ongoing %}
-            {% for y in x.tasks.all %}
-                {% if y.status == TASK_IN_PROGRESS %}
-            <tr>
-              <td>{{y.title}}</td>
-              <td>{{y.get_status_display}}</td>
-              <td >None</td>
-              <td >{{y.assignee}}</td>
-              <td>{{y.due_date}}</td>
-            </tr>
-                {%endif%}
-            {%endfor%}
-          {%endfor%}
-          </tbody>
-        </table>
-    </div>
-
-        <!-- Upcoming events -->
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Upcoming events <span>| pending </span></h5>
-            <div class="activity">
-            {% for x in sprint_pending %}
-              <ul>
-                <li>{{x.title}} - {{x.get_status_display}}</li>
-              </ul>
-            {%endfor%}
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Upcoming events <span>| pending </span></h5>
+                <div class="activity">
+                {% for x in sprint_pending %}
+                  <ul>
+                    <li>{{x.title}} - {{x.get_status_display}}</li>
+                  </ul>
+                {%endfor%}
+                </div>
+              </div>
             </div>
 
-          </div>
-        </div><!-- Upcoming events -->
+        </div>
+      </div>
+    </div>
+
+
+
+
 
 
     <script>

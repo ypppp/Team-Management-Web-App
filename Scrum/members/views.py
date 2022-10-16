@@ -30,8 +30,8 @@ class MemberDetailView(DetailView):
         tasks = Task.objects.all().filter(assignee=self.object)
         context["tasks_involved"] = tasks.count()
         context["tasks_done"] = division_zero_avoid(tasks.filter(status=Task.COMPLETE).count(), tasks.count())
-        context["render_pie"] = [tasks.filter(status=Task.COMPLETE).count(), tasks.filter(status=Task.PENDING).count(), tasks.filter(status=Task.IN_PROGRESS).count()]
-
+        context["render_pie"] = [tasks.filter(status=Task.COMPLETE).count(), tasks.filter(status=Task.PENDING).count(), tasks.filter(status=Task.IN_PROGRESS).count(), tasks.filter(status=Task.OVERDUE).count()]
+        context["OVERDUE"] = Task.OVERDUE
         entries, sprint = get_member_analytics(self.object)
 
         context["sprint_list"] = sprint
