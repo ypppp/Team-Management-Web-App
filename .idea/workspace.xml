@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="analytics problems to fix:&#10;entryform:&#10;- min max date -&gt; sprint start end &#10;- queryset -&gt; tasks of ongoing sprint&#10;&#10;views.py &amp; analytics.html:&#10;- data access hooowww wtfff dict can be accessed&#10;- fuck custom tags&#10;-" />
+    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="analytics problems to fix:&#10;entryform:&#10;- min max date -&gt; sprint start end &#10;- queryset -&gt; tasks of ongoing sprint&#10;&#10;views.py &amp; analytics.html:&#10;- data access hooowww wtfff dict can be accessed&#10;- fuck custom tags&#10;-">
+      <change afterPath="$PROJECT_DIR$/Scrum/analytics/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/analytics/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/analytics/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/analytics/templates/analytics/analytics.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/analytics/templates/analytics/analytics.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/analytics/templates/analytics/entry_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/analytics/templates/analytics/entry_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/analytics/templatetags/custom_tags.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/analytics/templatetags/custom_tags.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/analytics/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/analytics/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/task_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/task_list.html" afterDir="false" />
+    </list>
     <list id="0a9e4d80-b2b8-4395-999c-282aa5101ca1" name="Changes by timle" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +88,29 @@
       <recent name="$PROJECT_DIR$/Scrum/tasks/management/commands" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Django Server.FIT2101-B6">
+    <configuration name="views" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="FIT2101-B6" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Scrum/analytics" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Scrum/analytics/views.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="FIT2101-B6" type="Python.DjangoServer" factoryName="Django server">
       <module name="FIT2101-B6" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -101,6 +135,11 @@
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.views" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -117,7 +156,7 @@
       <workItem from="1665471084755" duration="290000" />
       <workItem from="1665553900447" duration="7338000" />
       <workItem from="1665678159374" duration="3376000" />
-      <workItem from="1665828900816" duration="41122000" />
+      <workItem from="1665828900816" duration="57343000" />
     </task>
     <task id="LOCAL-00001" summary="Bug fix&#10; - divider not working for html">
       <created>1663036090178</created>
@@ -350,7 +389,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665906826489</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="analytics problems to fix:&#10;entryform:&#10;- min max date -&gt; sprint start end &#10;- queryset -&gt; tasks of ongoing sprint&#10;&#10;views.py &amp; analytics.html:&#10;- data access hooowww wtfff dict can be accessed&#10;- fuck custom tags&#10;-">
+      <created>1665907112715</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1665907112715</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -387,5 +433,8 @@
     <MESSAGE value="Analytics app creation&#10;- entry model &#10;- all statistics related stuff goes here&#10;- TeamAnalytics view&#10;- entry_list.html&#10;- EntryForm&#10;- base.html statistics" />
     <MESSAGE value="analytics problems to fix:&#10;entryform:&#10;- min max date -&gt; sprint start end &#10;- queryset -&gt; tasks of ongoing sprint&#10;&#10;views.py &amp; analytics.html:&#10;- data access hooowww wtfff dict can be accessed&#10;- fuck custom tags&#10;-" />
     <option name="LAST_COMMIT_MESSAGE" value="analytics problems to fix:&#10;entryform:&#10;- min max date -&gt; sprint start end &#10;- queryset -&gt; tasks of ongoing sprint&#10;&#10;views.py &amp; analytics.html:&#10;- data access hooowww wtfff dict can be accessed&#10;- fuck custom tags&#10;-" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/FIT2101_B6$views.coverage" NAME="views Coverage Results" MODIFIED="1665923355015" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scrum/analytics" />
   </component>
 </project>

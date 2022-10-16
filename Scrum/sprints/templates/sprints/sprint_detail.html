@@ -53,12 +53,14 @@
             {% endif %}
     {% elif sprint.status == ONGOING %}
         <a href="{% url 'start-end' sprint.id %}" class="btn btn-danger" style="width:15%;" data-inline="true">End Sprint</a>
+        <a href="{% url 'entry-create' %}" class="btn btn-primary float-right" style="width:15%;" data-inline="true">Add Entry</a>
     {% endif %}
 
 <div>
     <br>
     <br>
     <h3><b>Tasks</b></h3>
+    <br>
     <table class= "table table-hover table-striped">
         <thead class="table_head">
             <tr>

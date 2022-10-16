@@ -1,22 +1,23 @@
 {% extends 'tasks/base.html' %}
 {% load custom_tags %}
 {% block content %}
-    <p>{{ data }}</p>
+
+{#    <p>{{ data.chart_data.dates }}</p>#}
 {#    <p>{{ sprint_list }}</p>#}
 {#    {% for sprint in sprint_list %}#}
-{#        {{ data.index.forloop.counter0 }}#}
 {#        <h1>{{ sprint }}</h1>#}
-{#        {% for item in data.forloop.counter0.chart_data %}#}
-{#            {% for key, value in item.items %}#}
-{#                <p>{{ value }}</p>#}
+{#        {% for item in data.chart_data.hours %}#}
+{#                <p>{{ item }}</p>#}
 {#                <br>#}
-{#            {% endfor %}#}
 {#        {% endfor %}#}
 {#    {% endfor %}#}
 
-{#    {% for product in products_dict|get_obj_field:category %}#}
-{#        {{ product }}#}
-{#    {% endfor %}#}
+    {% for sprint in sprint_list %}
+        <h1>{{ sprint }}</h1>
+        <br>
+        <p>{{ x_data|get_dict_value:sprint }}</p>
+        <p>{{ y_data|get_dict_value:sprint }}</p>
+    {% endfor %}
 
 {% endblock content %}
 

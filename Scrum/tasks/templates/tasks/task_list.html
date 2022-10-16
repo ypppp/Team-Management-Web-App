@@ -25,7 +25,8 @@
         <tbody>
             {% for task in task_list %}
             <tr>
-              <td>{{ task.title }}</td>
+              <td>{{ task.pk }}</td>
+{#              <td>{{ task.title }}</td>#}
               <td>{{ task.get_priority_display }}</td>
               <td>{{ task.get_status_display }}</td>
               <td>{{ task.tag }}</td>
