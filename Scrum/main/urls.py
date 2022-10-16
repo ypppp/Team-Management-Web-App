@@ -23,6 +23,7 @@ urlpatterns = [
     path('tasks/', include('tasks.urls')),
     path('sprints/', include('sprints.urls')),
     path('members/', include('members.urls')),
+    path('analytics/', include('analytics.urls')),
     path('admin/', admin.site.urls),
 
 ]
