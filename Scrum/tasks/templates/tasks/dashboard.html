@@ -191,13 +191,14 @@
                 <h5 class="card-title">Happening Now <span>| current sprint </span></h5>
                 <div class="activity">
                 {% for x in sprint_ongoing %}
-                    <p>Name: {{x.title}}</p>
-                    Progress: {{x|percentage}}%
+                    <p><b>Title:</b> <a href="{% url 'sprint-detail' x.id %}" style="color:black">{{x.title}}</a></p>
+                    <p><b>Due: </b>{{x.end_date}}</p>
+                    <b>Progress:</b> {{x|percentage}}%
                     <div class="progress">
                       <div class="progress-bar bg-primary" role="progressbar" style="width: {{x|percentage}}%"></div>
                     </div>
                     <hr>
-                    <p>Assignees:</p>
+                    <p><b>Assignees:</b></p>
                     {% for y in x.tasks.all%}
                     <p>- {{y.assignee}}</p>
                     {%endfor%}
