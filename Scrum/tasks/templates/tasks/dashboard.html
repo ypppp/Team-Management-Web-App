@@ -1,192 +1,261 @@
 {% extends 'tasks/base.html' %}
+{% load custom_tags %}
 {% block content %}
+    <style>
+        body {font-family: Arial;}
+
+        /* Style the tab */
+        .tab {
+          overflow: hidden;
+        }
+
+        /* Style the buttons inside the tab */
+        .tab button {
+          background-color: inherit;
+          float: left;
+          border: none;
+          outline: none;
+          cursor: pointer;
+          padding: 10px 10px;
+          transition: 0.3s;
+          font-size: 17px;
+          border-radius: 5px;
+        }
+
+        /* Change background color of buttons on hover */
+        .tab button:hover {
+          background-color: #ddd;
+        }
+
+        /* Create an active/current tablink class */
+        .tab button.active {
+          background-color: #ccc;
+        }
+
+        /* Style the tab content */
+        .tabcontent {
+          display: none;
+          padding: 6px 12px;
+          -webkit-animation: fadeEffect 1s;
+          animation: fadeEffect 1s;
+        }
+
+        /* Fade in tabs */
+        @-webkit-keyframes fadeEffect {
+          from {opacity: 0;}
+          to {opacity: 1;}
+        }
+
+        @keyframes fadeEffect {
+          from {opacity: 0;}
+          to {opacity: 1;}
+        }
+
+        .collapsible {
+          cursor: pointer;
+          padding: 5px;
+          border: none;
+          text-align: left;
+          outline: none;
+          font-size: 15px;
+          border-radius: 10px;
+          width: 100%;
+          background-color:#F6F9FF;
+        }
+
+        .active, .collapsible:hover {
+        }
+
+        .content {
+          padding: 0 18px;
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.2s ease-out;
+          background-color: #f1f1f1;
+        }
+
+    </style>
     <br>
-    <h1>{{ title }}</h1>
+    <h1>Dashboard</h1>
     <br>
-    <div style="display:flex; flex-direction: row;">
 
-    <!-- Left side columns -->
-    <div class="col-lg-8">
-        <div class="row">
 
-          <!-- Brief task list -->
-          <div class="col-12">
-            <div class="card recent-sales overflow-auto">
+      <div class="row">
+        <div class="col-lg-8">
 
+          <div class="tab">
+            <button class="tablinks" style="color:#3A3A3A;" onclick="openCity(event, 'All')" id="defaultOpen">All</button>
+            <button class="tablinks" style="color:#3A3A3A;" onclick="openCity(event, 'Completed')">Completed</button>
+            <button class="tablinks" style="color:#3A3A3A;" onclick="openCity(event, 'Pending')">Pending</button>
+            <button class="tablinks" style="color:#3A3A3A;" onclick="openCity(event, 'In_Progress')">In Progress</button>
+          </div>
+            <br>
+            <div id="All" class="tabcontent" style="display: flex;">
+
+                  {% for x in sprint_ongoing %}
+                    {% for y in x.tasks.all %}
+                        <button type="button" class="collapsible">
+                            <ul class="list-group list-group-horizontal">
+                                <li class="list-group-item border-0" style="color:#3A3A3A; width:40%;">{{ y.title }}</li>
+                                <li class="list-group-item border-top-0 border-bottom-0 border-right-0" style="background-color:{{ y.get_priority_color }}; width:12%; text-align: center; color:white">{{ y.get_priority_display }}</li>
+                              <li class="list-group-item border-top-0 border-bottom-0" style="color:#3A3A3A; width:25%">{{ y.assignee }}</li>
+                              <li class="list-group-item border-top-0 border-bottom-0" style="color:#3A3A3A; width:15%">{{ y.tag }}</li>
+                              <li class="list-group-item border-0" style="color:#3A3A3A; width:20%">{{ y.get_status_display }}</li>
+                            </ul>
+                        </button>
+                        <div class="content">
+                            <br>
+                            <p><b>Story Points: </b>{{y.story_point}}</p>
+                            <p><b>Description: </b>{{y.description}}</p>
+                        </div>
+                    {%endfor%}
+                  {%endfor%}
+
+            </div>
+
+            <div id="Completed" class="tabcontent" style="display: flex;">
+                  {% for x in sprint_ongoing %}
+                    {% for y in x.tasks.all %}
+                        {% if y.status == TASK_COMPLETE %}
+                           <button type="button" class="collapsible">
+                                <ul class="list-group list-group-horizontal">
+                                  <li class="list-group-item border-0" style="color:#3A3A3A; width:40%;">{{y.title}}</li>
+                                  <li class="list-group-item border-top-0 border-bottom-0 border-right-0" style="background-color:{{ y.get_priority_color }}; width:12%; text-align: center; color:white">{{ y.get_priority_display }}</li>
+                                  <li class="list-group-item border-top-0 border-bottom-0" style="color:#3A3A3A; width:25%">{{y.assignee}}</li>
+                                  <li class="list-group-item border-top-0 border-bottom-0" style="color:#3A3A3A; width:15%">{{y.tag}}</li>
+                                  <li class="list-group-item border-0" style="color:#3A3A3A; width:20%">{{y.get_status_display}}</li>
+                                </ul>
+                            </button>
+                            <div class="content">
+                                <br>
+                                <p><b>Story Points: </b>{{y.story_point}}</p>
+                                <p><b>Description: </b>{{y.description}}</p>
+                            </div>
+                        {%endif%}
+                    {%endfor%}
+                  {%endfor%}
+
+            </div>
+
+            <div id="Pending" class="tabcontent" style="display: flex;">
+                  {% for x in sprint_ongoing %}
+                    {% for y in x.tasks.all %}
+                        {% if y.status == TASK_PENDING %}
+                           <button type="button" class="collapsible">
+                                <ul class="list-group list-group-horizontal">
+                                  <li class="list-group-item border-0" style="color:#3A3A3A; width:40%;">{{y.title}}</li>
+                                  <li class="list-group-item border-top-0 border-bottom-0 border-right-0" style="background-color:{{ y.get_priority_color }}; width:12%; text-align: center; color:white">{{ y.get_priority_display }}</li>
+                                  <li class="list-group-item border-top-0 border-bottom-0" style="color:#3A3A3A; width:25%">{{y.assignee}}</li>
+                                  <li class="list-group-item border-top-0 border-bottom-0" style="color:#3A3A3A; width:15%">{{y.tag}}</li>
+                                  <li class="list-group-item border-0" style="color:#3A3A3A; width:20%">{{y.get_status_display}}</li>
+                                </ul>
+                            </button>
+                            <div class="content">
+                                <br>
+                                <p><b>Story Points: </b>{{y.story_point}}</p>
+                                <p><b>Description: </b>{{y.description}}</p>
+                            </div>
+                        {%endif%}
+                    {%endfor%}
+                  {%endfor%}
+
+            </div>
+
+            <div id="In_Progress" class="tabcontent" style="display: flex;">
+                  {% for x in sprint_ongoing %}
+                    {% for y in x.tasks.all %}
+                        {% if y.status == TASK_IN_PROGRESS %}
+                       <button type="button" class="collapsible">
+                                <ul class="list-group list-group-horizontal">
+                                  <li class="list-group-item border-0" style="color:#3A3A3A; width:40%;">{{y.title}}</li>
+                                  <li class="list-group-item border-top-0 border-bottom-0 border-right-0" style="background-color:{{ y.get_priority_color }}; width:12%; text-align: center; color:white">{{ y.get_priority_display }}</li>
+                                  <li class="list-group-item border-top-0 border-bottom-0" style="color:#3A3A3A; width:25%">{{y.assignee}}</li>
+                                  <li class="list-group-item border-top-0 border-bottom-0" style="color:#3A3A3A; width:15%">{{y.tag}}</li>
+                                  <li class="list-group-item border-0" style="color:#3A3A3A; width:20%">{{y.get_status_display}}</li>
+                                </ul>
+                            </button>
+                            <div class="content">
+                                <br>
+                                <p><b>Story Points: </b>{{y.story_point}}</p>
+                                <p><b>Description: </b>{{y.description}}</p>
+                            </div>
+                        {%endif%}
+                    {%endfor%}
+                  {%endfor%}
+            </div>
+        </div>
+        <div class="col-lg-4">
+
+            <div class="card">
               <div class="card-body">
-                <h5 class="card-title">Sprint <span>| On going</span></h5>
-
-                <div>
-                    <table class="table table-borderless">
-                        <thead>
-                          <tr>
-                            <th scope="col">Title</th>
-                            <th scope="col">Start Date</th>
-                            <th scope="col">End Date</th>
-                            <th scope="col">Days Left</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>Sprint 1</td>
-                            <td > June 7, 2249</td>
-                            <td > June 7, 2249</td>
-                            <td> 82783</td>
-                          </tr>
-                        </tbody>
-                      </table>
+                <h5 class="card-title">Happening Now <span>| ongoing sprint </span></h5>
+                <div class="activity">
+                {% for x in sprint_ongoing %}
+                    <p><b>Sprint:</b> <a href="{% url 'sprint-detail' x.id %}" style="color:#3A3A3A">{{ x.title }}</a></p>
+                    <p><b>Due: </b>{{ x.end_date }}</p>
+                    <b>Progress:</b> {{x|percentage}}%
+                    <div class="progress">
+                      <div class="progress-bar bg-primary" role="progressbar" style="width: {{x|percentage}}%"></div>
                     </div>
-
+                    <hr>
+                    <p><b>Assignees:</b></p>
+                    {% for y in x.tasks.all%}
+                    <p>- {{y.assignee}}</p>
+                    {%endfor%}
+                {%endfor%}
+                </div>
               </div>
-
             </div>
-          </div><!-- End Brief task list -->
 
-          <!-- sprint list -->
-          <div class="col-12">
-            <div class="card top-selling overflow-auto">
-
-              <div class="card-body pb-0">
-                <h5 class="card-title">Tasks <span>| On going</span></h5>
-
-                <table class="table table-borderless">
-                  <thead>
-                    <tr>
-                      <th scope="col">Title</th>
-                      <th scope="col">Status</th>
-                      <th scope="col">Tag</th>
-                      <th scope="col">Assignee</th>
-                      <th scope="col">Due Date</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Avator</td>
-                      <td>In Progress</td>
-                      <td >BMW X5</td>
-                      <td >None</td>
-                      <td>June 7, 2249</td>
-                    </tr>
-                  </tbody>
-                </table>
-
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title"><a href="{% url 'sprint-list' %}" style="color:#012970;">Up Next <span>| pending sprint </span></a></h5>
+                <div class="activity">
+                {% for x in sprint_pending %}
+                  <ul>
+                    <li>{{x.title}} - {{x.get_status_display}}</li>
+                  </ul>
+                {%endfor%}
+                </div>
               </div>
-
             </div>
-          </div><!-- End sprint list -->
-
-           <!-- member list -->
-           <div class="col-12">
-            <div class="card top-selling overflow-auto">
-
-              <div class="card-body pb-0">
-                <h5 class="card-title">Members <span>| </span></h5>
-
-                <table class="table table-borderless">
-                  <thead>
-                    <tr>
-                      <th scope="col">First Name</th>
-                      <th scope="col">Last Name</th>
-                      <th scope="col">Email</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Tim</td>
-                      <td>Leh</td>
-                      <td >jpar007@gmail.com</td>
-                    </tr>
-                  </tbody>
-                </table>
-
-              </div>
-
-            </div>
-          </div><!-- End member list -->
 
         </div>
-      </div><!-- End Left side columns -->
+      </div>
 
-    <!-- Right side columns -->
-    <div class="col-lg-4">
+<script>
+    function openCity(evt, cityName) {
+      var i, tabcontent;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " active";
+      }
 
+document.getElementById("defaultOpen").click();
+</script>
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
 
-        <!-- Recent Activity -->
-        <div class="card">
-
-          <div class="card-body">
-            <h5 class="card-title">Recent Activity <span>| This Sprint</span></h5>
-
-            <div class="activity">
-
-              <div class="activity-item d-flex">
-                <div class="activite-label">32 min</div>
-                <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
-                <div class="activity-content">
-                  Quia quae rerum <a href="#" class="fw-bold text-dark">explicabo officiis</a> beatae
-                </div>
-              </div><!-- End activity item-->
-
-              <div class="activity-item d-flex">
-                <div class="activite-label">56 min</div>
-                <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
-                <div class="activity-content">
-                  Voluptatem blanditiis blanditiis eveniet
-                </div>
-              </div><!-- End activity item-->
-
-              <div class="activity-item d-flex">
-                <div class="activite-label">2 hrs</div>
-                <i class='bi bi-circle-fill activity-badge text-primary align-self-start'></i>
-                <div class="activity-content">
-                  Voluptates corrupti molestias voluptatem
-                </div>
-              </div><!-- End activity item-->
-
-              <div class="activity-item d-flex">
-                <div class="activite-label">1 day</div>
-                <i class='bi bi-circle-fill activity-badge text-info align-self-start'></i>
-                <div class="activity-content">
-                  Tempore autem saepe <a href="#" class="fw-bold text-dark">occaecati voluptatem</a> tempore
-                </div>
-              </div><!-- End activity item-->
-
-              <div class="activity-item d-flex">
-                <div class="activite-label">2 days</div>
-                <i class='bi bi-circle-fill activity-badge text-warning align-self-start'></i>
-                <div class="activity-content">
-                  Est sit eum reiciendis exercitationem
-                </div>
-              </div><!-- End activity item-->
-
-              <div class="activity-item d-flex">
-                <div class="activite-label">4 weeks</div>
-                <i class='bi bi-circle-fill activity-badge text-muted align-self-start'></i>
-                <div class="activity-content">
-                  Dicta dolorem harum nulla eius. Ut quidem quidem sit quas
-                </div>
-              </div><!-- End activity item-->
-
-            </div>
-
-          </div>
-        </div><!-- End Recent Activity -->
-
-        
-        <!-- Statistics -->
-        <div class="card">
-          <div class="card-body pb-0">
-            <h5 class="card-title">Statistics <span>| This Project</span></h5>
-
-            <div id="statisticChart" style="min-height: 400px;" class="echart"></div>
-
-            <script src="js/Chart.min.js"></script>
-          </div>
-        </div><!-- End Budget Report -->
-
-
-      </div><!-- End Right side columns -->
-    </div>
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight){
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      });
+    }
+</script>
 {% endblock %}
 
 

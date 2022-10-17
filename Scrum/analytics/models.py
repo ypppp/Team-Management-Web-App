@@ -1,5 +1,4 @@
 from django.db import models
-from django.urls import reverse
 from django.utils import timezone
 from django.utils.datetime_safe import date
 
@@ -19,3 +18,7 @@ class Entry(models.Model):
 
     class Meta:
         verbose_name_plural = 'entries'
+
+    def __str__(self):
+        return f'{self.task.assignee} worked another ' \
+               f'{self.duration} on {self.date} for the task {self.task}'

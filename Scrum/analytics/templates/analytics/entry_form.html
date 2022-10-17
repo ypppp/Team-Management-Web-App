@@ -10,7 +10,7 @@
         </div>
         <br>
         <div class="row">
-              <div class="col-2">
+              <div class="col-lg-5">
                   {{ form.task | as_crispy_field }}
               </div>
         </div>
@@ -30,7 +30,7 @@
     </fieldset>
     <br>
     <div>
-        <button type="SUBMIT" class="btn btn-success">Save</button>
+        <button type="SUBMIT" class="btn btn-success">Enter</button>
         <a href="{% url 'entry-list' %}">
             <button type="button" class="btn btn-danger">Cancel</button>
         </a>

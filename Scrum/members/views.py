@@ -9,8 +9,10 @@ from django.views.generic.detail import SingleObjectMixin
 
 from .forms import MemberForm
 from .models import Member
+from analytics.utils import get_member_sprint, get_sprint_data, get_average, get_sum
 from tasks.models import Task
-from sprints.models import Sprint
+from .forms import MemberForm
+from .models import Member
 
 
 class MemberListView(ListView):
@@ -19,7 +21,6 @@ class MemberListView(ListView):
 
 class MemberDetailView(DetailView):
     model = Member
-    template_name = "members/member_detail.html"
 
     def get_context_data(self, **kwargs):
         def division_zero_avoid(arg1, arg2):
@@ -29,10 +30,44 @@ class MemberDetailView(DetailView):
 
         context = super(MemberDetailView, self).get_context_data(**kwargs)
         tasks = Task.objects.all().filter(assignee=self.object)
-        context["tasks_involved"] = tasks.count()
-        context["tasks_done"] = division_zero_avoid(tasks.filter(status=Task.COMPLETE).count(), tasks.count())
-        context["render_pie"] = [tasks.filter(status=Task.COMPLETE).count(), tasks.filter(status=Task.PENDING).count(),
-                                 tasks.filter(status=Task.IN_PROGRESS).count()]
+        context["tasks"] = tasks.count()
+
+        context["tasks_done"] = division_zero_avoid(
+            tasks.filter(status=Task.COMPLETE).count(), tasks.count())
+
+        context["render_pie"] = [tasks.filter(status=Task.COMPLETE).count(),
+                                 tasks.filter(status=Task.PENDING).count(),
+                                 tasks.filter(status=Task.IN_PROGRESS).count(),
+                                 tasks.filter(status=Task.OVERDUE).count()]
+
+        context["OVERDUE"] = Task.OVERDUE
+
+        sprints = get_member_sprint(self.object)
+        context["sprint_list"] = sprints.all()
+        print("views1", sprints.all())
+
+        # dictionary of lists
+        context["data"] = {"dates": [], "hours": [], "sum": [], "avg": [], }
+
+        for q in sprints.all():
+            # print('views', q)
+            dates, hours = get_sprint_data(q, self.object)
+            context["data"]["dates"].append(dates)  # [sprint1_dates, sprint2_dates]
+            context["data"]["hours"].append(hours)
+
+            total = get_sum(q, self.object)
+            average = get_average(q, self.object)
+
+            # print(total)
+            # print('views', average)
+            context["data"]["sum"].append(total)
+            context["data"]["avg"].append(average)
+
+        # print(sprints)
+        # print(context['data']['dates'])
+        # print(context['data']['hours'])
+        # print(context['data']['avg'])
+
         return context
 
 
@@ -55,10 +90,18 @@ class MemberDeleteView(DeleteView):
 
 def memberFormset(request):
     MemberFormSet = modelformset_factory(
-        Member, fields=('first_name', 'last_name', 'email'),
-        widgets={'first_name': TextInput(attrs={'style': 'width:250px'}),
-                 'last_name': TextInput(attrs={'style': 'width:250px'}),
-                 'email': TextInput(attrs={'style': 'width:350px'})}
+        Member,
+        fields=('first_name', 'last_name', 'email'),
+        labels={
+            'first_name': '',
+            'last_name': '',
+            'email': '',
+        },
+        widgets={
+            'first_name': TextInput(attrs={'style': 'width:260px'}),
+            'last_name': TextInput(attrs={'style': 'width:260px'}),
+            'email': TextInput(attrs={'style': 'width:450px'})
+        }
     )
 
     if request.method == 'POST':
