@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="Minor changed in base UI">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/members/templates/members/member_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/members/templates/members/member_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/dashboard.html" afterDir="false" />
-    </list>
+    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="Updated dashboard side card" />
     <list id="0a9e4d80-b2b8-4395-999c-282aa5101ca1" name="Changes by timle" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -318,7 +314,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665994288127</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Updated dashboard side card">
+      <created>1665995094908</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1665995094908</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -358,6 +361,7 @@
     <MESSAGE value="UI changes&#10;- Renewed dashboard&#10;- Added UI for memberslist&#10;- Added UI for create entry&#10;- New icons&#10;- Added UI for Entries" />
     <MESSAGE value="Minor UI changes" />
     <MESSAGE value="Minor changed in base UI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Minor changed in base UI" />
+    <MESSAGE value="Updated dashboard side card" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated dashboard side card" />
   </component>
 </project>
