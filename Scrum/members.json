@@ -1,53 +1,144 @@
-{ 
-"objects":[ 
-{ 
-"first_name":"Denny",
-"last_name":"Adler",
-"email":"Denny_Adler5442@ovock.tech"
-},
-{ 
-"first_name":"Benjamin",
-"last_name":"Stevens",
-"email":"Benjamin_Stevens1103@extex.org"
-},
-{ 
-"first_name":"Chadwick",
-"last_name":"Rogan",
-"email":"Chadwick_Rogan5018@womeona.net"
-},
-{ 
-"first_name":"Michael",
-"last_name":"Cox",
-"email":"Michael_Cox2860@vetan.org"
-},
-{ 
-"first_name":"Carl",
-"last_name":"Robertson",
-"email":"Carl_Robertson449@jiman.org"
-},
-{ 
-"first_name":"Maya",
-"last_name":"Hall",
-"email":"Maya_Hall7425@sheye.org"
-},
-{ 
-"first_name":"Ramon",
-"last_name":"Parsons",
-"email":"Ramon_Parsons8990@bulaffy.com"
-},
-{ 
-"first_name":"Cedrick",
-"last_name":"Campbell",
-"email":"Cedrick_Campbell5084@sheye.org"
-},
-{ 
-"first_name":"Crystal",
-"last_name":"Stark",
-"email":"Crystal_Stark8450@zorer.org"
-},
-{ 
-"first_name":"Keira",
-"last_name":"Sherry",
-"email":"Keira_Sherry2912@cispeto.com"
+{
+  "objects": [
+    {
+      "first_name": "Carl",
+      "last_name": "Redwood",
+      "genre": "Horror",
+      "color_hex": "#7FFFD4",
+      "email": "Carl_Redwood956157337@deavo.com"
+    },
+    {
+      "first_name": "Rosa",
+      "last_name": "Jones",
+      "genre": "Sci-Fi",
+      "color_hex": "#733ea8",
+      "email": "Rosa_Jones1099211726@ubusive.com"
+    },
+    {
+      "first_name": "Sloane",
+      "last_name": "Appleton",
+      "genre": "Family",
+      "color_hex": "#00FF00",
+      "email": "Sloane_Appleton772546409@nickia.com"
+    },
+    {
+      "first_name": "Bryce",
+      "last_name": "Lomax",
+      "genre": "Crime",
+      "color_hex": "#213318",
+      "email": "Bryce_Lomax14135685@gmail.com"
+    },
+    {
+      "first_name": "Estrella",
+      "last_name": "Judd",
+      "genre": "Romance",
+      "color_hex": "#9e0806",
+      "email": "Estrella_Judd1468090059@bulaffy.com"
+    },
+    {
+      "first_name": "Matthew",
+      "last_name": "Hunt",
+      "genre": "Adventure",
+      "color_hex": "#FF00FF",
+      "email": "Matthew_Hunt1979479108@ubusive.com"
+    },
+    {
+      "first_name": "Roger",
+      "last_name": "Dowson",
+      "genre": "Horror",
+      "color_hex": "#7c6769",
+      "email": "Roger_Dowson681696649@supunk.biz"
+    },
+    {
+      "first_name": "Evelynn",
+      "last_name": "Quinnell",
+      "genre": "Musical",
+      "color_hex": "#468c89",
+      "email": "Evelynn_Quinnell681383803@kideod.biz"
+    },
+    {
+      "first_name": "Owen",
+      "last_name": "Irwin",
+      "genre": "Biography",
+      "color_hex": "#9e0806",
+      "email": "Owen_Irwin758062940@gmail.com"
+    },
+    {
+      "first_name": "Wendy",
+      "last_name": "Lee",
+      "genre": "Comedy",
+      "color_hex": "#6f46b5",
+      "email": "Wendy_Lee884751142@acrit.org"
+    },
+    {
+      "first_name": "Karla",
+      "last_name": "Murphy",
+      "genre": "Action",
+      "color_hex": "#9e0806",
+      "email": "Karla_Murphy759223735@guentu.biz"
+    },
+    {
+      "first_name": "Luke",
+      "last_name": "Crawford",
+      "genre": "Sci-Fi",
+      "color_hex": "#FF00FF",
+      "email": "Luke_Crawford2090061668@gmail.com"
+    },
+    {
+      "first_name": "Noemi",
+      "last_name": "Jarvis",
+      "genre": "Horror",
+      "color_hex": "#FFC0CB",
+      "email": "Noemi_Jarvis968471603@cispeto.com"
+    },
+    {
+      "first_name": "Marjorie",
+      "last_name": "Eddison",
+      "genre": "Family",
+      "color_hex": "#0e4210",
+      "email": "Marjorie_Eddison2059336059@deavo.com"
+    },
+    {
+      "first_name": "Judith",
+      "last_name": "Woods",
+      "genre": "Fantasy",
+      "color_hex": "#733ea8",
+      "email": "Judith_Woods84627195@corti.com"
+    },
+    {
+      "first_name": "Josh",
+      "last_name": "Durrant",
+      "genre": "Adventure",
+      "color_hex": "#C0C0C0",
+      "email": "Josh_Durrant1230451924@iatim.tech"
+    },
+    {
+      "first_name": "Oliver",
+      "last_name": "Ulyatt",
+      "genre": "Thriller",
+      "color_hex": "#FFC0CB",
+      "email": "Oliver_Ulyatt2108464172@elnee.tech"
+    },
+    {
+      "first_name": "Mabel",
+      "last_name": "Radley",
+      "genre": "Sci-Fi",
+      "color_hex": "#C0C0C0",
+      "email": "Mabel_Radley1807162795@irrepsy.com"
+    },
+    {
+      "first_name": "Tyson",
+      "last_name": "Middleton",
+      "genre": "Horror",
+      "color_hex": "#b2aea7",
+      "email": "Tyson_Middleton377203638@vetan.org"
+    },
+    {
+      "first_name": "Beatrice",
+      "last_name": "Gaynor",
+      "genre": "Thriller",
+      "color_hex": "#800080",
+      "email": "Beatrice_Gaynor1927184137@dionrab.com"
+    }
+  ]
 }
-]}
