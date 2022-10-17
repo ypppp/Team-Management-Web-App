@@ -43,7 +43,12 @@ class TeamAnalytics(ListView):
         for q in self.queryset.all():
             chart_data = get_sprint_data(q)
             context['x_data'][q] = chart_data[0]    # dates
-            context['y_data'][q] = chart_data[1]    # hours
+            context['y_data'][q] = chart_data[1]    # hours\
+            context['day_count'] = [x for x in range(1, len(chart_data[1])+1)]
+
+
+            context['sum'][q] = get_sum(q)
+            context['avg'][q] = get_average(q)
 
             context['sum'][q] = get_sum(q)
             context['avg'][q] = get_average(q)
