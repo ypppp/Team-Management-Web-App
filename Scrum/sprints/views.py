@@ -1,5 +1,3 @@
-from datetime import date
-
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.template import loader
@@ -20,6 +18,7 @@ class SprintCreateView(CreateView):
         success_url = reverse_lazy('sprint-detail', kwargs={'pk': self.object.pk})
         return success_url
 
+
 class SprintUpdateView(UpdateView):
     model = Sprint
     form_class = SprintForm
@@ -36,10 +35,11 @@ class SprintDeleteView(DeleteView):
 
 class SprintListView(ListView):
     model = Sprint
-    ordering = ['-active', '-status']
+    ordering = ['-active', '-status', 'start_date']
 
     def get_context_data(self, **kwargs):
         context = super(SprintListView, self).get_context_data(**kwargs)
+        context['tasks'] = Task.objects.all()
         context['PENDING'] = Sprint.PENDING
         context['ONGOING'] = Sprint.ONGOING
         context['ENDED'] = Sprint.ENDED
@@ -51,7 +51,7 @@ class SprintDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(SprintDetailView, self).get_context_data(**kwargs)
-        context['all_start_sprint'] = Sprint.objects.filter(status="ON").count
+        context['all_start_sprint'] = Sprint.objects.filter(status=Sprint.ONGOING).count
         context['PENDING'] = Sprint.PENDING
         context['ONGOING'] = Sprint.ONGOING
         context['ENDED'] = Sprint.ENDED
@@ -87,8 +87,9 @@ class SprintStartEndView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(SprintStartEndView, self).get_context_data(**kwargs)
-        context['incomplete_tasks'] = self.object.tasks.filter(status=Task.IN_PROGRESS).count()
-        context['pending_tasks'] = self.object.tasks.filter(status=Task.PENDING).count()
+        # context['incomplete_tasks'] = Task.objects.all().filter(sprint=self.object, status="IN").count
+        context['incomplete_tasks'] = self.object.tasks.filter(status=Task.IN_PROGRESS).count
+        context['pending_tasks'] = Task.objects.all().filter(sprint=self.object, status="CM").count
         context['PENDING'] = Sprint.PENDING
         context['ONGOING'] = Sprint.ONGOING
         context['ENDED'] = Sprint.ENDED
