@@ -7,10 +7,10 @@
     <br>
     {% for entry in entry_list %}
         <div class="alert alert-light shadow-sm" role="alert" style="width:50%">
-            <p><b>Task: </b>        {{ entry.task }}</p>
-            <p><b>Sprint: </b>      {{ entry.task.sprint }}</p>
-            <p><b>Date: </b>        {{ entry.date }}</p>
-            <p><b>Duration: </b>    {{ entry.duration }} hours</p>
+            <p><b style="color:#3A3A3A">Task: </b>        {{ entry.task }}</p>
+            <p><b style="color:#3A3A3A">Sprint: </b>      {{ entry.task.sprint }}</p>
+            <p><b style="color:#3A3A3A">Date: </b>        {{ entry.date }}</p>
+            <p><b style="color:#3A3A3A">Duration: </b>    {{ entry.duration }} hours</p>
         </div>
     {% endfor %}
 {% endblock content %}

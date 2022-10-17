@@ -1,8 +1,8 @@
 {% extends 'tasks/base.html' %}
 {% block content %}
 <div class="page-header">
-    <h1 class="page-header">New Task</h1>
-    <a href="{%url 'member-formset'%}" class="btn btn-primary" role="button" style="float: right;">Update All</a>
+    <h1 class="page-header">The Winning Team</h1>
+    <a href="{%url 'member-formset'%}" class="btn btn-primary" role="button" style="float: right;">Update Members</a>
 </div>
 <br>
     <br>
@@ -11,7 +11,9 @@
         <div class="card" style="width: 50%">
           <div class="card-body">
             <h5 class="card-title">{{ member }}</h5>
-            <p class="card-text">{{ member.email }}</p>
+            <p class="card-text">
+                {{ member.email }} <a href="mailto:{{ member.email }}"><i class="fa fa-envelope" aria-hidden="true" style="color:#91A3F8"></i></a>
+            </p>
             <a href="{% url 'member-detail' member.id %}" class="btn btn-primary active" role="button" aria-pressed="true">Details</a>
           </div>
         </div>

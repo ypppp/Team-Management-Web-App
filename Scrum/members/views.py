@@ -47,7 +47,7 @@ class MemberDetailView(DetailView):
         print("views1", sprints.all())
 
         # dictionary of lists
-        context["data"] = {"dates": [], "hours": [], "sum": [], "avg": [],}
+        context["data"] = {"dates": [], "hours": [], "sum": [], "avg": [], }
 
         for q in sprints.all():
             # print('views', q)
@@ -90,10 +90,18 @@ class MemberDeleteView(DeleteView):
 
 def memberFormset(request):
     MemberFormSet = modelformset_factory(
-        Member, fields=('first_name', 'last_name', 'email'),
-        widgets={'first_name': TextInput(attrs={'style': 'width:250px'}),
-                 'last_name': TextInput(attrs={'style': 'width:250px'}),
-                 'email': TextInput(attrs={'style': 'width:350px'})}
+        Member,
+        fields=('first_name', 'last_name', 'email'),
+        labels={
+            'first_name': '',
+            'last_name': '',
+            'email': '',
+        },
+        widgets={
+            'first_name': TextInput(attrs={'style': 'width:260px'}),
+            'last_name': TextInput(attrs={'style': 'width:260px'}),
+            'email': TextInput(attrs={'style': 'width:450px'})
+        }
     )
 
     if request.method == 'POST':

@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="Merged with tim_3">
+    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="html fixes&#10;&#10;product backlog:&#10;- column width set&#10;- priority color modified in task model&#10;- truncation&#10;entrylist shadow&#10;sprint_list populated&#10;dashboard configurings&#10;new custom tag&#10;tasks passed into sprintlist view">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scrum/analytics/templates/analytics/analytics.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/analytics/templates/analytics/analytics.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scrum/analytics/templates/analytics/entry_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/analytics/templates/analytics/entry_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scrum/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/sprints/templatetags/custom_tags.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/sprints/templatetags/custom_tags.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/sprints/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/sprints/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/tasks/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/task_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/task_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/members/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/members/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/members/templates/members/member_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/members/templates/members/member_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/members/templates/members/member_formset.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/members/templates/members/member_formset.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/members/templates/members/member_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/members/templates/members/member_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/members/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/members/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/members/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/members/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/task_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/task_form.html" afterDir="false" />
     </list>
     <list id="0a9e4d80-b2b8-4395-999c-282aa5101ca1" name="Changes by timle" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,7 +46,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="TestMaster" />
+        <entry key="$PROJECT_DIR$" value="Crookshanks" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -480,7 +481,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666005341472</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="html fixes&#10;&#10;product backlog:&#10;- column width set&#10;- priority color modified in task model&#10;- truncation&#10;entrylist shadow&#10;sprint_list populated&#10;dashboard configurings&#10;new custom tag&#10;tasks passed into sprintlist view">
+      <created>1666011999971</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1666011999971</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -498,7 +506,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="forms modified" />
     <MESSAGE value="model validation" />
     <MESSAGE value="database fix" />
     <MESSAGE value="overdue added to task model" />
@@ -523,7 +530,8 @@
     <MESSAGE value="Member analytics&#10;- data can add now&#10;- sum &amp; avg complete&#10;&#10;Some fiing problems again" />
     <MESSAGE value="Member analytics&#10;- data can add now&#10;- sum &amp; avg complete&#10;- hours bug fixed" />
     <MESSAGE value="Merged with tim_3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merged with tim_3" />
+    <MESSAGE value="html fixes&#10;&#10;product backlog:&#10;- column width set&#10;- priority color modified in task model&#10;- truncation&#10;entrylist shadow&#10;sprint_list populated&#10;dashboard configurings&#10;new custom tag&#10;tasks passed into sprintlist view" />
+    <option name="LAST_COMMIT_MESSAGE" value="html fixes&#10;&#10;product backlog:&#10;- column width set&#10;- priority color modified in task model&#10;- truncation&#10;entrylist shadow&#10;sprint_list populated&#10;dashboard configurings&#10;new custom tag&#10;tasks passed into sprintlist view" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/FIT2101_B6$views.coverage" NAME="views Coverage Results" MODIFIED="1665985617456" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scrum/analytics" />
