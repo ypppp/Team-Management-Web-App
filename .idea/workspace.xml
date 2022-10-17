@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="UI changes&#10;- Renewed dashboard&#10;- Added UI for memberslist&#10;- Added UI for create entry&#10;- New icons&#10;- Added UI for Entries">
+    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="Minor UI changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/analytics/templates/analytics/entry_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/analytics/templates/analytics/entry_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/task_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/task_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/dashboard.html" afterDir="false" />
     </list>
     <list id="0a9e4d80-b2b8-4395-999c-282aa5101ca1" name="Changes by timle" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -306,7 +304,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665988057216</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Minor UI changes">
+      <created>1665988537754</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1665988537754</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -344,6 +349,7 @@
     <MESSAGE value="Analytics.." />
     <MESSAGE value="Analytics members" />
     <MESSAGE value="UI changes&#10;- Renewed dashboard&#10;- Added UI for memberslist&#10;- Added UI for create entry&#10;- New icons&#10;- Added UI for Entries" />
-    <option name="LAST_COMMIT_MESSAGE" value="UI changes&#10;- Renewed dashboard&#10;- Added UI for memberslist&#10;- Added UI for create entry&#10;- New icons&#10;- Added UI for Entries" />
+    <MESSAGE value="Minor UI changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor UI changes" />
   </component>
 </project>

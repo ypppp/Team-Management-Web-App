@@ -52,34 +52,36 @@
         }
 
         .collapsible {
-  cursor: pointer;
-  padding: 10px;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
-  border-radius: 10px;
-  width: 100%;
-  background-color:#F6F9FF;
-}
+          cursor: pointer;
+          padding: 10px;
+          border: none;
+          text-align: left;
+          outline: none;
+          font-size: 15px;
+          border-radius: 10px;
+          width: 100%;
+          background-color:#F6F9FF;
+        }
 
-.active, .collapsible:hover {
-}
+        .active, .collapsible:hover {
+        }
 
-.content {
-  padding: 0 18px;
-  display: none;
-  overflow: hidden;
-  background-color: #f1f1f1;
-}
+        .content {
+          padding: 0 18px;
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.2s ease-out;
+          background-color: #f1f1f1;
+        }
+
     </style>
     <br>
     <h1>Dashboard</h1>
     <br>
 
-    <div class="container">
+
       <div class="row">
-        <div class="col-8">
+        <div class="col-lg-8">
 
           <div class="tab">
             <button class="tablinks" onclick="openCity(event, 'All')" id="defaultOpen">All</button>
@@ -103,8 +105,8 @@
                         </button>
                         <div class="content">
                             <br>
-                            <p><b>Description</b></p>
-                            <p>{{y.description}}</p>
+                            <p><b>Story Points: </b>{{y.story_point}}</p>
+                            <p><b>Description: </b>{{y.description}}</p>
                         </div>
                     {%endfor%}
                   {%endfor%}
@@ -126,8 +128,8 @@
                             </button>
                             <div class="content">
                                 <br>
-                                <p><b>Description</b></p>
-                                <p>{{y.description}}</p>
+                                <p><b>Story Points: </b>{{y.story_point}}</p>
+                                <p><b>Description: </b>{{y.description}}</p>
                             </div>
                         {%endif%}
                     {%endfor%}
@@ -150,8 +152,8 @@
                             </button>
                             <div class="content">
                                 <br>
-                                <p><b>Description</b></p>
-                                <p>{{y.description}}</p>
+                                <p><b>Story Points: </b>{{y.story_point}}</p>
+                                <p><b>Description: </b>{{y.description}}</p>
                             </div>
                         {%endif%}
                     {%endfor%}
@@ -174,15 +176,15 @@
                             </button>
                             <div class="content">
                                 <br>
-                                <p><b>Description</b></p>
-                                <p>{{y.description}}</p>
+                                <p><b>Story Points: </b>{{y.story_point}}</p>
+                                <p><b>Description: </b>{{y.description}}</p>
                             </div>
                         {%endif%}
                     {%endfor%}
                   {%endfor%}
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-lg-4">
 
             <div class="card">
               <div class="card-body">
@@ -219,7 +221,6 @@
 
         </div>
       </div>
-    </div>
 
 <script>
     function openCity(evt, cityName) {
@@ -246,10 +247,10 @@ document.getElementById("defaultOpen").click();
       coll[i].addEventListener("click", function() {
         this.classList.toggle("active");
         var content = this.nextElementSibling;
-        if (content.style.display === "block") {
-          content.style.display = "none";
+        if (content.style.maxHeight){
+          content.style.maxHeight = null;
         } else {
-          content.style.display = "block";
+          content.style.maxHeight = content.scrollHeight + "px";
         }
       });
     }
