@@ -16,34 +16,51 @@
       <div class="card-body card border-info mb-0">
         <div style="display:flex;">
             {% if sprint.status == PENDING %}
-                <a href="{% url 'sprint-detail' sprint.id %}" ><h5 class="card-title" style="color:#012970; font-size: 1.5rem;">{{ sprint.title}} <button type="button" class="btn btn-outline-secondary" disabled>Pending</button></h5></a>
-            {%elif sprint.status == ONGOING %}
-                <a href="{% url 'sprint-detail' sprint.id %}" ><h5 class="card-title" style="color:#012970; font-size: 1.5rem;">{{ sprint.title}} <button type="button" class="btn btn-outline-warning" disabled>Ongoing</button></h5></a>
+                <a href="{% url 'sprint-detail' sprint.id %}" ><h5 class="card-title" style="color:#012970; font-size: 1.5rem;">{{ sprint.title}} <button type="button" class="btn btn-outline-primary disabled">Pending</button></h5></a>
+            {% elif sprint.status == ONGOING %}
+                <a href="{% url 'sprint-detail' sprint.id %}" ><h5 class="card-title" style="color:#012970; font-size: 1.5rem;">{{ sprint.title}} <button type="button" class="btn btn-outline-warning disabled">Ongoing</button></h5></a>
             {% elif sprint.status == ENDED %}
-                <a href="{% url 'sprint-detail' sprint.id %}" ><h5 class="card-title" style="color:#012970; font-size: 1.5rem;">{{ sprint.title}} <button type="button" class="btn btn-outline-primary" disabled>Ended</button></h5></a>
-            {%endif%}
+                <a href="{% url 'sprint-detail' sprint.id %}" ><h5 class="card-title" style="color:#012970; font-size: 1.5rem;">{{ sprint.title}} <button type="button" class="btn btn-outline-secondary disabled">Ended</button></h5></a>
+            {% endif %}
         </div>
         <div style="display: flex">
           <div style="flex:50%;">
-            <p class="card-text">Start Date:
-                {{ sprint.start_date }}
+            <p class="card-text"><b>Start Date:</b>
+                {{ sprint.start_date|date:"j F Y" }}
             </p>
           </div>
-            <div style="flex:50%;">
-            <p class="card-text">End Date:
-                {{ sprint.end_date }}
-            </p>
-          </div>
+            {% if sprint.status == ONGOING %}
+                <div style="flex:50%;">
+                <p class="card-text"><b>Ends In:</b>
+                    {{ sprint.end_date|timeuntil }}
+                </p>
+              </div>
+            {% elif sprint.status == PENDING %}
+                <div style="flex:50%;">
+                <p class="card-text"><b>Starts In:</b>
+                    {{ sprint.start_date|timeuntil }}
+                </p>
+              </div>
+            {% elif sprint.status == ENDED %}
+                <div style="flex:50%;">
+                <p class="card-text"><b>Last Active:</b>
+                    {{ sprint.end_date|timesince }}
+                </p>
+              </div>
+            {% endif %}
         </div>
         <br>
 
         <div style="display: flex">
           <div style="flex:50%;">
-            <p class="card-text">Days left:
-                {{ sprint.days_left }}
+          <p class="card-text"><b>End Date:</b>
+                {{ sprint.end_date|date:"j F Y" }}
             </p>
-              <div style="text-align:center; font-size: 12px;">
-                {{sprint|percentage}}% Complete
+              <p class="card-text"><b>Number of tasks:</b>
+                {{ tasks|filter_count_sprint:sprint }}
+            </p>
+              <div style="text-align:center; font-size: 15px;">
+                {{ sprint|percentage }}%
               </div>
               <div class="progress">
                 <div class="progress-bar bg-warning" role="progressbar" style="width: {{sprint|percentage}}%"></div>

@@ -14,6 +14,10 @@ def percentage(value):
 def filter_by_complete(value):
     return value.tasks.filter(status=Task.COMPLETE).count()
 
+@register.simple_tag
+def filter_count_sprint(value, sprint):
+    return value.filter(sprint=sprint).count()
+
 @register.filter
 def get_dict_value(obj, key):
     return obj[key]
@@ -22,3 +26,4 @@ def get_dict_value(obj, key):
 register.filter('get_dict_value', get_dict_value)
 register.filter('percentage', percentage)
 register.filter('filter_by_complete', filter_by_complete)
+register.filter('filter_count_sprint', filter_count_sprint)
