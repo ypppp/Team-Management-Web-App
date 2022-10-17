@@ -37,13 +37,13 @@ class MemberDetailView(DetailView):
 
         sprints = get_member_sprint(self.object)
         context["sprint_list"] = sprints.all()
-        # print(sprints.all())
+        print("views1", sprints.all())
 
         # dictionary of lists
         context["data"] = {"dates": [], "hours": [], "sum": [], "avg": [],}
 
         for q in sprints.all():
-            # print(q)
+            # print('views', q)
             dates, hours = get_sprint_data(q, self.object)
             context["data"]["dates"].append(dates)  # [sprint1_dates, sprint2_dates]
             context["data"]["hours"].append(hours)
@@ -51,15 +51,15 @@ class MemberDetailView(DetailView):
             total = get_sum(q, self.object)
             average = get_average(q, self.object)
 
-            print(total)
-            print(average)
+            # print(total)
+            # print('views', average)
             context["data"]["sum"].append(total)
             context["data"]["avg"].append(average)
 
-        print(sprints)
-        print(context['data']['dates'])
-        print(context['data']['hours'])
-        print(context['data']['avg'])
+        # print(sprints)
+        # print(context['data']['dates'])
+        # print(context['data']['hours'])
+        # print(context['data']['avg'])
 
         return context
 

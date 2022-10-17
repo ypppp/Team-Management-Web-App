@@ -48,9 +48,6 @@ class TeamAnalytics(ListView):
             context['sum'][q] = get_sum(q)
             context['avg'][q] = get_average(q)
 
-            context['sum'][q] = get_sum(q)
-            context['avg'][q] = get_average(q)
-
         return context
 
 

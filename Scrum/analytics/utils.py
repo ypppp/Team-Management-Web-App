@@ -30,12 +30,11 @@ def get_sum(sprint: Sprint, member=None) -> int:
     end_date = sprint.end_date
 
     entries = Entry.objects.filter(date__range=(start_date, end_date))
-    print('entries', entries)
 
     # filter member
     if member is not None:
         entries = entries.filter(task__assignee=member)
-        print('entries', entries)
+        print('utilsum', entries)
 
     total = 0
 
@@ -76,29 +75,34 @@ def get_sprint_data(sprint: Sprint, member=None) -> tuple[list, list]:
     day_range = get_day_range(start_date, end_date)
     hours = []
 
-    entries = Entry.objects.all()
+    raw_entries = Entry.objects.filter(date__range=(start_date, end_date))
+    print('utils1', raw_entries)
 
     # member filter
     if member is not None:
-        entries = Entry.objects.filter(task__assignee=member)
+        raw_entries = raw_entries.filter(task__assignee=member)
 
     # operation
     for day in day_range:
-        entries = entries.filter(date=day)
-        # print(entries)
+        entries = raw_entries.filter(date=day)
+        print('utils2', entries)
         duration = 0
+
+        print(sprint, entries.count())
 
         if entries.count() > 0:
             agg = entries.aggregate(total=Sum('duration'))
-            # print(agg)
+            # print('agg', agg)
             duration = agg['total']
             # print(duration.seconds)
             duration = int(duration.seconds // 60 ** 2)
             # print(duration)
+            # print(sprint, entries.count())
 
         hours.append(duration)
 
     day_range = format_day_range(day_range, "%d.%m.%y")
+    # print('utils3', hours)
 
     # print(hours)
     return day_range, hours
