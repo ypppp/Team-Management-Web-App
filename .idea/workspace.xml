@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="Merged with nethara formset&#10;- member formset fixed&#10;- form now renders&#10;- html fixes here and there">
-      <change beforePath="$PROJECT_DIR$/Scrum/members/templates/members/member_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/members/templates/members/member_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/task_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/task_detail.html" afterDir="false" />
-    </list>
+    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="Merged with nethara formset&#10;- member formset fixed&#10;- form now renders&#10;- html fixes here and there" />
     <list id="0a9e4d80-b2b8-4395-999c-282aa5101ca1" name="Changes by timle" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,13 +146,6 @@
       <workItem from="1665553900447" duration="7338000" />
       <workItem from="1665678159374" duration="3376000" />
       <workItem from="1665828900816" duration="62846000" />
-    </task>
-    <task id="LOCAL-00001" summary="Bug fix&#10; - divider not working for html">
-      <created>1663036090178</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1663036090178</updated>
     </task>
     <task id="LOCAL-00002" summary="Models modified:&#10;- Task&#10;- Sprint&#10;- Member">
       <created>1664468735076</created>
@@ -493,7 +483,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666026743338</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="Merged with nethara formset&#10;- member formset fixed&#10;- form now renders&#10;- html fixes here and there">
+      <created>1666027277868</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1666027277871</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
