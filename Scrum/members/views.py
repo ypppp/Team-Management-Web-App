@@ -101,7 +101,7 @@ def memberFormset(request):
             'first_name': TextInput(attrs={'style': 'width:260px'}),
             'last_name': TextInput(attrs={'style': 'width:260px'}),
             'email': TextInput(attrs={'style': 'width:450px'})
-        }
+        }, extra=0,
     )
 
     if request.method == 'POST':
