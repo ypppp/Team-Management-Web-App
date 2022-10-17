@@ -1,3 +1,5 @@
+from datetime import timedelta
+
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.urls import reverse
@@ -47,11 +49,11 @@ class Sprint(models.Model):
             raise ValidationError({'end_date': _('End date must be set on or before start date')})
 
     @property
-    def duration(self):
+    def duration(self) -> timedelta:
         return self.end_date - self.start_date
 
     @property
-    def days_left(self):
+    def days_left(self) -> int:
         today = date.today()
         days_left = self.end_date - today
 

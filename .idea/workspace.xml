@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="atomic transaction for entryform&#10;misc changes">
+    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="success message for member create">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/members/templates/members/member_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/members/templates/members/member_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/analytics/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/analytics/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/analytics/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/analytics/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/analytics/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/analytics/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scrum/members/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/members/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/sprints/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/sprints/models.py" afterDir="false" />
     </list>
     <list id="0a9e4d80-b2b8-4395-999c-282aa5101ca1" name="Changes by timle" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -151,13 +153,6 @@
       <workItem from="1665553900447" duration="7338000" />
       <workItem from="1665678159374" duration="3376000" />
       <workItem from="1665828900816" duration="62846000" />
-    </task>
-    <task id="LOCAL-00004" summary="Sprint 1 tasks fixed">
-      <created>1664529593998</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1664529593998</updated>
     </task>
     <task id="LOCAL-00005" summary="Task detail, update, create reimplemented">
       <created>1664534715531</created>
@@ -495,7 +490,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666030751852</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="success message for member create">
+      <created>1666032024840</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1666032024840</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -513,7 +515,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="foreign key field modification" />
     <MESSAGE value="foreignkey test success&#10;all files more or less modified" />
     <MESSAGE value="Modifications&#10;- sprint form task issues fixed&#10;- sprint detail task fixed&#10;- random modifications" />
     <MESSAGE value="Merge with tim3" />
@@ -538,7 +539,8 @@
     <MESSAGE value="Merged with nethara formset&#10;- member formset fixed&#10;- form now renders&#10;- html fixes here and there" />
     <MESSAGE value="extra form row deleted" />
     <MESSAGE value="atomic transaction for entryform&#10;misc changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="atomic transaction for entryform&#10;misc changes" />
+    <MESSAGE value="success message for member create" />
+    <option name="LAST_COMMIT_MESSAGE" value="success message for member create" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/FIT2101_B6$views.coverage" NAME="views Coverage Results" MODIFIED="1665985617456" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scrum/analytics" />

@@ -5,7 +5,7 @@ from django.views.generic import ListView, CreateView
 from sprints.models import Sprint
 from .forms import EntryForm
 from .models import Entry
-from .utils import get_sprint_data, get_sum, get_average
+from .utils import get_sprint_data, get_sum, get_daily_average
 
 
 class RecentEntryView(ListView):
@@ -46,7 +46,7 @@ class TeamAnalytics(ListView):
             context['day_count'] = [x for x in range(1, len(chart_data[1]) + 1)]
 
             context['sum'][q] = get_sum(q)
-            context['avg'][q] = get_average(q)
+            context['avg'][q] = get_daily_average(q)
 
         return context
 

@@ -29,7 +29,12 @@ def get_sum(sprint: Sprint, member=None) -> int:
     start_date = sprint.start_date
     end_date = sprint.end_date
 
-    entries = Entry.objects.filter(date__range=(start_date, end_date))
+    print(sprint)
+
+    entries = Entry.objects.filter(task__sprint=sprint)
+
+    for entry in entries.all():
+        print(entry)
 
     # filter member
     if member is not None:
@@ -40,24 +45,20 @@ def get_sum(sprint: Sprint, member=None) -> int:
     # operation
     if entries.count() > 0:
         agg = entries.aggregate(total=Sum('duration'))
+        print(agg)
         total = agg['total']
-        total = total.seconds // 60 ** 2
+        total = hour(total)
 
+    # print('utils sum', total, sprint)
     return total
 
 
-def get_average(sprint: Sprint, member=None) -> float:
+def get_daily_average(sprint: Sprint, member=None) -> float:
     """
     Computes the average daily work hours for a sprint
 
     """
-    # sprint date range
-    start_date = sprint.start_date
-    end_date = sprint.end_date
-
-    day_count = end_date - start_date
-    average = get_sum(sprint, member) / day_count.days
-
+    average = get_sum(sprint, member) / sprint.duration.days
     return average
 
 
@@ -143,6 +144,13 @@ def get_member_sprint(member):
     #         entries.append(Entry.objects.filter(task=task))
     #
     # return entries, sprints
+
+
+def hour(delta: timedelta) -> int:
+    hours = 0
+    hours += delta.days * 24
+    hours += delta.seconds // 60 ** 2
+    return hours
 
 
 def get_member_data(sprint, member):

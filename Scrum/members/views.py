@@ -5,7 +5,7 @@ from django.urls import reverse_lazy
 from django.views.generic import (ListView, DetailView,
                                   CreateView, UpdateView, DeleteView)
 
-from analytics.utils import get_member_sprint, get_sprint_data, get_average, get_sum
+from analytics.utils import get_member_sprint, get_sprint_data, get_daily_average, get_sum
 from tasks.models import Task
 from .forms import MemberForm
 from .models import Member
@@ -52,7 +52,7 @@ class MemberDetailView(DetailView):
             context["data"]["hours"].append(hours)
 
             total = get_sum(q, self.object)
-            average = get_average(q, self.object)
+            average = get_daily_average(q, self.object)
 
             # print(total)
             # print('views', average)
