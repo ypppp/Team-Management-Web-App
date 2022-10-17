@@ -5,8 +5,10 @@
 {% for sprint in sprint_list %}
     <h1>{{ sprint }}</h1>
     <br>
-    <p>{{ x_data|get_dict_value:sprint }}</p>
-    <p>{{ y_data|get_dict_value:sprint }}</p>
+    <p>x data:  {{ x_data | get_dict_value:sprint }}</p>
+    <p>y data:  {{ y_data | get_dict_value:sprint }}</p>
+    <p>sum:     {{ sum | get_dict_value:sprint }}</p>
+    <p>avg:     {{ avg | get_dict_value:sprint }}</p>
 
 <canvas id="myChart{{sprint.pk}}"></canvas>
 <!--Change data/config variable to respective chart-->
@@ -19,7 +21,7 @@
       labels: labels,
       datasets: [{
         label: 'My First Dataset',
-        data: {{y_data|get_dict_value:sprint}},
+        data: {{ y_data |get_dict_value:sprint }},
         fill: false,
         borderColor: 'rgb(75, 192, 192)',
         tension: 0.1
@@ -40,11 +42,11 @@
 </script>
 <script>
   const myChart = new Chart(
-    document.getElementById('myChart{{sprint.pk}}'),
+    document.getElementById('myChart{{ sprint.pk }}'),
     config
   );
 </script>
-    {% endfor %}
+{% endfor %}
 
 {% endblock content %}
 

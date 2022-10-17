@@ -1,6 +1,6 @@
 from datetime import timedelta
 
-from django.db.models import Sum
+from django.db.models import Sum, Avg
 from django.utils.datetime_safe import date
 
 from analytics.models import Entry
@@ -13,8 +13,29 @@ def get_sum(sprint: Sprint) -> float:
     Computes the sum of work hours for a sprint
 
     """
-    total = 0
-    return total
+    # get sprint date range
+    start_date = sprint.start_date
+    end_date = sprint.end_date
+
+    entries = Entry.objects.filter(date__range=(start_date, end_date))
+    agg = entries.aggregate(total=Sum('duration'))
+
+    return agg['total']
+
+
+def get_average(sprint: Sprint) -> float:
+    """
+    Computes the sum of work hours for a sprint
+
+    """
+    # get sprint date range
+    start_date = sprint.start_date
+    end_date = sprint.end_date
+
+    day_count = end_date - start_date
+    average = get_sum(sprint) / day_count.days
+
+    return average
 
 
 def get_sprint_data(sprint: Sprint) -> tuple[list, list]:
@@ -22,7 +43,7 @@ def get_sprint_data(sprint: Sprint) -> tuple[list, list]:
     Computes and returns daily work hours data for a sprint
 
     """
-    # get sprint date range
+    # sprint date range
     start_date = sprint.start_date
     end_date = sprint.end_date
 
@@ -46,6 +67,8 @@ def get_sprint_data(sprint: Sprint) -> tuple[list, list]:
 
         hours.append(duration)
 
+    day_range = format_day_range(day_range, "%d.%m.%y")
+
     # print(hours)
     return day_range, hours
 
@@ -64,6 +87,13 @@ def get_day_range(start: date, end: date, step_size=1) -> list[date]:
         # print(type(td))
         # print(td)
 
+    return day_range
+
+
+def format_day_range(day_range: list[date], frmt: str) -> list[str]:
+    day_range = [day.strftime(frmt) for day in day_range]
+    # print(day_range)
+    # print(type(day_range[0]))
     return day_range
 
 
