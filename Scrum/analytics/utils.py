@@ -25,16 +25,7 @@ def get_sum(sprint: Sprint, member=None) -> int:
     Computes the sum of work hours for a sprint
 
     """
-    # sprint date range
-    start_date = sprint.start_date
-    end_date = sprint.end_date
-
-    print(sprint)
-
     entries = Entry.objects.filter(task__sprint=sprint)
-
-    for entry in entries.all():
-        print(entry)
 
     # filter member
     if member is not None:
@@ -45,7 +36,6 @@ def get_sum(sprint: Sprint, member=None) -> int:
     # operation
     if entries.count() > 0:
         agg = entries.aggregate(total=Sum('duration'))
-        print(agg)
         total = agg['total']
         total = hour(total)
 
