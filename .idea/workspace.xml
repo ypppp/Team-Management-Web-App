@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="update and delete views">
-      <change afterPath="$PROJECT_DIR$/Scrum/members/templates/members/member_formset.html" afterDir="false" />
+    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="member_formset created">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scrum/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/members/templates/members/member_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/members/templates/members/member_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/members/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/members/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/members/templates/members/member_formset.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/members/templates/members/member_formset.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scrum/members/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/members/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/task_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/task_form.html" afterDir="false" />
     </list>
     <list id="0a9e4d80-b2b8-4395-999c-282aa5101ca1" name="Changes by timle" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -297,7 +294,35 @@
       <option name="project" value="LOCAL" />
       <updated>1665935491702</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="urls for formset">
+      <created>1665969071706</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1665969071706</updated>
+    </task>
+    <task id="LOCAL-00029" summary="member list updated">
+      <created>1665969118903</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1665969118903</updated>
+    </task>
+    <task id="LOCAL-00030" summary="modelformset implemented">
+      <created>1665969160084</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1665969160084</updated>
+    </task>
+    <task id="LOCAL-00031" summary="member_formset created">
+      <created>1665969179451</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1665969179451</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -335,6 +360,10 @@
     <MESSAGE value="member form updated" />
     <MESSAGE value="delete view" />
     <MESSAGE value="update and delete views" />
-    <option name="LAST_COMMIT_MESSAGE" value="update and delete views" />
+    <MESSAGE value="urls for formset" />
+    <MESSAGE value="member list updated" />
+    <MESSAGE value="modelformset implemented" />
+    <MESSAGE value="member_formset created" />
+    <option name="LAST_COMMIT_MESSAGE" value="member_formset created" />
   </component>
 </project>
