@@ -1,13 +1,17 @@
 {% extends 'tasks/base.html' %}
 {% block content %}
-    <h1>Recent Entries</h1>
+    <br>
+      <div class="page-header">
+        <h1 class="page-header">Recent Entries</h1>
+      </div>
     <br>
     {% for entry in entry_list %}
-        <p>Task:        {{ entry.task }}</p>
-        <p>Sprint:      {{ entry.task.sprint }}</p>
-        <p>Date:        {{ entry.date }}</p>
-        <p>Duration:    {{ entry.duration }}</p>
-        <br>
+        <div class="alert alert-light" role="alert" style="width:50%">
+            <p><b>Task: </b>        {{ entry.task }}</p>
+            <p><b>Sprint: </b>      {{ entry.task.sprint }}</p>
+            <p><b>Date: </b>        {{ entry.date }}</p>
+            <p><b>Duration: </b>    {{ entry.duration }} hours</p>
+        </div>
     {% endfor %}
 {% endblock content %}
 
