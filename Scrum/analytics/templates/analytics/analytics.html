@@ -4,16 +4,37 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
 
-{% for sprint in sprint_list %}
-    <h1>{{ sprint }}</h1>
-    <br>
-    <p>x data:  {{ x_data | get_dict_value:sprint }}</p>
-    <p>y data:  {{ y_data | get_dict_value:sprint }}</p>
-    <p>sum:     {{ sum | get_dict_value:sprint }}</p>
-    <p>avg:     {{ avg | get_dict_value:sprint }}</p>
 
-<canvas id="myChart{{ forloop.counter0 }}"></canvas>
-<!--Change data/config variable to respective chart-->
+{% for sprint in sprint_list %}
+  <div class="row">
+    <div class="col-sm">
+        <div class="card" style="width: 100%;">
+            <div class="card-body">
+                <br>
+                <h3><b>{{sprint}}</b></h3>
+                <br>
+                <p class="card-text"><b>Status: </b>{{sprint.get_status_display}}</p>
+                <p class="card-text"><b>Start Date: </b>{{sprint.start_date}}</p>
+                <p class="card-text"><b>End Date: </b>{{sprint.end_date}}</p>
+                <p class="card-text"><b>Sum: </b>{{ sum | get_dict_value:sprint }} hours</p>
+                <p class="card-text"><b>Average: </b>{{ avg | get_dict_value:sprint| floatformat }} hours</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm">
+    </div>
+    <div class="col-sm">
+    </div>
+  </div>
+
+<div class="card" style="width: 100%;">
+  <div class="card-body">
+    <canvas id="myChart{{ forloop.counter0 }}"></canvas>
+  </div>
+</div>
+
+
+<hr>
 {%endfor%}
 
 
@@ -26,7 +47,7 @@
         label: '{{ sprint }}',
         data: {{ y_data |get_dict_value:sprint }},
         fill: false,
-        borderColor: 'rgb(75, 192, 192)',
+        borderColor: 'rgb(54, 162, 235)',
         tension: 0.1
       }]
     };
@@ -41,7 +62,9 @@
                 title: {
                    display: true,
                    text: 'Hour Count'
-                }
+                },
+                    min: 0, // minimum value
+                    max: 24 // maximum value
             },
             x: {
                 title: {

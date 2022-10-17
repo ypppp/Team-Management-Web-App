@@ -42,7 +42,9 @@
             <p class="card-text">Days left:
                 {{ sprint.days_left }}
             </p>
-              Progress: {{sprint|percentage}}%
+              <div style="text-align:center; font-size: 12px;">
+                {{sprint|percentage}}% Complete
+              </div>
               <div class="progress">
                 <div class="progress-bar bg-warning" role="progressbar" style="width: {{sprint|percentage}}%"></div>
               </div>

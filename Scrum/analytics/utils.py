@@ -8,7 +8,19 @@ from sprints.models import Sprint
 from tasks.models import Task
 
 
-def get_sum(sprint: Sprint) -> float:
+def test(sprint, member):
+    start_date = sprint.start_date
+    end_date = sprint.end_date
+
+    entries = Entry.objects.filter(date__range=(start_date, end_date))
+
+    entries = entries.filter(task__assignee=member)
+
+    length = []
+    length = [length.append(i) for i in range(len('your list'))]
+
+
+def get_sum(sprint: Sprint, member=None) -> int:
     """
     Computes the sum of work hours for a sprint
 
@@ -18,12 +30,24 @@ def get_sum(sprint: Sprint) -> float:
     end_date = sprint.end_date
 
     entries = Entry.objects.filter(date__range=(start_date, end_date))
-    agg = entries.aggregate(total=Sum('duration'))
 
-    return agg['total']
+    # filter member
+    if member is not None:
+        entries = entries.filter(task__assignee=member)
+        print('utilsum', entries)
+
+    total = 0
+
+    # operation
+    if entries.count() > 0:
+        agg = entries.aggregate(total=Sum('duration'))
+        total = agg['total']
+        total = total.seconds // 60 ** 2
+
+    return total
 
 
-def get_average(sprint: Sprint) -> float:
+def get_average(sprint: Sprint, member=None) -> float:
     """
     Computes the average daily work hours for a sprint
 
@@ -33,12 +57,12 @@ def get_average(sprint: Sprint) -> float:
     end_date = sprint.end_date
 
     day_count = end_date - start_date
-    average = get_sum(sprint) / day_count.days
+    average = get_sum(sprint, member) / day_count.days
 
     return average
 
 
-def get_sprint_data(sprint: Sprint) -> tuple[list, list]:
+def get_sprint_data(sprint: Sprint, member=None) -> tuple[list, list]:
     """
     Computes and returns daily work hours data for a sprint
 
@@ -51,23 +75,34 @@ def get_sprint_data(sprint: Sprint) -> tuple[list, list]:
     day_range = get_day_range(start_date, end_date)
     hours = []
 
+    raw_entries = Entry.objects.filter(date__range=(start_date, end_date))
+    print('utils1', raw_entries)
+
+    # member filter
+    if member is not None:
+        raw_entries = raw_entries.filter(task__assignee=member)
+
     # operation
     for day in day_range:
-        entries = Entry.objects.filter(date=day)
-        # print(entries)
+        entries = raw_entries.filter(date=day)
+        print('utils2', entries)
         duration = 0
+
+        print(sprint, entries.count())
 
         if entries.count() > 0:
             agg = entries.aggregate(total=Sum('duration'))
-            # print(agg)
+            # print('agg', agg)
             duration = agg['total']
             # print(duration.seconds)
             duration = int(duration.seconds // 60 ** 2)
             # print(duration)
+            # print(sprint, entries.count())
 
         hours.append(duration)
 
     day_range = format_day_range(day_range, "%d.%m.%y")
+    # print('utils3', hours)
 
     # print(hours)
     return day_range, hours
@@ -97,16 +132,27 @@ def format_day_range(day_range: list[date], frmt: str) -> list[str]:
     return day_range
 
 
-def get_member_analytics(member):
-    sprints = []
-    entries = []
-    total = 0
+def get_member_sprint(member):
+    """
+    All participating sprint
 
-    all_tasks_by_member = Task.objects.filter(assignee=member)
-    for sprint in Sprint.objects.all():
-        total = 0
-        for task in sprint.tasks.filter(assignee=member):
-            sprints.append(sprint)
-            entries.append(Entry.objects.filter(task=task))
+    """
+    tasks = Task.objects.filter(assignee=member)
+    sprints = Sprint.objects.filter(tasks__in=tasks).distinct()
+    sprints.order_by('-active', '-status', 'start_date')
 
-    return entries, sprints
+    print(sprints)
+    return sprints
+
+    # all_tasks_by_member = Task.objects.filter(assignee=member)
+    # for sprint in Sprint.objects.all():
+    #     total = 0
+    #     for task in sprint.tasks.filter(assignee=member):
+    #         sprints.append(sprint)
+    #         entries.append(Entry.objects.filter(task=task))
+    #
+    # return entries, sprints
+
+
+def get_member_data(sprint, member):
+    pass
