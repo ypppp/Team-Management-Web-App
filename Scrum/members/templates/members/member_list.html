@@ -5,7 +5,14 @@
     <a href="{%url 'member-formset'%}" class="btn btn-primary" role="button" style="float: right;">Update Members</a>
 </div>
 <br>
-    <br>
+{% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+            <div {% if message.tags %} class="alert alert-{{ message.tags }}" role="alert"{% endif %} style="width:800px">{{ message }}</div>
+        {% endfor %}
+    </div>
+{% endif %}
+<br>
 {% for member in member_list %}
 
         <div class="card" style="width: 50%">

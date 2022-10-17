@@ -71,7 +71,7 @@ class MemberCreateView(SuccessMessageMixin, CreateView):
     model = Member
     form_class = MemberForm
     success_url = reverse_lazy('member-list')
-    success_message = '%(first_name)s (last_name)s was successfully added to the team'
+    success_message = '%(first_name)s %(last_name)s was successfully added to the team'
 
 
 class MemberUpdateView(UpdateView):
