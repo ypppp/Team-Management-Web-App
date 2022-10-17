@@ -5,16 +5,18 @@
     {% csrf_token %}
     {{form|crispy}}
     <!--{{form.as_p}}
-    {% crispy form %}-->
-    <!--{% for field in form %}
+    {% crispy form %}
+    {{ formset.management_form }}
+    {% for form in formset %}
     <h1>Member</h1>
     <div class="row">
         <div class="col-6">
-            {{field.first_name|as_crispy_field}}
-            {{field.email|as_crispy_field}}
+            {{ field.first_name }}
+            <br>
+            {{ field.email }}
         </div>
         <div class="col-6">
-            {{field.last_name|as_crispy_field}}
+            {{ field.last_name }}
         </div>
     </div>
     <hr>

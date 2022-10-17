@@ -1,5 +1,5 @@
 from django.core.checks import messages
-from django.forms import modelformset_factory
+from django.forms import modelformset_factory, Textarea, CharField, TextInput
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
@@ -54,7 +54,12 @@ class MemberDeleteView(DeleteView):
 
 
 def memberFormset(request):
-    MemberFormSet = modelformset_factory(Member, fields=('first_name', 'last_name', 'email'))
+    MemberFormSet = modelformset_factory(
+        Member, fields=('first_name', 'last_name', 'email'),
+        widgets={'first_name': TextInput(attrs={'style': 'width:250px'}),
+                 'last_name': TextInput(attrs={'style': 'width:250px'}),
+                 'email': TextInput(attrs={'style': 'width:350px'})}
+    )
 
     if request.method == 'POST':
         form = MemberFormSet(request.POST)
