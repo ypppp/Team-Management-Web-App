@@ -42,67 +42,9 @@
       <a href="{% url 'dashboard' %}" class="logo d-flex align-items-center">
         <span class="d-none d-lg-block">FIT2101 B6</span>
       </a>
-    </div><!-- End Logo -->
+    </div>
+    <!-- End Logo -->
 
-    <nav class="header-nav ms-auto">
-      <ul class="d-flex align-items-center">
-      </ul>
-
-  
-
-      <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-        <span><i class="bi bi-menu-up" style="font-size: 1.5rem; padding-right: 20px;"></i></span>
-      </a><!-- End Profile Iamge Icon -->
-
-      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-
-        <!-- dashboard Shortcut -->
-        <li>
-          <a class="dropdown-item d-flex align-items-center" href="{% url 'dashboard'%}">
-            <i class="bi bi-cone-striped"></i>
-            <span>Home</span>
-          </a>
-        </li>
-        <li>
-          <hr class="dropdown-divider">
-        </li>
-        <!-- dashbaord shortcut end -->
-
-        <!-- product Backlog shortcut -->
-        <li>
-          <a class="dropdown-item d-flex align-items-center" href="{% url 'task-list'%}">
-            <i class="bi bi-cone-striped"></i>
-            <span>Product Backlog</span>
-          </a>
-        </li>
-        <li>
-          <hr class="dropdown-divider">
-        </li>
-        <!-- product Backlog shortcut end -->
-
-        <!-- sprint backlog shortcut -->
-        <li>
-          <a class="dropdown-item d-flex align-items-center" href="{% url 'sprint-list'%}">
-            <i class="bi bi-cone-striped"></i>
-            <span>Sprint Backlog</span>
-          </a>
-        </li>
-        <li>
-          <hr class="dropdown-divider">
-        </li>
-        <!-- sprint backlog shortcut end -->
-
-        <!-- members shortcut -->
-        <li>
-          <a class="dropdown-item d-flex align-items-center" href="{% url 'member-list'%}">
-            <i class="bi bi-cone-striped"></i>
-            <span>Members</span>
-          </a>
-        </li>
-        <li>
-          <hr class="dropdown-divider">
-        </li>
-        <!-- members shortcut end -->
         
     </nav><!-- End Icons Navigation -->
 
@@ -113,6 +55,7 @@
 
     <ul class="sidebar-nav" id="sidebar-nav">
 
+      <!-- Dashbaord Nav -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="{% url 'dashboard' %}">
           <i class="bi bi-grid"></i>
@@ -120,6 +63,7 @@
         </a>
       </li><!-- End Dashboard Nav -->
 
+      <!-- Product Backlog Nav -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="{% url 'task-list' %}">
           <i class="bi bi-menu-button-wide"></i>
@@ -127,6 +71,7 @@
         </a>
       </li><!-- End Product Backlog Nav -->
 
+      <!-- Sprint List Nav -->
       <li class="nav-item">
         <a class="nav-link collapsed"  href="{% url 'sprint-list' %}">
           <i class="bi bi-journal-text"></i>
@@ -134,6 +79,7 @@
         </a>
       </li><!-- End Sprint List Nav -->
 
+      <!-- Members Nav -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="{% url 'member-list' %}">
           <i class="bi bi-bar-chart"></i>
@@ -141,7 +87,37 @@
         </a>
       </li><!-- End Members Nav -->
 
-    </ul>
+      <!-- Changes made on 17/10/2022  -->
+      <!-- New Nav -->
+      <li class="nav-item">
+        <div class="dropdown">
+          <a class="nav-link collapsed" href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-bar-chart"></i>
+              <span style="font-size: medium">New</span><i></i>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <a class="dropdown-item d-flex align-items-center" href="{% url 'dashboard'%}">
+              <i class="bi bi-cone-striped"></i>
+              <span>Home</span>
+              
+
+              <a class="dropdown-item d-flex align-items-center" href="{% url 'task-list'%}">
+                <i class="bi bi-cone-striped"></i>
+                <span>Product Backlog</span>
+
+
+                <a class="dropdown-item d-flex align-items-center" href="{% url 'sprint-list'%}">
+                  <i class="bi bi-cone-striped"></i>
+                  <span>Sprint List</span>
+
+
+            <a class="dropdown-item d-flex align-items-center" href="{% url 'member-list'%}">
+              <i class="bi bi-cone-striped"></i>
+              <span>Members</span>
+            </a>
+          </div>
+        </div>
+       <!-- End New Nav -->
   </aside><!-- End Sidebar-->
 
   <main id="main" class="main" style="overflow: auto;">

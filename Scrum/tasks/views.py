@@ -14,6 +14,11 @@ def home(request):
     }
     return render(request, 'tasks/dashboard.html', context)
 
+class DashboardTaskDetailView(DetailView):
+    model = Task
+    template_name = 'tasks/dashboard_task_detail.html'
+
+
 class TaskListView(ListView):
     model = Task
     # paginate_by = 20
@@ -96,3 +101,5 @@ class TaskListViewSortByPriorityDescending(ListView):
 class TaskListViewSortByDeadlineDescending(ListView):
     model = Task
     ordering = ['-due_date']
+
+

@@ -16,10 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
-from tasks.views import home
+from tasks.views import *
 
 urlpatterns = [
     path('', home, name='dashboard'),
+    path('dashtask/<int:pk>/', DashboardTaskDetailView.as_view(), name='dashtask-detail'),
     path('tasks/', include('tasks.urls')),
     path('sprints/', include('sprints.urls')),
     path('members/', include('members.urls')),
