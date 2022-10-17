@@ -13,8 +13,29 @@ def get_sum(sprint: Sprint) -> float:
     Computes the sum of work hours for a sprint
 
     """
-    total = 0
-    return total
+    # sprint date range
+    start_date = sprint.start_date
+    end_date = sprint.end_date
+
+    entries = Entry.objects.filter(date__range=(start_date, end_date))
+    agg = entries.aggregate(total=Sum('duration'))
+
+    return agg['total']
+
+
+def get_average(sprint: Sprint) -> float:
+    """
+    Computes the average daily work hours for a sprint
+
+    """
+    # sprint date range
+    start_date = sprint.start_date
+    end_date = sprint.end_date
+
+    day_count = end_date - start_date
+    average = get_sum(sprint) / day_count.days
+
+    return average
 
 
 def get_sprint_data(sprint: Sprint) -> tuple[list, list]:
@@ -22,7 +43,7 @@ def get_sprint_data(sprint: Sprint) -> tuple[list, list]:
     Computes and returns daily work hours data for a sprint
 
     """
-    # get sprint date range
+    # sprint date range
     start_date = sprint.start_date
     end_date = sprint.end_date
 
@@ -33,15 +54,22 @@ def get_sprint_data(sprint: Sprint) -> tuple[list, list]:
     # operation
     for day in day_range:
         entries = Entry.objects.filter(date=day)
+        # print(entries)
         duration = 0
 
         if entries.count() > 0:
             agg = entries.aggregate(total=Sum('duration'))
+            # print(agg)
             duration = agg['total']
-            duration = int(duration.days * 24)
+            # print(duration.seconds)
+            duration = int(duration.seconds // 60 ** 2)
+            # print(duration)
 
         hours.append(duration)
 
+    day_range = format_day_range(day_range, "%d.%m.%y")
+
+    # print(hours)
     return day_range, hours
 
 
@@ -56,8 +84,18 @@ def get_day_range(start: date, end: date, step_size=1) -> list[date]:
     for day in range(delta.days + step_size):
         td = start + timedelta(days=day)
         day_range.append(td)
+        # print(type(td))
+        # print(td)
 
     return day_range
+
+
+def format_day_range(day_range: list[date], frmt: str) -> list[str]:
+    day_range = [day.strftime(frmt) for day in day_range]
+    # print(day_range)
+    # print(type(day_range[0]))
+    return day_range
+
 
 def get_member_analytics(member):
     sprints = []

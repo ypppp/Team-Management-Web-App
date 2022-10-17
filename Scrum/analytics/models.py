@@ -1,5 +1,4 @@
 from django.db import models
-from django.urls import reverse
 from django.utils import timezone
 from django.utils.datetime_safe import date
 

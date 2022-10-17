@@ -1,50 +1,64 @@
 {% extends 'tasks/base.html' %}
 {% load custom_tags %}
 {% block content %}
-
-
-    {% for sprint in sprint_list %}
-        <h1>{{ sprint }}</h1>
-        <br>
-        <p>{{ x_data|get_dict_value:sprint }}</p>
-        <p>{{ y_data|get_dict_value:sprint }}</p>
-<canvas id="myChart{{sprint.pk}}"></canvas>
-<!--Change data/config variable to respective chart-->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
 
+{% for sprint in sprint_list %}
+    <h1>{{ sprint }}</h1>
+    <br>
+    <p>x data:  {{ x_data | get_dict_value:sprint }}</p>
+    <p>y data:  {{ y_data | get_dict_value:sprint }}</p>
+    <p>sum:     {{ sum | get_dict_value:sprint }}</p>
+    <p>avg:     {{ avg | get_dict_value:sprint }}</p>
+
+<canvas id="myChart{{ forloop.counter0 }}"></canvas>
+<!--Change data/config variable to respective chart-->
+{%endfor%}
+
+
 <script>
-    const labels = [1,2,3,4,6,7,8,9,0,1,1,2,3,4,6,7,8,9,0,1,1,2,3,4,6,7,8,9,0,1,2,3];
-    const data = {
-      labels: labels,
+{% for sprint in sprint_list %}
+    const labels{{ forloop.counter0 }} = {{ day_count }};
+    const data{{ forloop.counter0 }} = {
+      labels: labels{{ forloop.counter0 }},
       datasets: [{
-        label: 'My First Dataset',
-        data: {{y_data|get_dict_value:sprint}},
+        label: '{{ sprint }}',
+        data: {{ y_data |get_dict_value:sprint }},
         fill: false,
         borderColor: 'rgb(75, 192, 192)',
         tension: 0.1
       }]
     };
 
-    const config = {
+    const config{{ forloop.counter0 }} = {
       type: 'line',
-      data: data,
+      data: data{{ forloop.counter0 }},
       options: {
         scales: {
             y: {
-                beginAtZero: true
+                beginAtZero: true,
+                title: {
+                   display: true,
+                   text: 'Hour Count'
+                }
+            },
+            x: {
+                title: {
+                   display: true,
+                   text: 'Day Count'
+                }
             }
         }
       }
     };
-</script>
-<script>
-  const myChart = new Chart(
-    document.getElementById('myChart{{sprint.pk}}'),
-    config
+
+  const myChart{{ forloop.counter0 }} = new Chart(
+    document.getElementById('myChart{{ forloop.counter0 }}'),
+    config{{ forloop.counter0 }}
   );
+{% endfor %}
 </script>
-    {% endfor %}
 
 {% endblock content %}
 

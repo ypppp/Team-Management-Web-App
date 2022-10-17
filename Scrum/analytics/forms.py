@@ -40,7 +40,7 @@ class EntryForm(forms.ModelForm):
         duration = timedelta(hours=duration)
 
         # input > 24 hours
-        if timedelta(hours=24) < duration:
+        if timedelta(hours=24) <= duration:
             raise ValidationError('That hardworking?')
 
         entries = Entry.objects.filter(date=date)

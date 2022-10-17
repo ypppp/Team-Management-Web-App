@@ -65,12 +65,10 @@ def toggle_start_end(request, pk):
     if sprint.status == Sprint.PENDING:
         sprint.status = Sprint.ONGOING
         sprint.active = True
-        sprint.start_date = date.today()
 
     elif sprint.status == Sprint.ONGOING:
         sprint.status = Sprint.ENDED
         sprint.active = False
-        sprint.end_date = date.today()
 
         tasks = sprint.tasks.all()
         for task in tasks:
