@@ -1,14 +1,10 @@
-from django.core.checks import messages
-from django.forms import modelformset_factory, Textarea, CharField, TextInput
-from django.http import HttpResponseRedirect
+from django.contrib.messages.views import SuccessMessageMixin
+from django.forms import modelformset_factory, TextInput
 from django.shortcuts import render
-from django.urls import reverse_lazy, reverse
+from django.urls import reverse_lazy
 from django.views.generic import (ListView, DetailView,
-                                  CreateView, UpdateView, DeleteView, FormView)
-from django.views.generic.detail import SingleObjectMixin
+                                  CreateView, UpdateView, DeleteView)
 
-from .forms import MemberForm
-from .models import Member
 from analytics.utils import get_member_sprint, get_sprint_data, get_average, get_sum
 from tasks.models import Task
 from .forms import MemberForm
@@ -71,10 +67,11 @@ class MemberDetailView(DetailView):
         return context
 
 
-class MemberCreateView(CreateView):
+class MemberCreateView(SuccessMessageMixin, CreateView):
     model = Member
     form_class = MemberForm
     success_url = reverse_lazy('member-list')
+    success_message = '%(first_name)s (last_name)s was successfully added to the team'
 
 
 class MemberUpdateView(UpdateView):
@@ -88,7 +85,7 @@ class MemberDeleteView(DeleteView):
     success_url = reverse_lazy('member-list')
 
 
-def memberFormset(request):
+def member_formset(request):
     MemberFormSet = modelformset_factory(
         Member,
         fields=('first_name', 'last_name', 'email'),

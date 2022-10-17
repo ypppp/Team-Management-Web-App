@@ -58,14 +58,12 @@ class EntryForm(forms.ModelForm):
 
         return duration
 
-    # def save(self, commit=False):
-    #     entry = super().save(commit)
-    #
-    #     queryset = Task.objects.select_for_update().filter(id=entry.task.id)
-    #
-    #     # atomic toggle task status
-    #     with transaction.atomic():
-    #         if queryset.first().status == Task.PENDING:
-    #             entry.task.status = Task.IN_PROGRESS
-    #
-    #     return super().save(True)
+    def save(self, commit=False):
+        entry = super().save(commit)
+
+        # atomic toggle task status
+        with transaction.atomic():
+            if entry.task.status == Task.PENDING:
+                entry.task.status = Task.IN_PROGRESS
+                entry.task.save()
+                return super().save(True)

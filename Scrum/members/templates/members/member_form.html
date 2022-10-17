@@ -16,14 +16,15 @@
         <br>
         <div class="row">
             <div class="col-6">
-                {{form.first_name|as_crispy_field}}
-                {{form.email|as_crispy_field}}
+                {{ form.first_name|as_crispy_field }}
+                {{ form.email|as_crispy_field }}
             </div>
             <div class="col-6">
-                {{form.last_name|as_crispy_field}}
+                {{ form.last_name|as_crispy_field }}
             </div>
         </div>
     </fieldset>
+    <br>
     <div>
         <button type="submit" class="btn btn-success">Save
             {# <i class="fa fa-check" aria-hidden="true" style="color: white"></i>#}

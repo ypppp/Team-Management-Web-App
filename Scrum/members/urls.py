@@ -8,5 +8,5 @@ urlpatterns = [
     path('member/<int:pk>/', MemberDetailView.as_view(), name='member-detail'),
     path('member/<int:pk>/update/', MemberUpdateView.as_view(), name='member-update'),
     path('member/<int:pk>/delete/', MemberDeleteView.as_view(), name='member-delete'),
-    path('member/formset/', memberFormset, name='member-formset')
+    path('member/formset/', member_formset, name='member-formset')
 ]

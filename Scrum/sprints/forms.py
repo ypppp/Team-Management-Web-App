@@ -48,9 +48,10 @@ class SprintForm(forms.ModelForm):
         super(SprintForm, self).__init__(*args, **kwargs)
 
         if self.instance.pk is not None:    # Update sprint
-            self.fields['tasks'].queryset = Task.objects.filter(Q(sprint=self.instance) | Q(sprint=None))
-            tasks = self.instance.tasks.all
-            self.initial['tasks'] = tasks
+
+            tasks = Task.objects.filter(Q(sprint=self.instance) | Q(sprint=None))
+            self.fields['tasks'].queryset = tasks
+            self.initial['tasks'] = self.instance.tasks.all
 
     def save(self, commit=True):
         sprint = super().save(commit)
