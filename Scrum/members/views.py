@@ -1,7 +1,14 @@
-from django.urls import reverse_lazy
+from django.core.checks import messages
+from django.forms import modelformset_factory, Textarea, CharField, TextInput
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
+from django.urls import reverse_lazy, reverse
 from django.views.generic import (ListView, DetailView,
-                                  CreateView, UpdateView, DeleteView)
+                                  CreateView, UpdateView, DeleteView, FormView)
+from django.views.generic.detail import SingleObjectMixin
 
+from .forms import MemberForm
+from .models import Member
 from analytics.utils import get_member_sprint, get_sprint_data, get_average, get_sum
 from tasks.models import Task
 from .forms import MemberForm
@@ -79,3 +86,22 @@ class MemberUpdateView(UpdateView):
 class MemberDeleteView(DeleteView):
     model = Member
     success_url = reverse_lazy('member-list')
+
+
+def memberFormset(request):
+    MemberFormSet = modelformset_factory(
+        Member, fields=('first_name', 'last_name', 'email'),
+        widgets={'first_name': TextInput(attrs={'style': 'width:250px'}),
+                 'last_name': TextInput(attrs={'style': 'width:250px'}),
+                 'email': TextInput(attrs={'style': 'width:350px'})}
+    )
+
+    if request.method == 'POST':
+        form = MemberFormSet(request.POST)
+        instances = form.save(commit=False)
+
+        for instance in instances:
+            instance.save()
+
+    form = MemberFormSet()
+    return render(request, 'members/member_formset.html', {'form': form})

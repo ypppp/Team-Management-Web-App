@@ -1,12 +1,12 @@
 {% extends 'tasks/base.html' %}
 {% block content %}
-
+<div class="page-header">
+    <h1 class="page-header">New Task</h1>
+    <a href="{%url 'member-formset'%}" class="btn btn-primary" role="button" style="float: right;">Update All</a>
+</div>
+<br>
     <br>
-    <div class="page-header">
-        <h1 class="page-header">Member List</h1>
-    </div>
-    <br>
-    {% for member in member_list %}
+{% for member in member_list %}
 
         <div class="card" style="width: 50%">
           <div class="card-body">
