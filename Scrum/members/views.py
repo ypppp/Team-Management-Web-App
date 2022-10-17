@@ -2,7 +2,7 @@ from django.urls import reverse_lazy
 from django.views.generic import (ListView, DetailView,
                                   CreateView, UpdateView, DeleteView)
 
-from analytics.utils import get_member_analytics
+from analytics.utils import get_member_sprint
 from tasks.models import Task
 from .forms import MemberForm
 from .models import Member
@@ -34,7 +34,7 @@ class MemberDetailView(DetailView):
                                  tasks.filter(status=Task.OVERDUE).count()]
 
         context["OVERDUE"] = Task.OVERDUE
-        entries, sprint = get_member_analytics(self.object)
+        entries, sprint = get_member_sprint(self.object)
 
         context["sprint_list"] = sprint
         context["hours"] = entries

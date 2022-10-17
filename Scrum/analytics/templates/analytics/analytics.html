@@ -10,7 +10,7 @@
     <p>sum:     {{ sum | get_dict_value:sprint }}</p>
     <p>avg:     {{ avg | get_dict_value:sprint }}</p>
 
-<canvas id="myChart{{sprint.pk}}"></canvas>
+<canvas id="myChart{{ forloop.counter }}"></canvas>
 <!--Change data/config variable to respective chart-->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
@@ -42,7 +42,7 @@
 </script>
 <script>
   const myChart = new Chart(
-    document.getElementById('myChart{{ sprint.pk }}'),
+    document.getElementById("myChart" + {{ forloop.counter }}).getContext('2d'),
     config
   );
 </script>

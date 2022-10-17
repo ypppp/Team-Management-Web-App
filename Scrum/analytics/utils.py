@@ -16,6 +16,9 @@ def test(sprint, member):
 
     entries = entries.filter(task__assignee=member)
 
+    length = []
+    length = [length.append(i) for i in range(len('your list'))]
+
 
 def get_sum(sprint: Sprint, member=None) -> float:
     """
@@ -28,6 +31,7 @@ def get_sum(sprint: Sprint, member=None) -> float:
 
     entries = Entry.objects.filter(date__range=(start_date, end_date))
 
+    # filter member
     if member is not None:
         entries = Entry.objects.filter(task__assignee=member)
 
@@ -110,16 +114,31 @@ def format_day_range(day_range: list[date], frmt: str) -> list[str]:
     return day_range
 
 
-def get_member_analytics(member):
-    sprints = []
-    entries = []
-    total = 0
+def get_member_sprint(member):
+    """
+    All participating sprint
 
-    all_tasks_by_member = Task.objects.filter(assignee=member)
-    for sprint in Sprint.objects.all():
-        total = 0
-        for task in sprint.tasks.filter(assignee=member):
-            sprints.append(sprint)
-            entries.append(Entry.objects.filter(task=task))
+    """
+    tasks = Task.objects.filter(assignee=member)
 
-    return entries, sprints
+    sprints = Sprint.objects.none()
+
+    for task in tasks.all():
+        if task.sprint is not None:
+            sprints.union(task.sprint)
+
+    print(sprints)
+    return [1], sprints
+
+    # all_tasks_by_member = Task.objects.filter(assignee=member)
+    # for sprint in Sprint.objects.all():
+    #     total = 0
+    #     for task in sprint.tasks.filter(assignee=member):
+    #         sprints.append(sprint)
+    #         entries.append(Entry.objects.filter(task=task))
+    #
+    # return entries, sprints
+
+
+def get_member_data(sprint, member):
+    pass
