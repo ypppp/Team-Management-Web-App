@@ -33,15 +33,20 @@ def get_sprint_data(sprint: Sprint) -> tuple[list, list]:
     # operation
     for day in day_range:
         entries = Entry.objects.filter(date=day)
+        # print(entries)
         duration = 0
 
         if entries.count() > 0:
             agg = entries.aggregate(total=Sum('duration'))
+            # print(agg)
             duration = agg['total']
-            duration = int(duration.days * 24)
+            # print(duration.seconds)
+            duration = int(duration.seconds // 60 ** 2)
+            # print(duration)
 
         hours.append(duration)
 
+    # print(hours)
     return day_range, hours
 
 
@@ -56,8 +61,11 @@ def get_day_range(start: date, end: date, step_size=1) -> list[date]:
     for day in range(delta.days + step_size):
         td = start + timedelta(days=day)
         day_range.append(td)
+        # print(type(td))
+        # print(td)
 
     return day_range
+
 
 def get_member_analytics(member):
     sprints = []

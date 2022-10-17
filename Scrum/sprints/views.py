@@ -18,6 +18,7 @@ class SprintCreateView(CreateView):
         success_url = reverse_lazy('sprint-detail', kwargs={'pk': self.object.pk})
         return success_url
 
+
 class SprintUpdateView(UpdateView):
     model = Sprint
     form_class = SprintForm
@@ -34,7 +35,7 @@ class SprintDeleteView(DeleteView):
 
 class SprintListView(ListView):
     model = Sprint
-    ordering = ['-active', '-status']
+    ordering = ['-active', '-status', 'start_date']
 
     def get_context_data(self, **kwargs):
         context = super(SprintListView, self).get_context_data(**kwargs)

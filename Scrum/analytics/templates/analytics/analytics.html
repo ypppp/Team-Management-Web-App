@@ -2,12 +2,12 @@
 {% load custom_tags %}
 {% block content %}
 
+{% for sprint in sprint_list %}
+    <h1>{{ sprint }}</h1>
+    <br>
+    <p>{{ x_data|get_dict_value:sprint }}</p>
+    <p>{{ y_data|get_dict_value:sprint }}</p>
 
-    {% for sprint in sprint_list %}
-        <h1>{{ sprint }}</h1>
-        <br>
-        <p>{{ x_data|get_dict_value:sprint }}</p>
-        <p>{{ y_data|get_dict_value:sprint }}</p>
 <canvas id="myChart{{sprint.pk}}"></canvas>
 <!--Change data/config variable to respective chart-->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

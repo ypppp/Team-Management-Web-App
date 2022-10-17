@@ -28,7 +28,6 @@ class DailyTeamAnalytics(ListView):
 
     ordering = ['-status']
     template_name = 'analytics/analytics.html'
-    context_object_name = 'sprint_list'
     queryset = Sprint.objects.filter(Q(status=Sprint.ONGOING))
     # Q(status=Sprint.ONGOING) | Q(status=Sprint.ENDED))
 
