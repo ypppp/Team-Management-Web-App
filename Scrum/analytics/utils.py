@@ -1,6 +1,6 @@
 from datetime import timedelta
 
-from django.db.models import Sum, Avg
+from django.db.models import Sum
 from django.utils.datetime_safe import date
 
 from analytics.models import Entry
@@ -13,7 +13,7 @@ def get_sum(sprint: Sprint) -> float:
     Computes the sum of work hours for a sprint
 
     """
-    # get sprint date range
+    # sprint date range
     start_date = sprint.start_date
     end_date = sprint.end_date
 
@@ -25,10 +25,10 @@ def get_sum(sprint: Sprint) -> float:
 
 def get_average(sprint: Sprint) -> float:
     """
-    Computes the sum of work hours for a sprint
+    Computes the average daily work hours for a sprint
 
     """
-    # get sprint date range
+    # sprint date range
     start_date = sprint.start_date
     end_date = sprint.end_date
 

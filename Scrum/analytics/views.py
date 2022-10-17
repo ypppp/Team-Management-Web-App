@@ -24,26 +24,24 @@ class AddEntryView(CreateView):
         return success_url
 
 
-class DailyTeamAnalytics(ListView):
+class TeamAnalytics(ListView):
 
     ordering = ['-status']
     template_name = 'analytics/analytics.html'
-    queryset = Sprint.objects.filter(Q(status=Sprint.ONGOING))
-    # Q(status=Sprint.ONGOING) | Q(status=Sprint.ENDED))
+    # queryset = Sprint.objects.filter(Q(status=Sprint.ONGOING))
+    queryset = Sprint.objects.filter(
+        Q(status=Sprint.ONGOING) | Q(status=Sprint.ENDED))
 
     def get_context_data(self, **kwargs):
-        context = super(DailyTeamAnalytics, self).get_context_data(**kwargs)
+        context = super(TeamAnalytics, self).get_context_data(**kwargs)
 
         context['x_data'] = {}
         context['y_data'] = {}
         context['sum'] = {}
         context['avg'] = {}
 
-        print(self.context_object_name)
-
         for q in self.queryset.all():
             chart_data = get_sprint_data(q)
-            print(chart_data)
             context['x_data'][q] = chart_data[0]    # dates
             context['y_data'][q] = chart_data[1]    # hours
 

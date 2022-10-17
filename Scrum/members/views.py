@@ -10,12 +10,10 @@ from .models import Member
 
 class MemberListView(ListView):
     model = Member
-    template_name = 'members/member_list.html'
 
 
 class MemberDetailView(DetailView):
     model = Member
-    template_name = "members/member_detail.html"
 
     def get_context_data(self, **kwargs):
         def division_zero_avoid(arg1, arg2):
