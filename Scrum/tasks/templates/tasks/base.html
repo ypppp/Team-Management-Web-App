@@ -36,17 +36,19 @@
   <link href="{% static '\assets\css\style.css' %}" rel="stylesheet">
 
 </head>
- <header id="header" class="header fixed-top d-flex align-items-center">
+<body>
+
+<header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
       <a href="{% url 'dashboard' %}" class="logo d-flex align-items-center">
         <span class="d-none d-lg-block">FIT2101 B6</span>
       </a>
     </div>
+    <a><span class="toggle-sidebar-btn"><i class="bi bi-list"></i></span></a>
     <!-- End Logo -->
 
-        
-    </nav><!-- End Icons Navigation -->
+     <!-- End Icons Navigation -->
 
   </header>
 
@@ -103,34 +105,35 @@
         </a>
       </li><!-- End Members Nav -->
 
-      <!-- Changes made on 17/10/2022  -->
-      <!-- New Nav -->
-      <li class="nav-item">
-        <div class="dropdown">
-          <a class="nav-link collapsed" href="#" data-bs-toggle="dropdown">
-              <i class="bi bi-plus-lg"></i>
-              <span style="font-size: medium">New</span><i></i></a>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-            <a class="dropdown-item d-flex align-items-center" href="{% url 'task-create'%}" style="padding-right: 158px;">
-              <i class="bi bi-plus-lg"></i>
-              <span>Task</span></a>
-
-              <a class="dropdown-item d-flex align-items-center" href="{% url 'sprint-create'%}" style="padding-right: 158px;">
-              <i class="bi bi-plus-lg"></i>
-                <span>Sprint</span></a>
-
-                <a class="dropdown-item d-flex align-items-center" href="{% url 'member-create'%}" style="padding-right: 158px;">
-              <i class="bi bi-plus-lg"></i>
-                  <span>Member</span></a>
-
-            <a class="dropdown-item d-flex align-items-center" href="{% url 'entry-create'%}" style="padding-right: 158px;">
-              <i class="bi bi-plus-lg"></i>
-              <span>Entry</span>
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-target="#components-nav" data-toggle="collapse" href="#">
+              <i class="bi bi-plus-lg"></i><span>Add</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
-          </div>
-        </div>
-       <!-- End New Nav -->
+        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{% url 'task-create'%}">
+              <i class="bi bi-plus-lg"></i><span>Task</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="{% url 'sprint-create'%}">
+              <i class="bi bi-plus-lg"></i><span>Sprint</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="{% url 'member-create'%}">
+              <i class="bi bi-plus-lg"></i><span>Member</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="{% url 'entry-create'%}">
+              <i class="bi bi-plus-lg"></i><span>Entry</span>
+            </a>
+          </li>
+        </ul>
       </li>
     </ul>
   </aside><!-- End Sidebar-->
