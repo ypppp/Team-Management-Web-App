@@ -1,10 +1,21 @@
 {% extends 'tasks/base.html' %}
 {% block content %}
+
+    <br>
+    <div class="page-header">
+        <h1 class="page-header">Member List</h1>
+    </div>
+    <br>
     {% for member in member_list %}
-        <h1>{{ member }}</h1>
-        <p>{{ member.email }}</p>
-        <a href="{% url 'member-detail' member.id %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Details</a>
-        <br>
+
+        <div class="card" style="width: 50%">
+          <div class="card-body">
+            <h5 class="card-title">{{ member }}</h5>
+            <p class="card-text">{{ member.email }}</p>
+            <a href="{% url 'member-detail' member.id %}" class="btn btn-primary active" role="button" aria-pressed="true">Details</a>
+          </div>
+        </div>
+
     {% endfor %}
 {% endblock content %}
 

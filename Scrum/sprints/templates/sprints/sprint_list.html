@@ -7,9 +7,8 @@
     <div class="page-header">
         <h1 class="page-header">Sprint Backlog</h1>
     </div>
-    </div>
+    <br>
     <div style=" text-align: right; padding-right: 20px;">
-      <a href="{%url 'sprint-create'%}"><i class="fa fa-plus fa-3x" aria-hidden="true" style="color:tomato;"></i></a>
     </div>
 
     {% for sprint in sprint_list %}
@@ -43,7 +42,9 @@
             <p class="card-text">Days left:
                 {{ sprint.days_left }}
             </p>
-              Progress: {{sprint|percentage}}%
+              <div style="text-align:center; font-size: 12px;">
+                {{sprint|percentage}}% Complete
+              </div>
               <div class="progress">
                 <div class="progress-bar bg-warning" role="progressbar" style="width: {{sprint|percentage}}%"></div>
               </div>

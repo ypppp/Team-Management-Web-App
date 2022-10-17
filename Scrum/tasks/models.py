@@ -7,7 +7,6 @@ from django.utils.translation import gettext_lazy as _
 
 
 class Task(models.Model):
-
     HIGH_PRIORITY = 'HI'
     MEDIUM_PRIORITY = 'ME'
     LOW_PRIORITY = 'LO'
@@ -99,3 +98,4 @@ class Task(models.Model):
 
     def __str__(self):
         return self.title
+

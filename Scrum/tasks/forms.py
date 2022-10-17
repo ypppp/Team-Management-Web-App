@@ -6,7 +6,6 @@ from .models import Task
 
 
 class TaskForm(forms.ModelForm):
-
     # Mandatory
     title = forms.CharField(
         widget=forms.TextInput(attrs={'placeholder': 'Give your task a meaningful title', })

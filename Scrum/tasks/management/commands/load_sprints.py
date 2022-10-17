@@ -18,8 +18,12 @@ class Command(BaseCommand):
             start_date = datetime.strptime(start_date, '%Y-%m-%d')
             sprint['start_date'] = start_date
 
+            end_date = sprint['end_date'][:10]
+            end_date = datetime.strptime(end_date, '%Y-%m-%d')
+            sprint['end_date'] = end_date
+
             new_sprint = Sprint(title=sprint['title'],
                                 sprint_goal=sprint['sprint_goal'],
                                 start_date=sprint['start_date'],
-                                end_date=sprint['start_date'])
+                                end_date=sprint['end_date'])
             new_sprint.save()
