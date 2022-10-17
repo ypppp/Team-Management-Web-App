@@ -8,7 +8,16 @@ from sprints.models import Sprint
 from tasks.models import Task
 
 
-def get_sum(sprint: Sprint) -> float:
+def test(sprint, member):
+    start_date = sprint.start_date
+    end_date = sprint.end_date
+
+    entries = Entry.objects.filter(date__range=(start_date, end_date))
+
+    entries = entries.filter(task__assignee=member)
+
+
+def get_sum(sprint: Sprint, member=None) -> float:
     """
     Computes the sum of work hours for a sprint
 
@@ -18,6 +27,10 @@ def get_sum(sprint: Sprint) -> float:
     end_date = sprint.end_date
 
     entries = Entry.objects.filter(date__range=(start_date, end_date))
+
+    if member is not None:
+        entries = Entry.objects.filter(task__assignee=member)
+
     agg = entries.aggregate(total=Sum('duration'))
 
     return agg['total']

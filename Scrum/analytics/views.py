@@ -26,7 +26,7 @@ class AddEntryView(CreateView):
 
 class TeamAnalytics(ListView):
 
-    ordering = ['-status']
+    ordering = ['-status', '-start_date']
     template_name = 'analytics/analytics.html'
     # queryset = Sprint.objects.filter(Q(status=Sprint.ONGOING))
     queryset = Sprint.objects.filter(
