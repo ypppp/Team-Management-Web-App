@@ -1,4 +1,5 @@
 {% extends 'tasks/base.html' %}
+{% load custom_tags %}
 {% block content %}
     <style>
         body {font-family: Arial;}
@@ -6,7 +7,6 @@
         /* Style the tab */
         .tab {
           overflow: hidden;
-
         }
 
         /* Style the buttons inside the tab */
@@ -16,9 +16,10 @@
           border: none;
           outline: none;
           cursor: pointer;
-          padding: 14px 16px;
+          padding: 10px 10px;
           transition: 0.3s;
           font-size: 17px;
+          border-radius: 5px;
         }
 
         /* Change background color of buttons on hover */
@@ -49,6 +50,28 @@
           from {opacity: 0;}
           to {opacity: 1;}
         }
+
+        .collapsible {
+  cursor: pointer;
+  padding: 10px;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  border-radius: 10px;
+  width: 100%;
+  background-color:#F6F9FF;
+}
+
+.active, .collapsible:hover {
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
     </style>
     <br>
     <h1>Dashboard</h1>
@@ -66,81 +89,120 @@
           </div>
             <br>
             <div id="All" class="tabcontent" style="display: flex;">
-                <table class="table table-borderless">
-                  <tbody>
+
                   {% for x in sprint_ongoing %}
                     {% for y in x.tasks.all %}
-                    <tr>
-                      <td>{{y.title}}</td>
-                      <td>{{y.get_status_display}}</td>
-                      <td >None</td>
-                      <td >{{y.assignee}}</td>
-                      <td>{{y.due_date}}</td>
-                    </tr>
+                        <button type="button" class="collapsible">
+                            <ul class="list-group list-group-horizontal">
+                              <li class="list-group-item" style="width:40%;">{{y.title}}</li>
+                              <li class="list-group-item" style="background-color:{{ y.get_priority_color }}; width:12%; text-align: center; color:white">{{ y.get_priority_display }}</li>
+                              <li class="list-group-item" style="width:25%">{{y.assignee}}</li>
+                              <li class="list-group-item" style="width:15%">{{y.tag}}</li>
+                              <li class="list-group-item" style="width:20%">{{y.get_status_display}}</li>
+                            </ul>
+                        </button>
+                        <div class="content">
+                            <br>
+                            <p><b>Description</b></p>
+                            <p>{{y.description}}</p>
+                        </div>
                     {%endfor%}
                   {%endfor%}
-                  </tbody>
-                </table>
+
             </div>
+
             <div id="Completed" class="tabcontent" style="display: flex;">
-                <table class="table table-borderless">
-                  <tbody>
                   {% for x in sprint_ongoing %}
                     {% for y in x.tasks.all %}
                         {% if y.status == TASK_COMPLETE %}
-                    <tr>
-                      <td>{{y.title}}</td>
-                      <td>{{y.get_status_display}}</td>
-                      <td >None</td>
-                      <td >{{y.assignee}}</td>
-                      <td>{{y.due_date}}</td>
-                    </tr>
+                           <button type="button" class="collapsible">
+                                <ul class="list-group list-group-horizontal">
+                                  <li class="list-group-item" style="width:40%;">{{y.title}}</li>
+                                  <li class="list-group-item" style="background-color:{{ y.get_priority_color }}; width:12%; text-align: center; color:white">{{ y.get_priority_display }}</li>
+                                  <li class="list-group-item" style="width:25%">{{y.assignee}}</li>
+                                  <li class="list-group-item" style="width:15%">{{y.tag}}</li>
+                                  <li class="list-group-item" style="width:20%">{{y.get_status_display}}</li>
+                                </ul>
+                            </button>
+                            <div class="content">
+                                <br>
+                                <p><b>Description</b></p>
+                                <p>{{y.description}}</p>
+                            </div>
                         {%endif%}
                     {%endfor%}
                   {%endfor%}
-                  </tbody>
-                </table>
+
             </div>
+
             <div id="Pending" class="tabcontent" style="display: flex;">
-                <table class="table table-borderless">
-                  <tbody>
                   {% for x in sprint_ongoing %}
                     {% for y in x.tasks.all %}
                         {% if y.status == TASK_PENDING %}
-                    <tr>
-                      <td>{{y.title}}</td>
-                      <td>{{y.get_status_display}}</td>
-                      <td >None</td>
-                      <td >{{y.assignee}}</td>
-                      <td>{{y.due_date}}</td>
-                    </tr>
+                           <button type="button" class="collapsible">
+                                <ul class="list-group list-group-horizontal">
+                                  <li class="list-group-item" style="width:40%;">{{y.title}}</li>
+                                  <li class="list-group-item" style="background-color:{{ y.get_priority_color }}; width:12%; text-align: center; color:white">{{ y.get_priority_display }}</li>
+                                  <li class="list-group-item" style="width:25%">{{y.assignee}}</li>
+                                  <li class="list-group-item" style="width:15%">{{y.tag}}</li>
+                                  <li class="list-group-item" style="width:20%">{{y.get_status_display}}</li>
+                                </ul>
+                            </button>
+                            <div class="content">
+                                <br>
+                                <p><b>Description</b></p>
+                                <p>{{y.description}}</p>
+                            </div>
                         {%endif%}
                     {%endfor%}
                   {%endfor%}
-                  </tbody>
-                </table>
+
             </div>
+
             <div id="In_Progress" class="tabcontent" style="display: flex;">
-                <table class="table table-borderless">
-                  <tbody>
                   {% for x in sprint_ongoing %}
                     {% for y in x.tasks.all %}
                         {% if y.status == TASK_IN_PROGRESS %}
-                    <tr>
-                      <td>{{y.title}}</td>
-                      <td>{{y.get_status_display}}</td>
-                      <td >None</td>
-                      <td >{{y.assignee}}</td>
-                      <td>{{y.due_date}}</td>
-                    </tr>
+                       <button type="button" class="collapsible">
+                                <ul class="list-group list-group-horizontal">
+                                  <li class="list-group-item" style="width:40%;">{{y.title}}</li>
+                                  <li class="list-group-item" style="background-color:{{ y.get_priority_color }}; width:12%; text-align: center; color:white">{{ y.get_priority_display }}</li>
+                                  <li class="list-group-item" style="width:25%">{{y.assignee}}</li>
+                                  <li class="list-group-item" style="width:15%">{{y.tag}}</li>
+                                  <li class="list-group-item" style="width:20%">{{y.get_status_display}}</li>
+                                </ul>
+                            </button>
+                            <div class="content">
+                                <br>
+                                <p><b>Description</b></p>
+                                <p>{{y.description}}</p>
+                            </div>
                         {%endif%}
                     {%endfor%}
                   {%endfor%}
-                  </tbody>
-                </table>
             </div>
         </div>
         <div class="col-4">
+
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Happening Now <span>| current sprint </span></h5>
+                <div class="activity">
+                {% for x in sprint_ongoing %}
+                    <p>Name: {{x.title}}</p>
+                    Progress: {{x|percentage}}%
+                    <div class="progress">
+                      <div class="progress-bar bg-primary" role="progressbar" style="width: {{x|percentage}}%"></div>
+                    </div>
+                    <hr>
+                    <p>Assignees:</p>
+                    {% for y in x.tasks.all%}
+                    <p>- {{y.assignee}}</p>
+                    {%endfor%}
+                {%endfor%}
+                </div>
+              </div>
+            </div>
 
             <div class="card">
               <div class="card-body">
@@ -159,28 +221,39 @@
       </div>
     </div>
 
+<script>
+    function openCity(evt, cityName) {
+      var i, tabcontent;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " active";
+      }
 
+document.getElementById("defaultOpen").click();
+</script>
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
 
-
-
-
-    <script>
-        function openCity(evt, cityName) {
-          var i, tabcontent;
-          tabcontent = document.getElementsByClassName("tabcontent");
-          for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-          }
-          tablinks = document.getElementsByClassName("tablinks");
-          for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-          }
-          document.getElementById(cityName).style.display = "block";
-          evt.currentTarget.className += " active";
-          }
-
-    document.getElementById("defaultOpen").click();
-    </script>
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    }
+</script>
 {% endblock %}
 
 

@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="Analytics..">
+    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="Analytics members">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scrum/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/members/templates/members/member_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/members/templates/members/member_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/main/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/main/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/members/templates/members/member_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/members/templates/members/member_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/sprints/templates/sprints/sprint_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/tasks/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/views.py" afterDir="false" />
     </list>
     <list id="0a9e4d80-b2b8-4395-999c-282aa5101ca1" name="Changes by timle" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -290,7 +295,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665976349956</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Analytics members">
+      <created>1665977519484</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1665977519484</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -326,6 +338,7 @@
     <MESSAGE value="STUFF 2" />
     <MESSAGE value="Dashboard done" />
     <MESSAGE value="Analytics.." />
-    <option name="LAST_COMMIT_MESSAGE" value="Analytics.." />
+    <MESSAGE value="Analytics members" />
+    <option name="LAST_COMMIT_MESSAGE" value="Analytics members" />
   </component>
 </project>
