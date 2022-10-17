@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="Member analytics&#10;- data can add now&#10;- sum &amp; avg complete&#10;&#10;Some fiing problems again">
+    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="Member analytics&#10;- data can add now&#10;- sum &amp; avg complete&#10;- hours bug fixed">
+      <change afterPath="$PROJECT_DIR$/Scrum/tasks/management/commands/load_entries.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/analytics/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/analytics/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/analytics/templates/analytics/entry_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/analytics/templates/analytics/entry_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/analytics/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/analytics/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/analytics/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/analytics/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/members/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/members/views.py" afterDir="false" />
     </list>
     <list id="0a9e4d80-b2b8-4395-999c-282aa5101ca1" name="Changes by timle" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -462,7 +458,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665985266728</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Member analytics&#10;- data can add now&#10;- sum &amp; avg complete&#10;- hours bug fixed">
+      <created>1665996533116</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1665996533116</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -480,7 +483,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Sprint 1 tasks fixed" />
     <MESSAGE value="Task detail, update, create reimplemented" />
     <MESSAGE value="forms modified" />
     <MESSAGE value="model validation" />
@@ -505,7 +507,8 @@
     <MESSAGE value="Additions:&#10;- get_sum testing for member" />
     <MESSAGE value="member analytics in progress" />
     <MESSAGE value="Member analytics&#10;- data can add now&#10;- sum &amp; avg complete&#10;&#10;Some fiing problems again" />
-    <option name="LAST_COMMIT_MESSAGE" value="Member analytics&#10;- data can add now&#10;- sum &amp; avg complete&#10;&#10;Some fiing problems again" />
+    <MESSAGE value="Member analytics&#10;- data can add now&#10;- sum &amp; avg complete&#10;- hours bug fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Member analytics&#10;- data can add now&#10;- sum &amp; avg complete&#10;- hours bug fixed" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/FIT2101_B6$views.coverage" NAME="views Coverage Results" MODIFIED="1665985617456" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scrum/analytics" />
