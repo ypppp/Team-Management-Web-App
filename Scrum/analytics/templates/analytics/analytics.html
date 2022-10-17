@@ -10,7 +10,7 @@
     <p>x data:  {{ x_data | get_dict_value:sprint }}</p>
     <p>y data:  {{ y_data | get_dict_value:sprint }}</p>
     <p>sum:     {{ sum | get_dict_value:sprint }}</p>
-    <p>avg:     {{ avg | get_dict_value:sprint }}</p>
+    <p>avg:     {{ avg | get_dict_value:sprint |floatformat }}</p>
 
 <canvas id="myChart{{ forloop.counter0 }}"></canvas>
 <!--Change data/config variable to respective chart-->

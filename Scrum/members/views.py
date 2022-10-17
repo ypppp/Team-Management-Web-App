@@ -2,7 +2,7 @@ from django.urls import reverse_lazy
 from django.views.generic import (ListView, DetailView,
                                   CreateView, UpdateView, DeleteView)
 
-from analytics.utils import get_member_sprint
+from analytics.utils import get_member_sprint, get_sprint_data, get_average, get_sum
 from tasks.models import Task
 from .forms import MemberForm
 from .models import Member
@@ -23,7 +23,7 @@ class MemberDetailView(DetailView):
 
         context = super(MemberDetailView, self).get_context_data(**kwargs)
         tasks = Task.objects.all().filter(assignee=self.object)
-        context["tasks_involved"] = tasks.count()
+        context["tasks"] = tasks.count()
 
         context["tasks_done"] = division_zero_avoid(
             tasks.filter(status=Task.COMPLETE).count(), tasks.count())
@@ -34,13 +34,32 @@ class MemberDetailView(DetailView):
                                  tasks.filter(status=Task.OVERDUE).count()]
 
         context["OVERDUE"] = Task.OVERDUE
-        entries, sprint = get_member_sprint(self.object)
 
-        context["sprint_list"] = sprint
-        context["hours"] = entries
+        sprints = get_member_sprint(self.object)
+        context["sprint_list"] = sprints.all()
+        # print(sprints.all())
 
-        print(entries)
-        print(sprint)
+        # dictionary of lists
+        context["data"] = {"dates": [], "hours": [], "sum": [], "avg": [],}
+
+        for q in sprints.all():
+            # print(q)
+            dates, hours = get_sprint_data(q, self.object)
+            context["data"]["dates"].append(dates)  # [sprint1_dates, sprint2_dates]
+            context["data"]["hours"].append(hours)
+
+            total = get_sum(q, self.object)
+            average = get_average(q, self.object)
+
+            print(total)
+            print(average)
+            context["data"]["sum"].append(total)
+            context["data"]["avg"].append(average)
+
+        print(sprints)
+        print(context['data']['dates'])
+        print(context['data']['hours'])
+        print(context['data']['avg'])
 
         return context
 

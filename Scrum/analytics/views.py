@@ -25,7 +25,6 @@ class AddEntryView(CreateView):
 
 
 class TeamAnalytics(ListView):
-
     ordering = ['-status', '-start_date']
     template_name = 'analytics/analytics.html'
     # queryset = Sprint.objects.filter(Q(status=Sprint.ONGOING))
@@ -42,10 +41,9 @@ class TeamAnalytics(ListView):
 
         for q in self.queryset.all():
             chart_data = get_sprint_data(q)
-            context['x_data'][q] = chart_data[0]    # dates
-            context['y_data'][q] = chart_data[1]    # hours\
-            context['day_count'] = [x for x in range(1, len(chart_data[1])+1)]
-
+            context['x_data'][q] = chart_data[0]  # dates
+            context['y_data'][q] = chart_data[1]  # hours\
+            context['day_count'] = [x for x in range(1, len(chart_data[1]) + 1)]
 
             context['sum'][q] = get_sum(q)
             context['avg'][q] = get_average(q)
@@ -76,6 +74,6 @@ def get_data_list(list):
     for i in range(len(list)):
         hours.append(list[i]["hours"])
         date.append(list[i]["date"].strftime("%d.%m.%y"))
-        date_data.append(i+1)
+        date_data.append(i + 1)
 
     return hours, date, date_data

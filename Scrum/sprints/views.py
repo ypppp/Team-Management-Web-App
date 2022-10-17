@@ -77,7 +77,7 @@ def toggle_start_end(request, pk):
                 task.save()
 
     sprint.save()
-    return redirect('sprint-list')
+    return redirect('sprint-detail', pk)
 
 
 class SprintStartEndView(DetailView):

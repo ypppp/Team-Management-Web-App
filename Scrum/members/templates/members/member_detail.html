@@ -1,10 +1,25 @@
 {% extends 'tasks/base.html' %}
 {% load custom_tags %}
 {% block content %}
-{{ sprint_list }}
-{% for i in hours %}
-{{ hour.1.duration }}
-{%endfor%}
+
+<p>{{ sprint_list }}</p>
+
+{% for item in data.dates %}
+    <p>{{ item }}</p>
+{% endfor %}
+
+  {% for item in data.hours %}
+    <p>{{ item }}</p>
+{% endfor %}
+
+{% for item in data.sum %}
+    <p>Sum: {{ item }} Hours</p>
+{% endfor %}
+
+{% for item in data.avg %}
+    <p>Average: {{ item|floatformat }} Hours</p>
+{% endfor %}
+
     <br>
   <div class="page-header">
     <h1 class="page-header">Member Details</h1>
@@ -13,9 +28,9 @@
 <div class="card" style="width: 100%;">
   <div class="card-body">
     <br>
-    <p class="card-text">First Name: {{member.first_name}}</p>
-    <p class="card-text">Last Name: {{member.last_name}}</p>
-    <p class="card-text">Email: {{member.email}} <a href="mailto:{{ member.email }}"><i class="fa fa-envelope" aria-hidden="true"></i></a></p>
+    <p class="card-text">First Name: {{ member.first_name }}</p>
+    <p class="card-text">Last Name: {{ member.last_name }}</p>
+    <p class="card-text">Email: {{ member.email }} <a href="mailto:{{ member.email }}"><i class="fa fa-envelope" aria-hidden="true"></i></a></p>
   </div>
 </div>
 
@@ -25,11 +40,11 @@
       <div class="card" style="width: 100%;">
         <div class="card-body">
           <h4 class="card-title">Analytics<span> | Task Completion Rate</span></h4>
-          <p class="card-text">Tasks involved: {{tasks_involved}}</p>
-          {%if tasks_involved > 0 or tasks_%}
+          <p class="card-text">Tasks involved: {{ tasks }}</p>
+          {% if tasks > 0 or tasks_%}
           <div style="height:50%; width:50%;">
             <canvas id="pieChart"></canvas>
-            <h4 class="card-text" style="text-align: center;">Completion Rate: {{tasks_done}}%</h4>
+            <h4 class="card-text" style="text-align: center;">Completion Rate: {{ tasks_done }}%</h4>
           </div>
           {%endif%}
         </div>
