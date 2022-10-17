@@ -1,10 +1,15 @@
 {% extends 'tasks/base.html' %}
 {% block content %}
-    {% for member in member_list %}
-        <h1>{{ member }}</h1>
-        <p>{{ member.email }}</p>
-        <a href="{% url 'members-detail' member.id %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Details</a>
-        <br>
-    {% endfor %}
+<div class="page-header">
+    <h1 class="page-header">New Task</h1>
+    <a href="{%url 'member-formset'%}" class="btn btn-primary" role="button" style="float: right;">Update All</a>
+</div>
+<br><br>
+{% for member in member_list %}
+<h1>{{ member }}</h1>
+<p>{{ member.email }}</p>
+<a href="{% url 'members-detail' member.id %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Details</a>
+<br>
+{% endfor %}
 {% endblock content %}
 
