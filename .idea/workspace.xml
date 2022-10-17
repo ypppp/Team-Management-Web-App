@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="member_formset created">
+    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="html fixes&#10;&#10;product backlog:&#10;- column width set&#10;- priority color modified in task model&#10;- truncation&#10;entrylist shadow&#10;sprint_list populated&#10;dashboard configurings&#10;new custom tag&#10;tasks passed into sprintlist view">
       <change beforePath="$PROJECT_DIR$/Scrum/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/members/templates/members/member_formset.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/members/templates/members/member_formset.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/members/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/members/views.py" afterDir="false" />
     </list>
     <list id="0a9e4d80-b2b8-4395-999c-282aa5101ca1" name="Changes by timle" comment="" />
     <option name="SHOW_DIALOG" value="false" />
