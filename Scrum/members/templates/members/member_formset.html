@@ -1,0 +1,35 @@
+{% extends 'tasks/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <!--{{form.as_p}}
+    {% crispy form %}-->
+    <!--{% for field in form %}
+    <h1>Member</h1>
+    <div class="row">
+        <div class="col-6">
+            {{field.first_name|as_crispy_field}}
+            {{field.email|as_crispy_field}}
+        </div>
+        <div class="col-6">
+            {{field.last_name|as_crispy_field}}
+        </div>
+    </div>
+    <hr>
+    <br>
+    {% endfor %}-->
+    <div>
+        <button type="submit" class="btn btn-success">Save
+            {# <i class="fa fa-check" aria-hidden="true" style="color: white"></i>#}
+        </button>
+        <a href="{% url 'member-list' %}">
+            <button type="button" class="btn btn-danger">Cancel</button>
+        </a>
+        <a href="{% url 'member-list' %}">
+            <button type="button" class="btn btn-secondary">Back</button>
+        </a>
+    </div>
+</form>
+{% endblock content %}
