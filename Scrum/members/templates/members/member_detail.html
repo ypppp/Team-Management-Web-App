@@ -40,6 +40,9 @@
       <div class="card" style="width: 100%;">
         <div class="card-body">
           <h4 class="card-title">Analytics<span> | Average Working Hour</span></h4>
+          <div style="height:50%; width:50%;">
+            <canvas id="barChart"></canvas>
+          </div>
         </div>
       </div>
     </div>
@@ -48,6 +51,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <!--Change data/config variable to respective chart-->
 <script>
+// Pie Chart
   const dataPie = {
     labels: [
       'Complete',
@@ -72,11 +76,43 @@
     type: 'doughnut',
     data: dataPie,
   };
-</script>
-<script>
+
   const myChart = new Chart(
     document.getElementById('pieChart'),
     configPie
   );
+
+// BAR CHART
+
+  const labelBar = [1,2,3,4,5,6,7];
+  const dataBar = {
+    labels: labelBar,
+    datasets: [{
+      label: 'My First Dataset',
+      data: [65, 59, 80, 81, 56, 55, 40],
+      borderWidth: 1
+    }]
+  };
+
+  const configBar = {
+    type: 'bar',
+    data: dataBar,
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    },
+  };
+
+  const myChart2 = new Chart(
+    document.getElementById('barChart'),
+    configBar
+  );
 </script>
+<script>
+
+</script>
+
 {% endblock content %}
