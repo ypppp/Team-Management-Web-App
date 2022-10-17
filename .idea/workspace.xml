@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="Merged with nethara formset&#10;- member formset fixed&#10;- form now renders&#10;- html fixes here and there">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/analytics/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/analytics/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scrum/members/templates/members/member_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/members/templates/members/member_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/members/templates/members/member_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/members/templates/members/member_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/task_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/task_detail.html" afterDir="false" />
     </list>
     <list id="0a9e4d80-b2b8-4395-999c-282aa5101ca1" name="Changes by timle" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -489,7 +486,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666024393514</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Merged with nethara formset&#10;- member formset fixed&#10;- form now renders&#10;- html fixes here and there">
+      <created>1666026743337</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1666026743338</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
