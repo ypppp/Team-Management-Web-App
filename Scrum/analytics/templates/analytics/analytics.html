@@ -11,13 +11,13 @@
         <div class="card" style="width: 100%;">
             <div class="card-body">
                 <br>
-                <h3><b>{{sprint}}</b></h3>
+                <h3><b>{{ sprint }}</b></h3>
                 <br>
                 <p class="card-text"><b>Status: </b>{{sprint.get_status_display}}</p>
                 <p class="card-text"><b>Start Date: </b>{{sprint.start_date}}</p>
                 <p class="card-text"><b>End Date: </b>{{sprint.end_date}}</p>
-                <p class="card-text"><b>Sum: </b>{{ sum | get_dict_value:sprint }} hours</p>
-                <p class="card-text"><b>Average: </b>{{ avg | get_dict_value:sprint| floatformat }} hours</p>
+                <p class="card-text"><b>Sprint Total: </b>{{ sum | get_dict_value:sprint }} hours</p>
+                <p class="card-text"><b>Daily Average: </b>{{ avg | get_dict_value:sprint| floatformat }} hours</p>
             </div>
         </div>
     </div>
@@ -56,6 +56,16 @@
       type: 'line',
       data: data{{ forloop.counter0 }},
       options: {
+          plugins: {
+                title: {
+                    display: true,
+                    font: {
+                        weight: 'bold',
+                        size: 18
+                    },
+                    text: 'Daily Work Hours'
+                }
+          },
         scales: {
             y: {
                 beginAtZero: true,

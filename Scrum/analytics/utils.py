@@ -25,16 +25,11 @@ def get_sum(sprint: Sprint, member=None) -> int:
     Computes the sum of work hours for a sprint
 
     """
-    # sprint date range
-    start_date = sprint.start_date
-    end_date = sprint.end_date
-
-    entries = Entry.objects.filter(date__range=(start_date, end_date))
+    entries = Entry.objects.filter(task__sprint=sprint)
 
     # filter member
     if member is not None:
         entries = entries.filter(task__assignee=member)
-        print('utilsum', entries)
 
     total = 0
 
@@ -42,23 +37,18 @@ def get_sum(sprint: Sprint, member=None) -> int:
     if entries.count() > 0:
         agg = entries.aggregate(total=Sum('duration'))
         total = agg['total']
-        total = total.seconds // 60 ** 2
+        total = hour(total)
 
+    # print('utils sum', total, sprint)
     return total
 
 
-def get_average(sprint: Sprint, member=None) -> float:
+def get_daily_average(sprint: Sprint, member=None) -> float:
     """
     Computes the average daily work hours for a sprint
 
     """
-    # sprint date range
-    start_date = sprint.start_date
-    end_date = sprint.end_date
-
-    day_count = end_date - start_date
-    average = get_sum(sprint, member) / day_count.days
-
+    average = get_sum(sprint, member) / sprint.duration.days
     return average
 
 
@@ -76,7 +66,6 @@ def get_sprint_data(sprint: Sprint, member=None) -> tuple[list, list]:
     hours = []
 
     raw_entries = Entry.objects.filter(date__range=(start_date, end_date))
-    print('utils1', raw_entries)
 
     # member filter
     if member is not None:
@@ -85,19 +74,12 @@ def get_sprint_data(sprint: Sprint, member=None) -> tuple[list, list]:
     # operation
     for day in day_range:
         entries = raw_entries.filter(date=day)
-        print('utils2', entries)
         duration = 0
-
-        print(sprint, entries.count())
 
         if entries.count() > 0:
             agg = entries.aggregate(total=Sum('duration'))
-            # print('agg', agg)
             duration = agg['total']
-            # print(duration.seconds)
             duration = int(duration.seconds // 60 ** 2)
-            # print(duration)
-            # print(sprint, entries.count())
 
         hours.append(duration)
 
@@ -152,6 +134,13 @@ def get_member_sprint(member):
     #         entries.append(Entry.objects.filter(task=task))
     #
     # return entries, sprints
+
+
+def hour(delta: timedelta) -> int:
+    hours = 0
+    hours += delta.days * 24
+    hours += delta.seconds // 60 ** 2
+    return hours
 
 
 def get_member_data(sprint, member):

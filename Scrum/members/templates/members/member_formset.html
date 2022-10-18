@@ -1,0 +1,59 @@
+{% extends 'tasks/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<form method="POST">
+<h1 class="page-header">Update Members</h1>
+<br>
+<br>
+    {% csrf_token %}
+<fieldset>
+{#    {{ form | crispy }}#}
+{#    {{ form.as_p }}#}
+{#    {% crispy form %}#}
+{#    {{ formset }}#}
+    <div class="row">
+        <div class="col-2">
+            <b>First Name</b>
+        </div>
+        <div class="col-1"></div>
+        <div class="col-2">
+            <b>Last Name</b>
+        </div>
+        <div class="col-1"></div>
+        <div class="col-5">
+            <b>Email</b>
+        </div>
+    </div>
+<br>
+    {% for f in form %}
+{#    <h1>Member</h1>#}
+    <div class="row">
+        <div class="col-2">
+            {{ f.first_name|as_crispy_field }}
+        </div>
+        <div class="col-1"></div>
+        <div class="col-2">
+            {{ f.last_name|as_crispy_field }}
+        </div>
+        <div class="col-1"></div>
+        <div class="col-5">
+            {{ f.email|as_crispy_field }}
+        </div>
+    </div>
+    <hr>
+    <br>
+    {% endfor %}
+</fieldset>
+    <div>
+        <button type="submit" class="btn btn-success">Save
+            {# <i class="fa fa-check" aria-hidden="true" style="color: white"></i>#}
+        </button>
+        <a href="{% url 'member-list' %}">
+            <button type="button" class="btn btn-danger">Cancel</button>
+        </a>
+        <a href="{% url 'member-list' %}">
+            <button type="button" class="btn btn-secondary">Back</button>
+        </a>
+    </div>
+</form>
+{% endblock content %}
