@@ -2,7 +2,6 @@ from datetime import timedelta
 
 from django import forms
 from django.core.exceptions import ValidationError
-from django.db import transaction
 from django.db.models import Sum
 
 from analytics.models import Entry
@@ -60,10 +59,7 @@ class EntryForm(forms.ModelForm):
 
     def save(self, commit=False):
         entry = super().save(commit)
-
-        # atomic toggle task status
-        with transaction.atomic():
-            if entry.task.status == Task.PENDING:
-                entry.task.status = Task.IN_PROGRESS
-                entry.task.save()
-                return super().save(True)
+        if entry.task.status == Task.PENDING:
+            entry.task.status = Task.IN_PROGRESS
+            entry.task.save()
+        return super().save(True)
