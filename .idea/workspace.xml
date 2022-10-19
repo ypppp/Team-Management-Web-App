@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="More minor &lt;br&gt;">
+    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="Fixes font bolding">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/dashboard.html" afterDir="false" />
     </list>
     <list id="0a9e4d80-b2b8-4395-999c-282aa5101ca1" name="Changes by timle" comment="" />
@@ -367,7 +366,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666164084520</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Fixes font bolding">
+      <created>1666165268408</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1666165268408</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -385,7 +391,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="forms modified" />
     <MESSAGE value="model validation" />
     <MESSAGE value="database fix" />
     <MESSAGE value="overdue added to task model" />
@@ -410,6 +415,7 @@
     <MESSAGE value="Merge with crookshanks&#10;Updated UI sidenav now works" />
     <MESSAGE value="Removed add animation and replaced with invisible dropdown" />
     <MESSAGE value="More minor &lt;br&gt;" />
-    <option name="LAST_COMMIT_MESSAGE" value="More minor &lt;br&gt;" />
+    <MESSAGE value="Fixes font bolding" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixes font bolding" />
   </component>
 </project>
