@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>FIT2101 B6</title>
@@ -16,7 +17,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    {% load static %}
     <link rel="stylesheet" href="{% static '\css\productbacklog.css' %}">
 
     <link href="{% static '\assets\vendor\bootstrap\css\bootstrap.min.css' %}" rel="stylesheet">
@@ -32,9 +32,14 @@
     <link href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-  <!-- Template Main CSS File -->
-  <link href="{% static '\assets\css\style.css' %}" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="{% static '\assets\css\style.css' %}" rel="stylesheet">
 
+    <style>
+        .dropdown-menu {
+            background-color: ##FFFFFF;
+        }
+    </style>
 </head>
 <body>
 
@@ -44,15 +49,12 @@
       <a href="{% url 'dashboard' %}" class="logo d-flex align-items-center">
         <span class="d-none d-lg-block">FIT2101 B6</span>
       </a>
+            <a><span class="toggle-sidebar-btn"><i class="bi bi-list"></i></span></a>
     </div>
-    <a><span class="toggle-sidebar-btn"><i class="bi bi-list"></i></span></a>
     <!-- End Logo -->
 
-     <!-- End Icons Navigation -->
-
-  </header>
-
-  <!-- ======= Sidebar ======= -->
+</header>
+<!-- ======= Sidebar ======= -->
   <aside id="sidebar" class="sidebar">
 
     <ul class="sidebar-nav" id="sidebar-nav">
@@ -104,41 +106,27 @@
             <span style="font-size: medium">Entries</span><i></i>
         </a>
       </li><!-- End Members Nav -->
+<!--DROPDOWN NAV-->
+<li class="nav-item">
+        <div class="dropdown">
+          <a class="nav-link collapsed" href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-plus-lg"></i>
+              <span style="font-size: medium">New</span><i></i>
+          </a>
+          <div class="dropdown-menu shadow-none" aria-labelledby="dropdownMenu2">
+            <a class="dropdown-item d-flex align-items-center shadow-none" href="{% url 'task-create'%}">ㅤ<i class="bi bi-plus"></i><span>Task</span></a>
+            <a class="dropdown-item d-flex align-items-center shadow-none" href="{% url 'sprint-create'%}">ㅤ<i class="bi bi-plus"></i><span>Sprint</span></a>
+            <a class="dropdown-item d-flex align-items-center shadow-none" href="{% url 'member-create'%}">ㅤ<i class="bi bi-plus"></i><span>Member</span></a>
+            <a class="dropdown-item d-flex align-items-center shadow-none" href="{% url 'entry-create'%}">ㅤ<i class="bi bi-plus"></i><span>Entry</span></a>
+          </div>
+        </div>
 
-        <li class="nav-item">
-            <a class="nav-link collapsed" data-target="#components-nav" data-toggle="collapse" href="#">
-              <i class="bi bi-plus-lg"></i><span>Add</span><i class="bi bi-chevron-down ms-auto"></i>
-            </a>
-        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="{% url 'task-create'%}">
-              <i class="bi bi-plus-lg"></i><span>Task</span>
-            </a>
-          </li>
+<!--END OF DROPDOWN NAV-->
 
-          <li>
-            <a href="{% url 'sprint-create'%}">
-              <i class="bi bi-plus-lg"></i><span>Sprint</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="{% url 'member-create'%}">
-              <i class="bi bi-plus-lg"></i><span>Member</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="{% url 'entry-create'%}">
-              <i class="bi bi-plus-lg"></i><span>Entry</span>
-            </a>
-          </li>
-        </ul>
-      </li>
     </ul>
   </aside><!-- End Sidebar-->
 
-  <main id="main" class="main" style="overflow: auto;">
+    <main id="main" class="main" style="overflow: auto;">
 
     <!--START OF CONTENTS-->
     {% block content %}
@@ -160,16 +148,17 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
       <!-- Vendor JS Files -->
-    <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/chart.js/chart.min.js"></script>
-    <script src="assets/vendor/echarts/echarts.min.js"></script>
-    <script src="assets/vendor/quill/quill.min.js"></script>
-    <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
-    <script src="assets/vendor/tinymce/tinymce.min.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="{% static 'assets/vendor/apexcharts/apexcharts.min.js' %}"></script>
+    <script type="text/javascript" href="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/chart.js/chart.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/echarts/echarts.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/quill/quill.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/simple-datatables/simple-datatables.js' %}"></script>
+    <script src="{% static 'assets/vendor/tinymce/tinymce.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
     <!-- Template Main JS File -->
-    <script src="static/assets/js/main.js"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+
 
 </body>
 </html>
