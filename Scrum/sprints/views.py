@@ -39,6 +39,7 @@ class SprintListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(SprintListView, self).get_context_data(**kwargs)
+        context['tasks'] = Task.objects.all()
         context['PENDING'] = Sprint.PENDING
         context['ONGOING'] = Sprint.ONGOING
         context['ENDED'] = Sprint.ENDED

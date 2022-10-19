@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="Member analytics&#10;- data can add now&#10;- sum &amp; avg complete&#10;- hours bug fixed">
-      <change afterPath="$PROJECT_DIR$/Scrum/tasks/management/commands/load_entries.py" afterDir="false" />
+    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="entryform bug fixed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/analytics/templates/analytics/analytics.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/analytics/templates/analytics/analytics.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/base.html" afterDir="false" />
     </list>
     <list id="0a9e4d80-b2b8-4395-999c-282aa5101ca1" name="Changes by timle" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,7 +39,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="TestMaster" />
+        <entry key="$PROJECT_DIR$" value="Crookshanks" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -68,12 +70,16 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/chewjiahong/PycharmProjects/FIT2101-B6&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/chewjiahong/PycharmProjects/FIT2101-B6/Scrum&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Scrum" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Scrum" />
       <recent name="$PROJECT_DIR$/Scrum/tasks/management/commands" />
@@ -149,62 +155,6 @@
       <workItem from="1665553900447" duration="7338000" />
       <workItem from="1665678159374" duration="3376000" />
       <workItem from="1665828900816" duration="62846000" />
-    </task>
-    <task id="LOCAL-00001" summary="Bug fix&#10; - divider not working for html">
-      <created>1663036090178</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1663036090178</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Models modified:&#10;- Task&#10;- Sprint&#10;- Member">
-      <created>1664468735076</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1664468735076</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Models modified:&#10;- Task&#10;- Sprint&#10;- Member">
-      <created>1664519618077</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1664519618077</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Sprint 1 tasks fixed">
-      <created>1664529593998</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1664529593998</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Task detail, update, create reimplemented">
-      <created>1664534715531</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1664534715531</updated>
-    </task>
-    <task id="LOCAL-00006" summary="forms modified">
-      <created>1664548076555</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1664548076555</updated>
-    </task>
-    <task id="LOCAL-00007" summary="model validation">
-      <created>1664554381295</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1664554381295</updated>
-    </task>
-    <task id="LOCAL-00008" summary="database fix">
-      <created>1664556265342</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1664556265342</updated>
     </task>
     <task id="LOCAL-00009" summary="database fix">
       <created>1664564672504</created>
@@ -465,7 +415,91 @@
       <option name="project" value="LOCAL" />
       <updated>1665996533116</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="Merged with tim_3">
+      <created>1666005341472</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1666005341472</updated>
+    </task>
+    <task id="LOCAL-00047" summary="html fixes&#10;&#10;product backlog:&#10;- column width set&#10;- priority color modified in task model&#10;- truncation&#10;entrylist shadow&#10;sprint_list populated&#10;dashboard configurings&#10;new custom tag&#10;tasks passed into sprintlist view">
+      <created>1666011999971</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1666011999971</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Merged with nethara formset&#10;- member formset fixed&#10;- form now renders&#10;- html fixes here and there">
+      <created>1666024393514</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1666024393514</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Merged with nethara formset&#10;- member formset fixed&#10;- form now renders&#10;- html fixes here and there">
+      <created>1666026743337</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1666026743338</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Merged with nethara formset&#10;- member formset fixed&#10;- form now renders&#10;- html fixes here and there">
+      <created>1666027277868</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1666027277871</updated>
+    </task>
+    <task id="LOCAL-00051" summary="extra form row deleted">
+      <created>1666027518158</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1666027518158</updated>
+    </task>
+    <task id="LOCAL-00052" summary="atomic transaction for entryform&#10;misc changes">
+      <created>1666030751852</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1666030751852</updated>
+    </task>
+    <task id="LOCAL-00053" summary="success message for member create">
+      <created>1666032024840</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1666032024840</updated>
+    </task>
+    <task id="LOCAL-00054" summary="sum problem fixed">
+      <created>1666034179602</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1666034179602</updated>
+    </task>
+    <task id="LOCAL-00055" summary="analytics added chart title">
+      <created>1666035916448</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1666035916448</updated>
+    </task>
+    <task id="LOCAL-00056" summary="Member model&#10;- nickname added&#10;- 20 chars in model&#10;- &lt;15 in json&#10;- misc.">
+      <created>1666042423939</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1666042423939</updated>
+    </task>
+    <task id="LOCAL-00057" summary="entryform bug fixed">
+      <created>1666076127116</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1666076127116</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -483,16 +517,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Task detail, update, create reimplemented" />
-    <MESSAGE value="forms modified" />
-    <MESSAGE value="model validation" />
-    <MESSAGE value="database fix" />
-    <MESSAGE value="overdue added to task model" />
-    <MESSAGE value="foreign key field modification" />
-    <MESSAGE value="foreignkey test success&#10;all files more or less modified" />
-    <MESSAGE value="Modifications&#10;- sprint form task issues fixed&#10;- sprint detail task fixed&#10;- random modifications" />
-    <MESSAGE value="Merge with tim3" />
-    <MESSAGE value="latest for sprint2" />
     <MESSAGE value="Sprint3:&#10;- pagination complete except styling&#10;- sprint list modification&#10;- sprint confirm save modification&#10;- createview fixed&#10;- new tasks.json" />
     <MESSAGE value="orphan addition" />
     <MESSAGE value="Entry model &#10;- model creation&#10;- unmigrated&#10;- views planning" />
@@ -508,7 +532,17 @@
     <MESSAGE value="member analytics in progress" />
     <MESSAGE value="Member analytics&#10;- data can add now&#10;- sum &amp; avg complete&#10;&#10;Some fiing problems again" />
     <MESSAGE value="Member analytics&#10;- data can add now&#10;- sum &amp; avg complete&#10;- hours bug fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Member analytics&#10;- data can add now&#10;- sum &amp; avg complete&#10;- hours bug fixed" />
+    <MESSAGE value="Merged with tim_3" />
+    <MESSAGE value="html fixes&#10;&#10;product backlog:&#10;- column width set&#10;- priority color modified in task model&#10;- truncation&#10;entrylist shadow&#10;sprint_list populated&#10;dashboard configurings&#10;new custom tag&#10;tasks passed into sprintlist view" />
+    <MESSAGE value="Merged with nethara formset&#10;- member formset fixed&#10;- form now renders&#10;- html fixes here and there" />
+    <MESSAGE value="extra form row deleted" />
+    <MESSAGE value="atomic transaction for entryform&#10;misc changes" />
+    <MESSAGE value="success message for member create" />
+    <MESSAGE value="sum problem fixed" />
+    <MESSAGE value="analytics added chart title" />
+    <MESSAGE value="Member model&#10;- nickname added&#10;- 20 chars in model&#10;- &lt;15 in json&#10;- misc." />
+    <MESSAGE value="entryform bug fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="entryform bug fixed" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/FIT2101_B6$views.coverage" NAME="views Coverage Results" MODIFIED="1665985617456" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scrum/analytics" />

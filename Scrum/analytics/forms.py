@@ -36,7 +36,6 @@ class EntryForm(forms.ModelForm):
         date = self.cleaned_data['date']
 
         # int to timedelta
-        print(duration)
         duration = timedelta(hours=duration)
 
         # input > 24 hours
@@ -46,7 +45,6 @@ class EntryForm(forms.ModelForm):
         entries = Entry.objects.filter(date=date)
         if entries.count() > 0:
             agg = entries.aggregate(total=Sum('duration'))
-            print(entries, agg)
 
             # already 24 hours
             if agg['total'] >= timedelta(hours=24):
@@ -55,7 +53,13 @@ class EntryForm(forms.ModelForm):
             # overflow cap
             if agg['total'] + duration > timedelta(hours=24):
                 overflow = agg['total'] + duration - timedelta(hours=24)
-                print(overflow)
                 duration -= overflow
 
         return duration
+
+    def save(self, commit=False):
+        entry = super().save(commit)
+        if entry.task.status == Task.PENDING:
+            entry.task.status = Task.IN_PROGRESS
+            entry.task.save()
+        return super().save(True)

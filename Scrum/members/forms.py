@@ -16,10 +16,22 @@ class MemberForm(forms.ModelForm):
         widget=forms.EmailInput(attrs={'placeholder': 'Member\'s email address'})
     )
 
+    nickname = forms.CharField(
+        widget=forms.TextInput(attrs={'placeholder': 'What do they call you?'}),
+        required=False
+    )
+
     class Meta:
         model = Member
         fields = [
             'first_name',
             'last_name',
             'email',
+            'nickname',
         ]
+
+    def clean_nickname(self):
+        nickname = self.cleaned_data['nickname']
+        if ' ' in nickname:
+            raise forms.ValidationError('Must not contain spaces')
+        return nickname

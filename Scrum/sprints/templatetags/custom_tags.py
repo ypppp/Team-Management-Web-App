@@ -15,6 +15,17 @@ def filter_by_complete(value):
     return value.tasks.filter(status=Task.COMPLETE).count()
 
 @register.filter
+def filter_count_sprint(value, sprint):
+    return value.filter(sprint=sprint).count()
+
+@register.filter
+def timedelta_hours(delta):
+    hours = 0
+    hours += delta.days * 24
+    hours += delta.seconds // 60 ** 2
+    return hours
+
+@register.filter
 def get_dict_value(obj, key):
     return obj[key]
 
@@ -22,3 +33,5 @@ def get_dict_value(obj, key):
 register.filter('get_dict_value', get_dict_value)
 register.filter('percentage', percentage)
 register.filter('filter_by_complete', filter_by_complete)
+register.filter('filter_count_sprint', filter_count_sprint)
+register.filter('timedelta_hours', timedelta_hours)

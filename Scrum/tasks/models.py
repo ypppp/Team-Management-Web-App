@@ -82,7 +82,7 @@ class Task(models.Model):
         if self.priority == Task.MEDIUM_PRIORITY:
             color = 'orange'
         if self.priority == Task.LOW_PRIORITY:
-            color = 'yellow'
+            color = 'mediumseagreen'
 
         return color
 

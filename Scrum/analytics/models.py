@@ -20,5 +20,4 @@ class Entry(models.Model):
         verbose_name_plural = 'entries'
 
     def __str__(self):
-        return f'{self.task.assignee} worked another ' \
-               f'{self.duration} on {self.date} for the task {self.task}'
+        return f'{self.duration} hours on {self.date} for the task {self.task}'
