@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>FIT2101 B6</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.101.0">
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sidebars/">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{% static '\css\productbacklog.css' %}">
+
+    <link href="{% static '\assets\vendor\bootstrap\css\bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static '\assets\vendor\bootstrap-icons\bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static '\assets\vendor\boxicons\css\boxicons.min.css' %}" rel="stylesheet">
+    <link href="{% static '\assets\vendor\quill\quill.snow.css' %}" rel="stylesheet">
+    <link href="{% static '\assets\vendor\quill\quill.bubble.css' %}" rel="stylesheet">
+    <link href="{% static '\assets\vendor\remixicon\remixicon.css' %}" rel="stylesheet">
+    <link href="{% static '\assets\vendor\simple-datatables\style.css' %}" rel="stylesheet">
+    <link href="{% static '\assets\css\style.css' %}" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="{% static '\assets\css\style.css' %}" rel="stylesheet">
+
+    <style>
+        .dropdown-menu {
+            background-color: ##FFFFFF;
+        }
+    </style>
+</head>
+<body>
+
+<header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+        <a><span class="toggle-sidebar-btn"><i class="bi bi-list"></i></span></a>
+      <a href="{% url 'dashboard' %}" class="logo d-flex align-items-center">
+          <span class="d-none d-lg-block" style="padding-left: 30px;">Tuesday.com</span>
+      </a>
+    </div>
+    <!-- End Logo -->
+
+</header>
+<!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <!-- Dashbaord Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{% url 'dashboard' %}">
+          <i class="bi bi-grid"></i>
+          <span style="font-size: medium">Dashboard</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
+      <!-- Product Backlog Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{% url 'task-list' %}">
+          <i class="bi bi-menu-button-wide"></i>
+            <span style="font-size: medium">Product Backlog</span><i></i>
+        </a>
+      </li><!-- End Product Backlog Nav -->
+
+      <!-- Sprint List Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed"  href="{% url 'sprint-list' %}">
+          <i class="bi bi-journal-text"></i>
+            <span style="font-size: medium">Sprint Backlog</span><i></i>
+        </a>
+      </li><!-- End Sprint List Nav -->
+
+      <!-- Members Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{% url 'member-list' %}">
+          <i class="bi bi-person-circle"></i>
+            <span style="font-size: medium">Members</span><i></i>
+        </a>
+      </li><!-- End Members Nav -->
+
+        <!-- Members Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{% url 'team-anal' %}">
+          <i class="bi bi-bar-chart"></i>
+            <span style="font-size: medium">Analytics</span><i></i>
+        </a>
+      </li><!-- End Members Nav -->
+
+        <!-- Members Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{% url 'entry-list' %}">
+            <i class="bi bi-book"></i>
+            <span style="font-size: medium">Entries</span><i></i>
+        </a>
+      </li><!-- End Members Nav -->
+<!--DROPDOWN NAV-->
+<li class="nav-item">
+        <div class="dropdown">
+          <a class="nav-link collapsed" href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-plus-lg"></i>
+              <span style="font-size: medium">New</span><i></i>
+          </a>
+          <div class="dropdown-menu shadow-none" aria-labelledby="dropdownMenu2">
+            <a class="dropdown-item d-flex align-items-center shadow-none" href="{% url 'task-create'%}">ㅤ<i class="bi bi-plus"></i><span>Task</span></a>
+            <a class="dropdown-item d-flex align-items-center shadow-none" href="{% url 'sprint-create'%}">ㅤ<i class="bi bi-plus"></i><span>Sprint</span></a>
+            <a class="dropdown-item d-flex align-items-center shadow-none" href="{% url 'member-create'%}">ㅤ<i class="bi bi-plus"></i><span>Member</span></a>
+            <a class="dropdown-item d-flex align-items-center shadow-none" href="{% url 'entry-create'%}">ㅤ<i class="bi bi-plus"></i><span>Entry</span></a>
+          </div>
+        </div>
+
+<!--END OF DROPDOWN NAV-->
+
+    </ul>
+  </aside><!-- End Sidebar-->
+
+    <main id="main" class="main" style="overflow: auto;">
+
+    <!--START OF CONTENTS-->
+    {% block content %}
+    {% endblock %}
+    <!-- end of content-->
+
+  </main><!-- End #main -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+      <!-- Vendor JS Files -->
+    <script src="{% static 'assets/vendor/apexcharts/apexcharts.min.js' %}"></script>
+    <script type="text/javascript" href="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/chart.js/chart.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/echarts/echarts.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/quill/quill.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/simple-datatables/simple-datatables.js' %}"></script>
+    <script src="{% static 'assets/vendor/tinymce/tinymce.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+    <!-- Template Main JS File -->
+    <script src="{% static 'assets/js/main.js' %}"></script>
+
+
+</body>
+</html>

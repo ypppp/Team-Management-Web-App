@@ -1,0 +1,39 @@
+{% extends 'tasks/base.html' %}
+{% block content %}
+<br>
+<br>
+<div class="page-header">
+    <h1 class="page-header">Delete Member</h1>
+</div>
+<br>
+<form method="POST">
+    {% csrf_token %}
+    <div>
+        <div class="alert alert-warning" role="alert">
+            <h4 class="alert-heading"><i class="fa fa-exclamation-triangle" style="color:#721c24;"
+                                         aria-hidden="true"></i> Warning</h4>
+            <p>Are you sure you want to delete "{{ member }}"?</p>
+            <hr>
+            <button type="submit" class="btn btn-danger">Delete</button>
+            <a class="btn btn-light" href="{% url 'member-list' %}">Cancel</a>
+        </div>
+        <table class="table table-hover table-striped">
+            <thead class="table_head">
+            <tr>
+                <th class="col1">First Name</th>
+                <th class="col2">Last Name</th>
+                <th class="col3">Email</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+                <td>{{ member.first_name }}</td>
+                <td>{{ member.last_name }}</td>
+                <td>{{ member.email }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</form>
+{% endblock content %}

@@ -1,0 +1,102 @@
+{% extends 'tasks/base.html' %}
+{% load custom_tags %}
+{% block content %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+
+<br>
+  <div class="page-header">
+    <h1 class="page-header">Team Analytics</h1>
+  </div>
+<br>
+
+{% for sprint in sprint_list %}
+  <div class="row">
+    <div class="col-sm">
+        <div class="card" style="width: 100%;">
+            <div class="card-body">
+                <br>
+                <h3><b>{{ sprint }}</b></h3>
+                <br>
+                <p class="card-text"><b>Status: </b>{{sprint.get_status_display}}</p>
+                <p class="card-text"><b>Start Date: </b>{{sprint.start_date}}</p>
+                <p class="card-text"><b>End Date: </b>{{sprint.end_date}}</p>
+                <p class="card-text"><b>Sprint Total: </b>{{ sum | get_dict_value:sprint }} hours</p>
+                <p class="card-text"><b>Daily Average: </b>{{ avg | get_dict_value:sprint| floatformat }} hours</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm">
+    </div>
+    <div class="col-sm">
+    </div>
+  </div>
+
+<div class="card" style="width: 100%;">
+  <div class="card-body">
+    <canvas id="myChart{{ forloop.counter0 }}"></canvas>
+  </div>
+</div>
+
+
+<hr>
+{%endfor%}
+
+
+<script>
+{% for sprint in sprint_list %}
+    const labels{{ forloop.counter0 }} = {{ day_count }};
+    const data{{ forloop.counter0 }} = {
+      labels: labels{{ forloop.counter0 }},
+      datasets: [{
+        label: '{{ sprint }}',
+        data: {{ y_data |get_dict_value:sprint }},
+        fill: false,
+        borderColor: 'rgb(54, 162, 235)',
+        tension: 0.1
+      }]
+    };
+
+    const config{{ forloop.counter0 }} = {
+      type: 'line',
+      data: data{{ forloop.counter0 }},
+      options: {
+          plugins: {
+                title: {
+                    display: true,
+                    font: {
+                        weight: 'bold',
+                        size: 18
+                    },
+                    text: 'Daily Work Hours'
+                }
+          },
+        scales: {
+            y: {
+                beginAtZero: true,
+                title: {
+                   display: true,
+                   text: 'Hour Count'
+                },
+                    min: 0, // minimum value
+                    max: 25 // maximum value
+            },
+            x: {
+                title: {
+                   display: true,
+                   text: 'Day Count'
+                }
+            }
+        }
+      }
+    };
+
+  const myChart{{ forloop.counter0 }} = new Chart(
+    document.getElementById('myChart{{ forloop.counter0 }}'),
+    config{{ forloop.counter0 }}
+  );
+{% endfor %}
+</script>
+
+{% endblock content %}
+
