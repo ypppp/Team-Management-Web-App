@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="Merge with crookshanks&#10;Updated UI sidenav now works">
+    <list default="true" id="f078f89f-912e-498f-b121-75ce8071b257" name="Changes" comment="Removed add animation and replaced with invisible dropdown">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/Scrum/tasks/templates/tasks/base.html" afterDir="false" />
     </list>
     <list id="0a9e4d80-b2b8-4395-999c-282aa5101ca1" name="Changes by timle" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -352,7 +351,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666082743504</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Removed add animation and replaced with invisible dropdown">
+      <created>1666145572713</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1666145572713</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -370,7 +376,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Sprint 1 tasks fixed" />
     <MESSAGE value="Task detail, update, create reimplemented" />
     <MESSAGE value="forms modified" />
     <MESSAGE value="model validation" />
@@ -395,6 +400,7 @@
     <MESSAGE value="More UI changes&#10;- Added analytic UI changes&#10;- Updated dashboard UI" />
     <MESSAGE value="A lof of UI shit" />
     <MESSAGE value="Merge with crookshanks&#10;Updated UI sidenav now works" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge with crookshanks&#10;Updated UI sidenav now works" />
+    <MESSAGE value="Removed add animation and replaced with invisible dropdown" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed add animation and replaced with invisible dropdown" />
   </component>
 </project>
