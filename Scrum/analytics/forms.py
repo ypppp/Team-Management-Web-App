@@ -2,7 +2,6 @@ from datetime import timedelta
 
 from django import forms
 from django.core.exceptions import ValidationError
-from django.db import transaction
 from django.db.models import Sum
 
 from analytics.models import Entry
